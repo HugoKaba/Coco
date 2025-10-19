@@ -1,0 +1,17 @@
+const Map<String, String> stringsFr = {
+  'app_title': 'Sportlinker',
+  'sign_in_title': 'Se connecter',
+  'sign_in_button': 'Se connecter avec Google',
+  'error': 'Erreur',
+  'email_label': 'Email',
+  'password_label': 'Mot de passe',
+  'sign_in_email': 'Se connecter',
+  'register': "S'inscrire",
+  'enter_email': 'Entrez votre email',
+  'password_length': '6+ caractères',
+  'settings_title': 'Paramètres',
+  'dark_theme': 'Thème sombre',
+  'language': 'Langue',
+  'home_title': 'Accueil',
+  'sign_out_button': 'Se déconnecter',
+};

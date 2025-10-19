@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "277044426287",
+    "project_id": "sportlinker-kuba-studio",
+    "storage_bucket": "sportlinker-kuba-studio.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277044426287:android:64f5e33268f1111e4278da",
+        "android_client_info": {
+          "package_name": "com.example.sportlinker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277044426287-kvb1cd5mgk0c7fealo03j9jh9c0gbanb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sportlinker",
+            "certificate_hash": "8c11e3eeb6c50a851735ca0822c10a283d406f08"
+          }
+        },
+        {
+          "client_id": "277044426287-1upd9tlas2n9jtpsr6pkdg5uj85hemu8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZk6CML6XPBxfQVFqktH3R9qrae4ojhOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277044426287-1upd9tlas2n9jtpsr6pkdg5uj85hemu8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "277044426287-f3d30knm2pt3tkrdmeqund8k8f58nlec.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sportlinker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
