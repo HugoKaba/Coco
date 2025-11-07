@@ -43,9 +43,21 @@ flutter run
 
 ## Localization
 
-- Simple map-based localization lives under `lib/src/l10n/`.
-  - `strings_en.dart`, `strings_fr.dart`, and `localization.dart`.
-- To add more strings: add keys to both maps and use `AppLocalizations.of(context).t('key')`.
+- This project uses `easy_localization` with JSON translation files under `assets/langs/`.
+- Files: `assets/langs/en.json` and `assets/langs/fr.json`.
+- Keys are grouped by page/feature for clarity, for example:
+  - `sign_in.title`, `sign_in.email_label`, `sign_in.sign_in_button`
+  - `settings.title`, `settings.dark_theme`, `settings.language`
+  - `home.title`, `home.sign_out_button`
+- Use `tr('sign_in.title')` (from `easy_localization`) in widgets to translate strings.
+  - Example: `Text(tr('sign_in.title'))`
+
+To add new translations:
+
+- Add the key under each language file in `assets/langs/`.
+- Run `flutter pub get` if you change dependencies.
+
+EasyLocalization is initialized in `lib/main.dart` and the app sets the locale from persisted preferences on startup.
 
 ## Theme & Preferences
 

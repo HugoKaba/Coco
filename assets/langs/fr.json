@@ -1,0 +1,27 @@
+{
+	"app": {
+		"title": "Sportlinker"
+	},
+	"common": {
+		"error": "Erreur"
+	},
+	"sign_in": {
+		"title": "Se connecter",
+		"sign_in_button": "Se connecter avec Google",
+		"email_label": "Email",
+		"password_label": "Mot de passe",
+		"sign_in_email": "Se connecter",
+		"register": "S'inscrire",
+		"enter_email": "Entrez votre email",
+		"password_length": "6+ caractères"
+	},
+	"settings": {
+		"title": "Paramètres",
+		"dark_theme": "Thème sombre",
+		"language": "Langue"
+	},
+	"home": {
+		"title": "Accueil",
+		"sign_out_button": "Se déconnecter"
+	}
+}

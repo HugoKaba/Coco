@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sportlinker/src/core/providers.dart';
-import 'package:sportlinker/src/l10n/localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SignInPage extends ConsumerStatefulWidget {
   const SignInPage({super.key});
@@ -25,9 +25,8 @@ class _SignInPageState extends ConsumerState<SignInPage> {
   @override
   Widget build(BuildContext context) {
     final auth = ref.read(authServiceProvider);
-    final loc = AppLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text(loc.t('sign_in_title'))),
+      appBar: AppBar(title: Text(tr('sign_in.title'))),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -41,20 +40,21 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      labelText: loc.t('email_label'),
+                      labelText: tr('sign_in.email_label'),
                     ),
-                    validator: (v) =>
-                        (v == null || v.isEmpty) ? loc.t('enter_email') : null,
+                    validator: (v) => (v == null || v.isEmpty)
+                        ? tr('sign_in.enter_email')
+                        : null,
                   ),
                   const SizedBox(height: 8),
                   TextFormField(
                     controller: _passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
-                      labelText: loc.t('password_label'),
+                      labelText: tr('sign_in.password_label'),
                     ),
                     validator: (v) => (v == null || v.length < 6)
-                        ? loc.t('password_length')
+                        ? tr('sign_in.password_length')
                         : null,
                   ),
                   const SizedBox(height: 12),
@@ -74,11 +74,13 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                           } catch (e) {
                             if (!context.mounted) return;
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('${loc.t('error')}: $e')),
+                              SnackBar(
+                                content: Text('${tr('common.error')}: $e'),
+                              ),
                             );
                           }
                         },
-                        child: Text(loc.t('sign_in_email')),
+                        child: Text(tr('sign_in.sign_in_email')),
                       ),
                       const SizedBox(width: 12),
                       OutlinedButton(
@@ -94,11 +96,13 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                           } catch (e) {
                             if (!context.mounted) return;
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('${loc.t('error')}: $e')),
+                              SnackBar(
+                                content: Text('${tr('common.error')}: $e'),
+                              ),
                             );
                           }
                         },
-                        child: Text(loc.t('register')),
+                        child: Text(tr('sign_in.register')),
                       ),
                     ],
                   ),
@@ -108,9 +112,9 @@ class _SignInPageState extends ConsumerState<SignInPage> {
             const SizedBox(height: 24),
             ElevatedButton.icon(
               icon: const Icon(Icons.login),
-              label: Text(loc.t('sign_in_button')),
+              label: Text(tr('sign_in.sign_in_button')),
               onPressed: () async {
-                final errorLabel = loc.t('error');
+                final errorLabel = tr('common.error');
                 try {
                   await auth.signInWithGoogle();
                 } catch (e) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sportlinker/src/core/providers.dart';
-import 'package:sportlinker/src/l10n/localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});
@@ -10,13 +10,12 @@ class SettingsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isDark = ref.watch(isDarkModeProvider);
-    final loc = AppLocalizations.of(context);
 
     final currentLocale = ref.watch(localeProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(loc.t('settings_title')),
+        title: Text(tr('settings.title')),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -30,13 +29,13 @@ class SettingsPage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SwitchListTile(
-              title: Text(loc.t('dark_theme')),
+              title: Text(tr('settings.dark_theme')),
               value: isDark,
               onChanged: (v) => ref.read(isDarkModeProvider.notifier).state = v,
             ),
             const SizedBox(height: 12),
             Text(
-              loc.t('language'),
+              tr('settings.language'),
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 8),
@@ -48,8 +47,12 @@ class SettingsPage extends ConsumerWidget {
                         ? Theme.of(context).colorScheme.primary
                         : null,
                   ),
-                  onPressed: () =>
-                      ref.read(localeProvider.notifier).state = 'en',
+                  onPressed: () async {
+                    try {
+                      await context.setLocale(const Locale('en'));
+                    } catch (_) {}
+                    ref.read(localeProvider.notifier).state = 'en';
+                  },
                   child: Text(
                     'EN',
                     style: TextStyle(
@@ -64,8 +67,12 @@ class SettingsPage extends ConsumerWidget {
                         ? Theme.of(context).colorScheme.primary
                         : null,
                   ),
-                  onPressed: () =>
-                      ref.read(localeProvider.notifier).state = 'fr',
+                  onPressed: () async {
+                    try {
+                      await context.setLocale(const Locale('fr'));
+                    } catch (_) {}
+                    ref.read(localeProvider.notifier).state = 'fr';
+                  },
                   child: Text(
                     'FR',
                     style: TextStyle(

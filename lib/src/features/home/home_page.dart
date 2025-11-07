@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sportlinker/src/core/providers.dart';
-import 'package:sportlinker/src/l10n/localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -10,14 +10,13 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final auth = ref.read(authServiceProvider);
-    final loc = AppLocalizations.of(context);
     final user = ref
         .watch(authStateChangesProvider)
         .maybeWhen(data: (u) => u, orElse: () => null);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(loc.t('home_title')),
+        title: Text(tr('home.title')),
         actions: [
           if (user != null)
             IconButton(
@@ -29,7 +28,7 @@ class HomePage extends ConsumerWidget {
       body: Center(
         child: ElevatedButton.icon(
           icon: const Icon(Icons.logout),
-          label: Text(loc.t('sign_out_button')),
+          label: Text(tr('home.sign_out_button')),
           onPressed: () async {
             await auth.signOut();
           },

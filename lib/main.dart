@@ -3,14 +3,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:sportlinker/src/router.dart';
-import 'package:sportlinker/src/l10n/localization.dart';
 import 'package:sportlinker/src/core/providers.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const ProviderScope(child: AppRoot()));
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('fr')],
+      path: 'assets/langs',
+      fallbackLocale: const Locale('en'),
+      child: const ProviderScope(child: AppRoot()),
+    ),
+  );
 }
 
 class AppRoot extends ConsumerWidget {
@@ -27,24 +34,25 @@ class AppRoot extends ConsumerWidget {
         ref.read(settingsPersistenceProvider);
       });
     }
+    ref.listen<String>(localeProvider, (previous, next) {
+      try {
+        context.setLocale(Locale(next));
+      } catch (_) {}
+    });
 
     final isDark = ref.watch(isDarkModeProvider);
     final localeCode = ref.watch(localeProvider);
 
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      onGenerateTitle: (context) => AppLocalizations.of(context).t('app_title'),
-      supportedLocales: const [Locale('en'), Locale('fr')],
+      onGenerateTitle: (context) => tr('app.title'),
+      supportedLocales: context.supportedLocales,
       localeResolutionCallback: (locale, supportedLocales) {
         final appLocale = Locale(localeCode);
         if (supportedLocales.contains(appLocale)) return appLocale;
         return locale ?? supportedLocales.first;
       },
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
+      localizationsDelegates: context.localizationDelegates,
       theme: ThemeData.light().copyWith(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
@@ -52,7 +60,7 @@ class AppRoot extends ConsumerWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
-      locale: Locale(localeCode),
+      locale: context.locale,
       routerConfig: router,
     );
   }
