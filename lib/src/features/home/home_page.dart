@@ -26,12 +26,23 @@ class HomePage extends ConsumerWidget {
         ],
       ),
       body: Center(
-        child: ElevatedButton.icon(
-          icon: const Icon(Icons.logout),
-          label: Text(tr('home.sign_out_button')),
-          onPressed: () async {
-            await auth.signOut();
-          },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton.icon(
+              icon: const Icon(Icons.favorite),
+              label: const Text("Voir les profils"),
+              onPressed: () => context.push('/swipe'), // <--- ICI
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              icon: const Icon(Icons.logout),
+              label: Text(tr('home.sign_out_button')),
+              onPressed: () async {
+                await auth.signOut();
+              },
+            ),
+          ],
         ),
       ),
     );
