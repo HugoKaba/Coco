@@ -55,6 +55,8 @@ class _SwipeMatchPageState extends ConsumerState<SwipeMatchPage> {
     ),
   ];
 
+  double _dragDx = 0; // déplacement horizontal courant
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,31 +83,34 @@ class _SwipeMatchPageState extends ConsumerState<SwipeMatchPage> {
                     final profile = entry.value;
                     final isTopCard = index == _profiles.length - 1;
 
-                    final card = _ProfileCard(profile: profile);
-
                     if (!isTopCard) {
-                      // Les cartes du dessous : juste affichées
-                      return card;
+                      // cartes du dessous : juste affichées
+                      return _ProfileCard(profile: profile);
                     }
 
-                    // Carte du dessus : Draggable (swipe)
-                    return Draggable(
-                      child: card,
-                      feedback: Material(
-                        color: Colors.transparent,
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.9,
-                          child: card,
-                        ),
-                      ),
-                      childWhenDragging: const SizedBox.shrink(),
-                      onDragEnd: (details) {
-                        const threshold = 100; // seuil px
-                        if (details.offset.dx > threshold) {
+                    // carte du dessus : pivotée / swipable
+                    return _TopSwipeCard(
+                      profile: profile,
+                      dragDx: _dragDx,
+                      onPanUpdate: (details) {
+                        setState(() {
+                          _dragDx += details.delta.dx;
+                        });
+                      },
+                      onPanEnd: (details) {
+                        final width = MediaQuery.of(context).size.width;
+                        const thresholdRatio = 0.25; // 25% de la largeur écran
+
+                        if (_dragDx > width * thresholdRatio) {
                           _onSwipeRight(profile);
-                        } else if (details.offset.dx < -threshold) {
+                        } else if (_dragDx < -width * thresholdRatio) {
                           _onSwipeLeft(profile);
                         }
+
+                        // dans tous les cas, on recentre la carte visuellement
+                        setState(() {
+                          _dragDx = 0;
+                        });
                       },
                     );
                   }).toList(),
@@ -116,7 +121,6 @@ class _SwipeMatchPageState extends ConsumerState<SwipeMatchPage> {
   }
 
   void _onSwipeRight(Profile profile) {
-    // Ici tu pourras brancher un provider pour stocker les "likes"
     debugPrint('LIKE sur ${profile.name}');
     setState(() {
       _profiles.removeLast();
@@ -124,11 +128,52 @@ class _SwipeMatchPageState extends ConsumerState<SwipeMatchPage> {
   }
 
   void _onSwipeLeft(Profile profile) {
-    // Ici tu pourras brancher un provider pour stocker les "dislikes"
     debugPrint('NOPE sur ${profile.name}');
     setState(() {
       _profiles.removeLast();
     });
+  }
+}
+
+class _TopSwipeCard extends StatelessWidget {
+  final Profile profile;
+  final double dragDx;
+  final void Function(DragUpdateDetails) onPanUpdate;
+  final void Function(DragEndDetails) onPanEnd;
+
+  const _TopSwipeCard({
+    super.key,
+    required this.profile,
+    required this.dragDx,
+    required this.onPanUpdate,
+    required this.onPanEnd,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    // angle max ~ 20°
+    const maxAngle = 0.35; // radians
+    final normalized = (dragDx / (size.width * 0.5)).clamp(-1.0, 1.0);
+    final angle = normalized * maxAngle;
+
+    // petite translation pour accompagner la rotation
+    final offsetX = dragDx * 0.05;
+    final offsetY = -dragDx.abs() * 0.02;
+
+    return GestureDetector(
+      onPanUpdate: onPanUpdate,
+      onPanEnd: onPanEnd,
+      child: Transform.translate(
+        offset: Offset(offsetX, offsetY),
+        child: Transform.rotate(
+          alignment: Alignment.bottomCenter, // pivot en bas
+          angle: angle,
+          child: _ProfileCard(profile: profile),
+        ),
+      ),
+    );
   }
 }
 
@@ -141,83 +186,88 @@ class _ProfileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
+    final size = MediaQuery.of(context).size;
 
-    return Card(
-      elevation: 6,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-      color: isDark ? theme.colorScheme.surface : Colors.white,
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.9,
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // PHOTO
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: AspectRatio(
-                aspectRatio: 3 / 4,
-                child: Image.network(profile.imageUrl, fit: BoxFit.cover),
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            // NOM / ÂGE
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                '${profile.name}, ${profile.age}',
-                style: theme.textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            // 3 CASES : 2 sports pratiqués + 1 souhaité
-            Row(
+    return SizedBox(
+      height: size.height * 0.75, // card assez grande mais scrollable
+      child: Card(
+        elevation: 6,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        color: isDark ? theme.colorScheme.surface : Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Expanded(
-                  child: _InfoBox(
-                    label: 'Sport 1',
-                    value: profile.practicedSports.isNotEmpty
-                        ? profile.practicedSports[0]
-                        : '-',
+                // PHOTO
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: AspectRatio(
+                    aspectRatio: 3 / 4,
+                    child: Image.network(profile.imageUrl, fit: BoxFit.cover),
                   ),
                 ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: _InfoBox(
-                    label: 'Sport 2',
-                    value: profile.practicedSports.length > 1
-                        ? profile.practicedSports[1]
-                        : '-',
+                const SizedBox(height: 12),
+
+                // NOM / ÂGE
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '${profile.name}, ${profile.age}',
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: _InfoBox(
-                    label: 'Souhaité',
-                    value: profile.desiredSport,
+                const SizedBox(height: 12),
+
+                // 3 CASES : 2 sports pratiqués + 1 souhaité
+                Row(
+                  children: [
+                    Expanded(
+                      child: _InfoBox(
+                        label: 'Sport 1',
+                        value: profile.practicedSports.isNotEmpty
+                            ? profile.practicedSports[0]
+                            : '-',
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: _InfoBox(
+                        label: 'Sport 2',
+                        value: profile.practicedSports.length > 1
+                            ? profile.practicedSports[1]
+                            : '-',
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: _InfoBox(
+                        label: 'Souhaité',
+                        value: profile.desiredSport,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+
+                // DESCRIPTION
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    profile.description,
+                    style: theme.textTheme.bodyMedium,
                   ),
                 ),
+                const SizedBox(height: 12),
+
+                // JOURS DISPONIBLES
+                _DaysCard(availableDays: profile.availableDays),
               ],
             ),
-            const SizedBox(height: 12),
-
-            // DESCRIPTION
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                profile.description,
-                style: theme.textTheme.bodyMedium,
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            // JOURS DISPONIBLES
-            _DaysCard(availableDays: profile.availableDays),
-          ],
+          ),
         ),
       ),
     );
