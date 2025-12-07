@@ -83,6 +83,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: '/filters',
         builder: (context, state) => const FilterScreen(),
       ),
+      GoRoute(
+        parentNavigatorKey: _rootNavKey,
+        path: '/register',
+        builder: (context, state) => const RegisterPage(),
+      ),
     ],
   );
 });
