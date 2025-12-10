@@ -10,7 +10,6 @@ void main() {
       const centerLng = 2.3522;
 
       // Create inline fake data
-      // Create inline fake data
       final items = [
         PersonEntity(
           id: 'p1',
