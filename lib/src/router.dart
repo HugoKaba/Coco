@@ -6,6 +6,7 @@ import 'core/providers.dart';
 import 'features/auth/sign_in_page.dart';
 import 'features/home/home_page.dart';
 import 'features/settings/settings_page.dart';
+import './features/geolocation/geolocation_demo_widget.dart';
 
 final authChangeNotifierProvider = Provider<ChangeNotifier>((ref) {
   return AuthChangeNotifier(ref);
@@ -43,6 +44,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/swipe',
         builder: (context, state) => const SwipeMatchPage(),
+      ),
+      GoRoute(
+        path: '/geo-demo',
+        builder: (context, state) => const GeolocationDemoPage(),
       ),
     ],
   );

@@ -1,0 +1,10161 @@
+[
+  {
+    "ville": "Paris",
+    "codes_postaux": [
+      "75001",
+      "75002",
+      "75003",
+      "75004",
+      "75005",
+      "75006",
+      "75007",
+      "75008",
+      "75009",
+      "75010",
+      "75011",
+      "75012",
+      "75013",
+      "75014",
+      "75015",
+      "75016",
+      "75017",
+      "75018",
+      "75019",
+      "75020",
+      "75116"
+    ],
+    "latitude": 48.8589,
+    "longitude": 2.347
+  },
+  {
+    "ville": "Achères-la-Forêt",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.3476,
+    "longitude": 2.5653
+  },
+  {
+    "ville": "Amillis",
+    "codes_postaux": [
+      "77120"
+    ],
+    "latitude": 48.7327,
+    "longitude": 3.14
+  },
+  {
+    "ville": "Amponville",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.2897,
+    "longitude": 2.5295
+  },
+  {
+    "ville": "Andrezel",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6139,
+    "longitude": 2.8051
+  },
+  {
+    "ville": "Annet-sur-Marne",
+    "codes_postaux": [
+      "77410"
+    ],
+    "latitude": 48.9232,
+    "longitude": 2.7067
+  },
+  {
+    "ville": "Arbonne-la-Forêt",
+    "codes_postaux": [
+      "77630"
+    ],
+    "latitude": 48.4064,
+    "longitude": 2.5561
+  },
+  {
+    "ville": "Argentières",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6524,
+    "longitude": 2.8686
+  },
+  {
+    "ville": "Armentières-en-Brie",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 48.9773,
+    "longitude": 3.0124
+  },
+  {
+    "ville": "Arville",
+    "codes_postaux": [
+      "77890"
+    ],
+    "latitude": 48.1819,
+    "longitude": 2.5578
+  },
+  {
+    "ville": "Aubepierre-Ozouer-le-Repos",
+    "codes_postaux": [
+      "77720"
+    ],
+    "latitude": 48.619,
+    "longitude": 2.8951
+  },
+  {
+    "ville": "Aufferville",
+    "codes_postaux": [
+      "77570"
+    ],
+    "latitude": 48.2028,
+    "longitude": 2.6022
+  },
+  {
+    "ville": "Augers-en-Brie",
+    "codes_postaux": [
+      "77560"
+    ],
+    "latitude": 48.6668,
+    "longitude": 3.354
+  },
+  {
+    "ville": "Aulnoy",
+    "codes_postaux": [
+      "77120"
+    ],
+    "latitude": 48.8488,
+    "longitude": 3.0887
+  },
+  {
+    "ville": "Avon",
+    "codes_postaux": [
+      "77210"
+    ],
+    "latitude": 48.4124,
+    "longitude": 2.7337
+  },
+  {
+    "ville": "Baby",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.3925,
+    "longitude": 3.3462
+  },
+  {
+    "ville": "Bagneaux-sur-Loing",
+    "codes_postaux": [
+      "77167"
+    ],
+    "latitude": 48.2206,
+    "longitude": 2.708
+  },
+  {
+    "ville": "Bailly-Romainvilliers",
+    "codes_postaux": [
+      "77700"
+    ],
+    "latitude": 48.845,
+    "longitude": 2.8191
+  },
+  {
+    "ville": "Balloy",
+    "codes_postaux": [
+      "77118"
+    ],
+    "latitude": 48.3951,
+    "longitude": 3.1493
+  },
+  {
+    "ville": "Bannost-Villegagnon",
+    "codes_postaux": [
+      "77970"
+    ],
+    "latitude": 48.6762,
+    "longitude": 3.1952
+  },
+  {
+    "ville": "Barbey",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.3655,
+    "longitude": 3.0481
+  },
+  {
+    "ville": "Barbizon",
+    "codes_postaux": [
+      "77630"
+    ],
+    "latitude": 48.4472,
+    "longitude": 2.6034
+  },
+  {
+    "ville": "Barcy",
+    "codes_postaux": [
+      "77910"
+    ],
+    "latitude": 49.0159,
+    "longitude": 2.8793
+  },
+  {
+    "ville": "Bassevelle",
+    "codes_postaux": [
+      "77750"
+    ],
+    "latitude": 48.9244,
+    "longitude": 3.2766
+  },
+  {
+    "ville": "Bazoches-lès-Bray",
+    "codes_postaux": [
+      "77118"
+    ],
+    "latitude": 48.3978,
+    "longitude": 3.1902
+  },
+  {
+    "ville": "Beauchery-Saint-Martin",
+    "codes_postaux": [
+      "77560"
+    ],
+    "latitude": 48.6005,
+    "longitude": 3.4218
+  },
+  {
+    "ville": "Beaumont-du-Gâtinais",
+    "codes_postaux": [
+      "77890"
+    ],
+    "latitude": 48.1435,
+    "longitude": 2.4896
+  },
+  {
+    "ville": "Beauvoir",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6432,
+    "longitude": 2.8669
+  },
+  {
+    "ville": "Bellot",
+    "codes_postaux": [
+      "77510"
+    ],
+    "latitude": 48.8431,
+    "longitude": 3.3252
+  },
+  {
+    "ville": "Bernay-Vilbert",
+    "codes_postaux": [
+      "77540"
+    ],
+    "latitude": 48.6772,
+    "longitude": 2.9353
+  },
+  {
+    "ville": "Beton-Bazoches",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7059,
+    "longitude": 3.2489
+  },
+  {
+    "ville": "Bezalles",
+    "codes_postaux": [
+      "77970"
+    ],
+    "latitude": 48.6674,
+    "longitude": 3.2392
+  },
+  {
+    "ville": "Blandy",
+    "codes_postaux": [
+      "77115"
+    ],
+    "latitude": 48.5614,
+    "longitude": 2.796
+  },
+  {
+    "ville": "Blennes",
+    "codes_postaux": [
+      "77940"
+    ],
+    "latitude": 48.241,
+    "longitude": 3.0135
+  },
+  {
+    "ville": "Boisdon",
+    "codes_postaux": [
+      "77970"
+    ],
+    "latitude": 48.6752,
+    "longitude": 3.2243
+  },
+  {
+    "ville": "Bois-le-Roi",
+    "codes_postaux": [
+      "77590"
+    ],
+    "latitude": 48.4735,
+    "longitude": 2.7091
+  },
+  {
+    "ville": "Boissettes",
+    "codes_postaux": [
+      "77350"
+    ],
+    "latitude": 48.5237,
+    "longitude": 2.6164
+  },
+  {
+    "ville": "Boissise-la-Bertrand",
+    "codes_postaux": [
+      "77350"
+    ],
+    "latitude": 48.532,
+    "longitude": 2.5896
+  },
+  {
+    "ville": "Boissise-le-Roi",
+    "codes_postaux": [
+      "77310"
+    ],
+    "latitude": 48.514,
+    "longitude": 2.5686
+  },
+  {
+    "ville": "Boissy-aux-Cailles",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.3099,
+    "longitude": 2.4897
+  },
+  {
+    "ville": "Boissy-le-Châtel",
+    "codes_postaux": [
+      "77169"
+    ],
+    "latitude": 48.8247,
+    "longitude": 3.1379
+  },
+  {
+    "ville": "Boitron",
+    "codes_postaux": [
+      "77750"
+    ],
+    "latitude": 48.8974,
+    "longitude": 3.2613
+  },
+  {
+    "ville": "Bombon",
+    "codes_postaux": [
+      "77720"
+    ],
+    "latitude": 48.5686,
+    "longitude": 2.8734
+  },
+  {
+    "ville": "Bougligny",
+    "codes_postaux": [
+      "77570"
+    ],
+    "latitude": 48.1958,
+    "longitude": 2.6608
+  },
+  {
+    "ville": "Boulancourt",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.2606,
+    "longitude": 2.4483
+  },
+  {
+    "ville": "Bouleurs",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.8816,
+    "longitude": 2.9102
+  },
+  {
+    "ville": "Bourron-Marlotte",
+    "codes_postaux": [
+      "77780"
+    ],
+    "latitude": 48.3366,
+    "longitude": 2.6982
+  },
+  {
+    "ville": "Boutigny",
+    "codes_postaux": [
+      "77470"
+    ],
+    "latitude": 48.9144,
+    "longitude": 2.9326
+  },
+  {
+    "ville": "Bransles",
+    "codes_postaux": [
+      "77620"
+    ],
+    "latitude": 48.1481,
+    "longitude": 2.8318
+  },
+  {
+    "ville": "Bray-sur-Seine",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.4157,
+    "longitude": 3.2457
+  },
+  {
+    "ville": "Bréau",
+    "codes_postaux": [
+      "77720"
+    ],
+    "latitude": 48.5571,
+    "longitude": 2.8805
+  },
+  {
+    "ville": "Brie-Comte-Robert",
+    "codes_postaux": [
+      "77170"
+    ],
+    "latitude": 48.6904,
+    "longitude": 2.6131
+  },
+  {
+    "ville": "La Brosse-Montceaux",
+    "codes_postaux": [
+      "77940"
+    ],
+    "latitude": 48.3354,
+    "longitude": 3.027
+  },
+  {
+    "ville": "Brou-sur-Chantereine",
+    "codes_postaux": [
+      "77177"
+    ],
+    "latitude": 48.8891,
+    "longitude": 2.6394
+  },
+  {
+    "ville": "Burcy",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.2327,
+    "longitude": 2.5266
+  },
+  {
+    "ville": "Bussières",
+    "codes_postaux": [
+      "77750"
+    ],
+    "latitude": 48.9286,
+    "longitude": 3.2346
+  },
+  {
+    "ville": "Bussy-Saint-Georges",
+    "codes_postaux": [
+      "77600"
+    ],
+    "latitude": 48.8297,
+    "longitude": 2.7091
+  },
+  {
+    "ville": "Bussy-Saint-Martin",
+    "codes_postaux": [
+      "77600"
+    ],
+    "latitude": 48.8463,
+    "longitude": 2.6783
+  },
+  {
+    "ville": "Buthiers",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.2902,
+    "longitude": 2.4603
+  },
+  {
+    "ville": "Cannes-Écluse",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.3608,
+    "longitude": 2.9888
+  },
+  {
+    "ville": "Carnetin",
+    "codes_postaux": [
+      "77400"
+    ],
+    "latitude": 48.9041,
+    "longitude": 2.6997
+  },
+  {
+    "ville": "La Celle-sur-Morin",
+    "codes_postaux": [
+      "77515"
+    ],
+    "latitude": 48.799,
+    "longitude": 2.9681
+  },
+  {
+    "ville": "Cély",
+    "codes_postaux": [
+      "77930"
+    ],
+    "latitude": 48.4601,
+    "longitude": 2.5237
+  },
+  {
+    "ville": "Cerneux",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.711,
+    "longitude": 3.3433
+  },
+  {
+    "ville": "Cesson",
+    "codes_postaux": [
+      "77240"
+    ],
+    "latitude": 48.5693,
+    "longitude": 2.5898
+  },
+  {
+    "ville": "Cessoy-en-Montois",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.5091,
+    "longitude": 3.1407
+  },
+  {
+    "ville": "Chailly-en-Bière",
+    "codes_postaux": [
+      "77930"
+    ],
+    "latitude": 48.4723,
+    "longitude": 2.6117
+  },
+  {
+    "ville": "Chailly-en-Brie",
+    "codes_postaux": [
+      "77120"
+    ],
+    "latitude": 48.7865,
+    "longitude": 3.1343
+  },
+  {
+    "ville": "Chaintreaux",
+    "codes_postaux": [
+      "77460"
+    ],
+    "latitude": 48.1914,
+    "longitude": 2.8154
+  },
+  {
+    "ville": "Chalautre-la-Grande",
+    "codes_postaux": [
+      "77171"
+    ],
+    "latitude": 48.5505,
+    "longitude": 3.4482
+  },
+  {
+    "ville": "Chalautre-la-Petite",
+    "codes_postaux": [
+      "77160"
+    ],
+    "latitude": 48.5288,
+    "longitude": 3.3068
+  },
+  {
+    "ville": "Chalifert",
+    "codes_postaux": [
+      "77144"
+    ],
+    "latitude": 48.8959,
+    "longitude": 2.7737
+  },
+  {
+    "ville": "Chalmaison",
+    "codes_postaux": [
+      "77650"
+    ],
+    "latitude": 48.4904,
+    "longitude": 3.2568
+  },
+  {
+    "ville": "Chambry",
+    "codes_postaux": [
+      "77910"
+    ],
+    "latitude": 48.9991,
+    "longitude": 2.886
+  },
+  {
+    "ville": "Chamigny",
+    "codes_postaux": [
+      "77260"
+    ],
+    "latitude": 48.987,
+    "longitude": 3.1397
+  },
+  {
+    "ville": "Champagne-sur-Seine",
+    "codes_postaux": [
+      "77430"
+    ],
+    "latitude": 48.4072,
+    "longitude": 2.8101
+  },
+  {
+    "ville": "Champcenest",
+    "codes_postaux": [
+      "77560"
+    ],
+    "latitude": 48.6695,
+    "longitude": 3.2791
+  },
+  {
+    "ville": "Champdeuil",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6223,
+    "longitude": 2.7316
+  },
+  {
+    "ville": "Champeaux",
+    "codes_postaux": [
+      "77720"
+    ],
+    "latitude": 48.5869,
+    "longitude": 2.8181
+  },
+  {
+    "ville": "Champs-sur-Marne",
+    "codes_postaux": [
+      "77420"
+    ],
+    "latitude": 48.8485,
+    "longitude": 2.594
+  },
+  {
+    "ville": "Changis-sur-Marne",
+    "codes_postaux": [
+      "77660"
+    ],
+    "latitude": 48.9659,
+    "longitude": 3.0299
+  },
+  {
+    "ville": "Chanteloup-en-Brie",
+    "codes_postaux": [
+      "77600"
+    ],
+    "latitude": 48.8581,
+    "longitude": 2.7399
+  },
+  {
+    "ville": "La Chapelle-Gauthier",
+    "codes_postaux": [
+      "77720"
+    ],
+    "latitude": 48.5316,
+    "longitude": 2.8571
+  },
+  {
+    "ville": "La Chapelle-Iger",
+    "codes_postaux": [
+      "77540"
+    ],
+    "latitude": 48.6519,
+    "longitude": 2.9943
+  },
+  {
+    "ville": "La Chapelle-la-Reine",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.3137,
+    "longitude": 2.569
+  },
+  {
+    "ville": "La Chapelle-Rablais",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.5086,
+    "longitude": 2.9601
+  },
+  {
+    "ville": "La Chapelle-Saint-Sulpice",
+    "codes_postaux": [
+      "77160"
+    ],
+    "latitude": 48.5588,
+    "longitude": 3.1778
+  },
+  {
+    "ville": "Les Chapelles-Bourbon",
+    "codes_postaux": [
+      "77610"
+    ],
+    "latitude": 48.7443,
+    "longitude": 2.8352
+  },
+  {
+    "ville": "La Chapelle-Moutils",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7752,
+    "longitude": 3.3822
+  },
+  {
+    "ville": "Charmentray",
+    "codes_postaux": [
+      "77410"
+    ],
+    "latitude": 48.9513,
+    "longitude": 2.7775
+  },
+  {
+    "ville": "Charny",
+    "codes_postaux": [
+      "77410"
+    ],
+    "latitude": 48.972,
+    "longitude": 2.7559
+  },
+  {
+    "ville": "Chartrettes",
+    "codes_postaux": [
+      "77590"
+    ],
+    "latitude": 48.4958,
+    "longitude": 2.7091
+  },
+  {
+    "ville": "Chartronges",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7529,
+    "longitude": 3.2637
+  },
+  {
+    "ville": "Châteaubleau",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.584,
+    "longitude": 3.108
+  },
+  {
+    "ville": "Château-Landon",
+    "codes_postaux": [
+      "77570"
+    ],
+    "latitude": 48.149,
+    "longitude": 2.6976
+  },
+  {
+    "ville": "Le Châtelet-en-Brie",
+    "codes_postaux": [
+      "77820"
+    ],
+    "latitude": 48.5014,
+    "longitude": 2.8016
+  },
+  {
+    "ville": "Châtenay-sur-Seine",
+    "codes_postaux": [
+      "77126"
+    ],
+    "latitude": 48.4198,
+    "longitude": 3.097
+  },
+  {
+    "ville": "Châtenoy",
+    "codes_postaux": [
+      "77167"
+    ],
+    "latitude": 48.2311,
+    "longitude": 2.6274
+  },
+  {
+    "ville": "Châtillon-la-Borde",
+    "codes_postaux": [
+      "77820"
+    ],
+    "latitude": 48.539,
+    "longitude": 2.8225
+  },
+  {
+    "ville": "Châtres",
+    "codes_postaux": [
+      "77610"
+    ],
+    "latitude": 48.7066,
+    "longitude": 2.8166
+  },
+  {
+    "ville": "Chauffry",
+    "codes_postaux": [
+      "77169"
+    ],
+    "latitude": 48.8231,
+    "longitude": 3.1822
+  },
+  {
+    "ville": "Chaumes-en-Brie",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6635,
+    "longitude": 2.8472
+  },
+  {
+    "ville": "Chelles",
+    "codes_postaux": [
+      "77500"
+    ],
+    "latitude": 48.8845,
+    "longitude": 2.5954
+  },
+  {
+    "ville": "Chenoise-Cucharmoy",
+    "codes_postaux": [
+      "77160"
+    ],
+    "latitude": 48.611,
+    "longitude": 3.1809
+  },
+  {
+    "ville": "Chenou",
+    "codes_postaux": [
+      "77570"
+    ],
+    "latitude": 48.1648,
+    "longitude": 2.6525
+  },
+  {
+    "ville": "Chessy",
+    "codes_postaux": [
+      "77700"
+    ],
+    "latitude": 48.8718,
+    "longitude": 2.7697
+  },
+  {
+    "ville": "Chevrainvilliers",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.246,
+    "longitude": 2.603
+  },
+  {
+    "ville": "Chevru",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7365,
+    "longitude": 3.1964
+  },
+  {
+    "ville": "Chevry-Cossigny",
+    "codes_postaux": [
+      "77173"
+    ],
+    "latitude": 48.7209,
+    "longitude": 2.6747
+  },
+  {
+    "ville": "Chevry-en-Sereine",
+    "codes_postaux": [
+      "77710"
+    ],
+    "latitude": 48.246,
+    "longitude": 2.964
+  },
+  {
+    "ville": "Choisy-en-Brie",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7637,
+    "longitude": 3.2078
+  },
+  {
+    "ville": "Citry",
+    "codes_postaux": [
+      "77730"
+    ],
+    "latitude": 48.961,
+    "longitude": 3.2462
+  },
+  {
+    "ville": "Claye-Souilly",
+    "codes_postaux": [
+      "77410"
+    ],
+    "latitude": 48.941,
+    "longitude": 2.68
+  },
+  {
+    "ville": "Clos-Fontaine",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.6037,
+    "longitude": 3.0123
+  },
+  {
+    "ville": "Cocherel",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 49.0182,
+    "longitude": 3.1074
+  },
+  {
+    "ville": "Collégien",
+    "codes_postaux": [
+      "77090"
+    ],
+    "latitude": 48.8249,
+    "longitude": 2.6758
+  },
+  {
+    "ville": "Combs-la-Ville",
+    "codes_postaux": [
+      "77380"
+    ],
+    "latitude": 48.6602,
+    "longitude": 2.5765
+  },
+  {
+    "ville": "Compans",
+    "codes_postaux": [
+      "77290"
+    ],
+    "latitude": 48.9907,
+    "longitude": 2.6502
+  },
+  {
+    "ville": "Conches-sur-Gondoire",
+    "codes_postaux": [
+      "77600"
+    ],
+    "latitude": 48.8589,
+    "longitude": 2.7207
+  },
+  {
+    "ville": "Condé-Sainte-Libiaire",
+    "codes_postaux": [
+      "77450"
+    ],
+    "latitude": 48.8982,
+    "longitude": 2.8365
+  },
+  {
+    "ville": "Congis-sur-Thérouanne",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 49.0116,
+    "longitude": 2.976
+  },
+  {
+    "ville": "Coubert",
+    "codes_postaux": [
+      "77170"
+    ],
+    "latitude": 48.6782,
+    "longitude": 2.7074
+  },
+  {
+    "ville": "Couilly-Pont-aux-Dames",
+    "codes_postaux": [
+      "77860"
+    ],
+    "latitude": 48.8817,
+    "longitude": 2.8634
+  },
+  {
+    "ville": "Coulombs-en-Valois",
+    "codes_postaux": [
+      "77840"
+    ],
+    "latitude": 49.0754,
+    "longitude": 3.126
+  },
+  {
+    "ville": "Coulommes",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.8908,
+    "longitude": 2.9251
+  },
+  {
+    "ville": "Coulommiers",
+    "codes_postaux": [
+      "77120"
+    ],
+    "latitude": 48.8096,
+    "longitude": 3.0918
+  },
+  {
+    "ville": "Coupvray",
+    "codes_postaux": [
+      "77700"
+    ],
+    "latitude": 48.8853,
+    "longitude": 2.7935
+  },
+  {
+    "ville": "Courcelles-en-Bassée",
+    "codes_postaux": [
+      "77126"
+    ],
+    "latitude": 48.4148,
+    "longitude": 3.0471
+  },
+  {
+    "ville": "Courchamp",
+    "codes_postaux": [
+      "77560"
+    ],
+    "latitude": 48.6427,
+    "longitude": 3.289
+  },
+  {
+    "ville": "Courpalay",
+    "codes_postaux": [
+      "77540"
+    ],
+    "latitude": 48.6456,
+    "longitude": 2.955
+  },
+  {
+    "ville": "Courquetaine",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6796,
+    "longitude": 2.7477
+  },
+  {
+    "ville": "Courtacon",
+    "codes_postaux": [
+      "77560"
+    ],
+    "latitude": 48.7058,
+    "longitude": 3.291
+  },
+  {
+    "ville": "Courtomer",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6595,
+    "longitude": 2.8978
+  },
+  {
+    "ville": "Courtry",
+    "codes_postaux": [
+      "77181"
+    ],
+    "latitude": 48.9169,
+    "longitude": 2.6029
+  },
+  {
+    "ville": "Coutençon",
+    "codes_postaux": [
+      "77154"
+    ],
+    "latitude": 48.4719,
+    "longitude": 2.997
+  },
+  {
+    "ville": "Coutevroult",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.8525,
+    "longitude": 2.8448
+  },
+  {
+    "ville": "Crécy-la-Chapelle",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.8583,
+    "longitude": 2.9246
+  },
+  {
+    "ville": "Crégy-lès-Meaux",
+    "codes_postaux": [
+      "77124"
+    ],
+    "latitude": 48.9759,
+    "longitude": 2.874
+  },
+  {
+    "ville": "Crèvecœur-en-Brie",
+    "codes_postaux": [
+      "77610"
+    ],
+    "latitude": 48.7578,
+    "longitude": 2.9143
+  },
+  {
+    "ville": "Crisenoy",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6006,
+    "longitude": 2.7476
+  },
+  {
+    "ville": "Croissy-Beaubourg",
+    "codes_postaux": [
+      "77183"
+    ],
+    "latitude": 48.8164,
+    "longitude": 2.6575
+  },
+  {
+    "ville": "La Croix-en-Brie",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.5955,
+    "longitude": 3.069
+  },
+  {
+    "ville": "Crouy-sur-Ourcq",
+    "codes_postaux": [
+      "77840"
+    ],
+    "latitude": 49.0853,
+    "longitude": 3.0812
+  },
+  {
+    "ville": "Cuisy",
+    "codes_postaux": [
+      "77165"
+    ],
+    "latitude": 49.0203,
+    "longitude": 2.7804
+  },
+  {
+    "ville": "Dagny",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7158,
+    "longitude": 3.1638
+  },
+  {
+    "ville": "Dammarie-les-Lys",
+    "codes_postaux": [
+      "77190"
+    ],
+    "latitude": 48.5147,
+    "longitude": 2.6199
+  },
+  {
+    "ville": "Dammartin-en-Goële",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.0504,
+    "longitude": 2.6777
+  },
+  {
+    "ville": "Dammartin-sur-Tigeaux",
+    "codes_postaux": [
+      "77163"
+    ],
+    "latitude": 48.8086,
+    "longitude": 2.9016
+  },
+  {
+    "ville": "Dampmart",
+    "codes_postaux": [
+      "77400"
+    ],
+    "latitude": 48.8935,
+    "longitude": 2.7465
+  },
+  {
+    "ville": "Darvault",
+    "codes_postaux": [
+      "77140"
+    ],
+    "latitude": 48.2757,
+    "longitude": 2.722
+  },
+  {
+    "ville": "Dhuisy",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 49.0365,
+    "longitude": 3.1644
+  },
+  {
+    "ville": "Diant",
+    "codes_postaux": [
+      "77940"
+    ],
+    "latitude": 48.2914,
+    "longitude": 3.0055
+  },
+  {
+    "ville": "Donnemarie-Dontilly",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.4816,
+    "longitude": 3.1206
+  },
+  {
+    "ville": "Dormelles",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.3115,
+    "longitude": 2.8906
+  },
+  {
+    "ville": "Doue",
+    "codes_postaux": [
+      "77510"
+    ],
+    "latitude": 48.8713,
+    "longitude": 3.1682
+  },
+  {
+    "ville": "Douy-la-Ramée",
+    "codes_postaux": [
+      "77139"
+    ],
+    "latitude": 49.0616,
+    "longitude": 2.8827
+  },
+  {
+    "ville": "Échouboulains",
+    "codes_postaux": [
+      "77830"
+    ],
+    "latitude": 48.4679,
+    "longitude": 2.9335
+  },
+  {
+    "ville": "Les Écrennes",
+    "codes_postaux": [
+      "77820"
+    ],
+    "latitude": 48.4953,
+    "longitude": 2.8733
+  },
+  {
+    "ville": "Égligny",
+    "codes_postaux": [
+      "77126"
+    ],
+    "latitude": 48.4367,
+    "longitude": 3.1251
+  },
+  {
+    "ville": "Égreville",
+    "codes_postaux": [
+      "77620"
+    ],
+    "latitude": 48.1857,
+    "longitude": 2.887
+  },
+  {
+    "ville": "Émerainville",
+    "codes_postaux": [
+      "77184"
+    ],
+    "latitude": 48.8186,
+    "longitude": 2.608
+  },
+  {
+    "ville": "Esbly",
+    "codes_postaux": [
+      "77450"
+    ],
+    "latitude": 48.9011,
+    "longitude": 2.8123
+  },
+  {
+    "ville": "Esmans",
+    "codes_postaux": [
+      "77940"
+    ],
+    "latitude": 48.3416,
+    "longitude": 2.9711
+  },
+  {
+    "ville": "Étrépilly",
+    "codes_postaux": [
+      "77139"
+    ],
+    "latitude": 49.0489,
+    "longitude": 2.9279
+  },
+  {
+    "ville": "Everly",
+    "codes_postaux": [
+      "77157"
+    ],
+    "latitude": 48.4599,
+    "longitude": 3.2643
+  },
+  {
+    "ville": "Évry-Grégy-sur-Yerre",
+    "codes_postaux": [
+      "77166"
+    ],
+    "latitude": 48.6531,
+    "longitude": 2.641
+  },
+  {
+    "ville": "Faremoutiers",
+    "codes_postaux": [
+      "77515"
+    ],
+    "latitude": 48.7787,
+    "longitude": 3.0038
+  },
+  {
+    "ville": "Favières",
+    "codes_postaux": [
+      "77220"
+    ],
+    "latitude": 48.782,
+    "longitude": 2.7702
+  },
+  {
+    "ville": "Faÿ-lès-Nemours",
+    "codes_postaux": [
+      "77167"
+    ],
+    "latitude": 48.2265,
+    "longitude": 2.6646
+  },
+  {
+    "ville": "Féricy",
+    "codes_postaux": [
+      "77133"
+    ],
+    "latitude": 48.4645,
+    "longitude": 2.8024
+  },
+  {
+    "ville": "Férolles-Attilly",
+    "codes_postaux": [
+      "77150"
+    ],
+    "latitude": 48.7342,
+    "longitude": 2.6413
+  },
+  {
+    "ville": "Ferrières-en-Brie",
+    "codes_postaux": [
+      "77164"
+    ],
+    "latitude": 48.818,
+    "longitude": 2.7046
+  },
+  {
+    "ville": "La Ferté-Gaucher",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7914,
+    "longitude": 3.3047
+  },
+  {
+    "ville": "La Ferté-sous-Jouarre",
+    "codes_postaux": [
+      "77260"
+    ],
+    "latitude": 48.9562,
+    "longitude": 3.1349
+  },
+  {
+    "ville": "Flagy",
+    "codes_postaux": [
+      "77940"
+    ],
+    "latitude": 48.3083,
+    "longitude": 2.9172
+  },
+  {
+    "ville": "Fleury-en-Bière",
+    "codes_postaux": [
+      "77930"
+    ],
+    "latitude": 48.4473,
+    "longitude": 2.5401
+  },
+  {
+    "ville": "Fontainebleau",
+    "codes_postaux": [
+      "77300"
+    ],
+    "latitude": 48.4236,
+    "longitude": 2.6817
+  },
+  {
+    "ville": "Fontaine-Fourches",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.4122,
+    "longitude": 3.3947
+  },
+  {
+    "ville": "Fontaine-le-Port",
+    "codes_postaux": [
+      "77590"
+    ],
+    "latitude": 48.4796,
+    "longitude": 2.7653
+  },
+  {
+    "ville": "Fontains",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.5206,
+    "longitude": 3.0088
+  },
+  {
+    "ville": "Fontenailles",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.5294,
+    "longitude": 2.9252
+  },
+  {
+    "ville": "Fontenay-Trésigny",
+    "codes_postaux": [
+      "77610"
+    ],
+    "latitude": 48.6989,
+    "longitude": 2.8667
+  },
+  {
+    "ville": "Forfry",
+    "codes_postaux": [
+      "77165"
+    ],
+    "latitude": 49.0539,
+    "longitude": 2.8518
+  },
+  {
+    "ville": "Forges",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.4223,
+    "longitude": 2.9483
+  },
+  {
+    "ville": "Fouju",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.5878,
+    "longitude": 2.7628
+  },
+  {
+    "ville": "Fresnes-sur-Marne",
+    "codes_postaux": [
+      "77410"
+    ],
+    "latitude": 48.9405,
+    "longitude": 2.7369
+  },
+  {
+    "ville": "Frétoy",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7065,
+    "longitude": 3.1991
+  },
+  {
+    "ville": "Fromont",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.255,
+    "longitude": 2.5056
+  },
+  {
+    "ville": "Fublaines",
+    "codes_postaux": [
+      "77470"
+    ],
+    "latitude": 48.9385,
+    "longitude": 2.9433
+  },
+  {
+    "ville": "Garentreville",
+    "codes_postaux": [
+      "77890"
+    ],
+    "latitude": 48.2343,
+    "longitude": 2.5581
+  },
+  {
+    "ville": "Gastins",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.6269,
+    "longitude": 3.0219
+  },
+  {
+    "ville": "La Genevraye",
+    "codes_postaux": [
+      "77690"
+    ],
+    "latitude": 48.3164,
+    "longitude": 2.7509
+  },
+  {
+    "ville": "Germigny-l'Évêque",
+    "codes_postaux": [
+      "77910"
+    ],
+    "latitude": 48.9888,
+    "longitude": 2.9577
+  },
+  {
+    "ville": "Germigny-sous-Coulombs",
+    "codes_postaux": [
+      "77840"
+    ],
+    "latitude": 49.0638,
+    "longitude": 3.1627
+  },
+  {
+    "ville": "Gesvres-le-Chapitre",
+    "codes_postaux": [
+      "77165"
+    ],
+    "latitude": 49.0342,
+    "longitude": 2.8439
+  },
+  {
+    "ville": "Giremoutiers",
+    "codes_postaux": [
+      "77120"
+    ],
+    "latitude": 48.8554,
+    "longitude": 3.0311
+  },
+  {
+    "ville": "Gironville",
+    "codes_postaux": [
+      "77890"
+    ],
+    "latitude": 48.1671,
+    "longitude": 2.5383
+  },
+  {
+    "ville": "Gouaix",
+    "codes_postaux": [
+      "77114"
+    ],
+    "latitude": 48.4758,
+    "longitude": 3.2972
+  },
+  {
+    "ville": "Gouvernes",
+    "codes_postaux": [
+      "77400"
+    ],
+    "latitude": 48.8578,
+    "longitude": 2.6933
+  },
+  {
+    "ville": "La Grande-Paroisse",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.3938,
+    "longitude": 2.8918
+  },
+  {
+    "ville": "Grandpuits-Bailly-Carrois",
+    "codes_postaux": [
+      "77720"
+    ],
+    "latitude": 48.58,
+    "longitude": 2.9782
+  },
+  {
+    "ville": "Gravon",
+    "codes_postaux": [
+      "77118"
+    ],
+    "latitude": 48.3881,
+    "longitude": 3.1225
+  },
+  {
+    "ville": "Gressy",
+    "codes_postaux": [
+      "77410"
+    ],
+    "latitude": 48.966,
+    "longitude": 2.6637
+  },
+  {
+    "ville": "Gretz-Armainvilliers",
+    "codes_postaux": [
+      "77220"
+    ],
+    "latitude": 48.7536,
+    "longitude": 2.7272
+  },
+  {
+    "ville": "Grez-sur-Loing",
+    "codes_postaux": [
+      "77880"
+    ],
+    "latitude": 48.3078,
+    "longitude": 2.6842
+  },
+  {
+    "ville": "Grisy-Suisnes",
+    "codes_postaux": [
+      "77166"
+    ],
+    "latitude": 48.68,
+    "longitude": 2.6801
+  },
+  {
+    "ville": "Grisy-sur-Seine",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.4413,
+    "longitude": 3.3191
+  },
+  {
+    "ville": "Guérard",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.8128,
+    "longitude": 2.9533
+  },
+  {
+    "ville": "Guercheville",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.262,
+    "longitude": 2.5569
+  },
+  {
+    "ville": "Guermantes",
+    "codes_postaux": [
+      "77600"
+    ],
+    "latitude": 48.8519,
+    "longitude": 2.7141
+  },
+  {
+    "ville": "Guignes",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6364,
+    "longitude": 2.8024
+  },
+  {
+    "ville": "Gurcy-le-Châtel",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.4869,
+    "longitude": 3.0824
+  },
+  {
+    "ville": "Hautefeuille",
+    "codes_postaux": [
+      "77515"
+    ],
+    "latitude": 48.7663,
+    "longitude": 2.9638
+  },
+  {
+    "ville": "La Haute-Maison",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.883,
+    "longitude": 3.0059
+  },
+  {
+    "ville": "Héricy",
+    "codes_postaux": [
+      "77850"
+    ],
+    "latitude": 48.4439,
+    "longitude": 2.7859
+  },
+  {
+    "ville": "Hermé",
+    "codes_postaux": [
+      "77114"
+    ],
+    "latitude": 48.4881,
+    "longitude": 3.3475
+  },
+  {
+    "ville": "Hondevilliers",
+    "codes_postaux": [
+      "77510"
+    ],
+    "latitude": 48.905,
+    "longitude": 3.3114
+  },
+  {
+    "ville": "La Houssaye-en-Brie",
+    "codes_postaux": [
+      "77610"
+    ],
+    "latitude": 48.757,
+    "longitude": 2.8696
+  },
+  {
+    "ville": "Ichy",
+    "codes_postaux": [
+      "77890"
+    ],
+    "latitude": 48.2079,
+    "longitude": 2.544
+  },
+  {
+    "ville": "Isles-les-Meldeuses",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 48.998,
+    "longitude": 3.0108
+  },
+  {
+    "ville": "Isles-lès-Villenoy",
+    "codes_postaux": [
+      "77450"
+    ],
+    "latitude": 48.9167,
+    "longitude": 2.8285
+  },
+  {
+    "ville": "Iverny",
+    "codes_postaux": [
+      "77165"
+    ],
+    "latitude": 48.9974,
+    "longitude": 2.7922
+  },
+  {
+    "ville": "Jablines",
+    "codes_postaux": [
+      "77450"
+    ],
+    "latitude": 48.9157,
+    "longitude": 2.7606
+  },
+  {
+    "ville": "Jaignes",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 48.983,
+    "longitude": 3.0799
+  },
+  {
+    "ville": "Jaulnes",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.4143,
+    "longitude": 3.273
+  },
+  {
+    "ville": "Jossigny",
+    "codes_postaux": [
+      "77600"
+    ],
+    "latitude": 48.8289,
+    "longitude": 2.7641
+  },
+  {
+    "ville": "Jouarre",
+    "codes_postaux": [
+      "77640"
+    ],
+    "latitude": 48.9053,
+    "longitude": 3.1159
+  },
+  {
+    "ville": "Jouy-le-Châtel",
+    "codes_postaux": [
+      "77970"
+    ],
+    "latitude": 48.6664,
+    "longitude": 3.1395
+  },
+  {
+    "ville": "Jouy-sur-Morin",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.795,
+    "longitude": 3.2736
+  },
+  {
+    "ville": "Juilly",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.0216,
+    "longitude": 2.7053
+  },
+  {
+    "ville": "Jutigny",
+    "codes_postaux": [
+      "77650"
+    ],
+    "latitude": 48.4925,
+    "longitude": 3.2253
+  },
+  {
+    "ville": "Lagny-sur-Marne",
+    "codes_postaux": [
+      "77400"
+    ],
+    "latitude": 48.8716,
+    "longitude": 2.7045
+  },
+  {
+    "ville": "Larchant",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.2857,
+    "longitude": 2.6
+  },
+  {
+    "ville": "Laval-en-Brie",
+    "codes_postaux": [
+      "77148"
+    ],
+    "latitude": 48.4541,
+    "longitude": 2.9718
+  },
+  {
+    "ville": "Léchelle",
+    "codes_postaux": [
+      "77171"
+    ],
+    "latitude": 48.5729,
+    "longitude": 3.388
+  },
+  {
+    "ville": "Lescherolles",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7645,
+    "longitude": 3.353
+  },
+  {
+    "ville": "Lesches",
+    "codes_postaux": [
+      "77450"
+    ],
+    "latitude": 48.9173,
+    "longitude": 2.7917
+  },
+  {
+    "ville": "Lésigny",
+    "codes_postaux": [
+      "77150"
+    ],
+    "latitude": 48.748,
+    "longitude": 2.6182
+  },
+  {
+    "ville": "Leudon-en-Brie",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7275,
+    "longitude": 3.263
+  },
+  {
+    "ville": "Lieusaint",
+    "codes_postaux": [
+      "77127"
+    ],
+    "latitude": 48.6277,
+    "longitude": 2.549
+  },
+  {
+    "ville": "Limoges-Fourches",
+    "codes_postaux": [
+      "77550"
+    ],
+    "latitude": 48.6257,
+    "longitude": 2.6662
+  },
+  {
+    "ville": "Lissy",
+    "codes_postaux": [
+      "77550"
+    ],
+    "latitude": 48.6185,
+    "longitude": 2.703
+  },
+  {
+    "ville": "Liverdy-en-Brie",
+    "codes_postaux": [
+      "77220"
+    ],
+    "latitude": 48.6957,
+    "longitude": 2.7797
+  },
+  {
+    "ville": "Livry-sur-Seine",
+    "codes_postaux": [
+      "77000"
+    ],
+    "latitude": 48.5039,
+    "longitude": 2.6898
+  },
+  {
+    "ville": "Lizines",
+    "codes_postaux": [
+      "77650"
+    ],
+    "latitude": 48.5283,
+    "longitude": 3.1654
+  },
+  {
+    "ville": "Lizy-sur-Ourcq",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 49.0344,
+    "longitude": 3.0189
+  },
+  {
+    "ville": "Lognes",
+    "codes_postaux": [
+      "77185"
+    ],
+    "latitude": 48.8325,
+    "longitude": 2.6366
+  },
+  {
+    "ville": "Longperrier",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.0506,
+    "longitude": 2.6566
+  },
+  {
+    "ville": "Longueville",
+    "codes_postaux": [
+      "77650"
+    ],
+    "latitude": 48.5148,
+    "longitude": 3.2414
+  },
+  {
+    "ville": "Lorrez-le-Bocage-Préaux",
+    "codes_postaux": [
+      "77710"
+    ],
+    "latitude": 48.2423,
+    "longitude": 2.8932
+  },
+  {
+    "ville": "Louan-Villegruis-Fontaine",
+    "codes_postaux": [
+      "77560"
+    ],
+    "latitude": 48.6101,
+    "longitude": 3.4984
+  },
+  {
+    "ville": "Luisetaines",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.4602,
+    "longitude": 3.1847
+  },
+  {
+    "ville": "Lumigny-Nesles-Ormeaux",
+    "codes_postaux": [
+      "77540"
+    ],
+    "latitude": 48.7244,
+    "longitude": 2.9572
+  },
+  {
+    "ville": "Luzancy",
+    "codes_postaux": [
+      "77138"
+    ],
+    "latitude": 48.9754,
+    "longitude": 3.1791
+  },
+  {
+    "ville": "Machault",
+    "codes_postaux": [
+      "77133"
+    ],
+    "latitude": 48.4524,
+    "longitude": 2.8493
+  },
+  {
+    "ville": "La Madeleine-sur-Loing",
+    "codes_postaux": [
+      "77570"
+    ],
+    "latitude": 48.2036,
+    "longitude": 2.7015
+  },
+  {
+    "ville": "Magny-le-Hongre",
+    "codes_postaux": [
+      "77700"
+    ],
+    "latitude": 48.8675,
+    "longitude": 2.8171
+  },
+  {
+    "ville": "Maincy",
+    "codes_postaux": [
+      "77950"
+    ],
+    "latitude": 48.5541,
+    "longitude": 2.7038
+  },
+  {
+    "ville": "Maisoncelles-en-Brie",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.8565,
+    "longitude": 2.9957
+  },
+  {
+    "ville": "Maisoncelles-en-Gâtinais",
+    "codes_postaux": [
+      "77570"
+    ],
+    "latitude": 48.1837,
+    "longitude": 2.6222
+  },
+  {
+    "ville": "Maison-Rouge",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.5549,
+    "longitude": 3.1533
+  },
+  {
+    "ville": "Marchémoret",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.0528,
+    "longitude": 2.7508
+  },
+  {
+    "ville": "Marcilly",
+    "codes_postaux": [
+      "77139"
+    ],
+    "latitude": 49.0369,
+    "longitude": 2.8781
+  },
+  {
+    "ville": "Les Marêts",
+    "codes_postaux": [
+      "77560"
+    ],
+    "latitude": 48.6712,
+    "longitude": 3.3159
+  },
+  {
+    "ville": "Mareuil-lès-Meaux",
+    "codes_postaux": [
+      "77100"
+    ],
+    "latitude": 48.9252,
+    "longitude": 2.8769
+  },
+  {
+    "ville": "Marles-en-Brie",
+    "codes_postaux": [
+      "77610"
+    ],
+    "latitude": 48.7253,
+    "longitude": 2.8856
+  },
+  {
+    "ville": "Marolles-en-Brie",
+    "codes_postaux": [
+      "77120"
+    ],
+    "latitude": 48.7719,
+    "longitude": 3.1635
+  },
+  {
+    "ville": "Marolles-sur-Seine",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.3813,
+    "longitude": 3.0295
+  },
+  {
+    "ville": "Mary-sur-Marne",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 49.0145,
+    "longitude": 3.033
+  },
+  {
+    "ville": "Mauperthuis",
+    "codes_postaux": [
+      "77120"
+    ],
+    "latitude": 48.7709,
+    "longitude": 3.0386
+  },
+  {
+    "ville": "Mauregard",
+    "codes_postaux": [
+      "77990"
+    ],
+    "latitude": 49.029,
+    "longitude": 2.5678
+  },
+  {
+    "ville": "May-en-Multien",
+    "codes_postaux": [
+      "77145"
+    ],
+    "latitude": 49.0686,
+    "longitude": 3.0274
+  },
+  {
+    "ville": "Meaux",
+    "codes_postaux": [
+      "77100"
+    ],
+    "latitude": 48.9573,
+    "longitude": 2.9035
+  },
+  {
+    "ville": "Le Mée-sur-Seine",
+    "codes_postaux": [
+      "77350"
+    ],
+    "latitude": 48.5401,
+    "longitude": 2.6301
+  },
+  {
+    "ville": "Meigneux",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.5132,
+    "longitude": 3.0906
+  },
+  {
+    "ville": "Meilleray",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7989,
+    "longitude": 3.4161
+  },
+  {
+    "ville": "Melun",
+    "codes_postaux": [
+      "77000"
+    ],
+    "latitude": 48.5421,
+    "longitude": 2.6552
+  },
+  {
+    "ville": "Melz-sur-Seine",
+    "codes_postaux": [
+      "77171"
+    ],
+    "latitude": 48.5037,
+    "longitude": 3.3969
+  },
+  {
+    "ville": "Méry-sur-Marne",
+    "codes_postaux": [
+      "77730"
+    ],
+    "latitude": 48.9734,
+    "longitude": 3.2051
+  },
+  {
+    "ville": "Le Mesnil-Amelot",
+    "codes_postaux": [
+      "77990"
+    ],
+    "latitude": 49.0175,
+    "longitude": 2.5974
+  },
+  {
+    "ville": "Messy",
+    "codes_postaux": [
+      "77410"
+    ],
+    "latitude": 48.9663,
+    "longitude": 2.7041
+  },
+  {
+    "ville": "Misy-sur-Yonne",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.3628,
+    "longitude": 3.0942
+  },
+  {
+    "ville": "Mitry-Mory",
+    "codes_postaux": [
+      "77290"
+    ],
+    "latitude": 48.9796,
+    "longitude": 2.6116
+  },
+  {
+    "ville": "Moisenay",
+    "codes_postaux": [
+      "77950"
+    ],
+    "latitude": 48.5636,
+    "longitude": 2.7389
+  },
+  {
+    "ville": "Moissy-Cramayel",
+    "codes_postaux": [
+      "77550"
+    ],
+    "latitude": 48.6247,
+    "longitude": 2.5958
+  },
+  {
+    "ville": "Mondreville",
+    "codes_postaux": [
+      "77570"
+    ],
+    "latitude": 48.1513,
+    "longitude": 2.6003
+  },
+  {
+    "ville": "Mons-en-Montois",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.4922,
+    "longitude": 3.1373
+  },
+  {
+    "ville": "Montceaux-lès-Meaux",
+    "codes_postaux": [
+      "77470"
+    ],
+    "latitude": 48.9445,
+    "longitude": 2.9924
+  },
+  {
+    "ville": "Montceaux-lès-Provins",
+    "codes_postaux": [
+      "77151"
+    ],
+    "latitude": 48.6982,
+    "longitude": 3.445
+  },
+  {
+    "ville": "Moncourt-Fromonville",
+    "codes_postaux": [
+      "77140"
+    ],
+    "latitude": 48.2983,
+    "longitude": 2.7153
+  },
+  {
+    "ville": "Montdauphin",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.8536,
+    "longitude": 3.4222
+  },
+  {
+    "ville": "Montenils",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.832,
+    "longitude": 3.4769
+  },
+  {
+    "ville": "Montereau-Fault-Yonne",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.3887,
+    "longitude": 2.962
+  },
+  {
+    "ville": "Montereau-sur-le-Jard",
+    "codes_postaux": [
+      "77950"
+    ],
+    "latitude": 48.5969,
+    "longitude": 2.6728
+  },
+  {
+    "ville": "Montévrain",
+    "codes_postaux": [
+      "77144"
+    ],
+    "latitude": 48.8673,
+    "longitude": 2.7511
+  },
+  {
+    "ville": "Montgé-en-Goële",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.0279,
+    "longitude": 2.7452
+  },
+  {
+    "ville": "Monthyon",
+    "codes_postaux": [
+      "77122"
+    ],
+    "latitude": 49.0097,
+    "longitude": 2.8345
+  },
+  {
+    "ville": "Montigny-le-Guesdier",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.3838,
+    "longitude": 3.2495
+  },
+  {
+    "ville": "Montigny-Lencoup",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.456,
+    "longitude": 3.0541
+  },
+  {
+    "ville": "Montigny-sur-Loing",
+    "codes_postaux": [
+      "77690"
+    ],
+    "latitude": 48.3381,
+    "longitude": 2.7572
+  },
+  {
+    "ville": "Montmachoux",
+    "codes_postaux": [
+      "77940"
+    ],
+    "latitude": 48.3204,
+    "longitude": 2.989
+  },
+  {
+    "ville": "Montolivet",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.8274,
+    "longitude": 3.4318
+  },
+  {
+    "ville": "Montry",
+    "codes_postaux": [
+      "77450"
+    ],
+    "latitude": 48.8866,
+    "longitude": 2.8227
+  },
+  {
+    "ville": "Moret-Loing-et-Orvanne",
+    "codes_postaux": [
+      "77250"
+    ],
+    "latitude": 48.3545,
+    "longitude": 2.8233
+  },
+  {
+    "ville": "Mormant",
+    "codes_postaux": [
+      "77720"
+    ],
+    "latitude": 48.596,
+    "longitude": 2.8772
+  },
+  {
+    "ville": "Mortcerf",
+    "codes_postaux": [
+      "77163"
+    ],
+    "latitude": 48.78,
+    "longitude": 2.897
+  },
+  {
+    "ville": "Mortery",
+    "codes_postaux": [
+      "77160"
+    ],
+    "latitude": 48.5906,
+    "longitude": 3.2475
+  },
+  {
+    "ville": "Mouroux",
+    "codes_postaux": [
+      "77120"
+    ],
+    "latitude": 48.825,
+    "longitude": 3.0486
+  },
+  {
+    "ville": "Mousseaux-lès-Bray",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.3941,
+    "longitude": 3.2371
+  },
+  {
+    "ville": "Moussy-le-Neuf",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.0711,
+    "longitude": 2.6038
+  },
+  {
+    "ville": "Moussy-le-Vieux",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.048,
+    "longitude": 2.6221
+  },
+  {
+    "ville": "Mouy-sur-Seine",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.4328,
+    "longitude": 3.2443
+  },
+  {
+    "ville": "Nandy",
+    "codes_postaux": [
+      "77176"
+    ],
+    "latitude": 48.5816,
+    "longitude": 2.5476
+  },
+  {
+    "ville": "Nangis",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.5575,
+    "longitude": 3.0079
+  },
+  {
+    "ville": "Nanteau-sur-Essonne",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.3184,
+    "longitude": 2.4262
+  },
+  {
+    "ville": "Nanteau-sur-Lunain",
+    "codes_postaux": [
+      "77710"
+    ],
+    "latitude": 48.2529,
+    "longitude": 2.8099
+  },
+  {
+    "ville": "Nanteuil-lès-Meaux",
+    "codes_postaux": [
+      "77100"
+    ],
+    "latitude": 48.9317,
+    "longitude": 2.9019
+  },
+  {
+    "ville": "Nanteuil-sur-Marne",
+    "codes_postaux": [
+      "77730"
+    ],
+    "latitude": 48.98,
+    "longitude": 3.2204
+  },
+  {
+    "ville": "Nantouillet",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 48.9993,
+    "longitude": 2.7045
+  },
+  {
+    "ville": "Nemours",
+    "codes_postaux": [
+      "77140"
+    ],
+    "latitude": 48.2633,
+    "longitude": 2.7187
+  },
+  {
+    "ville": "Chauconin-Neufmontiers",
+    "codes_postaux": [
+      "77124"
+    ],
+    "latitude": 48.97,
+    "longitude": 2.8323
+  },
+  {
+    "ville": "Neufmoutiers-en-Brie",
+    "codes_postaux": [
+      "77610"
+    ],
+    "latitude": 48.773,
+    "longitude": 2.8294
+  },
+  {
+    "ville": "Noisiel",
+    "codes_postaux": [
+      "77186"
+    ],
+    "latitude": 48.8461,
+    "longitude": 2.6187
+  },
+  {
+    "ville": "Noisy-Rudignon",
+    "codes_postaux": [
+      "77940"
+    ],
+    "latitude": 48.3372,
+    "longitude": 2.9331
+  },
+  {
+    "ville": "Noisy-sur-École",
+    "codes_postaux": [
+      "77123"
+    ],
+    "latitude": 48.3733,
+    "longitude": 2.5114
+  },
+  {
+    "ville": "Nonville",
+    "codes_postaux": [
+      "77140"
+    ],
+    "latitude": 48.2894,
+    "longitude": 2.7731
+  },
+  {
+    "ville": "Noyen-sur-Seine",
+    "codes_postaux": [
+      "77114"
+    ],
+    "latitude": 48.4512,
+    "longitude": 3.3449
+  },
+  {
+    "ville": "Obsonville",
+    "codes_postaux": [
+      "77890"
+    ],
+    "latitude": 48.214,
+    "longitude": 2.5673
+  },
+  {
+    "ville": "Ocquerre",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 49.0379,
+    "longitude": 3.0577
+  },
+  {
+    "ville": "Oissery",
+    "codes_postaux": [
+      "77178"
+    ],
+    "latitude": 49.0725,
+    "longitude": 2.8166
+  },
+  {
+    "ville": "Orly-sur-Morin",
+    "codes_postaux": [
+      "77750"
+    ],
+    "latitude": 48.9006,
+    "longitude": 3.2285
+  },
+  {
+    "ville": "Les Ormes-sur-Voulzie",
+    "codes_postaux": [
+      "77134"
+    ],
+    "latitude": 48.4613,
+    "longitude": 3.2255
+  },
+  {
+    "ville": "Ormesson",
+    "codes_postaux": [
+      "77167"
+    ],
+    "latitude": 48.2448,
+    "longitude": 2.6487
+  },
+  {
+    "ville": "Othis",
+    "codes_postaux": [
+      "77280"
+    ],
+    "latitude": 49.086,
+    "longitude": 2.6572
+  },
+  {
+    "ville": "Ozoir-la-Ferrière",
+    "codes_postaux": [
+      "77330"
+    ],
+    "latitude": 48.7631,
+    "longitude": 2.6753
+  },
+  {
+    "ville": "Ozouer-le-Voulgis",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6652,
+    "longitude": 2.7754
+  },
+  {
+    "ville": "Paley",
+    "codes_postaux": [
+      "77710"
+    ],
+    "latitude": 48.2387,
+    "longitude": 2.8565
+  },
+  {
+    "ville": "Pamfou",
+    "codes_postaux": [
+      "77830"
+    ],
+    "latitude": 48.4676,
+    "longitude": 2.8634
+  },
+  {
+    "ville": "Paroy",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.4796,
+    "longitude": 3.2005
+  },
+  {
+    "ville": "Passy-sur-Seine",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.4282,
+    "longitude": 3.3455
+  },
+  {
+    "ville": "Pécy",
+    "codes_postaux": [
+      "77970"
+    ],
+    "latitude": 48.6459,
+    "longitude": 3.0642
+  },
+  {
+    "ville": "Penchard",
+    "codes_postaux": [
+      "77124"
+    ],
+    "latitude": 48.9908,
+    "longitude": 2.8576
+  },
+  {
+    "ville": "Perthes",
+    "codes_postaux": [
+      "77930"
+    ],
+    "latitude": 48.4786,
+    "longitude": 2.5472
+  },
+  {
+    "ville": "Pézarches",
+    "codes_postaux": [
+      "77131"
+    ],
+    "latitude": 48.7462,
+    "longitude": 2.9896
+  },
+  {
+    "ville": "Pierre-Levée",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.8952,
+    "longitude": 3.0346
+  },
+  {
+    "ville": "Le Pin",
+    "codes_postaux": [
+      "77181"
+    ],
+    "latitude": 48.9138,
+    "longitude": 2.6286
+  },
+  {
+    "ville": "Le Plessis-aux-Bois",
+    "codes_postaux": [
+      "77165"
+    ],
+    "latitude": 49.0049,
+    "longitude": 2.7696
+  },
+  {
+    "ville": "Le Plessis-Feu-Aussoux",
+    "codes_postaux": [
+      "77540"
+    ],
+    "latitude": 48.713,
+    "longitude": 3.04
+  },
+  {
+    "ville": "Le Plessis-l'Évêque",
+    "codes_postaux": [
+      "77165"
+    ],
+    "latitude": 49.0049,
+    "longitude": 2.7912
+  },
+  {
+    "ville": "Le Plessis-Placy",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 49.0534,
+    "longitude": 2.9852
+  },
+  {
+    "ville": "Poigny",
+    "codes_postaux": [
+      "77160"
+    ],
+    "latitude": 48.5449,
+    "longitude": 3.2772
+  },
+  {
+    "ville": "Poincy",
+    "codes_postaux": [
+      "77470"
+    ],
+    "latitude": 48.9739,
+    "longitude": 2.9239
+  },
+  {
+    "ville": "Poligny",
+    "codes_postaux": [
+      "77167"
+    ],
+    "latitude": 48.2373,
+    "longitude": 2.759
+  },
+  {
+    "ville": "Pommeuse",
+    "codes_postaux": [
+      "77515"
+    ],
+    "latitude": 48.8169,
+    "longitude": 3.0077
+  },
+  {
+    "ville": "Pomponne",
+    "codes_postaux": [
+      "77400"
+    ],
+    "latitude": 48.887,
+    "longitude": 2.6776
+  },
+  {
+    "ville": "Pontault-Combault",
+    "codes_postaux": [
+      "77340"
+    ],
+    "latitude": 48.7885,
+    "longitude": 2.6173
+  },
+  {
+    "ville": "Pontcarré",
+    "codes_postaux": [
+      "77135"
+    ],
+    "latitude": 48.7954,
+    "longitude": 2.706
+  },
+  {
+    "ville": "Précy-sur-Marne",
+    "codes_postaux": [
+      "77410"
+    ],
+    "latitude": 48.9352,
+    "longitude": 2.7688
+  },
+  {
+    "ville": "Presles-en-Brie",
+    "codes_postaux": [
+      "77220"
+    ],
+    "latitude": 48.7106,
+    "longitude": 2.7407
+  },
+  {
+    "ville": "Pringy",
+    "codes_postaux": [
+      "77310"
+    ],
+    "latitude": 48.5175,
+    "longitude": 2.5498
+  },
+  {
+    "ville": "Provins",
+    "codes_postaux": [
+      "77160"
+    ],
+    "latitude": 48.5629,
+    "longitude": 3.2845
+  },
+  {
+    "ville": "Puisieux",
+    "codes_postaux": [
+      "77139"
+    ],
+    "latitude": 49.0627,
+    "longitude": 2.9163
+  },
+  {
+    "ville": "Quiers",
+    "codes_postaux": [
+      "77720"
+    ],
+    "latitude": 48.6144,
+    "longitude": 2.9611
+  },
+  {
+    "ville": "Quincy-Voisins",
+    "codes_postaux": [
+      "77860"
+    ],
+    "latitude": 48.8982,
+    "longitude": 2.8765
+  },
+  {
+    "ville": "Rampillon",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.5399,
+    "longitude": 3.0741
+  },
+  {
+    "ville": "Réau",
+    "codes_postaux": [
+      "77550"
+    ],
+    "latitude": 48.6077,
+    "longitude": 2.6249
+  },
+  {
+    "ville": "Rebais",
+    "codes_postaux": [
+      "77510"
+    ],
+    "latitude": 48.8575,
+    "longitude": 3.2321
+  },
+  {
+    "ville": "Recloses",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.3388,
+    "longitude": 2.6441
+  },
+  {
+    "ville": "Remauville",
+    "codes_postaux": [
+      "77710"
+    ],
+    "latitude": 48.2215,
+    "longitude": 2.8285
+  },
+  {
+    "ville": "Reuil-en-Brie",
+    "codes_postaux": [
+      "77260"
+    ],
+    "latitude": 48.9578,
+    "longitude": 3.1608
+  },
+  {
+    "ville": "La Rochette",
+    "codes_postaux": [
+      "77000"
+    ],
+    "latitude": 48.507,
+    "longitude": 2.6578
+  },
+  {
+    "ville": "Roissy-en-Brie",
+    "codes_postaux": [
+      "77680"
+    ],
+    "latitude": 48.7913,
+    "longitude": 2.6647
+  },
+  {
+    "ville": "Rouilly",
+    "codes_postaux": [
+      "77160"
+    ],
+    "latitude": 48.5912,
+    "longitude": 3.2897
+  },
+  {
+    "ville": "Rouvres",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.0657,
+    "longitude": 2.7189
+  },
+  {
+    "ville": "Rozay-en-Brie",
+    "codes_postaux": [
+      "77540"
+    ],
+    "latitude": 48.6821,
+    "longitude": 2.9623
+  },
+  {
+    "ville": "Rubelles",
+    "codes_postaux": [
+      "77950"
+    ],
+    "latitude": 48.5654,
+    "longitude": 2.6808
+  },
+  {
+    "ville": "Rumont",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.2707,
+    "longitude": 2.4966
+  },
+  {
+    "ville": "Rupéreux",
+    "codes_postaux": [
+      "77560"
+    ],
+    "latitude": 48.6401,
+    "longitude": 3.331
+  },
+  {
+    "ville": "Saâcy-sur-Marne",
+    "codes_postaux": [
+      "77730"
+    ],
+    "latitude": 48.9524,
+    "longitude": 3.2128
+  },
+  {
+    "ville": "Sablonnières",
+    "codes_postaux": [
+      "77510"
+    ],
+    "latitude": 48.8766,
+    "longitude": 3.2932
+  },
+  {
+    "ville": "Saint-Augustin",
+    "codes_postaux": [
+      "77515"
+    ],
+    "latitude": 48.7869,
+    "longitude": 3.0327
+  },
+  {
+    "ville": "Sainte-Aulde",
+    "codes_postaux": [
+      "77260"
+    ],
+    "latitude": 49.0049,
+    "longitude": 3.1731
+  },
+  {
+    "ville": "Saint-Barthélemy",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.8179,
+    "longitude": 3.3603
+  },
+  {
+    "ville": "Saint-Brice",
+    "codes_postaux": [
+      "77160"
+    ],
+    "latitude": 48.5733,
+    "longitude": 3.3365
+  },
+  {
+    "ville": "Sainte-Colombe",
+    "codes_postaux": [
+      "77650"
+    ],
+    "latitude": 48.5367,
+    "longitude": 3.261
+  },
+  {
+    "ville": "Saint-Cyr-sur-Morin",
+    "codes_postaux": [
+      "77750"
+    ],
+    "latitude": 48.9141,
+    "longitude": 3.1746
+  },
+  {
+    "ville": "Saint-Denis-lès-Rebais",
+    "codes_postaux": [
+      "77510"
+    ],
+    "latitude": 48.8475,
+    "longitude": 3.195
+  },
+  {
+    "ville": "Saint-Fargeau-Ponthierry",
+    "codes_postaux": [
+      "77310"
+    ],
+    "latitude": 48.541,
+    "longitude": 2.5291
+  },
+  {
+    "ville": "Saint-Fiacre",
+    "codes_postaux": [
+      "77470"
+    ],
+    "latitude": 48.9234,
+    "longitude": 2.9528
+  },
+  {
+    "ville": "Saint-Germain-Laval",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.4104,
+    "longitude": 3.0004
+  },
+  {
+    "ville": "Saint-Germain-Laxis",
+    "codes_postaux": [
+      "77950"
+    ],
+    "latitude": 48.5895,
+    "longitude": 2.7046
+  },
+  {
+    "ville": "Saint-Germain-sous-Doue",
+    "codes_postaux": [
+      "77169"
+    ],
+    "latitude": 48.8517,
+    "longitude": 3.1415
+  },
+  {
+    "ville": "Saint-Germain-sur-École",
+    "codes_postaux": [
+      "77930"
+    ],
+    "latitude": 48.4745,
+    "longitude": 2.5115
+  },
+  {
+    "ville": "Saint-Germain-sur-Morin",
+    "codes_postaux": [
+      "77860"
+    ],
+    "latitude": 48.8745,
+    "longitude": 2.8428
+  },
+  {
+    "ville": "Saint-Hilliers",
+    "codes_postaux": [
+      "77160"
+    ],
+    "latitude": 48.6323,
+    "longitude": 3.2612
+  },
+  {
+    "ville": "Saint-Jean-les-Deux-Jumeaux",
+    "codes_postaux": [
+      "77660"
+    ],
+    "latitude": 48.9381,
+    "longitude": 3.0291
+  },
+  {
+    "ville": "Saint-Just-en-Brie",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.6109,
+    "longitude": 3.1259
+  },
+  {
+    "ville": "Saint-Léger",
+    "codes_postaux": [
+      "77510"
+    ],
+    "latitude": 48.8424,
+    "longitude": 3.2709
+  },
+  {
+    "ville": "Saint-Loup-de-Naud",
+    "codes_postaux": [
+      "77650"
+    ],
+    "latitude": 48.5368,
+    "longitude": 3.217
+  },
+  {
+    "ville": "Saint-Mammès",
+    "codes_postaux": [
+      "77670"
+    ],
+    "latitude": 48.3863,
+    "longitude": 2.8205
+  },
+  {
+    "ville": "Saint-Mard",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.0388,
+    "longitude": 2.6962
+  },
+  {
+    "ville": "Saint-Mars-Vieux-Maisons",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.739,
+    "longitude": 3.3224
+  },
+  {
+    "ville": "Saint-Martin-des-Champs",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7838,
+    "longitude": 3.3347
+  },
+  {
+    "ville": "Saint-Martin-du-Boschet",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7311,
+    "longitude": 3.4289
+  },
+  {
+    "ville": "Saint-Martin-en-Bière",
+    "codes_postaux": [
+      "77630"
+    ],
+    "latitude": 48.4361,
+    "longitude": 2.5729
+  },
+  {
+    "ville": "Saint-Méry",
+    "codes_postaux": [
+      "77720"
+    ],
+    "latitude": 48.5642,
+    "longitude": 2.8377
+  },
+  {
+    "ville": "Saint-Mesmes",
+    "codes_postaux": [
+      "77410"
+    ],
+    "latitude": 48.986,
+    "longitude": 2.7105
+  },
+  {
+    "ville": "Saint-Ouen-en-Brie",
+    "codes_postaux": [
+      "77720"
+    ],
+    "latitude": 48.5672,
+    "longitude": 2.921
+  },
+  {
+    "ville": "Saint-Ouen-sur-Morin",
+    "codes_postaux": [
+      "77750"
+    ],
+    "latitude": 48.9064,
+    "longitude": 3.2032
+  },
+  {
+    "ville": "Saint-Pathus",
+    "codes_postaux": [
+      "77178"
+    ],
+    "latitude": 49.074,
+    "longitude": 2.7848
+  },
+  {
+    "ville": "Saint-Pierre-lès-Nemours",
+    "codes_postaux": [
+      "77140"
+    ],
+    "latitude": 48.2647,
+    "longitude": 2.6673
+  },
+  {
+    "ville": "Saint-Rémy-de-la-Vanne",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.8106,
+    "longitude": 3.2472
+  },
+  {
+    "ville": "Beautheil-Saints",
+    "codes_postaux": [
+      "77120"
+    ],
+    "latitude": 48.7617,
+    "longitude": 3.0728
+  },
+  {
+    "ville": "Saint-Sauveur-lès-Bray",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.4387,
+    "longitude": 3.2038
+  },
+  {
+    "ville": "Saint-Sauveur-sur-École",
+    "codes_postaux": [
+      "77930"
+    ],
+    "latitude": 48.501,
+    "longitude": 2.5354
+  },
+  {
+    "ville": "Saint-Siméon",
+    "codes_postaux": [
+      "77169"
+    ],
+    "latitude": 48.8098,
+    "longitude": 3.1935
+  },
+  {
+    "ville": "Saint-Soupplets",
+    "codes_postaux": [
+      "77165"
+    ],
+    "latitude": 49.0348,
+    "longitude": 2.7989
+  },
+  {
+    "ville": "Saint-Thibault-des-Vignes",
+    "codes_postaux": [
+      "77400"
+    ],
+    "latitude": 48.8628,
+    "longitude": 2.6792
+  },
+  {
+    "ville": "Salins",
+    "codes_postaux": [
+      "77148"
+    ],
+    "latitude": 48.4342,
+    "longitude": 3.0201
+  },
+  {
+    "ville": "Sammeron",
+    "codes_postaux": [
+      "77260"
+    ],
+    "latitude": 48.94,
+    "longitude": 3.0756
+  },
+  {
+    "ville": "Samois-sur-Seine",
+    "codes_postaux": [
+      "77920"
+    ],
+    "latitude": 48.4534,
+    "longitude": 2.7535
+  },
+  {
+    "ville": "Samoreau",
+    "codes_postaux": [
+      "77210"
+    ],
+    "latitude": 48.4205,
+    "longitude": 2.7749
+  },
+  {
+    "ville": "Sancy",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.8773,
+    "longitude": 2.9587
+  },
+  {
+    "ville": "Sancy-lès-Provins",
+    "codes_postaux": [
+      "77320"
+    ],
+    "latitude": 48.7106,
+    "longitude": 3.3936
+  },
+  {
+    "ville": "Savigny-le-Temple",
+    "codes_postaux": [
+      "77176"
+    ],
+    "latitude": 48.5846,
+    "longitude": 2.5759
+  },
+  {
+    "ville": "Savins",
+    "codes_postaux": [
+      "77650"
+    ],
+    "latitude": 48.5096,
+    "longitude": 3.2037
+  },
+  {
+    "ville": "Seine-Port",
+    "codes_postaux": [
+      "77240"
+    ],
+    "latitude": 48.5536,
+    "longitude": 2.5569
+  },
+  {
+    "ville": "Sept-Sorts",
+    "codes_postaux": [
+      "77260"
+    ],
+    "latitude": 48.9404,
+    "longitude": 3.1066
+  },
+  {
+    "ville": "Serris",
+    "codes_postaux": [
+      "77700"
+    ],
+    "latitude": 48.8453,
+    "longitude": 2.7873
+  },
+  {
+    "ville": "Servon",
+    "codes_postaux": [
+      "77170"
+    ],
+    "latitude": 48.7158,
+    "longitude": 2.5914
+  },
+  {
+    "ville": "Signy-Signets",
+    "codes_postaux": [
+      "77640"
+    ],
+    "latitude": 48.9148,
+    "longitude": 3.0603
+  },
+  {
+    "ville": "Sigy",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.4726,
+    "longitude": 3.1669
+  },
+  {
+    "ville": "Sivry-Courtry",
+    "codes_postaux": [
+      "77115"
+    ],
+    "latitude": 48.5285,
+    "longitude": 2.7571
+  },
+  {
+    "ville": "Sognolles-en-Montois",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.5213,
+    "longitude": 3.1516
+  },
+  {
+    "ville": "Soignolles-en-Brie",
+    "codes_postaux": [
+      "77111"
+    ],
+    "latitude": 48.6465,
+    "longitude": 2.7108
+  },
+  {
+    "ville": "Soisy-Bouy",
+    "codes_postaux": [
+      "77650"
+    ],
+    "latitude": 48.5089,
+    "longitude": 3.2995
+  },
+  {
+    "ville": "Solers",
+    "codes_postaux": [
+      "77111"
+    ],
+    "latitude": 48.6595,
+    "longitude": 2.7261
+  },
+  {
+    "ville": "Souppes-sur-Loing",
+    "codes_postaux": [
+      "77460"
+    ],
+    "latitude": 48.1864,
+    "longitude": 2.7426
+  },
+  {
+    "ville": "Sourdun",
+    "codes_postaux": [
+      "77171"
+    ],
+    "latitude": 48.5335,
+    "longitude": 3.3643
+  },
+  {
+    "ville": "Tancrou",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 49.0039,
+    "longitude": 3.0808
+  },
+  {
+    "ville": "Thénisy",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.4902,
+    "longitude": 3.1793
+  },
+  {
+    "ville": "Thieux",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.0088,
+    "longitude": 2.6583
+  },
+  {
+    "ville": "Thomery",
+    "codes_postaux": [
+      "77810"
+    ],
+    "latitude": 48.4021,
+    "longitude": 2.7729
+  },
+  {
+    "ville": "Thorigny-sur-Marne",
+    "codes_postaux": [
+      "77400"
+    ],
+    "latitude": 48.8928,
+    "longitude": 2.7117
+  },
+  {
+    "ville": "Thoury-Férottes",
+    "codes_postaux": [
+      "77940"
+    ],
+    "latitude": 48.3016,
+    "longitude": 2.939
+  },
+  {
+    "ville": "Tigeaux",
+    "codes_postaux": [
+      "77163"
+    ],
+    "latitude": 48.8235,
+    "longitude": 2.8968
+  },
+  {
+    "ville": "La Tombe",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.3873,
+    "longitude": 3.0949
+  },
+  {
+    "ville": "Torcy",
+    "codes_postaux": [
+      "77200"
+    ],
+    "latitude": 48.8534,
+    "longitude": 2.6476
+  },
+  {
+    "ville": "Touquin",
+    "codes_postaux": [
+      "77131"
+    ],
+    "latitude": 48.7317,
+    "longitude": 3.0308
+  },
+  {
+    "ville": "Tournan-en-Brie",
+    "codes_postaux": [
+      "77220"
+    ],
+    "latitude": 48.741,
+    "longitude": 2.7769
+  },
+  {
+    "ville": "Tousson",
+    "codes_postaux": [
+      "77123"
+    ],
+    "latitude": 48.3454,
+    "longitude": 2.4591
+  },
+  {
+    "ville": "La Trétoire",
+    "codes_postaux": [
+      "77510"
+    ],
+    "latitude": 48.8777,
+    "longitude": 3.2425
+  },
+  {
+    "ville": "Treuzy-Levelay",
+    "codes_postaux": [
+      "77710"
+    ],
+    "latitude": 48.2713,
+    "longitude": 2.7917
+  },
+  {
+    "ville": "Trilbardou",
+    "codes_postaux": [
+      "77450"
+    ],
+    "latitude": 48.948,
+    "longitude": 2.8046
+  },
+  {
+    "ville": "Trilport",
+    "codes_postaux": [
+      "77470"
+    ],
+    "latitude": 48.9583,
+    "longitude": 2.9661
+  },
+  {
+    "ville": "Trocy-en-Multien",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 49.0422,
+    "longitude": 2.9627
+  },
+  {
+    "ville": "Ury",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.341,
+    "longitude": 2.6016
+  },
+  {
+    "ville": "Ussy-sur-Marne",
+    "codes_postaux": [
+      "77260"
+    ],
+    "latitude": 48.9708,
+    "longitude": 3.0721
+  },
+  {
+    "ville": "Vaires-sur-Marne",
+    "codes_postaux": [
+      "77360"
+    ],
+    "latitude": 48.8703,
+    "longitude": 2.6332
+  },
+  {
+    "ville": "Valence-en-Brie",
+    "codes_postaux": [
+      "77830"
+    ],
+    "latitude": 48.4508,
+    "longitude": 2.8931
+  },
+  {
+    "ville": "Vanvillé",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.5522,
+    "longitude": 3.116
+  },
+  {
+    "ville": "Varennes-sur-Seine",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.3695,
+    "longitude": 2.9317
+  },
+  {
+    "ville": "Varreddes",
+    "codes_postaux": [
+      "77910"
+    ],
+    "latitude": 49.0055,
+    "longitude": 2.9284
+  },
+  {
+    "ville": "Vaucourtois",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.8991,
+    "longitude": 2.9561
+  },
+  {
+    "ville": "Le Vaudoué",
+    "codes_postaux": [
+      "77123"
+    ],
+    "latitude": 48.3468,
+    "longitude": 2.5194
+  },
+  {
+    "ville": "Vaudoy-en-Brie",
+    "codes_postaux": [
+      "77141"
+    ],
+    "latitude": 48.6977,
+    "longitude": 3.0843
+  },
+  {
+    "ville": "Vaux-le-Pénil",
+    "codes_postaux": [
+      "77000"
+    ],
+    "latitude": 48.5242,
+    "longitude": 2.6985
+  },
+  {
+    "ville": "Vaux-sur-Lunain",
+    "codes_postaux": [
+      "77710"
+    ],
+    "latitude": 48.2143,
+    "longitude": 2.9559
+  },
+  {
+    "ville": "Vendrest",
+    "codes_postaux": [
+      "77440"
+    ],
+    "latitude": 49.0432,
+    "longitude": 3.1092
+  },
+  {
+    "ville": "Verdelot",
+    "codes_postaux": [
+      "77510"
+    ],
+    "latitude": 48.8829,
+    "longitude": 3.3662
+  },
+  {
+    "ville": "Verneuil-l'Étang",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6367,
+    "longitude": 2.8295
+  },
+  {
+    "ville": "Vernou-la-Celle-sur-Seine",
+    "codes_postaux": [
+      "77670"
+    ],
+    "latitude": 48.4058,
+    "longitude": 2.851
+  },
+  {
+    "ville": "Vert-Saint-Denis",
+    "codes_postaux": [
+      "77240"
+    ],
+    "latitude": 48.5654,
+    "longitude": 2.6266
+  },
+  {
+    "ville": "Vieux-Champagne",
+    "codes_postaux": [
+      "77370"
+    ],
+    "latitude": 48.5886,
+    "longitude": 3.1427
+  },
+  {
+    "ville": "Vignely",
+    "codes_postaux": [
+      "77450"
+    ],
+    "latitude": 48.9312,
+    "longitude": 2.8178
+  },
+  {
+    "ville": "Villebéon",
+    "codes_postaux": [
+      "77710"
+    ],
+    "latitude": 48.2033,
+    "longitude": 2.9277
+  },
+  {
+    "ville": "Villecerf",
+    "codes_postaux": [
+      "77250"
+    ],
+    "latitude": 48.3271,
+    "longitude": 2.8439
+  },
+  {
+    "ville": "Villemaréchal",
+    "codes_postaux": [
+      "77710"
+    ],
+    "latitude": 48.2731,
+    "longitude": 2.8784
+  },
+  {
+    "ville": "Villemareuil",
+    "codes_postaux": [
+      "77470"
+    ],
+    "latitude": 48.9206,
+    "longitude": 2.9861
+  },
+  {
+    "ville": "Villemer",
+    "codes_postaux": [
+      "77250"
+    ],
+    "latitude": 48.3015,
+    "longitude": 2.8226
+  },
+  {
+    "ville": "Villenauxe-la-Petite",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.4016,
+    "longitude": 3.312
+  },
+  {
+    "ville": "Villeneuve-le-Comte",
+    "codes_postaux": [
+      "77174"
+    ],
+    "latitude": 48.8112,
+    "longitude": 2.8391
+  },
+  {
+    "ville": "Villeneuve-les-Bordes",
+    "codes_postaux": [
+      "77154"
+    ],
+    "latitude": 48.4948,
+    "longitude": 3.0278
+  },
+  {
+    "ville": "Villeneuve-Saint-Denis",
+    "codes_postaux": [
+      "77174"
+    ],
+    "latitude": 48.8126,
+    "longitude": 2.7929
+  },
+  {
+    "ville": "Villeneuve-sous-Dammartin",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.0281,
+    "longitude": 2.6351
+  },
+  {
+    "ville": "Villeneuve-sur-Bellot",
+    "codes_postaux": [
+      "77510"
+    ],
+    "latitude": 48.8774,
+    "longitude": 3.3328
+  },
+  {
+    "ville": "Villenoy",
+    "codes_postaux": [
+      "77124"
+    ],
+    "latitude": 48.9406,
+    "longitude": 2.8516
+  },
+  {
+    "ville": "Villeparisis",
+    "codes_postaux": [
+      "77270"
+    ],
+    "latitude": 48.9408,
+    "longitude": 2.6178
+  },
+  {
+    "ville": "Villeroy",
+    "codes_postaux": [
+      "77410"
+    ],
+    "latitude": 48.9813,
+    "longitude": 2.778
+  },
+  {
+    "ville": "Ville-Saint-Jacques",
+    "codes_postaux": [
+      "77130"
+    ],
+    "latitude": 48.3436,
+    "longitude": 2.8994
+  },
+  {
+    "ville": "Villevaudé",
+    "codes_postaux": [
+      "77410"
+    ],
+    "latitude": 48.9137,
+    "longitude": 2.6647
+  },
+  {
+    "ville": "Villiers-en-Bière",
+    "codes_postaux": [
+      "77190"
+    ],
+    "latitude": 48.4966,
+    "longitude": 2.6045
+  },
+  {
+    "ville": "Villiers-Saint-Georges",
+    "codes_postaux": [
+      "77560"
+    ],
+    "latitude": 48.6534,
+    "longitude": 3.4089
+  },
+  {
+    "ville": "Villiers-sous-Grez",
+    "codes_postaux": [
+      "77760"
+    ],
+    "latitude": 48.3144,
+    "longitude": 2.6396
+  },
+  {
+    "ville": "Villiers-sur-Morin",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.8506,
+    "longitude": 2.8679
+  },
+  {
+    "ville": "Villiers-sur-Seine",
+    "codes_postaux": [
+      "77114"
+    ],
+    "latitude": 48.4569,
+    "longitude": 3.383
+  },
+  {
+    "ville": "Villuis",
+    "codes_postaux": [
+      "77480"
+    ],
+    "latitude": 48.4019,
+    "longitude": 3.3575
+  },
+  {
+    "ville": "Vimpelles",
+    "codes_postaux": [
+      "77520"
+    ],
+    "latitude": 48.4436,
+    "longitude": 3.1678
+  },
+  {
+    "ville": "Vinantes",
+    "codes_postaux": [
+      "77230"
+    ],
+    "latitude": 49.0034,
+    "longitude": 2.7386
+  },
+  {
+    "ville": "Vincy-Manœuvre",
+    "codes_postaux": [
+      "77139"
+    ],
+    "latitude": 49.0752,
+    "longitude": 2.9553
+  },
+  {
+    "ville": "Voinsles",
+    "codes_postaux": [
+      "77540"
+    ],
+    "latitude": 48.6809,
+    "longitude": 3.0176
+  },
+  {
+    "ville": "Voisenon",
+    "codes_postaux": [
+      "77950"
+    ],
+    "latitude": 48.5695,
+    "longitude": 2.6637
+  },
+  {
+    "ville": "Voulangis",
+    "codes_postaux": [
+      "77580"
+    ],
+    "latitude": 48.8382,
+    "longitude": 2.892
+  },
+  {
+    "ville": "Voulton",
+    "codes_postaux": [
+      "77560"
+    ],
+    "latitude": 48.6142,
+    "longitude": 3.3411
+  },
+  {
+    "ville": "Voulx",
+    "codes_postaux": [
+      "77940"
+    ],
+    "latitude": 48.2876,
+    "longitude": 2.9688
+  },
+  {
+    "ville": "Vulaines-lès-Provins",
+    "codes_postaux": [
+      "77160"
+    ],
+    "latitude": 48.5637,
+    "longitude": 3.2208
+  },
+  {
+    "ville": "Vulaines-sur-Seine",
+    "codes_postaux": [
+      "77870"
+    ],
+    "latitude": 48.4335,
+    "longitude": 2.7757
+  },
+  {
+    "ville": "Yèbles",
+    "codes_postaux": [
+      "77390"
+    ],
+    "latitude": 48.6378,
+    "longitude": 2.7708
+  },
+  {
+    "ville": "Ablis",
+    "codes_postaux": [
+      "78660"
+    ],
+    "latitude": 48.5292,
+    "longitude": 1.8565
+  },
+  {
+    "ville": "Achères",
+    "codes_postaux": [
+      "78260"
+    ],
+    "latitude": 48.9817,
+    "longitude": 2.1095
+  },
+  {
+    "ville": "Adainville",
+    "codes_postaux": [
+      "78113"
+    ],
+    "latitude": 48.7206,
+    "longitude": 1.6629
+  },
+  {
+    "ville": "Aigremont",
+    "codes_postaux": [
+      "78240"
+    ],
+    "latitude": 48.9027,
+    "longitude": 2.0127
+  },
+  {
+    "ville": "Allainville",
+    "codes_postaux": [
+      "78660"
+    ],
+    "latitude": 48.4673,
+    "longitude": 1.9038
+  },
+  {
+    "ville": "Les Alluets-le-Roi",
+    "codes_postaux": [
+      "78580"
+    ],
+    "latitude": 48.914,
+    "longitude": 1.913
+  },
+  {
+    "ville": "Andelu",
+    "codes_postaux": [
+      "78770"
+    ],
+    "latitude": 48.887,
+    "longitude": 1.8094
+  },
+  {
+    "ville": "Andrésy",
+    "codes_postaux": [
+      "78570"
+    ],
+    "latitude": 48.9778,
+    "longitude": 2.0496
+  },
+  {
+    "ville": "Arnouville-lès-Mantes",
+    "codes_postaux": [
+      "78790"
+    ],
+    "latitude": 48.911,
+    "longitude": 1.7225
+  },
+  {
+    "ville": "Aubergenville",
+    "codes_postaux": [
+      "78410"
+    ],
+    "latitude": 48.9609,
+    "longitude": 1.844
+  },
+  {
+    "ville": "Auffargis",
+    "codes_postaux": [
+      "78610"
+    ],
+    "latitude": 48.6824,
+    "longitude": 1.8994
+  },
+  {
+    "ville": "Auffreville-Brasseuil",
+    "codes_postaux": [
+      "78930"
+    ],
+    "latitude": 48.9543,
+    "longitude": 1.7057
+  },
+  {
+    "ville": "Aulnay-sur-Mauldre",
+    "codes_postaux": [
+      "78126"
+    ],
+    "latitude": 48.9294,
+    "longitude": 1.84
+  },
+  {
+    "ville": "Auteuil",
+    "codes_postaux": [
+      "78770"
+    ],
+    "latitude": 48.8415,
+    "longitude": 1.8172
+  },
+  {
+    "ville": "Autouillet",
+    "codes_postaux": [
+      "78770"
+    ],
+    "latitude": 48.8451,
+    "longitude": 1.7958
+  },
+  {
+    "ville": "Bailly",
+    "codes_postaux": [
+      "78870"
+    ],
+    "latitude": 48.8366,
+    "longitude": 2.0809
+  },
+  {
+    "ville": "Bazainville",
+    "codes_postaux": [
+      "78550"
+    ],
+    "latitude": 48.8121,
+    "longitude": 1.6659
+  },
+  {
+    "ville": "Bazemont",
+    "codes_postaux": [
+      "78580"
+    ],
+    "latitude": 48.9321,
+    "longitude": 1.8761
+  },
+  {
+    "ville": "Bazoches-sur-Guyonne",
+    "codes_postaux": [
+      "78490"
+    ],
+    "latitude": 48.7792,
+    "longitude": 1.8489
+  },
+  {
+    "ville": "Béhoust",
+    "codes_postaux": [
+      "78910"
+    ],
+    "latitude": 48.8324,
+    "longitude": 1.7247
+  },
+  {
+    "ville": "Bennecourt",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 49.0484,
+    "longitude": 1.5654
+  },
+  {
+    "ville": "Beynes",
+    "codes_postaux": [
+      "78650"
+    ],
+    "latitude": 48.8528,
+    "longitude": 1.8748
+  },
+  {
+    "ville": "Blaru",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 49.0413,
+    "longitude": 1.4846
+  },
+  {
+    "ville": "Boinville-en-Mantois",
+    "codes_postaux": [
+      "78930"
+    ],
+    "latitude": 48.9272,
+    "longitude": 1.7491
+  },
+  {
+    "ville": "Boinville-le-Gaillard",
+    "codes_postaux": [
+      "78660"
+    ],
+    "latitude": 48.4958,
+    "longitude": 1.8698
+  },
+  {
+    "ville": "Boinvilliers",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.9188,
+    "longitude": 1.661
+  },
+  {
+    "ville": "Bois-d'Arcy",
+    "codes_postaux": [
+      "78390"
+    ],
+    "latitude": 48.806,
+    "longitude": 2.0223
+  },
+  {
+    "ville": "Boissets",
+    "codes_postaux": [
+      "78910"
+    ],
+    "latitude": 48.8578,
+    "longitude": 1.5859
+  },
+  {
+    "ville": "La Boissière-École",
+    "codes_postaux": [
+      "78125"
+    ],
+    "latitude": 48.6911,
+    "longitude": 1.6661
+  },
+  {
+    "ville": "Boissy-Mauvoisin",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.965,
+    "longitude": 1.5831
+  },
+  {
+    "ville": "Boissy-sans-Avoir",
+    "codes_postaux": [
+      "78490"
+    ],
+    "latitude": 48.8211,
+    "longitude": 1.7979
+  },
+  {
+    "ville": "Bonnelles",
+    "codes_postaux": [
+      "78830"
+    ],
+    "latitude": 48.6203,
+    "longitude": 2.0327
+  },
+  {
+    "ville": "Bonnières-sur-Seine",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 49.0168,
+    "longitude": 1.5685
+  },
+  {
+    "ville": "Bouafle",
+    "codes_postaux": [
+      "78410"
+    ],
+    "latitude": 48.9566,
+    "longitude": 1.8997
+  },
+  {
+    "ville": "Bougival",
+    "codes_postaux": [
+      "78380"
+    ],
+    "latitude": 48.8627,
+    "longitude": 2.1394
+  },
+  {
+    "ville": "Bourdonné",
+    "codes_postaux": [
+      "78113"
+    ],
+    "latitude": 48.7556,
+    "longitude": 1.6559
+  },
+  {
+    "ville": "Breuil-Bois-Robert",
+    "codes_postaux": [
+      "78930"
+    ],
+    "latitude": 48.9447,
+    "longitude": 1.7129
+  },
+  {
+    "ville": "Bréval",
+    "codes_postaux": [
+      "78980"
+    ],
+    "latitude": 48.9567,
+    "longitude": 1.5402
+  },
+  {
+    "ville": "Les Bréviaires",
+    "codes_postaux": [
+      "78610"
+    ],
+    "latitude": 48.7172,
+    "longitude": 1.8177
+  },
+  {
+    "ville": "Brueil-en-Vexin",
+    "codes_postaux": [
+      "78440"
+    ],
+    "latitude": 49.0279,
+    "longitude": 1.8083
+  },
+  {
+    "ville": "Buc",
+    "codes_postaux": [
+      "78530"
+    ],
+    "latitude": 48.7736,
+    "longitude": 2.125
+  },
+  {
+    "ville": "Buchelay",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.983,
+    "longitude": 1.6788
+  },
+  {
+    "ville": "Bullion",
+    "codes_postaux": [
+      "78830"
+    ],
+    "latitude": 48.6267,
+    "longitude": 1.9758
+  },
+  {
+    "ville": "Carrières-sous-Poissy",
+    "codes_postaux": [
+      "78955"
+    ],
+    "latitude": 48.9469,
+    "longitude": 2.0264
+  },
+  {
+    "ville": "Carrières-sur-Seine",
+    "codes_postaux": [
+      "78420"
+    ],
+    "latitude": 48.9128,
+    "longitude": 2.1812
+  },
+  {
+    "ville": "La Celle-les-Bordes",
+    "codes_postaux": [
+      "78720"
+    ],
+    "latitude": 48.6382,
+    "longitude": 1.9459
+  },
+  {
+    "ville": "La Celle-Saint-Cloud",
+    "codes_postaux": [
+      "78170"
+    ],
+    "latitude": 48.8498,
+    "longitude": 2.1342
+  },
+  {
+    "ville": "Cernay-la-Ville",
+    "codes_postaux": [
+      "78720"
+    ],
+    "latitude": 48.6697,
+    "longitude": 1.9617
+  },
+  {
+    "ville": "Chambourcy",
+    "codes_postaux": [
+      "78240"
+    ],
+    "latitude": 48.8973,
+    "longitude": 2.0267
+  },
+  {
+    "ville": "Chanteloup-les-Vignes",
+    "codes_postaux": [
+      "78570"
+    ],
+    "latitude": 48.9773,
+    "longitude": 2.0336
+  },
+  {
+    "ville": "Chapet",
+    "codes_postaux": [
+      "78130"
+    ],
+    "latitude": 48.9681,
+    "longitude": 1.9383
+  },
+  {
+    "ville": "Châteaufort",
+    "codes_postaux": [
+      "78117"
+    ],
+    "latitude": 48.7371,
+    "longitude": 2.0956
+  },
+  {
+    "ville": "Chatou",
+    "codes_postaux": [
+      "78400"
+    ],
+    "latitude": 48.8964,
+    "longitude": 2.1502
+  },
+  {
+    "ville": "Chaufour-lès-Bonnières",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 49.0161,
+    "longitude": 1.4842
+  },
+  {
+    "ville": "Chavenay",
+    "codes_postaux": [
+      "78450"
+    ],
+    "latitude": 48.8471,
+    "longitude": 1.9862
+  },
+  {
+    "ville": "Le Chesnay-Rocquencourt",
+    "codes_postaux": [
+      "78150"
+    ],
+    "latitude": 48.8285,
+    "longitude": 2.1188
+  },
+  {
+    "ville": "Chevreuse",
+    "codes_postaux": [
+      "78460"
+    ],
+    "latitude": 48.7035,
+    "longitude": 2.0343
+  },
+  {
+    "ville": "Choisel",
+    "codes_postaux": [
+      "78460"
+    ],
+    "latitude": 48.6754,
+    "longitude": 2.0159
+  },
+  {
+    "ville": "Civry-la-Forêt",
+    "codes_postaux": [
+      "78910"
+    ],
+    "latitude": 48.8647,
+    "longitude": 1.6187
+  },
+  {
+    "ville": "Clairefontaine-en-Yvelines",
+    "codes_postaux": [
+      "78120"
+    ],
+    "latitude": 48.6172,
+    "longitude": 1.905
+  },
+  {
+    "ville": "Les Clayes-sous-Bois",
+    "codes_postaux": [
+      "78340"
+    ],
+    "latitude": 48.8168,
+    "longitude": 1.9835
+  },
+  {
+    "ville": "Coignières",
+    "codes_postaux": [
+      "78310"
+    ],
+    "latitude": 48.7506,
+    "longitude": 1.9178
+  },
+  {
+    "ville": "Condé-sur-Vesgre",
+    "codes_postaux": [
+      "78113"
+    ],
+    "latitude": 48.7308,
+    "longitude": 1.669
+  },
+  {
+    "ville": "Conflans-Sainte-Honorine",
+    "codes_postaux": [
+      "78700"
+    ],
+    "latitude": 49.0016,
+    "longitude": 2.0992
+  },
+  {
+    "ville": "Courgent",
+    "codes_postaux": [
+      "78790"
+    ],
+    "latitude": 48.8971,
+    "longitude": 1.6595
+  },
+  {
+    "ville": "Cravent",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 48.9901,
+    "longitude": 1.4844
+  },
+  {
+    "ville": "Crespières",
+    "codes_postaux": [
+      "78121"
+    ],
+    "latitude": 48.8809,
+    "longitude": 1.9185
+  },
+  {
+    "ville": "Croissy-sur-Seine",
+    "codes_postaux": [
+      "78290"
+    ],
+    "latitude": 48.8805,
+    "longitude": 2.1342
+  },
+  {
+    "ville": "Dammartin-en-Serve",
+    "codes_postaux": [
+      "78111"
+    ],
+    "latitude": 48.9125,
+    "longitude": 1.6193
+  },
+  {
+    "ville": "Dampierre-en-Yvelines",
+    "codes_postaux": [
+      "78720"
+    ],
+    "latitude": 48.7065,
+    "longitude": 1.9789
+  },
+  {
+    "ville": "Dannemarie",
+    "codes_postaux": [
+      "78550"
+    ],
+    "latitude": 48.7623,
+    "longitude": 1.6036
+  },
+  {
+    "ville": "Davron",
+    "codes_postaux": [
+      "78810"
+    ],
+    "latitude": 48.8664,
+    "longitude": 1.946
+  },
+  {
+    "ville": "Drocourt",
+    "codes_postaux": [
+      "78440"
+    ],
+    "latitude": 49.0528,
+    "longitude": 1.7702
+  },
+  {
+    "ville": "Ecquevilly",
+    "codes_postaux": [
+      "78920"
+    ],
+    "latitude": 48.9482,
+    "longitude": 1.925
+  },
+  {
+    "ville": "Élancourt",
+    "codes_postaux": [
+      "78990"
+    ],
+    "latitude": 48.7771,
+    "longitude": 1.9612
+  },
+  {
+    "ville": "Émancé",
+    "codes_postaux": [
+      "78125"
+    ],
+    "latitude": 48.5906,
+    "longitude": 1.7342
+  },
+  {
+    "ville": "Épône",
+    "codes_postaux": [
+      "78680"
+    ],
+    "latitude": 48.9459,
+    "longitude": 1.8119
+  },
+  {
+    "ville": "Les Essarts-le-Roi",
+    "codes_postaux": [
+      "78690"
+    ],
+    "latitude": 48.713,
+    "longitude": 1.8905
+  },
+  {
+    "ville": "L'Étang-la-Ville",
+    "codes_postaux": [
+      "78620"
+    ],
+    "latitude": 48.8673,
+    "longitude": 2.0586
+  },
+  {
+    "ville": "Évecquemont",
+    "codes_postaux": [
+      "78740"
+    ],
+    "latitude": 49.0182,
+    "longitude": 1.9392
+  },
+  {
+    "ville": "La Falaise",
+    "codes_postaux": [
+      "78410"
+    ],
+    "latitude": 48.9385,
+    "longitude": 1.8246
+  },
+  {
+    "ville": "Favrieux",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.9439,
+    "longitude": 1.6407
+  },
+  {
+    "ville": "Feucherolles",
+    "codes_postaux": [
+      "78810"
+    ],
+    "latitude": 48.8787,
+    "longitude": 1.9847
+  },
+  {
+    "ville": "Flacourt",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.9312,
+    "longitude": 1.6416
+  },
+  {
+    "ville": "Flexanville",
+    "codes_postaux": [
+      "78910"
+    ],
+    "latitude": 48.8569,
+    "longitude": 1.7415
+  },
+  {
+    "ville": "Flins-Neuve-Église",
+    "codes_postaux": [
+      "78790"
+    ],
+    "latitude": 48.8927,
+    "longitude": 1.5773
+  },
+  {
+    "ville": "Flins-sur-Seine",
+    "codes_postaux": [
+      "78410"
+    ],
+    "latitude": 48.9664,
+    "longitude": 1.8721
+  },
+  {
+    "ville": "Follainville-Dennemont",
+    "codes_postaux": [
+      "78520"
+    ],
+    "latitude": 49.0293,
+    "longitude": 1.7027
+  },
+  {
+    "ville": "Fontenay-le-Fleury",
+    "codes_postaux": [
+      "78330"
+    ],
+    "latitude": 48.8169,
+    "longitude": 2.0477
+  },
+  {
+    "ville": "Fontenay-Mauvoisin",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.9601,
+    "longitude": 1.6486
+  },
+  {
+    "ville": "Fontenay-Saint-Père",
+    "codes_postaux": [
+      "78440"
+    ],
+    "latitude": 49.0274,
+    "longitude": 1.7576
+  },
+  {
+    "ville": "Freneuse",
+    "codes_postaux": [
+      "78840"
+    ],
+    "latitude": 49.0489,
+    "longitude": 1.6139
+  },
+  {
+    "ville": "Gaillon-sur-Montcient",
+    "codes_postaux": [
+      "78250"
+    ],
+    "latitude": 49.03,
+    "longitude": 1.8979
+  },
+  {
+    "ville": "Galluis",
+    "codes_postaux": [
+      "78490"
+    ],
+    "latitude": 48.7984,
+    "longitude": 1.7898
+  },
+  {
+    "ville": "Gambais",
+    "codes_postaux": [
+      "78950"
+    ],
+    "latitude": 48.7774,
+    "longitude": 1.6732
+  },
+  {
+    "ville": "Gambaiseuil",
+    "codes_postaux": [
+      "78490"
+    ],
+    "latitude": 48.7614,
+    "longitude": 1.7221
+  },
+  {
+    "ville": "Garancières",
+    "codes_postaux": [
+      "78890"
+    ],
+    "latitude": 48.8223,
+    "longitude": 1.7602
+  },
+  {
+    "ville": "Gargenville",
+    "codes_postaux": [
+      "78440"
+    ],
+    "latitude": 48.9938,
+    "longitude": 1.8112
+  },
+  {
+    "ville": "Gazeran",
+    "codes_postaux": [
+      "78125"
+    ],
+    "latitude": 48.6375,
+    "longitude": 1.7785
+  },
+  {
+    "ville": "Gommecourt",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 49.0697,
+    "longitude": 1.5931
+  },
+  {
+    "ville": "Goupillières",
+    "codes_postaux": [
+      "78770"
+    ],
+    "latitude": 48.882,
+    "longitude": 1.7651
+  },
+  {
+    "ville": "Goussonville",
+    "codes_postaux": [
+      "78930"
+    ],
+    "latitude": 48.9251,
+    "longitude": 1.7668
+  },
+  {
+    "ville": "Grandchamp",
+    "codes_postaux": [
+      "78113"
+    ],
+    "latitude": 48.7207,
+    "longitude": 1.6141
+  },
+  {
+    "ville": "Gressey",
+    "codes_postaux": [
+      "78550"
+    ],
+    "latitude": 48.833,
+    "longitude": 1.6009
+  },
+  {
+    "ville": "Grosrouvre",
+    "codes_postaux": [
+      "78490"
+    ],
+    "latitude": 48.7799,
+    "longitude": 1.7609
+  },
+  {
+    "ville": "Guernes",
+    "codes_postaux": [
+      "78520"
+    ],
+    "latitude": 49.0164,
+    "longitude": 1.6435
+  },
+  {
+    "ville": "Guerville",
+    "codes_postaux": [
+      "78930"
+    ],
+    "latitude": 48.9544,
+    "longitude": 1.7409
+  },
+  {
+    "ville": "Guitrancourt",
+    "codes_postaux": [
+      "78440"
+    ],
+    "latitude": 49.01,
+    "longitude": 1.7775
+  },
+  {
+    "ville": "Guyancourt",
+    "codes_postaux": [
+      "78280"
+    ],
+    "latitude": 48.7735,
+    "longitude": 2.0745
+  },
+  {
+    "ville": "Hardricourt",
+    "codes_postaux": [
+      "78250"
+    ],
+    "latitude": 49.0092,
+    "longitude": 1.8834
+  },
+  {
+    "ville": "Hargeville",
+    "codes_postaux": [
+      "78790"
+    ],
+    "latitude": 48.8953,
+    "longitude": 1.7464
+  },
+  {
+    "ville": "La Hauteville",
+    "codes_postaux": [
+      "78113"
+    ],
+    "latitude": 48.7049,
+    "longitude": 1.6257
+  },
+  {
+    "ville": "Herbeville",
+    "codes_postaux": [
+      "78580"
+    ],
+    "latitude": 48.903,
+    "longitude": 1.8901
+  },
+  {
+    "ville": "Hermeray",
+    "codes_postaux": [
+      "78125"
+    ],
+    "latitude": 48.6549,
+    "longitude": 1.688
+  },
+  {
+    "ville": "Houdan",
+    "codes_postaux": [
+      "78550"
+    ],
+    "latitude": 48.7968,
+    "longitude": 1.5981
+  },
+  {
+    "ville": "Houilles",
+    "codes_postaux": [
+      "78800"
+    ],
+    "latitude": 48.9266,
+    "longitude": 2.1866
+  },
+  {
+    "ville": "Issou",
+    "codes_postaux": [
+      "78440"
+    ],
+    "latitude": 48.9884,
+    "longitude": 1.7865
+  },
+  {
+    "ville": "Jambville",
+    "codes_postaux": [
+      "78440"
+    ],
+    "latitude": 49.0489,
+    "longitude": 1.8483
+  },
+  {
+    "ville": "Notre-Dame-de-la-Mer",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 49.0552,
+    "longitude": 1.5292
+  },
+  {
+    "ville": "Jouars-Pontchartrain",
+    "codes_postaux": [
+      "78760"
+    ],
+    "latitude": 48.7874,
+    "longitude": 1.913
+  },
+  {
+    "ville": "Jouy-en-Josas",
+    "codes_postaux": [
+      "78350"
+    ],
+    "latitude": 48.7652,
+    "longitude": 2.161
+  },
+  {
+    "ville": "Jouy-Mauvoisin",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.9746,
+    "longitude": 1.6461
+  },
+  {
+    "ville": "Jumeauville",
+    "codes_postaux": [
+      "78580"
+    ],
+    "latitude": 48.9087,
+    "longitude": 1.7827
+  },
+  {
+    "ville": "Juziers",
+    "codes_postaux": [
+      "78820"
+    ],
+    "latitude": 48.9991,
+    "longitude": 1.842
+  },
+  {
+    "ville": "Lainville-en-Vexin",
+    "codes_postaux": [
+      "78440"
+    ],
+    "latitude": 49.0585,
+    "longitude": 1.8182
+  },
+  {
+    "ville": "Lévis-Saint-Nom",
+    "codes_postaux": [
+      "78320"
+    ],
+    "latitude": 48.7248,
+    "longitude": 1.9336
+  },
+  {
+    "ville": "Limay",
+    "codes_postaux": [
+      "78520"
+    ],
+    "latitude": 48.9911,
+    "longitude": 1.7367
+  },
+  {
+    "ville": "Limetz-Villez",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 49.0585,
+    "longitude": 1.5512
+  },
+  {
+    "ville": "Les Loges-en-Josas",
+    "codes_postaux": [
+      "78350"
+    ],
+    "latitude": 48.7617,
+    "longitude": 2.1412
+  },
+  {
+    "ville": "Lommoye",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 48.9985,
+    "longitude": 1.5181
+  },
+  {
+    "ville": "Longnes",
+    "codes_postaux": [
+      "78980"
+    ],
+    "latitude": 48.9201,
+    "longitude": 1.5753
+  },
+  {
+    "ville": "Longvilliers",
+    "codes_postaux": [
+      "78730"
+    ],
+    "latitude": 48.5781,
+    "longitude": 1.9969
+  },
+  {
+    "ville": "Louveciennes",
+    "codes_postaux": [
+      "78430"
+    ],
+    "latitude": 48.8595,
+    "longitude": 2.1132
+  },
+  {
+    "ville": "Magnanville",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.9685,
+    "longitude": 1.6842
+  },
+  {
+    "ville": "Magny-les-Hameaux",
+    "codes_postaux": [
+      "78114"
+    ],
+    "latitude": 48.7379,
+    "longitude": 2.0494
+  },
+  {
+    "ville": "Maisons-Laffitte",
+    "codes_postaux": [
+      "78600"
+    ],
+    "latitude": 48.9503,
+    "longitude": 2.1533
+  },
+  {
+    "ville": "Mantes-la-Jolie",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.9961,
+    "longitude": 1.6918
+  },
+  {
+    "ville": "Mantes-la-Ville",
+    "codes_postaux": [
+      "78711"
+    ],
+    "latitude": 48.9752,
+    "longitude": 1.7103
+  },
+  {
+    "ville": "Marcq",
+    "codes_postaux": [
+      "78770"
+    ],
+    "latitude": 48.8645,
+    "longitude": 1.8221
+  },
+  {
+    "ville": "Mareil-le-Guyon",
+    "codes_postaux": [
+      "78490"
+    ],
+    "latitude": 48.7899,
+    "longitude": 1.8531
+  },
+  {
+    "ville": "Mareil-Marly",
+    "codes_postaux": [
+      "78750"
+    ],
+    "latitude": 48.88,
+    "longitude": 2.0775
+  },
+  {
+    "ville": "Mareil-sur-Mauldre",
+    "codes_postaux": [
+      "78124"
+    ],
+    "latitude": 48.8893,
+    "longitude": 1.8747
+  },
+  {
+    "ville": "Marly-le-Roi",
+    "codes_postaux": [
+      "78160"
+    ],
+    "latitude": 48.866,
+    "longitude": 2.0892
+  },
+  {
+    "ville": "Maule",
+    "codes_postaux": [
+      "78580"
+    ],
+    "latitude": 48.9058,
+    "longitude": 1.8409
+  },
+  {
+    "ville": "Maulette",
+    "codes_postaux": [
+      "78550"
+    ],
+    "latitude": 48.7842,
+    "longitude": 1.6111
+  },
+  {
+    "ville": "Maurecourt",
+    "codes_postaux": [
+      "78780"
+    ],
+    "latitude": 48.9994,
+    "longitude": 2.0479
+  },
+  {
+    "ville": "Maurepas",
+    "codes_postaux": [
+      "78310"
+    ],
+    "latitude": 48.7712,
+    "longitude": 1.925
+  },
+  {
+    "ville": "Médan",
+    "codes_postaux": [
+      "78670"
+    ],
+    "latitude": 48.9559,
+    "longitude": 1.9858
+  },
+  {
+    "ville": "Ménerville",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.9568,
+    "longitude": 1.5971
+  },
+  {
+    "ville": "Méré",
+    "codes_postaux": [
+      "78490"
+    ],
+    "latitude": 48.7954,
+    "longitude": 1.8188
+  },
+  {
+    "ville": "Méricourt",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 49.037,
+    "longitude": 1.6254
+  },
+  {
+    "ville": "Le Mesnil-le-Roi",
+    "codes_postaux": [
+      "78600"
+    ],
+    "latitude": 48.9249,
+    "longitude": 2.1234
+  },
+  {
+    "ville": "Le Mesnil-Saint-Denis",
+    "codes_postaux": [
+      "78320"
+    ],
+    "latitude": 48.7389,
+    "longitude": 1.9619
+  },
+  {
+    "ville": "Les Mesnuls",
+    "codes_postaux": [
+      "78490"
+    ],
+    "latitude": 48.7542,
+    "longitude": 1.8339
+  },
+  {
+    "ville": "Meulan-en-Yvelines",
+    "codes_postaux": [
+      "78250"
+    ],
+    "latitude": 49.0051,
+    "longitude": 1.909
+  },
+  {
+    "ville": "Mézières-sur-Seine",
+    "codes_postaux": [
+      "78970"
+    ],
+    "latitude": 48.9481,
+    "longitude": 1.782
+  },
+  {
+    "ville": "Mézy-sur-Seine",
+    "codes_postaux": [
+      "78250"
+    ],
+    "latitude": 49.0033,
+    "longitude": 1.8692
+  },
+  {
+    "ville": "Millemont",
+    "codes_postaux": [
+      "78940"
+    ],
+    "latitude": 48.8095,
+    "longitude": 1.7258
+  },
+  {
+    "ville": "Milon-la-Chapelle",
+    "codes_postaux": [
+      "78470"
+    ],
+    "latitude": 48.7298,
+    "longitude": 2.0461
+  },
+  {
+    "ville": "Mittainville",
+    "codes_postaux": [
+      "78125"
+    ],
+    "latitude": 48.6639,
+    "longitude": 1.6363
+  },
+  {
+    "ville": "Moisson",
+    "codes_postaux": [
+      "78840"
+    ],
+    "latitude": 49.0663,
+    "longitude": 1.6587
+  },
+  {
+    "ville": "Mondreville",
+    "codes_postaux": [
+      "78980"
+    ],
+    "latitude": 48.9034,
+    "longitude": 1.5568
+  },
+  {
+    "ville": "Montainville",
+    "codes_postaux": [
+      "78124"
+    ],
+    "latitude": 48.8807,
+    "longitude": 1.8539
+  },
+  {
+    "ville": "Montalet-le-Bois",
+    "codes_postaux": [
+      "78440"
+    ],
+    "latitude": 49.0471,
+    "longitude": 1.8287
+  },
+  {
+    "ville": "Montchauvet",
+    "codes_postaux": [
+      "78790"
+    ],
+    "latitude": 48.8944,
+    "longitude": 1.6265
+  },
+  {
+    "ville": "Montesson",
+    "codes_postaux": [
+      "78360"
+    ],
+    "latitude": 48.919,
+    "longitude": 2.1381
+  },
+  {
+    "ville": "Montfort-l'Amaury",
+    "codes_postaux": [
+      "78490"
+    ],
+    "latitude": 48.7717,
+    "longitude": 1.8081
+  },
+  {
+    "ville": "Montigny-le-Bretonneux",
+    "codes_postaux": [
+      "78180"
+    ],
+    "latitude": 48.7776,
+    "longitude": 2.0252
+  },
+  {
+    "ville": "Morainvilliers",
+    "codes_postaux": [
+      "78630"
+    ],
+    "latitude": 48.9351,
+    "longitude": 1.9437
+  },
+  {
+    "ville": "Mousseaux-sur-Seine",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 49.051,
+    "longitude": 1.6548
+  },
+  {
+    "ville": "Mulcent",
+    "codes_postaux": [
+      "78790"
+    ],
+    "latitude": 48.879,
+    "longitude": 1.6524
+  },
+  {
+    "ville": "Les Mureaux",
+    "codes_postaux": [
+      "78130"
+    ],
+    "latitude": 48.9877,
+    "longitude": 1.911
+  },
+  {
+    "ville": "Neauphle-le-Château",
+    "codes_postaux": [
+      "78640"
+    ],
+    "latitude": 48.8122,
+    "longitude": 1.9031
+  },
+  {
+    "ville": "Neauphle-le-Vieux",
+    "codes_postaux": [
+      "78640"
+    ],
+    "latitude": 48.8166,
+    "longitude": 1.8634
+  },
+  {
+    "ville": "Neauphlette",
+    "codes_postaux": [
+      "78980"
+    ],
+    "latitude": 48.9358,
+    "longitude": 1.5446
+  },
+  {
+    "ville": "Nézel",
+    "codes_postaux": [
+      "78410"
+    ],
+    "latitude": 48.9428,
+    "longitude": 1.8398
+  },
+  {
+    "ville": "Noisy-le-Roi",
+    "codes_postaux": [
+      "78590"
+    ],
+    "latitude": 48.8466,
+    "longitude": 2.0542
+  },
+  {
+    "ville": "Oinville-sur-Montcient",
+    "codes_postaux": [
+      "78250"
+    ],
+    "latitude": 49.0249,
+    "longitude": 1.8474
+  },
+  {
+    "ville": "Orcemont",
+    "codes_postaux": [
+      "78125"
+    ],
+    "latitude": 48.5958,
+    "longitude": 1.8031
+  },
+  {
+    "ville": "Orgerus",
+    "codes_postaux": [
+      "78910"
+    ],
+    "latitude": 48.8351,
+    "longitude": 1.695
+  },
+  {
+    "ville": "Orgeval",
+    "codes_postaux": [
+      "78630"
+    ],
+    "latitude": 48.9185,
+    "longitude": 1.9698
+  },
+  {
+    "ville": "Orphin",
+    "codes_postaux": [
+      "78125"
+    ],
+    "latitude": 48.5763,
+    "longitude": 1.7842
+  },
+  {
+    "ville": "Orsonville",
+    "codes_postaux": [
+      "78660"
+    ],
+    "latitude": 48.4778,
+    "longitude": 1.8227
+  },
+  {
+    "ville": "Orvilliers",
+    "codes_postaux": [
+      "78910"
+    ],
+    "latitude": 48.8549,
+    "longitude": 1.6423
+  },
+  {
+    "ville": "Osmoy",
+    "codes_postaux": [
+      "78910"
+    ],
+    "latitude": 48.8645,
+    "longitude": 1.7162
+  },
+  {
+    "ville": "Paray-Douaville",
+    "codes_postaux": [
+      "78660"
+    ],
+    "latitude": 48.4607,
+    "longitude": 1.8615
+  },
+  {
+    "ville": "Le Pecq",
+    "codes_postaux": [
+      "78230"
+    ],
+    "latitude": 48.8924,
+    "longitude": 2.1022
+  },
+  {
+    "ville": "Perdreauville",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.9666,
+    "longitude": 1.6056
+  },
+  {
+    "ville": "Le Perray-en-Yvelines",
+    "codes_postaux": [
+      "78610"
+    ],
+    "latitude": 48.6988,
+    "longitude": 1.8424
+  },
+  {
+    "ville": "Plaisir",
+    "codes_postaux": [
+      "78370"
+    ],
+    "latitude": 48.8129,
+    "longitude": 1.9483
+  },
+  {
+    "ville": "Poigny-la-Forêt",
+    "codes_postaux": [
+      "78125"
+    ],
+    "latitude": 48.6803,
+    "longitude": 1.7549
+  },
+  {
+    "ville": "Poissy",
+    "codes_postaux": [
+      "78300"
+    ],
+    "latitude": 48.9241,
+    "longitude": 2.025
+  },
+  {
+    "ville": "Ponthévrard",
+    "codes_postaux": [
+      "78730"
+    ],
+    "latitude": 48.5496,
+    "longitude": 1.91
+  },
+  {
+    "ville": "Porcheville",
+    "codes_postaux": [
+      "78440"
+    ],
+    "latitude": 48.9781,
+    "longitude": 1.768
+  },
+  {
+    "ville": "Le Port-Marly",
+    "codes_postaux": [
+      "78560"
+    ],
+    "latitude": 48.8808,
+    "longitude": 2.1104
+  },
+  {
+    "ville": "Prunay-le-Temple",
+    "codes_postaux": [
+      "78910"
+    ],
+    "latitude": 48.858,
+    "longitude": 1.6741
+  },
+  {
+    "ville": "Prunay-en-Yvelines",
+    "codes_postaux": [
+      "78660"
+    ],
+    "latitude": 48.5257,
+    "longitude": 1.8041
+  },
+  {
+    "ville": "La Queue-les-Yvelines",
+    "codes_postaux": [
+      "78940"
+    ],
+    "latitude": 48.8042,
+    "longitude": 1.7603
+  },
+  {
+    "ville": "Raizeux",
+    "codes_postaux": [
+      "78125"
+    ],
+    "latitude": 48.6375,
+    "longitude": 1.6849
+  },
+  {
+    "ville": "Rambouillet",
+    "codes_postaux": [
+      "78120"
+    ],
+    "latitude": 48.6538,
+    "longitude": 1.8339
+  },
+  {
+    "ville": "Rennemoulin",
+    "codes_postaux": [
+      "78590"
+    ],
+    "latitude": 48.8339,
+    "longitude": 2.0421
+  },
+  {
+    "ville": "Richebourg",
+    "codes_postaux": [
+      "78550"
+    ],
+    "latitude": 48.825,
+    "longitude": 1.634
+  },
+  {
+    "ville": "Rochefort-en-Yvelines",
+    "codes_postaux": [
+      "78730"
+    ],
+    "latitude": 48.593,
+    "longitude": 1.9819
+  },
+  {
+    "ville": "Rolleboise",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 49.0195,
+    "longitude": 1.6006
+  },
+  {
+    "ville": "Rosay",
+    "codes_postaux": [
+      "78790"
+    ],
+    "latitude": 48.9108,
+    "longitude": 1.684
+  },
+  {
+    "ville": "Rosny-sur-Seine",
+    "codes_postaux": [
+      "78710"
+    ],
+    "latitude": 48.9978,
+    "longitude": 1.6054
+  },
+  {
+    "ville": "Sailly",
+    "codes_postaux": [
+      "78440"
+    ],
+    "latitude": 49.0448,
+    "longitude": 1.7927
+  },
+  {
+    "ville": "Saint-Arnoult-en-Yvelines",
+    "codes_postaux": [
+      "78730"
+    ],
+    "latitude": 48.5752,
+    "longitude": 1.9293
+  },
+  {
+    "ville": "Saint-Cyr-l'École",
+    "codes_postaux": [
+      "78210"
+    ],
+    "latitude": 48.8064,
+    "longitude": 2.0657
+  },
+  {
+    "ville": "Saint-Forget",
+    "codes_postaux": [
+      "78720"
+    ],
+    "latitude": 48.7128,
+    "longitude": 1.9976
+  },
+  {
+    "ville": "Saint-Germain-de-la-Grange",
+    "codes_postaux": [
+      "78640"
+    ],
+    "latitude": 48.8347,
+    "longitude": 1.902
+  },
+  {
+    "ville": "Saint-Germain-en-Laye",
+    "codes_postaux": [
+      "78100",
+      "78112"
+    ],
+    "latitude": 48.931,
+    "longitude": 2.1052
+  },
+  {
+    "ville": "Saint-Hilarion",
+    "codes_postaux": [
+      "78125"
+    ],
+    "latitude": 48.6246,
+    "longitude": 1.7222
+  },
+  {
+    "ville": "Saint-Illiers-la-Ville",
+    "codes_postaux": [
+      "78980"
+    ],
+    "latitude": 48.9777,
+    "longitude": 1.5437
+  },
+  {
+    "ville": "Saint-Illiers-le-Bois",
+    "codes_postaux": [
+      "78980"
+    ],
+    "latitude": 48.9647,
+    "longitude": 1.5102
+  },
+  {
+    "ville": "Saint-Lambert",
+    "codes_postaux": [
+      "78470"
+    ],
+    "latitude": 48.7339,
+    "longitude": 2.0093
+  },
+  {
+    "ville": "Saint-Léger-en-Yvelines",
+    "codes_postaux": [
+      "78610"
+    ],
+    "latitude": 48.7338,
+    "longitude": 1.7646
+  },
+  {
+    "ville": "Saint-Martin-de-Bréthencourt",
+    "codes_postaux": [
+      "78660"
+    ],
+    "latitude": 48.5153,
+    "longitude": 1.9179
+  },
+  {
+    "ville": "Saint-Martin-des-Champs",
+    "codes_postaux": [
+      "78790"
+    ],
+    "latitude": 48.8776,
+    "longitude": 1.7215
+  },
+  {
+    "ville": "Saint-Martin-la-Garenne",
+    "codes_postaux": [
+      "78520"
+    ],
+    "latitude": 49.0372,
+    "longitude": 1.6707
+  },
+  {
+    "ville": "Sainte-Mesme",
+    "codes_postaux": [
+      "78730"
+    ],
+    "latitude": 48.536,
+    "longitude": 1.9433
+  },
+  {
+    "ville": "Saint-Nom-la-Bretèche",
+    "codes_postaux": [
+      "78860"
+    ],
+    "latitude": 48.8621,
+    "longitude": 2.0168
+  },
+  {
+    "ville": "Saint-Rémy-lès-Chevreuse",
+    "codes_postaux": [
+      "78470"
+    ],
+    "latitude": 48.7037,
+    "longitude": 2.082
+  },
+  {
+    "ville": "Saint-Rémy-l'Honoré",
+    "codes_postaux": [
+      "78690"
+    ],
+    "latitude": 48.7515,
+    "longitude": 1.8775
+  },
+  {
+    "ville": "Sartrouville",
+    "codes_postaux": [
+      "78500"
+    ],
+    "latitude": 48.9374,
+    "longitude": 2.1744
+  },
+  {
+    "ville": "Saulx-Marchais",
+    "codes_postaux": [
+      "78650"
+    ],
+    "latitude": 48.8434,
+    "longitude": 1.8361
+  },
+  {
+    "ville": "Senlisse",
+    "codes_postaux": [
+      "78720"
+    ],
+    "latitude": 48.6828,
+    "longitude": 1.9688
+  },
+  {
+    "ville": "Septeuil",
+    "codes_postaux": [
+      "78790"
+    ],
+    "latitude": 48.8883,
+    "longitude": 1.6891
+  },
+  {
+    "ville": "Soindres",
+    "codes_postaux": [
+      "78200"
+    ],
+    "latitude": 48.9547,
+    "longitude": 1.6732
+  },
+  {
+    "ville": "Sonchamp",
+    "codes_postaux": [
+      "78120"
+    ],
+    "latitude": 48.5854,
+    "longitude": 1.8765
+  },
+  {
+    "ville": "Tacoignières",
+    "codes_postaux": [
+      "78910"
+    ],
+    "latitude": 48.8328,
+    "longitude": 1.664
+  },
+  {
+    "ville": "Le Tartre-Gaudran",
+    "codes_postaux": [
+      "78113"
+    ],
+    "latitude": 48.6976,
+    "longitude": 1.6028
+  },
+  {
+    "ville": "Le Tertre-Saint-Denis",
+    "codes_postaux": [
+      "78980"
+    ],
+    "latitude": 48.9427,
+    "longitude": 1.609
+  },
+  {
+    "ville": "Tessancourt-sur-Aubette",
+    "codes_postaux": [
+      "78250"
+    ],
+    "latitude": 49.0263,
+    "longitude": 1.9218
+  },
+  {
+    "ville": "Thiverval-Grignon",
+    "codes_postaux": [
+      "78850"
+    ],
+    "latitude": 48.8419,
+    "longitude": 1.9322
+  },
+  {
+    "ville": "Thoiry",
+    "codes_postaux": [
+      "78770"
+    ],
+    "latitude": 48.8699,
+    "longitude": 1.7989
+  },
+  {
+    "ville": "Tilly",
+    "codes_postaux": [
+      "78790"
+    ],
+    "latitude": 48.8785,
+    "longitude": 1.5764
+  },
+  {
+    "ville": "Toussus-le-Noble",
+    "codes_postaux": [
+      "78117"
+    ],
+    "latitude": 48.7477,
+    "longitude": 2.1192
+  },
+  {
+    "ville": "Trappes",
+    "codes_postaux": [
+      "78190"
+    ],
+    "latitude": 48.7738,
+    "longitude": 1.9964
+  },
+  {
+    "ville": "Le Tremblay-sur-Mauldre",
+    "codes_postaux": [
+      "78490"
+    ],
+    "latitude": 48.7859,
+    "longitude": 1.8765
+  },
+  {
+    "ville": "Triel-sur-Seine",
+    "codes_postaux": [
+      "78510"
+    ],
+    "latitude": 48.976,
+    "longitude": 2.0055
+  },
+  {
+    "ville": "Vaux-sur-Seine",
+    "codes_postaux": [
+      "78740"
+    ],
+    "latitude": 49.0089,
+    "longitude": 1.9704
+  },
+  {
+    "ville": "Vélizy-Villacoublay",
+    "codes_postaux": [
+      "78140"
+    ],
+    "latitude": 48.784,
+    "longitude": 2.1956
+  },
+  {
+    "ville": "Verneuil-sur-Seine",
+    "codes_postaux": [
+      "78480"
+    ],
+    "latitude": 48.9874,
+    "longitude": 1.9659
+  },
+  {
+    "ville": "Vernouillet",
+    "codes_postaux": [
+      "78540"
+    ],
+    "latitude": 48.9649,
+    "longitude": 1.9748
+  },
+  {
+    "ville": "La Verrière",
+    "codes_postaux": [
+      "78320"
+    ],
+    "latitude": 48.7545,
+    "longitude": 1.9505
+  },
+  {
+    "ville": "Versailles",
+    "codes_postaux": [
+      "78000"
+    ],
+    "latitude": 48.8039,
+    "longitude": 2.1191
+  },
+  {
+    "ville": "Vert",
+    "codes_postaux": [
+      "78930"
+    ],
+    "latitude": 48.9429,
+    "longitude": 1.6824
+  },
+  {
+    "ville": "Le Vésinet",
+    "codes_postaux": [
+      "78110"
+    ],
+    "latitude": 48.8928,
+    "longitude": 2.1312
+  },
+  {
+    "ville": "Vicq",
+    "codes_postaux": [
+      "78490"
+    ],
+    "latitude": 48.8223,
+    "longitude": 1.8283
+  },
+  {
+    "ville": "Vieille-Église-en-Yvelines",
+    "codes_postaux": [
+      "78125"
+    ],
+    "latitude": 48.6695,
+    "longitude": 1.8759
+  },
+  {
+    "ville": "La Villeneuve-en-Chevrie",
+    "codes_postaux": [
+      "78270"
+    ],
+    "latitude": 49.0129,
+    "longitude": 1.5285
+  },
+  {
+    "ville": "Villennes-sur-Seine",
+    "codes_postaux": [
+      "78670"
+    ],
+    "latitude": 48.9372,
+    "longitude": 1.9975
+  },
+  {
+    "ville": "Villepreux",
+    "codes_postaux": [
+      "78450"
+    ],
+    "latitude": 48.8306,
+    "longitude": 2.0127
+  },
+  {
+    "ville": "Villette",
+    "codes_postaux": [
+      "78930"
+    ],
+    "latitude": 48.9244,
+    "longitude": 1.6917
+  },
+  {
+    "ville": "Villiers-le-Mahieu",
+    "codes_postaux": [
+      "78770"
+    ],
+    "latitude": 48.8518,
+    "longitude": 1.7744
+  },
+  {
+    "ville": "Villiers-Saint-Frédéric",
+    "codes_postaux": [
+      "78640"
+    ],
+    "latitude": 48.8201,
+    "longitude": 1.883
+  },
+  {
+    "ville": "Viroflay",
+    "codes_postaux": [
+      "78220"
+    ],
+    "latitude": 48.8017,
+    "longitude": 2.1725
+  },
+  {
+    "ville": "Voisins-le-Bretonneux",
+    "codes_postaux": [
+      "78960"
+    ],
+    "latitude": 48.7598,
+    "longitude": 2.047
+  },
+  {
+    "ville": "Abbéville-la-Rivière",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.3369,
+    "longitude": 2.197
+  },
+  {
+    "ville": "Angerville",
+    "codes_postaux": [
+      "91670"
+    ],
+    "latitude": 48.3116,
+    "longitude": 2.0057
+  },
+  {
+    "ville": "Angervilliers",
+    "codes_postaux": [
+      "91470"
+    ],
+    "latitude": 48.5916,
+    "longitude": 2.0593
+  },
+  {
+    "ville": "Arpajon",
+    "codes_postaux": [
+      "91290"
+    ],
+    "latitude": 48.5894,
+    "longitude": 2.2462
+  },
+  {
+    "ville": "Arrancourt",
+    "codes_postaux": [
+      "91690"
+    ],
+    "latitude": 48.3279,
+    "longitude": 2.1489
+  },
+  {
+    "ville": "Athis-Mons",
+    "codes_postaux": [
+      "91200"
+    ],
+    "latitude": 48.7093,
+    "longitude": 2.3848
+  },
+  {
+    "ville": "Authon-la-Plaine",
+    "codes_postaux": [
+      "91410"
+    ],
+    "latitude": 48.456,
+    "longitude": 1.9545
+  },
+  {
+    "ville": "Auvernaux",
+    "codes_postaux": [
+      "91830"
+    ],
+    "latitude": 48.5274,
+    "longitude": 2.4898
+  },
+  {
+    "ville": "Auvers-Saint-Georges",
+    "codes_postaux": [
+      "91580"
+    ],
+    "latitude": 48.4745,
+    "longitude": 2.2229
+  },
+  {
+    "ville": "Avrainville",
+    "codes_postaux": [
+      "91630"
+    ],
+    "latitude": 48.5543,
+    "longitude": 2.2437
+  },
+  {
+    "ville": "Ballainvilliers",
+    "codes_postaux": [
+      "91160"
+    ],
+    "latitude": 48.6718,
+    "longitude": 2.291
+  },
+  {
+    "ville": "Ballancourt-sur-Essonne",
+    "codes_postaux": [
+      "91610"
+    ],
+    "latitude": 48.5246,
+    "longitude": 2.3882
+  },
+  {
+    "ville": "Baulne",
+    "codes_postaux": [
+      "91590"
+    ],
+    "latitude": 48.495,
+    "longitude": 2.3809
+  },
+  {
+    "ville": "Bièvres",
+    "codes_postaux": [
+      "91570"
+    ],
+    "latitude": 48.7565,
+    "longitude": 2.2079
+  },
+  {
+    "ville": "Blandy",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.3205,
+    "longitude": 2.2576
+  },
+  {
+    "ville": "Boigneville",
+    "codes_postaux": [
+      "91720"
+    ],
+    "latitude": 48.328,
+    "longitude": 2.3655
+  },
+  {
+    "ville": "Bois-Herpin",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.375,
+    "longitude": 2.2393
+  },
+  {
+    "ville": "Boissy-la-Rivière",
+    "codes_postaux": [
+      "91690"
+    ],
+    "latitude": 48.3801,
+    "longitude": 2.1715
+  },
+  {
+    "ville": "Boissy-le-Cutté",
+    "codes_postaux": [
+      "91590"
+    ],
+    "latitude": 48.4711,
+    "longitude": 2.2841
+  },
+  {
+    "ville": "Boissy-le-Sec",
+    "codes_postaux": [
+      "91870"
+    ],
+    "latitude": 48.4865,
+    "longitude": 2.0919
+  },
+  {
+    "ville": "Boissy-sous-Saint-Yon",
+    "codes_postaux": [
+      "91790"
+    ],
+    "latitude": 48.5528,
+    "longitude": 2.2111
+  },
+  {
+    "ville": "Bondoufle",
+    "codes_postaux": [
+      "91070"
+    ],
+    "latitude": 48.6155,
+    "longitude": 2.3795
+  },
+  {
+    "ville": "Boullay-les-Troux",
+    "codes_postaux": [
+      "91470"
+    ],
+    "latitude": 48.6746,
+    "longitude": 2.0496
+  },
+  {
+    "ville": "Bouray-sur-Juine",
+    "codes_postaux": [
+      "91850"
+    ],
+    "latitude": 48.5115,
+    "longitude": 2.2968
+  },
+  {
+    "ville": "Boussy-Saint-Antoine",
+    "codes_postaux": [
+      "91800"
+    ],
+    "latitude": 48.6893,
+    "longitude": 2.5354
+  },
+  {
+    "ville": "Boutervilliers",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.4542,
+    "longitude": 2.0512
+  },
+  {
+    "ville": "Boutigny-sur-Essonne",
+    "codes_postaux": [
+      "91820"
+    ],
+    "latitude": 48.4359,
+    "longitude": 2.3924
+  },
+  {
+    "ville": "Bouville",
+    "codes_postaux": [
+      "91880"
+    ],
+    "latitude": 48.437,
+    "longitude": 2.2806
+  },
+  {
+    "ville": "Brétigny-sur-Orge",
+    "codes_postaux": [
+      "91220"
+    ],
+    "latitude": 48.601,
+    "longitude": 2.2989
+  },
+  {
+    "ville": "Breuillet",
+    "codes_postaux": [
+      "91650"
+    ],
+    "latitude": 48.5716,
+    "longitude": 2.1644
+  },
+  {
+    "ville": "Breux-Jouy",
+    "codes_postaux": [
+      "91650"
+    ],
+    "latitude": 48.551,
+    "longitude": 2.1601
+  },
+  {
+    "ville": "Brières-les-Scellés",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.4646,
+    "longitude": 2.1427
+  },
+  {
+    "ville": "Briis-sous-Forges",
+    "codes_postaux": [
+      "91640"
+    ],
+    "latitude": 48.6294,
+    "longitude": 2.1304
+  },
+  {
+    "ville": "Brouy",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.3268,
+    "longitude": 2.2927
+  },
+  {
+    "ville": "Brunoy",
+    "codes_postaux": [
+      "91800"
+    ],
+    "latitude": 48.6948,
+    "longitude": 2.5059
+  },
+  {
+    "ville": "Bruyères-le-Châtel",
+    "codes_postaux": [
+      "91680"
+    ],
+    "latitude": 48.6031,
+    "longitude": 2.1804
+  },
+  {
+    "ville": "Buno-Bonnevaux",
+    "codes_postaux": [
+      "91720"
+    ],
+    "latitude": 48.36,
+    "longitude": 2.4131
+  },
+  {
+    "ville": "Bures-sur-Yvette",
+    "codes_postaux": [
+      "91440"
+    ],
+    "latitude": 48.6913,
+    "longitude": 2.1589
+  },
+  {
+    "ville": "Cerny",
+    "codes_postaux": [
+      "91590"
+    ],
+    "latitude": 48.4837,
+    "longitude": 2.309
+  },
+  {
+    "ville": "Chalo-Saint-Mars",
+    "codes_postaux": [
+      "91780"
+    ],
+    "latitude": 48.4157,
+    "longitude": 2.0564
+  },
+  {
+    "ville": "Chalou-Moulineux",
+    "codes_postaux": [
+      "91740"
+    ],
+    "latitude": 48.381,
+    "longitude": 2.0245
+  },
+  {
+    "ville": "Chamarande",
+    "codes_postaux": [
+      "91730"
+    ],
+    "latitude": 48.5165,
+    "longitude": 2.2209
+  },
+  {
+    "ville": "Champcueil",
+    "codes_postaux": [
+      "91750"
+    ],
+    "latitude": 48.5052,
+    "longitude": 2.4447
+  },
+  {
+    "ville": "Champlan",
+    "codes_postaux": [
+      "91160"
+    ],
+    "latitude": 48.7083,
+    "longitude": 2.2775
+  },
+  {
+    "ville": "Champmotteux",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.3431,
+    "longitude": 2.3161
+  },
+  {
+    "ville": "Chatignonville",
+    "codes_postaux": [
+      "91410"
+    ],
+    "latitude": 48.4675,
+    "longitude": 1.9351
+  },
+  {
+    "ville": "Chauffour-lès-Étréchy",
+    "codes_postaux": [
+      "91580"
+    ],
+    "latitude": 48.5085,
+    "longitude": 2.1705
+  },
+  {
+    "ville": "Cheptainville",
+    "codes_postaux": [
+      "91630"
+    ],
+    "latitude": 48.5472,
+    "longitude": 2.276
+  },
+  {
+    "ville": "Chevannes",
+    "codes_postaux": [
+      "91750"
+    ],
+    "latitude": 48.534,
+    "longitude": 2.4386
+  },
+  {
+    "ville": "Chilly-Mazarin",
+    "codes_postaux": [
+      "91380"
+    ],
+    "latitude": 48.7051,
+    "longitude": 2.3103
+  },
+  {
+    "ville": "Corbeil-Essonnes",
+    "codes_postaux": [
+      "91100"
+    ],
+    "latitude": 48.5973,
+    "longitude": 2.4646
+  },
+  {
+    "ville": "Corbreuse",
+    "codes_postaux": [
+      "91410"
+    ],
+    "latitude": 48.5007,
+    "longitude": 1.9638
+  },
+  {
+    "ville": "Le Coudray-Montceaux",
+    "codes_postaux": [
+      "91830"
+    ],
+    "latitude": 48.5605,
+    "longitude": 2.4926
+  },
+  {
+    "ville": "Courances",
+    "codes_postaux": [
+      "91490"
+    ],
+    "latitude": 48.4409,
+    "longitude": 2.4838
+  },
+  {
+    "ville": "Courdimanche-sur-Essonne",
+    "codes_postaux": [
+      "91720"
+    ],
+    "latitude": 48.4202,
+    "longitude": 2.3591
+  },
+  {
+    "ville": "Courson-Monteloup",
+    "codes_postaux": [
+      "91680"
+    ],
+    "latitude": 48.599,
+    "longitude": 2.1389
+  },
+  {
+    "ville": "Crosne",
+    "codes_postaux": [
+      "91560"
+    ],
+    "latitude": 48.7202,
+    "longitude": 2.4621
+  },
+  {
+    "ville": "Dannemois",
+    "codes_postaux": [
+      "91490"
+    ],
+    "latitude": 48.4602,
+    "longitude": 2.4708
+  },
+  {
+    "ville": "D'Huison-Longueville",
+    "codes_postaux": [
+      "91590"
+    ],
+    "latitude": 48.4547,
+    "longitude": 2.323
+  },
+  {
+    "ville": "Dourdan",
+    "codes_postaux": [
+      "91410"
+    ],
+    "latitude": 48.532,
+    "longitude": 1.9924
+  },
+  {
+    "ville": "Draveil",
+    "codes_postaux": [
+      "91210"
+    ],
+    "latitude": 48.6777,
+    "longitude": 2.4249
+  },
+  {
+    "ville": "Écharcon",
+    "codes_postaux": [
+      "91540"
+    ],
+    "latitude": 48.5747,
+    "longitude": 2.4023
+  },
+  {
+    "ville": "Égly",
+    "codes_postaux": [
+      "91520"
+    ],
+    "latitude": 48.5778,
+    "longitude": 2.2183
+  },
+  {
+    "ville": "Épinay-sous-Sénart",
+    "codes_postaux": [
+      "91860"
+    ],
+    "latitude": 48.6885,
+    "longitude": 2.5152
+  },
+  {
+    "ville": "Épinay-sur-Orge",
+    "codes_postaux": [
+      "91360"
+    ],
+    "latitude": 48.6719,
+    "longitude": 2.3194
+  },
+  {
+    "ville": "Étampes",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.4227,
+    "longitude": 2.1524
+  },
+  {
+    "ville": "Étiolles",
+    "codes_postaux": [
+      "91450"
+    ],
+    "latitude": 48.6485,
+    "longitude": 2.4852
+  },
+  {
+    "ville": "Étréchy",
+    "codes_postaux": [
+      "91580"
+    ],
+    "latitude": 48.4956,
+    "longitude": 2.177
+  },
+  {
+    "ville": "Évry-Courcouronnes",
+    "codes_postaux": [
+      "91000",
+      "91080"
+    ],
+    "latitude": 48.6287,
+    "longitude": 2.4313
+  },
+  {
+    "ville": "La Ferté-Alais",
+    "codes_postaux": [
+      "91590"
+    ],
+    "latitude": 48.4819,
+    "longitude": 2.3678
+  },
+  {
+    "ville": "Fleury-Mérogis",
+    "codes_postaux": [
+      "91700"
+    ],
+    "latitude": 48.6327,
+    "longitude": 2.3712
+  },
+  {
+    "ville": "Fontaine-la-Rivière",
+    "codes_postaux": [
+      "91690"
+    ],
+    "latitude": 48.359,
+    "longitude": 2.1674
+  },
+  {
+    "ville": "Fontenay-lès-Briis",
+    "codes_postaux": [
+      "91640"
+    ],
+    "latitude": 48.6112,
+    "longitude": 2.171
+  },
+  {
+    "ville": "Fontenay-le-Vicomte",
+    "codes_postaux": [
+      "91540"
+    ],
+    "latitude": 48.5474,
+    "longitude": 2.3997
+  },
+  {
+    "ville": "La Forêt-le-Roi",
+    "codes_postaux": [
+      "91410"
+    ],
+    "latitude": 48.4775,
+    "longitude": 2.0457
+  },
+  {
+    "ville": "La Forêt-Sainte-Croix",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.3832,
+    "longitude": 2.2308
+  },
+  {
+    "ville": "Forges-les-Bains",
+    "codes_postaux": [
+      "91470"
+    ],
+    "latitude": 48.6182,
+    "longitude": 2.0811
+  },
+  {
+    "ville": "Gif-sur-Yvette",
+    "codes_postaux": [
+      "91190"
+    ],
+    "latitude": 48.6964,
+    "longitude": 2.1342
+  },
+  {
+    "ville": "Gironville-sur-Essonne",
+    "codes_postaux": [
+      "91720"
+    ],
+    "latitude": 48.3655,
+    "longitude": 2.3451
+  },
+  {
+    "ville": "Gometz-la-Ville",
+    "codes_postaux": [
+      "91400"
+    ],
+    "latitude": 48.675,
+    "longitude": 2.1127
+  },
+  {
+    "ville": "Gometz-le-Châtel",
+    "codes_postaux": [
+      "91940"
+    ],
+    "latitude": 48.6729,
+    "longitude": 2.142
+  },
+  {
+    "ville": "Les Granges-le-Roi",
+    "codes_postaux": [
+      "91410"
+    ],
+    "latitude": 48.4994,
+    "longitude": 2.0124
+  },
+  {
+    "ville": "Grigny",
+    "codes_postaux": [
+      "91350"
+    ],
+    "latitude": 48.6584,
+    "longitude": 2.3861
+  },
+  {
+    "ville": "Guibeville",
+    "codes_postaux": [
+      "91630"
+    ],
+    "latitude": 48.567,
+    "longitude": 2.2714
+  },
+  {
+    "ville": "Guigneville-sur-Essonne",
+    "codes_postaux": [
+      "91590"
+    ],
+    "latitude": 48.4636,
+    "longitude": 2.3755
+  },
+  {
+    "ville": "Guillerval",
+    "codes_postaux": [
+      "91690"
+    ],
+    "latitude": 48.3662,
+    "longitude": 2.0802
+  },
+  {
+    "ville": "Igny",
+    "codes_postaux": [
+      "91430"
+    ],
+    "latitude": 48.7375,
+    "longitude": 2.2229
+  },
+  {
+    "ville": "Itteville",
+    "codes_postaux": [
+      "91760"
+    ],
+    "latitude": 48.5144,
+    "longitude": 2.3398
+  },
+  {
+    "ville": "Janville-sur-Juine",
+    "codes_postaux": [
+      "91510"
+    ],
+    "latitude": 48.4991,
+    "longitude": 2.2493
+  },
+  {
+    "ville": "Janvry",
+    "codes_postaux": [
+      "91640"
+    ],
+    "latitude": 48.6456,
+    "longitude": 2.1564
+  },
+  {
+    "ville": "Juvisy-sur-Orge",
+    "codes_postaux": [
+      "91260"
+    ],
+    "latitude": 48.6917,
+    "longitude": 2.3722
+  },
+  {
+    "ville": "Lardy",
+    "codes_postaux": [
+      "91510"
+    ],
+    "latitude": 48.5284,
+    "longitude": 2.2707
+  },
+  {
+    "ville": "Leudeville",
+    "codes_postaux": [
+      "91630"
+    ],
+    "latitude": 48.5726,
+    "longitude": 2.3291
+  },
+  {
+    "ville": "Leuville-sur-Orge",
+    "codes_postaux": [
+      "91310"
+    ],
+    "latitude": 48.6135,
+    "longitude": 2.2695
+  },
+  {
+    "ville": "Limours",
+    "codes_postaux": [
+      "91470"
+    ],
+    "latitude": 48.6463,
+    "longitude": 2.0823
+  },
+  {
+    "ville": "Linas",
+    "codes_postaux": [
+      "91310"
+    ],
+    "latitude": 48.6261,
+    "longitude": 2.2525
+  },
+  {
+    "ville": "Lisses",
+    "codes_postaux": [
+      "91090"
+    ],
+    "latitude": 48.5935,
+    "longitude": 2.4259
+  },
+  {
+    "ville": "Longjumeau",
+    "codes_postaux": [
+      "91160"
+    ],
+    "latitude": 48.6923,
+    "longitude": 2.3057
+  },
+  {
+    "ville": "Longpont-sur-Orge",
+    "codes_postaux": [
+      "91310"
+    ],
+    "latitude": 48.639,
+    "longitude": 2.2859
+  },
+  {
+    "ville": "Maisse",
+    "codes_postaux": [
+      "91720"
+    ],
+    "latitude": 48.3961,
+    "longitude": 2.3744
+  },
+  {
+    "ville": "Marcoussis",
+    "codes_postaux": [
+      "91460"
+    ],
+    "latitude": 48.6491,
+    "longitude": 2.2078
+  },
+  {
+    "ville": "Marolles-en-Beauce",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.3713,
+    "longitude": 2.2067
+  },
+  {
+    "ville": "Marolles-en-Hurepoix",
+    "codes_postaux": [
+      "91630"
+    ],
+    "latitude": 48.5641,
+    "longitude": 2.2992
+  },
+  {
+    "ville": "Massy",
+    "codes_postaux": [
+      "91300"
+    ],
+    "latitude": 48.7263,
+    "longitude": 2.2696
+  },
+  {
+    "ville": "Mauchamps",
+    "codes_postaux": [
+      "91730"
+    ],
+    "latitude": 48.5287,
+    "longitude": 2.1976
+  },
+  {
+    "ville": "Mennecy",
+    "codes_postaux": [
+      "91540"
+    ],
+    "latitude": 48.5592,
+    "longitude": 2.4362
+  },
+  {
+    "ville": "Le Mérévillois",
+    "codes_postaux": [
+      "91660"
+    ],
+    "latitude": 48.3201,
+    "longitude": 2.0963
+  },
+  {
+    "ville": "Mérobert",
+    "codes_postaux": [
+      "91780"
+    ],
+    "latitude": 48.4191,
+    "longitude": 1.9919
+  },
+  {
+    "ville": "Mespuits",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.3574,
+    "longitude": 2.2802
+  },
+  {
+    "ville": "Milly-la-Forêt",
+    "codes_postaux": [
+      "91490"
+    ],
+    "latitude": 48.3966,
+    "longitude": 2.4771
+  },
+  {
+    "ville": "Moigny-sur-École",
+    "codes_postaux": [
+      "91490"
+    ],
+    "latitude": 48.4367,
+    "longitude": 2.4412
+  },
+  {
+    "ville": "Les Molières",
+    "codes_postaux": [
+      "91470"
+    ],
+    "latitude": 48.6736,
+    "longitude": 2.0682
+  },
+  {
+    "ville": "Mondeville",
+    "codes_postaux": [
+      "91590"
+    ],
+    "latitude": 48.4924,
+    "longitude": 2.4227
+  },
+  {
+    "ville": "Monnerville",
+    "codes_postaux": [
+      "91930"
+    ],
+    "latitude": 48.3471,
+    "longitude": 2.0379
+  },
+  {
+    "ville": "Montgeron",
+    "codes_postaux": [
+      "91230"
+    ],
+    "latitude": 48.6952,
+    "longitude": 2.4638
+  },
+  {
+    "ville": "Montlhéry",
+    "codes_postaux": [
+      "91310"
+    ],
+    "latitude": 48.6392,
+    "longitude": 2.266
+  },
+  {
+    "ville": "Morangis",
+    "codes_postaux": [
+      "91420"
+    ],
+    "latitude": 48.7022,
+    "longitude": 2.3361
+  },
+  {
+    "ville": "Morigny-Champigny",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.4383,
+    "longitude": 2.2025
+  },
+  {
+    "ville": "Morsang-sur-Orge",
+    "codes_postaux": [
+      "91390"
+    ],
+    "latitude": 48.6564,
+    "longitude": 2.3513
+  },
+  {
+    "ville": "Morsang-sur-Seine",
+    "codes_postaux": [
+      "91250"
+    ],
+    "latitude": 48.5775,
+    "longitude": 2.5013
+  },
+  {
+    "ville": "Nainville-les-Roches",
+    "codes_postaux": [
+      "91750"
+    ],
+    "latitude": 48.5053,
+    "longitude": 2.4943
+  },
+  {
+    "ville": "La Norville",
+    "codes_postaux": [
+      "91290"
+    ],
+    "latitude": 48.583,
+    "longitude": 2.266
+  },
+  {
+    "ville": "Nozay",
+    "codes_postaux": [
+      "91620"
+    ],
+    "latitude": 48.6594,
+    "longitude": 2.2366
+  },
+  {
+    "ville": "Ollainville",
+    "codes_postaux": [
+      "91340"
+    ],
+    "latitude": 48.6068,
+    "longitude": 2.2204
+  },
+  {
+    "ville": "Oncy-sur-École",
+    "codes_postaux": [
+      "91490"
+    ],
+    "latitude": 48.3803,
+    "longitude": 2.4564
+  },
+  {
+    "ville": "Ormoy",
+    "codes_postaux": [
+      "91540"
+    ],
+    "latitude": 48.5714,
+    "longitude": 2.4576
+  },
+  {
+    "ville": "Ormoy-la-Rivière",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.4024,
+    "longitude": 2.1652
+  },
+  {
+    "ville": "Orsay",
+    "codes_postaux": [
+      "91400"
+    ],
+    "latitude": 48.6972,
+    "longitude": 2.1896
+  },
+  {
+    "ville": "Orveau",
+    "codes_postaux": [
+      "91590"
+    ],
+    "latitude": 48.4489,
+    "longitude": 2.297
+  },
+  {
+    "ville": "Palaiseau",
+    "codes_postaux": [
+      "91120"
+    ],
+    "latitude": 48.7155,
+    "longitude": 2.2293
+  },
+  {
+    "ville": "Paray-Vieille-Poste",
+    "codes_postaux": [
+      "91550",
+      "94390"
+    ],
+    "latitude": 48.7239,
+    "longitude": 2.3577
+  },
+  {
+    "ville": "Pecqueuse",
+    "codes_postaux": [
+      "91470"
+    ],
+    "latitude": 48.646,
+    "longitude": 2.0361
+  },
+  {
+    "ville": "Le Plessis-Pâté",
+    "codes_postaux": [
+      "91220"
+    ],
+    "latitude": 48.6054,
+    "longitude": 2.3404
+  },
+  {
+    "ville": "Plessis-Saint-Benoist",
+    "codes_postaux": [
+      "91410"
+    ],
+    "latitude": 48.445,
+    "longitude": 2.0052
+  },
+  {
+    "ville": "Prunay-sur-Essonne",
+    "codes_postaux": [
+      "91720"
+    ],
+    "latitude": 48.3524,
+    "longitude": 2.3562
+  },
+  {
+    "ville": "Puiselet-le-Marais",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.3947,
+    "longitude": 2.2635
+  },
+  {
+    "ville": "Pussay",
+    "codes_postaux": [
+      "91740"
+    ],
+    "latitude": 48.3501,
+    "longitude": 1.9981
+  },
+  {
+    "ville": "Quincy-sous-Sénart",
+    "codes_postaux": [
+      "91480"
+    ],
+    "latitude": 48.6722,
+    "longitude": 2.5259
+  },
+  {
+    "ville": "Richarville",
+    "codes_postaux": [
+      "91410"
+    ],
+    "latitude": 48.4696,
+    "longitude": 2.0006
+  },
+  {
+    "ville": "Ris-Orangis",
+    "codes_postaux": [
+      "91130"
+    ],
+    "latitude": 48.6457,
+    "longitude": 2.4104
+  },
+  {
+    "ville": "Roinville",
+    "codes_postaux": [
+      "91410"
+    ],
+    "latitude": 48.5183,
+    "longitude": 2.0534
+  },
+  {
+    "ville": "Roinvilliers",
+    "codes_postaux": [
+      "91150"
+    ],
+    "latitude": 48.3461,
+    "longitude": 2.2321
+  },
+  {
+    "ville": "Saclas",
+    "codes_postaux": [
+      "91690"
+    ],
+    "latitude": 48.3576,
+    "longitude": 2.1103
+  },
+  {
+    "ville": "Saclay",
+    "codes_postaux": [
+      "91400"
+    ],
+    "latitude": 48.7367,
+    "longitude": 2.1693
+  },
+  {
+    "ville": "Saint-Aubin",
+    "codes_postaux": [
+      "91190"
+    ],
+    "latitude": 48.7148,
+    "longitude": 2.1384
+  },
+  {
+    "ville": "Saint-Chéron",
+    "codes_postaux": [
+      "91530"
+    ],
+    "latitude": 48.5499,
+    "longitude": 2.1249
+  },
+  {
+    "ville": "Saint-Cyr-la-Rivière",
+    "codes_postaux": [
+      "91690"
+    ],
+    "latitude": 48.3508,
+    "longitude": 2.1377
+  },
+  {
+    "ville": "Saint-Cyr-sous-Dourdan",
+    "codes_postaux": [
+      "91410"
+    ],
+    "latitude": 48.5675,
+    "longitude": 2.0361
+  },
+  {
+    "ville": "Saint-Escobille",
+    "codes_postaux": [
+      "91410"
+    ],
+    "latitude": 48.4223,
+    "longitude": 1.9605
+  },
+  {
+    "ville": "Sainte-Geneviève-des-Bois",
+    "codes_postaux": [
+      "91700"
+    ],
+    "latitude": 48.643,
+    "longitude": 2.3272
+  },
+  {
+    "ville": "Saint-Germain-lès-Arpajon",
+    "codes_postaux": [
+      "91180"
+    ],
+    "latitude": 48.5982,
+    "longitude": 2.2644
+  },
+  {
+    "ville": "Saint-Germain-lès-Corbeil",
+    "codes_postaux": [
+      "91250"
+    ],
+    "latitude": 48.6275,
+    "longitude": 2.4919
+  },
+  {
+    "ville": "Saint-Hilaire",
+    "codes_postaux": [
+      "91780"
+    ],
+    "latitude": 48.4429,
+    "longitude": 2.0872
+  },
+  {
+    "ville": "Saint-Jean-de-Beauregard",
+    "codes_postaux": [
+      "91940"
+    ],
+    "latitude": 48.6666,
+    "longitude": 2.1723
+  },
+  {
+    "ville": "Saint-Maurice-Montcouronne",
+    "codes_postaux": [
+      "91530"
+    ],
+    "latitude": 48.5746,
+    "longitude": 2.1229
+  },
+  {
+    "ville": "Saint-Michel-sur-Orge",
+    "codes_postaux": [
+      "91240"
+    ],
+    "latitude": 48.6326,
+    "longitude": 2.313
+  },
+  {
+    "ville": "Saint-Pierre-du-Perray",
+    "codes_postaux": [
+      "91280"
+    ],
+    "latitude": 48.6075,
+    "longitude": 2.5152
+  },
+  {
+    "ville": "Saintry-sur-Seine",
+    "codes_postaux": [
+      "91250"
+    ],
+    "latitude": 48.5946,
+    "longitude": 2.4955
+  },
+  {
+    "ville": "Saint-Sulpice-de-Favières",
+    "codes_postaux": [
+      "91910"
+    ],
+    "latitude": 48.5344,
+    "longitude": 2.1766
+  },
+  {
+    "ville": "Saint-Vrain",
+    "codes_postaux": [
+      "91770"
+    ],
+    "latitude": 48.5361,
+    "longitude": 2.3254
+  },
+  {
+    "ville": "Saint-Yon",
+    "codes_postaux": [
+      "91650"
+    ],
+    "latitude": 48.5612,
+    "longitude": 2.192
+  },
+  {
+    "ville": "Saulx-les-Chartreux",
+    "codes_postaux": [
+      "91160"
+    ],
+    "latitude": 48.6869,
+    "longitude": 2.2648
+  },
+  {
+    "ville": "Savigny-sur-Orge",
+    "codes_postaux": [
+      "91600"
+    ],
+    "latitude": 48.6851,
+    "longitude": 2.3493
+  },
+  {
+    "ville": "Sermaise",
+    "codes_postaux": [
+      "91530"
+    ],
+    "latitude": 48.5308,
+    "longitude": 2.0915
+  },
+  {
+    "ville": "Soisy-sur-École",
+    "codes_postaux": [
+      "91840"
+    ],
+    "latitude": 48.4783,
+    "longitude": 2.474
+  },
+  {
+    "ville": "Soisy-sur-Seine",
+    "codes_postaux": [
+      "91450"
+    ],
+    "latitude": 48.6593,
+    "longitude": 2.4666
+  },
+  {
+    "ville": "Souzy-la-Briche",
+    "codes_postaux": [
+      "91580"
+    ],
+    "latitude": 48.525,
+    "longitude": 2.149
+  },
+  {
+    "ville": "Congerville-Thionville",
+    "codes_postaux": [
+      "91740"
+    ],
+    "latitude": 48.3833,
+    "longitude": 1.9912
+  },
+  {
+    "ville": "Tigery",
+    "codes_postaux": [
+      "91250"
+    ],
+    "latitude": 48.6459,
+    "longitude": 2.5189
+  },
+  {
+    "ville": "Torfou",
+    "codes_postaux": [
+      "91730"
+    ],
+    "latitude": 48.5314,
+    "longitude": 2.2335
+  },
+  {
+    "ville": "Valpuiseaux",
+    "codes_postaux": [
+      "91720"
+    ],
+    "latitude": 48.3963,
+    "longitude": 2.2996
+  },
+  {
+    "ville": "Le Val-Saint-Germain",
+    "codes_postaux": [
+      "91530"
+    ],
+    "latitude": 48.5712,
+    "longitude": 2.0808
+  },
+  {
+    "ville": "Varennes-Jarcy",
+    "codes_postaux": [
+      "91480"
+    ],
+    "latitude": 48.6793,
+    "longitude": 2.5631
+  },
+  {
+    "ville": "Vaugrigneuse",
+    "codes_postaux": [
+      "91640"
+    ],
+    "latitude": 48.6012,
+    "longitude": 2.1041
+  },
+  {
+    "ville": "Vauhallan",
+    "codes_postaux": [
+      "91430"
+    ],
+    "latitude": 48.7302,
+    "longitude": 2.1996
+  },
+  {
+    "ville": "Vayres-sur-Essonne",
+    "codes_postaux": [
+      "91820"
+    ],
+    "latitude": 48.4323,
+    "longitude": 2.349
+  },
+  {
+    "ville": "Verrières-le-Buisson",
+    "codes_postaux": [
+      "91370"
+    ],
+    "latitude": 48.7511,
+    "longitude": 2.2545
+  },
+  {
+    "ville": "Vert-le-Grand",
+    "codes_postaux": [
+      "91810"
+    ],
+    "latitude": 48.583,
+    "longitude": 2.3711
+  },
+  {
+    "ville": "Vert-le-Petit",
+    "codes_postaux": [
+      "91710"
+    ],
+    "latitude": 48.5508,
+    "longitude": 2.3668
+  },
+  {
+    "ville": "Videlles",
+    "codes_postaux": [
+      "91890"
+    ],
+    "latitude": 48.467,
+    "longitude": 2.4171
+  },
+  {
+    "ville": "Vigneux-sur-Seine",
+    "codes_postaux": [
+      "91270"
+    ],
+    "latitude": 48.7021,
+    "longitude": 2.4274
+  },
+  {
+    "ville": "Villabé",
+    "codes_postaux": [
+      "91100"
+    ],
+    "latitude": 48.5864,
+    "longitude": 2.4516
+  },
+  {
+    "ville": "Villebon-sur-Yvette",
+    "codes_postaux": [
+      "91140"
+    ],
+    "latitude": 48.6965,
+    "longitude": 2.2366
+  },
+  {
+    "ville": "Villeconin",
+    "codes_postaux": [
+      "91580"
+    ],
+    "latitude": 48.4981,
+    "longitude": 2.1258
+  },
+  {
+    "ville": "La Ville-du-Bois",
+    "codes_postaux": [
+      "91620"
+    ],
+    "latitude": 48.6601,
+    "longitude": 2.2644
+  },
+  {
+    "ville": "Villejust",
+    "codes_postaux": [
+      "91140"
+    ],
+    "latitude": 48.6788,
+    "longitude": 2.2207
+  },
+  {
+    "ville": "Villemoisson-sur-Orge",
+    "codes_postaux": [
+      "91360"
+    ],
+    "latitude": 48.6599,
+    "longitude": 2.3298
+  },
+  {
+    "ville": "Villeneuve-sur-Auvers",
+    "codes_postaux": [
+      "91580"
+    ],
+    "latitude": 48.4646,
+    "longitude": 2.2524
+  },
+  {
+    "ville": "Villiers-le-Bâcle",
+    "codes_postaux": [
+      "91190"
+    ],
+    "latitude": 48.7282,
+    "longitude": 2.1224
+  },
+  {
+    "ville": "Villiers-sur-Orge",
+    "codes_postaux": [
+      "91700"
+    ],
+    "latitude": 48.6601,
+    "longitude": 2.2995
+  },
+  {
+    "ville": "Viry-Châtillon",
+    "codes_postaux": [
+      "91170"
+    ],
+    "latitude": 48.6662,
+    "longitude": 2.3758
+  },
+  {
+    "ville": "Wissous",
+    "codes_postaux": [
+      "91320"
+    ],
+    "latitude": 48.7308,
+    "longitude": 2.3278
+  },
+  {
+    "ville": "Yerres",
+    "codes_postaux": [
+      "91330"
+    ],
+    "latitude": 48.7129,
+    "longitude": 2.4932
+  },
+  {
+    "ville": "Les Ulis",
+    "codes_postaux": [
+      "91940"
+    ],
+    "latitude": 48.6817,
+    "longitude": 2.1864
+  },
+  {
+    "ville": "Antony",
+    "codes_postaux": [
+      "92160"
+    ],
+    "latitude": 48.7507,
+    "longitude": 2.2976
+  },
+  {
+    "ville": "Asnières-sur-Seine",
+    "codes_postaux": [
+      "92600"
+    ],
+    "latitude": 48.9181,
+    "longitude": 2.2935
+  },
+  {
+    "ville": "Bagneux",
+    "codes_postaux": [
+      "92220"
+    ],
+    "latitude": 48.798,
+    "longitude": 2.3093
+  },
+  {
+    "ville": "Bois-Colombes",
+    "codes_postaux": [
+      "92270"
+    ],
+    "latitude": 48.9151,
+    "longitude": 2.2688
+  },
+  {
+    "ville": "Boulogne-Billancourt",
+    "codes_postaux": [
+      "92100"
+    ],
+    "latitude": 48.8375,
+    "longitude": 2.2429
+  },
+  {
+    "ville": "Bourg-la-Reine",
+    "codes_postaux": [
+      "92340"
+    ],
+    "latitude": 48.7801,
+    "longitude": 2.3167
+  },
+  {
+    "ville": "Châtenay-Malabry",
+    "codes_postaux": [
+      "92290"
+    ],
+    "latitude": 48.7697,
+    "longitude": 2.2603
+  },
+  {
+    "ville": "Châtillon",
+    "codes_postaux": [
+      "92320"
+    ],
+    "latitude": 48.8031,
+    "longitude": 2.2887
+  },
+  {
+    "ville": "Chaville",
+    "codes_postaux": [
+      "92370"
+    ],
+    "latitude": 48.8091,
+    "longitude": 2.191
+  },
+  {
+    "ville": "Clamart",
+    "codes_postaux": [
+      "92140"
+    ],
+    "latitude": 48.7957,
+    "longitude": 2.2518
+  },
+  {
+    "ville": "Clichy",
+    "codes_postaux": [
+      "92110"
+    ],
+    "latitude": 48.9041,
+    "longitude": 2.3041
+  },
+  {
+    "ville": "Colombes",
+    "codes_postaux": [
+      "92700"
+    ],
+    "latitude": 48.9218,
+    "longitude": 2.2469
+  },
+  {
+    "ville": "Courbevoie",
+    "codes_postaux": [
+      "92400"
+    ],
+    "latitude": 48.8976,
+    "longitude": 2.2574
+  },
+  {
+    "ville": "Fontenay-aux-Roses",
+    "codes_postaux": [
+      "92260"
+    ],
+    "latitude": 48.7895,
+    "longitude": 2.2876
+  },
+  {
+    "ville": "Garches",
+    "codes_postaux": [
+      "92380"
+    ],
+    "latitude": 48.8469,
+    "longitude": 2.1861
+  },
+  {
+    "ville": "La Garenne-Colombes",
+    "codes_postaux": [
+      "92250"
+    ],
+    "latitude": 48.9071,
+    "longitude": 2.2437
+  },
+  {
+    "ville": "Gennevilliers",
+    "codes_postaux": [
+      "92230"
+    ],
+    "latitude": 48.9319,
+    "longitude": 2.288
+  },
+  {
+    "ville": "Issy-les-Moulineaux",
+    "codes_postaux": [
+      "92130"
+    ],
+    "latitude": 48.824,
+    "longitude": 2.2628
+  },
+  {
+    "ville": "Levallois-Perret",
+    "codes_postaux": [
+      "92300"
+    ],
+    "latitude": 48.8946,
+    "longitude": 2.2874
+  },
+  {
+    "ville": "Malakoff",
+    "codes_postaux": [
+      "92240"
+    ],
+    "latitude": 48.817,
+    "longitude": 2.2943
+  },
+  {
+    "ville": "Marnes-la-Coquette",
+    "codes_postaux": [
+      "92430"
+    ],
+    "latitude": 48.8286,
+    "longitude": 2.1689
+  },
+  {
+    "ville": "Meudon",
+    "codes_postaux": [
+      "92190",
+      "92360"
+    ],
+    "latitude": 48.8028,
+    "longitude": 2.2288
+  },
+  {
+    "ville": "Montrouge",
+    "codes_postaux": [
+      "92120"
+    ],
+    "latitude": 48.8159,
+    "longitude": 2.3163
+  },
+  {
+    "ville": "Nanterre",
+    "codes_postaux": [
+      "92000"
+    ],
+    "latitude": 48.8974,
+    "longitude": 2.2018
+  },
+  {
+    "ville": "Neuilly-sur-Seine",
+    "codes_postaux": [
+      "92200"
+    ],
+    "latitude": 48.8862,
+    "longitude": 2.2651
+  },
+  {
+    "ville": "Le Plessis-Robinson",
+    "codes_postaux": [
+      "92350"
+    ],
+    "latitude": 48.7815,
+    "longitude": 2.2592
+  },
+  {
+    "ville": "Puteaux",
+    "codes_postaux": [
+      "92800"
+    ],
+    "latitude": 48.8824,
+    "longitude": 2.2384
+  },
+  {
+    "ville": "Rueil-Malmaison",
+    "codes_postaux": [
+      "92500"
+    ],
+    "latitude": 48.8717,
+    "longitude": 2.1806
+  },
+  {
+    "ville": "Saint-Cloud",
+    "codes_postaux": [
+      "92210"
+    ],
+    "latitude": 48.844,
+    "longitude": 2.2032
+  },
+  {
+    "ville": "Sceaux",
+    "codes_postaux": [
+      "92330"
+    ],
+    "latitude": 48.776,
+    "longitude": 2.2963
+  },
+  {
+    "ville": "Sèvres",
+    "codes_postaux": [
+      "92310"
+    ],
+    "latitude": 48.8223,
+    "longitude": 2.2056
+  },
+  {
+    "ville": "Suresnes",
+    "codes_postaux": [
+      "92150"
+    ],
+    "latitude": 48.871,
+    "longitude": 2.2183
+  },
+  {
+    "ville": "Vanves",
+    "codes_postaux": [
+      "92170"
+    ],
+    "latitude": 48.8214,
+    "longitude": 2.2869
+  },
+  {
+    "ville": "Vaucresson",
+    "codes_postaux": [
+      "92420"
+    ],
+    "latitude": 48.8377,
+    "longitude": 2.1628
+  },
+  {
+    "ville": "Ville-d'Avray",
+    "codes_postaux": [
+      "92410"
+    ],
+    "latitude": 48.8215,
+    "longitude": 2.1759
+  },
+  {
+    "ville": "Villeneuve-la-Garenne",
+    "codes_postaux": [
+      "92390"
+    ],
+    "latitude": 48.9354,
+    "longitude": 2.3231
+  },
+  {
+    "ville": "Aubervilliers",
+    "codes_postaux": [
+      "93300"
+    ],
+    "latitude": 48.9128,
+    "longitude": 2.3886
+  },
+  {
+    "ville": "Aulnay-sous-Bois",
+    "codes_postaux": [
+      "93600"
+    ],
+    "latitude": 48.9457,
+    "longitude": 2.4918
+  },
+  {
+    "ville": "Bagnolet",
+    "codes_postaux": [
+      "93170"
+    ],
+    "latitude": 48.8671,
+    "longitude": 2.4252
+  },
+  {
+    "ville": "Le Blanc-Mesnil",
+    "codes_postaux": [
+      "93150"
+    ],
+    "latitude": 48.9372,
+    "longitude": 2.4576
+  },
+  {
+    "ville": "Bobigny",
+    "codes_postaux": [
+      "93000"
+    ],
+    "latitude": 48.9073,
+    "longitude": 2.4432
+  },
+  {
+    "ville": "Bondy",
+    "codes_postaux": [
+      "93140"
+    ],
+    "latitude": 48.9036,
+    "longitude": 2.4846
+  },
+  {
+    "ville": "Le Bourget",
+    "codes_postaux": [
+      "93350"
+    ],
+    "latitude": 48.9378,
+    "longitude": 2.4287
+  },
+  {
+    "ville": "Clichy-sous-Bois",
+    "codes_postaux": [
+      "93390"
+    ],
+    "latitude": 48.9081,
+    "longitude": 2.5432
+  },
+  {
+    "ville": "Coubron",
+    "codes_postaux": [
+      "93470"
+    ],
+    "latitude": 48.9173,
+    "longitude": 2.5759
+  },
+  {
+    "ville": "La Courneuve",
+    "codes_postaux": [
+      "93120"
+    ],
+    "latitude": 48.9341,
+    "longitude": 2.3986
+  },
+  {
+    "ville": "Drancy",
+    "codes_postaux": [
+      "93700"
+    ],
+    "latitude": 48.925,
+    "longitude": 2.4446
+  },
+  {
+    "ville": "Dugny",
+    "codes_postaux": [
+      "93440"
+    ],
+    "latitude": 48.9494,
+    "longitude": 2.4255
+  },
+  {
+    "ville": "Épinay-sur-Seine",
+    "codes_postaux": [
+      "93800"
+    ],
+    "latitude": 48.9544,
+    "longitude": 2.3172
+  },
+  {
+    "ville": "Gagny",
+    "codes_postaux": [
+      "93220"
+    ],
+    "latitude": 48.8826,
+    "longitude": 2.545
+  },
+  {
+    "ville": "Gournay-sur-Marne",
+    "codes_postaux": [
+      "93460"
+    ],
+    "latitude": 48.8607,
+    "longitude": 2.5761
+  },
+  {
+    "ville": "L'Île-Saint-Denis",
+    "codes_postaux": [
+      "93450"
+    ],
+    "latitude": 48.9465,
+    "longitude": 2.3204
+  },
+  {
+    "ville": "Les Lilas",
+    "codes_postaux": [
+      "93260"
+    ],
+    "latitude": 48.8821,
+    "longitude": 2.4207
+  },
+  {
+    "ville": "Livry-Gargan",
+    "codes_postaux": [
+      "93190"
+    ],
+    "latitude": 48.9184,
+    "longitude": 2.5351
+  },
+  {
+    "ville": "Montfermeil",
+    "codes_postaux": [
+      "93370"
+    ],
+    "latitude": 48.8976,
+    "longitude": 2.5678
+  },
+  {
+    "ville": "Montreuil",
+    "codes_postaux": [
+      "93100"
+    ],
+    "latitude": 48.8637,
+    "longitude": 2.4491
+  },
+  {
+    "ville": "Neuilly-Plaisance",
+    "codes_postaux": [
+      "93360"
+    ],
+    "latitude": 48.8641,
+    "longitude": 2.5097
+  },
+  {
+    "ville": "Neuilly-sur-Marne",
+    "codes_postaux": [
+      "93330"
+    ],
+    "latitude": 48.8645,
+    "longitude": 2.5419
+  },
+  {
+    "ville": "Noisy-le-Grand",
+    "codes_postaux": [
+      "93160"
+    ],
+    "latitude": 48.8327,
+    "longitude": 2.556
+  },
+  {
+    "ville": "Noisy-le-Sec",
+    "codes_postaux": [
+      "93130"
+    ],
+    "latitude": 48.8917,
+    "longitude": 2.4578
+  },
+  {
+    "ville": "Pantin",
+    "codes_postaux": [
+      "93500"
+    ],
+    "latitude": 48.9006,
+    "longitude": 2.4085
+  },
+  {
+    "ville": "Les Pavillons-sous-Bois",
+    "codes_postaux": [
+      "93320"
+    ],
+    "latitude": 48.907,
+    "longitude": 2.5057
+  },
+  {
+    "ville": "Le Pré-Saint-Gervais",
+    "codes_postaux": [
+      "93310"
+    ],
+    "latitude": 48.884,
+    "longitude": 2.4054
+  },
+  {
+    "ville": "Le Raincy",
+    "codes_postaux": [
+      "93340"
+    ],
+    "latitude": 48.8959,
+    "longitude": 2.5196
+  },
+  {
+    "ville": "Romainville",
+    "codes_postaux": [
+      "93230"
+    ],
+    "latitude": 48.8849,
+    "longitude": 2.4391
+  },
+  {
+    "ville": "Rosny-sous-Bois",
+    "codes_postaux": [
+      "93110"
+    ],
+    "latitude": 48.8744,
+    "longitude": 2.4872
+  },
+  {
+    "ville": "Saint-Denis",
+    "codes_postaux": [
+      "93200",
+      "93210",
+      "93380"
+    ],
+    "latitude": 48.9378,
+    "longitude": 2.3657
+  },
+  {
+    "ville": "Saint-Ouen-sur-Seine",
+    "codes_postaux": [
+      "93400"
+    ],
+    "latitude": 48.9118,
+    "longitude": 2.3329
+  },
+  {
+    "ville": "Sevran",
+    "codes_postaux": [
+      "93270"
+    ],
+    "latitude": 48.9378,
+    "longitude": 2.5311
+  },
+  {
+    "ville": "Stains",
+    "codes_postaux": [
+      "93240"
+    ],
+    "latitude": 48.9578,
+    "longitude": 2.3868
+  },
+  {
+    "ville": "Tremblay-en-France",
+    "codes_postaux": [
+      "93290"
+    ],
+    "latitude": 48.9744,
+    "longitude": 2.5481
+  },
+  {
+    "ville": "Vaujours",
+    "codes_postaux": [
+      "93410"
+    ],
+    "latitude": 48.9338,
+    "longitude": 2.5799
+  },
+  {
+    "ville": "Villemomble",
+    "codes_postaux": [
+      "93250"
+    ],
+    "latitude": 48.8866,
+    "longitude": 2.5085
+  },
+  {
+    "ville": "Villepinte",
+    "codes_postaux": [
+      "93420"
+    ],
+    "latitude": 48.956,
+    "longitude": 2.5323
+  },
+  {
+    "ville": "Villetaneuse",
+    "codes_postaux": [
+      "93430"
+    ],
+    "latitude": 48.9574,
+    "longitude": 2.3441
+  },
+  {
+    "ville": "Ablon-sur-Seine",
+    "codes_postaux": [
+      "94480"
+    ],
+    "latitude": 48.7236,
+    "longitude": 2.4229
+  },
+  {
+    "ville": "Alfortville",
+    "codes_postaux": [
+      "94140"
+    ],
+    "latitude": 48.7963,
+    "longitude": 2.4214
+  },
+  {
+    "ville": "Arcueil",
+    "codes_postaux": [
+      "94110"
+    ],
+    "latitude": 48.8053,
+    "longitude": 2.3328
+  },
+  {
+    "ville": "Boissy-Saint-Léger",
+    "codes_postaux": [
+      "94470"
+    ],
+    "latitude": 48.7453,
+    "longitude": 2.5251
+  },
+  {
+    "ville": "Bonneuil-sur-Marne",
+    "codes_postaux": [
+      "94380"
+    ],
+    "latitude": 48.7721,
+    "longitude": 2.493
+  },
+  {
+    "ville": "Bry-sur-Marne",
+    "codes_postaux": [
+      "94360"
+    ],
+    "latitude": 48.8392,
+    "longitude": 2.5224
+  },
+  {
+    "ville": "Cachan",
+    "codes_postaux": [
+      "94230"
+    ],
+    "latitude": 48.7914,
+    "longitude": 2.3318
+  },
+  {
+    "ville": "Champigny-sur-Marne",
+    "codes_postaux": [
+      "94500"
+    ],
+    "latitude": 48.8173,
+    "longitude": 2.5206
+  },
+  {
+    "ville": "Charenton-le-Pont",
+    "codes_postaux": [
+      "94220"
+    ],
+    "latitude": 48.8229,
+    "longitude": 2.405
+  },
+  {
+    "ville": "Chennevières-sur-Marne",
+    "codes_postaux": [
+      "94430"
+    ],
+    "latitude": 48.7951,
+    "longitude": 2.5443
+  },
+  {
+    "ville": "Chevilly-Larue",
+    "codes_postaux": [
+      "94550"
+    ],
+    "latitude": 48.7679,
+    "longitude": 2.3507
+  },
+  {
+    "ville": "Choisy-le-Roi",
+    "codes_postaux": [
+      "94600"
+    ],
+    "latitude": 48.7635,
+    "longitude": 2.4202
+  },
+  {
+    "ville": "Créteil",
+    "codes_postaux": [
+      "94000"
+    ],
+    "latitude": 48.7845,
+    "longitude": 2.4523
+  },
+  {
+    "ville": "Fontenay-sous-Bois",
+    "codes_postaux": [
+      "94120"
+    ],
+    "latitude": 48.8503,
+    "longitude": 2.4736
+  },
+  {
+    "ville": "Fresnes",
+    "codes_postaux": [
+      "94260"
+    ],
+    "latitude": 48.7572,
+    "longitude": 2.3263
+  },
+  {
+    "ville": "Gentilly",
+    "codes_postaux": [
+      "94250"
+    ],
+    "latitude": 48.812,
+    "longitude": 2.3426
+  },
+  {
+    "ville": "L'Haÿ-les-Roses",
+    "codes_postaux": [
+      "94240"
+    ],
+    "latitude": 48.7777,
+    "longitude": 2.3416
+  },
+  {
+    "ville": "Ivry-sur-Seine",
+    "codes_postaux": [
+      "94200"
+    ],
+    "latitude": 48.8125,
+    "longitude": 2.3872
+  },
+  {
+    "ville": "Joinville-le-Pont",
+    "codes_postaux": [
+      "94340"
+    ],
+    "latitude": 48.8199,
+    "longitude": 2.4685
+  },
+  {
+    "ville": "Le Kremlin-Bicêtre",
+    "codes_postaux": [
+      "94270"
+    ],
+    "latitude": 48.8087,
+    "longitude": 2.356
+  },
+  {
+    "ville": "Limeil-Brévannes",
+    "codes_postaux": [
+      "94450"
+    ],
+    "latitude": 48.7463,
+    "longitude": 2.4924
+  },
+  {
+    "ville": "Maisons-Alfort",
+    "codes_postaux": [
+      "94700"
+    ],
+    "latitude": 48.8017,
+    "longitude": 2.44
+  },
+  {
+    "ville": "Mandres-les-Roses",
+    "codes_postaux": [
+      "94520"
+    ],
+    "latitude": 48.7068,
+    "longitude": 2.5477
+  },
+  {
+    "ville": "Marolles-en-Brie",
+    "codes_postaux": [
+      "94440"
+    ],
+    "latitude": 48.7385,
+    "longitude": 2.5539
+  },
+  {
+    "ville": "Nogent-sur-Marne",
+    "codes_postaux": [
+      "94130"
+    ],
+    "latitude": 48.837,
+    "longitude": 2.4811
+  },
+  {
+    "ville": "Noiseau",
+    "codes_postaux": [
+      "94880"
+    ],
+    "latitude": 48.7757,
+    "longitude": 2.556
+  },
+  {
+    "ville": "Orly",
+    "codes_postaux": [
+      "94310"
+    ],
+    "latitude": 48.7402,
+    "longitude": 2.403
+  },
+  {
+    "ville": "Ormesson-sur-Marne",
+    "codes_postaux": [
+      "94490"
+    ],
+    "latitude": 48.7873,
+    "longitude": 2.5371
+  },
+  {
+    "ville": "Périgny",
+    "codes_postaux": [
+      "94520"
+    ],
+    "latitude": 48.6974,
+    "longitude": 2.562
+  },
+  {
+    "ville": "Le Perreux-sur-Marne",
+    "codes_postaux": [
+      "94170"
+    ],
+    "latitude": 48.8433,
+    "longitude": 2.5045
+  },
+  {
+    "ville": "Le Plessis-Trévise",
+    "codes_postaux": [
+      "94420"
+    ],
+    "latitude": 48.808,
+    "longitude": 2.5763
+  },
+  {
+    "ville": "La Queue-en-Brie",
+    "codes_postaux": [
+      "94510"
+    ],
+    "latitude": 48.7769,
+    "longitude": 2.5855
+  },
+  {
+    "ville": "Rungis",
+    "codes_postaux": [
+      "94150"
+    ],
+    "latitude": 48.7493,
+    "longitude": 2.3499
+  },
+  {
+    "ville": "Saint-Mandé",
+    "codes_postaux": [
+      "94160"
+    ],
+    "latitude": 48.8414,
+    "longitude": 2.4195
+  },
+  {
+    "ville": "Saint-Maur-des-Fossés",
+    "codes_postaux": [
+      "94100",
+      "94210"
+    ],
+    "latitude": 48.7999,
+    "longitude": 2.4921
+  },
+  {
+    "ville": "Saint-Maurice",
+    "codes_postaux": [
+      "94410"
+    ],
+    "latitude": 48.8179,
+    "longitude": 2.4423
+  },
+  {
+    "ville": "Santeny",
+    "codes_postaux": [
+      "94440"
+    ],
+    "latitude": 48.7362,
+    "longitude": 2.5771
+  },
+  {
+    "ville": "Sucy-en-Brie",
+    "codes_postaux": [
+      "94370"
+    ],
+    "latitude": 48.7688,
+    "longitude": 2.5374
+  },
+  {
+    "ville": "Thiais",
+    "codes_postaux": [
+      "94320"
+    ],
+    "latitude": 48.7605,
+    "longitude": 2.3869
+  },
+  {
+    "ville": "Valenton",
+    "codes_postaux": [
+      "94460"
+    ],
+    "latitude": 48.7497,
+    "longitude": 2.46
+  },
+  {
+    "ville": "Villecresnes",
+    "codes_postaux": [
+      "94440"
+    ],
+    "latitude": 48.7221,
+    "longitude": 2.5328
+  },
+  {
+    "ville": "Villejuif",
+    "codes_postaux": [
+      "94800"
+    ],
+    "latitude": 48.7934,
+    "longitude": 2.3603
+  },
+  {
+    "ville": "Villeneuve-le-Roi",
+    "codes_postaux": [
+      "94290"
+    ],
+    "latitude": 48.732,
+    "longitude": 2.4076
+  },
+  {
+    "ville": "Villeneuve-Saint-Georges",
+    "codes_postaux": [
+      "94190"
+    ],
+    "latitude": 48.7389,
+    "longitude": 2.4493
+  },
+  {
+    "ville": "Villiers-sur-Marne",
+    "codes_postaux": [
+      "94350"
+    ],
+    "latitude": 48.8278,
+    "longitude": 2.5482
+  },
+  {
+    "ville": "Vincennes",
+    "codes_postaux": [
+      "94300"
+    ],
+    "latitude": 48.8471,
+    "longitude": 2.4383
+  },
+  {
+    "ville": "Vitry-sur-Seine",
+    "codes_postaux": [
+      "94400"
+    ],
+    "latitude": 48.7893,
+    "longitude": 2.3951
+  },
+  {
+    "ville": "Ableiges",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.0873,
+    "longitude": 1.973
+  },
+  {
+    "ville": "Aincourt",
+    "codes_postaux": [
+      "95510"
+    ],
+    "latitude": 49.0733,
+    "longitude": 1.773
+  },
+  {
+    "ville": "Ambleville",
+    "codes_postaux": [
+      "95420",
+      "95710"
+    ],
+    "latitude": 49.151,
+    "longitude": 1.6959
+  },
+  {
+    "ville": "Amenucourt",
+    "codes_postaux": [
+      "95510"
+    ],
+    "latitude": 49.1084,
+    "longitude": 1.6469
+  },
+  {
+    "ville": "Andilly",
+    "codes_postaux": [
+      "95580"
+    ],
+    "latitude": 49.0098,
+    "longitude": 2.302
+  },
+  {
+    "ville": "Argenteuil",
+    "codes_postaux": [
+      "95100"
+    ],
+    "latitude": 48.9501,
+    "longitude": 2.2478
+  },
+  {
+    "ville": "Arnouville",
+    "codes_postaux": [
+      "95400"
+    ],
+    "latitude": 48.9867,
+    "longitude": 2.4168
+  },
+  {
+    "ville": "Arronville",
+    "codes_postaux": [
+      "95810"
+    ],
+    "latitude": 49.1734,
+    "longitude": 2.1189
+  },
+  {
+    "ville": "Arthies",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.0935,
+    "longitude": 1.7977
+  },
+  {
+    "ville": "Asnières-sur-Oise",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.1387,
+    "longitude": 2.3895
+  },
+  {
+    "ville": "Attainville",
+    "codes_postaux": [
+      "95570"
+    ],
+    "latitude": 49.0607,
+    "longitude": 2.3522
+  },
+  {
+    "ville": "Auvers-sur-Oise",
+    "codes_postaux": [
+      "95430"
+    ],
+    "latitude": 49.0847,
+    "longitude": 2.1569
+  },
+  {
+    "ville": "Avernes",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.0933,
+    "longitude": 1.8632
+  },
+  {
+    "ville": "Baillet-en-France",
+    "codes_postaux": [
+      "95560"
+    ],
+    "latitude": 49.0594,
+    "longitude": 2.3034
+  },
+  {
+    "ville": "Banthelu",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.1258,
+    "longitude": 1.8151
+  },
+  {
+    "ville": "Beauchamp",
+    "codes_postaux": [
+      "95250"
+    ],
+    "latitude": 49.0136,
+    "longitude": 2.194
+  },
+  {
+    "ville": "Beaumont-sur-Oise",
+    "codes_postaux": [
+      "95260"
+    ],
+    "latitude": 49.1372,
+    "longitude": 2.2953
+  },
+  {
+    "ville": "Le Bellay-en-Vexin",
+    "codes_postaux": [
+      "95750"
+    ],
+    "latitude": 49.1505,
+    "longitude": 1.8762
+  },
+  {
+    "ville": "Bellefontaine",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.0916,
+    "longitude": 2.4694
+  },
+  {
+    "ville": "Belloy-en-France",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.091,
+    "longitude": 2.37
+  },
+  {
+    "ville": "Bernes-sur-Oise",
+    "codes_postaux": [
+      "95340"
+    ],
+    "latitude": 49.1678,
+    "longitude": 2.2997
+  },
+  {
+    "ville": "Berville",
+    "codes_postaux": [
+      "95810"
+    ],
+    "latitude": 49.192,
+    "longitude": 2.0669
+  },
+  {
+    "ville": "Bessancourt",
+    "codes_postaux": [
+      "95550"
+    ],
+    "latitude": 49.0364,
+    "longitude": 2.1998
+  },
+  {
+    "ville": "Béthemont-la-Forêt",
+    "codes_postaux": [
+      "95840"
+    ],
+    "latitude": 49.0562,
+    "longitude": 2.2485
+  },
+  {
+    "ville": "Bezons",
+    "codes_postaux": [
+      "95870"
+    ],
+    "latitude": 48.925,
+    "longitude": 2.2147
+  },
+  {
+    "ville": "Boisemont",
+    "codes_postaux": [
+      "95000"
+    ],
+    "latitude": 49.0181,
+    "longitude": 2.0033
+  },
+  {
+    "ville": "Boissy-l'Aillerie",
+    "codes_postaux": [
+      "95650"
+    ],
+    "latitude": 49.0821,
+    "longitude": 2.0316
+  },
+  {
+    "ville": "Bonneuil-en-France",
+    "codes_postaux": [
+      "95500"
+    ],
+    "latitude": 48.9675,
+    "longitude": 2.4373
+  },
+  {
+    "ville": "Bouffémont",
+    "codes_postaux": [
+      "95570"
+    ],
+    "latitude": 49.0406,
+    "longitude": 2.2995
+  },
+  {
+    "ville": "Bouqueval",
+    "codes_postaux": [
+      "95720"
+    ],
+    "latitude": 49.0236,
+    "longitude": 2.4273
+  },
+  {
+    "ville": "Bray-et-Lû",
+    "codes_postaux": [
+      "95710"
+    ],
+    "latitude": 49.1429,
+    "longitude": 1.6651
+  },
+  {
+    "ville": "Bréançon",
+    "codes_postaux": [
+      "95640"
+    ],
+    "latitude": 49.1477,
+    "longitude": 2.0272
+  },
+  {
+    "ville": "Brignancourt",
+    "codes_postaux": [
+      "95640"
+    ],
+    "latitude": 49.1389,
+    "longitude": 1.9435
+  },
+  {
+    "ville": "Bruyères-sur-Oise",
+    "codes_postaux": [
+      "95820"
+    ],
+    "latitude": 49.1643,
+    "longitude": 2.3342
+  },
+  {
+    "ville": "Buhy",
+    "codes_postaux": [
+      "95770"
+    ],
+    "latitude": 49.1926,
+    "longitude": 1.7031
+  },
+  {
+    "ville": "Butry-sur-Oise",
+    "codes_postaux": [
+      "95430"
+    ],
+    "latitude": 49.0833,
+    "longitude": 2.1899
+  },
+  {
+    "ville": "Cergy",
+    "codes_postaux": [
+      "95000",
+      "95800"
+    ],
+    "latitude": 49.0373,
+    "longitude": 2.0455
+  },
+  {
+    "ville": "Champagne-sur-Oise",
+    "codes_postaux": [
+      "95660"
+    ],
+    "latitude": 49.1455,
+    "longitude": 2.228
+  },
+  {
+    "ville": "La Chapelle-en-Vexin",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.1836,
+    "longitude": 1.7274
+  },
+  {
+    "ville": "Charmont",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.1388,
+    "longitude": 1.7901
+  },
+  {
+    "ville": "Chars",
+    "codes_postaux": [
+      "95750"
+    ],
+    "latitude": 49.1572,
+    "longitude": 1.9304
+  },
+  {
+    "ville": "Châtenay-en-France",
+    "codes_postaux": [
+      "95190"
+    ],
+    "latitude": 49.0652,
+    "longitude": 2.462
+  },
+  {
+    "ville": "Chaumontel",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.1277,
+    "longitude": 2.4367
+  },
+  {
+    "ville": "Chaussy",
+    "codes_postaux": [
+      "95710"
+    ],
+    "latitude": 49.1153,
+    "longitude": 1.7075
+  },
+  {
+    "ville": "Chauvry",
+    "codes_postaux": [
+      "95560"
+    ],
+    "latitude": 49.0558,
+    "longitude": 2.2689
+  },
+  {
+    "ville": "Chennevières-lès-Louvres",
+    "codes_postaux": [
+      "95380"
+    ],
+    "latitude": 49.0412,
+    "longitude": 2.5484
+  },
+  {
+    "ville": "Chérence",
+    "codes_postaux": [
+      "95510"
+    ],
+    "latitude": 49.0912,
+    "longitude": 1.678
+  },
+  {
+    "ville": "Cléry-en-Vexin",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.1317,
+    "longitude": 1.8493
+  },
+  {
+    "ville": "Commeny",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.1243,
+    "longitude": 1.8915
+  },
+  {
+    "ville": "Condécourt",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.037,
+    "longitude": 1.9366
+  },
+  {
+    "ville": "Cormeilles-en-Parisis",
+    "codes_postaux": [
+      "95240"
+    ],
+    "latitude": 48.9701,
+    "longitude": 2.201
+  },
+  {
+    "ville": "Cormeilles-en-Vexin",
+    "codes_postaux": [
+      "95830"
+    ],
+    "latitude": 49.1145,
+    "longitude": 2.0171
+  },
+  {
+    "ville": "Courcelles-sur-Viosne",
+    "codes_postaux": [
+      "95650"
+    ],
+    "latitude": 49.0738,
+    "longitude": 1.9952
+  },
+  {
+    "ville": "Courdimanche",
+    "codes_postaux": [
+      "95800"
+    ],
+    "latitude": 49.0421,
+    "longitude": 1.9999
+  },
+  {
+    "ville": "Deuil-la-Barre",
+    "codes_postaux": [
+      "95170"
+    ],
+    "latitude": 48.9704,
+    "longitude": 2.327
+  },
+  {
+    "ville": "Domont",
+    "codes_postaux": [
+      "95330"
+    ],
+    "latitude": 49.0289,
+    "longitude": 2.3243
+  },
+  {
+    "ville": "Eaubonne",
+    "codes_postaux": [
+      "95600"
+    ],
+    "latitude": 48.9912,
+    "longitude": 2.2781
+  },
+  {
+    "ville": "Écouen",
+    "codes_postaux": [
+      "95440"
+    ],
+    "latitude": 49.0258,
+    "longitude": 2.3858
+  },
+  {
+    "ville": "Enghien-les-Bains",
+    "codes_postaux": [
+      "95880"
+    ],
+    "latitude": 48.9706,
+    "longitude": 2.305
+  },
+  {
+    "ville": "Ennery",
+    "codes_postaux": [
+      "95300"
+    ],
+    "latitude": 49.0767,
+    "longitude": 2.1089
+  },
+  {
+    "ville": "Épiais-lès-Louvres",
+    "codes_postaux": [
+      "95380"
+    ],
+    "latitude": 49.0322,
+    "longitude": 2.5475
+  },
+  {
+    "ville": "Épiais-Rhus",
+    "codes_postaux": [
+      "95810"
+    ],
+    "latitude": 49.1249,
+    "longitude": 2.0703
+  },
+  {
+    "ville": "Épinay-Champlâtreux",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.0908,
+    "longitude": 2.4071
+  },
+  {
+    "ville": "Éragny",
+    "codes_postaux": [
+      "95610"
+    ],
+    "latitude": 49.0224,
+    "longitude": 2.1002
+  },
+  {
+    "ville": "Ermont",
+    "codes_postaux": [
+      "95120"
+    ],
+    "latitude": 48.9891,
+    "longitude": 2.258
+  },
+  {
+    "ville": "Ézanville",
+    "codes_postaux": [
+      "95460"
+    ],
+    "latitude": 49.0382,
+    "longitude": 2.3617
+  },
+  {
+    "ville": "Fontenay-en-Parisis",
+    "codes_postaux": [
+      "95190"
+    ],
+    "latitude": 49.0483,
+    "longitude": 2.4468
+  },
+  {
+    "ville": "Fosses",
+    "codes_postaux": [
+      "95470"
+    ],
+    "latitude": 49.1003,
+    "longitude": 2.5043
+  },
+  {
+    "ville": "Franconville",
+    "codes_postaux": [
+      "95130"
+    ],
+    "latitude": 48.9879,
+    "longitude": 2.2235
+  },
+  {
+    "ville": "Frémainville",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.0663,
+    "longitude": 1.8685
+  },
+  {
+    "ville": "Frémécourt",
+    "codes_postaux": [
+      "95830"
+    ],
+    "latitude": 49.1221,
+    "longitude": 1.9937
+  },
+  {
+    "ville": "Frépillon",
+    "codes_postaux": [
+      "95740"
+    ],
+    "latitude": 49.0498,
+    "longitude": 2.2021
+  },
+  {
+    "ville": "La Frette-sur-Seine",
+    "codes_postaux": [
+      "95530"
+    ],
+    "latitude": 48.9728,
+    "longitude": 2.1759
+  },
+  {
+    "ville": "Frouville",
+    "codes_postaux": [
+      "95690"
+    ],
+    "latitude": 49.1575,
+    "longitude": 2.1459
+  },
+  {
+    "ville": "Garges-lès-Gonesse",
+    "codes_postaux": [
+      "95140"
+    ],
+    "latitude": 48.9696,
+    "longitude": 2.4035
+  },
+  {
+    "ville": "Genainville",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.1142,
+    "longitude": 1.7558
+  },
+  {
+    "ville": "Génicourt",
+    "codes_postaux": [
+      "95650"
+    ],
+    "latitude": 49.0946,
+    "longitude": 2.0626
+  },
+  {
+    "ville": "Gonesse",
+    "codes_postaux": [
+      "95500"
+    ],
+    "latitude": 48.9856,
+    "longitude": 2.4602
+  },
+  {
+    "ville": "Goussainville",
+    "codes_postaux": [
+      "95190"
+    ],
+    "latitude": 49.0266,
+    "longitude": 2.4683
+  },
+  {
+    "ville": "Grisy-les-Plâtres",
+    "codes_postaux": [
+      "95810"
+    ],
+    "latitude": 49.1306,
+    "longitude": 2.0486
+  },
+  {
+    "ville": "Groslay",
+    "codes_postaux": [
+      "95410"
+    ],
+    "latitude": 48.9852,
+    "longitude": 2.3514
+  },
+  {
+    "ville": "Guiry-en-Vexin",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.116,
+    "longitude": 1.8556
+  },
+  {
+    "ville": "Haravilliers",
+    "codes_postaux": [
+      "95640"
+    ],
+    "latitude": 49.1763,
+    "longitude": 2.0377
+  },
+  {
+    "ville": "Haute-Isle",
+    "codes_postaux": [
+      "95780"
+    ],
+    "latitude": 49.0848,
+    "longitude": 1.6675
+  },
+  {
+    "ville": "Le Heaulme",
+    "codes_postaux": [
+      "95640"
+    ],
+    "latitude": 49.167,
+    "longitude": 2.0007
+  },
+  {
+    "ville": "Hédouville",
+    "codes_postaux": [
+      "95690"
+    ],
+    "latitude": 49.1584,
+    "longitude": 2.179
+  },
+  {
+    "ville": "Herblay-sur-Seine",
+    "codes_postaux": [
+      "95220"
+    ],
+    "latitude": 49.0052,
+    "longitude": 2.1556
+  },
+  {
+    "ville": "Hérouville-en-Vexin",
+    "codes_postaux": [
+      "95300"
+    ],
+    "latitude": 49.1047,
+    "longitude": 2.1283
+  },
+  {
+    "ville": "Hodent",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.1425,
+    "longitude": 1.7624
+  },
+  {
+    "ville": "L'Isle-Adam",
+    "codes_postaux": [
+      "95290"
+    ],
+    "latitude": 49.1078,
+    "longitude": 2.2352
+  },
+  {
+    "ville": "Jagny-sous-Bois",
+    "codes_postaux": [
+      "95850"
+    ],
+    "latitude": 49.0817,
+    "longitude": 2.4424
+  },
+  {
+    "ville": "Jouy-le-Moutier",
+    "codes_postaux": [
+      "95280"
+    ],
+    "latitude": 49.0118,
+    "longitude": 2.0357
+  },
+  {
+    "ville": "Labbeville",
+    "codes_postaux": [
+      "95690"
+    ],
+    "latitude": 49.1349,
+    "longitude": 2.1355
+  },
+  {
+    "ville": "Lassy",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.0953,
+    "longitude": 2.4373
+  },
+  {
+    "ville": "Livilliers",
+    "codes_postaux": [
+      "95300"
+    ],
+    "latitude": 49.1001,
+    "longitude": 2.0947
+  },
+  {
+    "ville": "Longuesse",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.0622,
+    "longitude": 1.9294
+  },
+  {
+    "ville": "Louvres",
+    "codes_postaux": [
+      "95380"
+    ],
+    "latitude": 49.0444,
+    "longitude": 2.5011
+  },
+  {
+    "ville": "Luzarches",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.1168,
+    "longitude": 2.4457
+  },
+  {
+    "ville": "Maffliers",
+    "codes_postaux": [
+      "95560"
+    ],
+    "latitude": 49.0864,
+    "longitude": 2.3116
+  },
+  {
+    "ville": "Magny-en-Vexin",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.162,
+    "longitude": 1.8058
+  },
+  {
+    "ville": "Mareil-en-France",
+    "codes_postaux": [
+      "95850"
+    ],
+    "latitude": 49.0699,
+    "longitude": 2.4179
+  },
+  {
+    "ville": "Margency",
+    "codes_postaux": [
+      "95580"
+    ],
+    "latitude": 49.0017,
+    "longitude": 2.2892
+  },
+  {
+    "ville": "Marines",
+    "codes_postaux": [
+      "95640"
+    ],
+    "latitude": 49.1499,
+    "longitude": 1.9825
+  },
+  {
+    "ville": "Marly-la-Ville",
+    "codes_postaux": [
+      "95670"
+    ],
+    "latitude": 49.0805,
+    "longitude": 2.5069
+  },
+  {
+    "ville": "Maudétour-en-Vexin",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.1093,
+    "longitude": 1.7775
+  },
+  {
+    "ville": "Menouville",
+    "codes_postaux": [
+      "95810"
+    ],
+    "latitude": 49.1522,
+    "longitude": 2.1092
+  },
+  {
+    "ville": "Menucourt",
+    "codes_postaux": [
+      "95180"
+    ],
+    "latitude": 49.0273,
+    "longitude": 1.974
+  },
+  {
+    "ville": "Mériel",
+    "codes_postaux": [
+      "95630"
+    ],
+    "latitude": 49.0772,
+    "longitude": 2.2125
+  },
+  {
+    "ville": "Méry-sur-Oise",
+    "codes_postaux": [
+      "95540"
+    ],
+    "latitude": 49.0518,
+    "longitude": 2.173
+  },
+  {
+    "ville": "Le Mesnil-Aubry",
+    "codes_postaux": [
+      "95720"
+    ],
+    "latitude": 49.0539,
+    "longitude": 2.3948
+  },
+  {
+    "ville": "Moisselles",
+    "codes_postaux": [
+      "95570"
+    ],
+    "latitude": 49.0451,
+    "longitude": 2.3373
+  },
+  {
+    "ville": "Montgeroult",
+    "codes_postaux": [
+      "95650"
+    ],
+    "latitude": 49.0899,
+    "longitude": 2.0095
+  },
+  {
+    "ville": "Montigny-lès-Cormeilles",
+    "codes_postaux": [
+      "95370"
+    ],
+    "latitude": 48.9934,
+    "longitude": 2.1937
+  },
+  {
+    "ville": "Montlignon",
+    "codes_postaux": [
+      "95680"
+    ],
+    "latitude": 49.0157,
+    "longitude": 2.2882
+  },
+  {
+    "ville": "Montmagny",
+    "codes_postaux": [
+      "95360"
+    ],
+    "latitude": 48.9677,
+    "longitude": 2.3471
+  },
+  {
+    "ville": "Montmorency",
+    "codes_postaux": [
+      "95160"
+    ],
+    "latitude": 48.9922,
+    "longitude": 2.322
+  },
+  {
+    "ville": "Montreuil-sur-Epte",
+    "codes_postaux": [
+      "95770"
+    ],
+    "latitude": 49.1689,
+    "longitude": 1.6894
+  },
+  {
+    "ville": "Montsoult",
+    "codes_postaux": [
+      "95560"
+    ],
+    "latitude": 49.0716,
+    "longitude": 2.3025
+  },
+  {
+    "ville": "Mours",
+    "codes_postaux": [
+      "95260"
+    ],
+    "latitude": 49.1315,
+    "longitude": 2.2572
+  },
+  {
+    "ville": "Moussy",
+    "codes_postaux": [
+      "95640"
+    ],
+    "latitude": 49.1355,
+    "longitude": 1.9082
+  },
+  {
+    "ville": "Nerville-la-Forêt",
+    "codes_postaux": [
+      "95590"
+    ],
+    "latitude": 49.0882,
+    "longitude": 2.2768
+  },
+  {
+    "ville": "Nesles-la-Vallée",
+    "codes_postaux": [
+      "95690"
+    ],
+    "latitude": 49.1339,
+    "longitude": 2.1672
+  },
+  {
+    "ville": "Neuilly-en-Vexin",
+    "codes_postaux": [
+      "95640"
+    ],
+    "latitude": 49.174,
+    "longitude": 1.9809
+  },
+  {
+    "ville": "Neuville-sur-Oise",
+    "codes_postaux": [
+      "95000"
+    ],
+    "latitude": 49.0177,
+    "longitude": 2.0607
+  },
+  {
+    "ville": "Nointel",
+    "codes_postaux": [
+      "95590"
+    ],
+    "latitude": 49.1294,
+    "longitude": 2.2952
+  },
+  {
+    "ville": "Noisy-sur-Oise",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.1343,
+    "longitude": 2.3272
+  },
+  {
+    "ville": "Nucourt",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.1584,
+    "longitude": 1.8582
+  },
+  {
+    "ville": "Omerville",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.1404,
+    "longitude": 1.7183
+  },
+  {
+    "ville": "Osny",
+    "codes_postaux": [
+      "95520"
+    ],
+    "latitude": 49.0668,
+    "longitude": 2.0618
+  },
+  {
+    "ville": "Parmain",
+    "codes_postaux": [
+      "95620"
+    ],
+    "latitude": 49.125,
+    "longitude": 2.1991
+  },
+  {
+    "ville": "Le Perchay",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.1154,
+    "longitude": 1.928
+  },
+  {
+    "ville": "Persan",
+    "codes_postaux": [
+      "95340"
+    ],
+    "latitude": 49.1479,
+    "longitude": 2.2672
+  },
+  {
+    "ville": "Pierrelaye",
+    "codes_postaux": [
+      "95220",
+      "95480"
+    ],
+    "latitude": 49.0185,
+    "longitude": 2.1629
+  },
+  {
+    "ville": "Piscop",
+    "codes_postaux": [
+      "95350"
+    ],
+    "latitude": 49.0162,
+    "longitude": 2.3421
+  },
+  {
+    "ville": "Le Plessis-Bouchard",
+    "codes_postaux": [
+      "95130"
+    ],
+    "latitude": 49.003,
+    "longitude": 2.2339
+  },
+  {
+    "ville": "Le Plessis-Gassot",
+    "codes_postaux": [
+      "95720"
+    ],
+    "latitude": 49.0362,
+    "longitude": 2.4168
+  },
+  {
+    "ville": "Le Plessis-Luzarches",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.0955,
+    "longitude": 2.4567
+  },
+  {
+    "ville": "Pontoise",
+    "codes_postaux": [
+      "95000",
+      "95300"
+    ],
+    "latitude": 49.0488,
+    "longitude": 2.0996
+  },
+  {
+    "ville": "Presles",
+    "codes_postaux": [
+      "95590"
+    ],
+    "latitude": 49.1094,
+    "longitude": 2.2876
+  },
+  {
+    "ville": "Puiseux-en-France",
+    "codes_postaux": [
+      "95380"
+    ],
+    "latitude": 49.0703,
+    "longitude": 2.4896
+  },
+  {
+    "ville": "Puiseux-Pontoise",
+    "codes_postaux": [
+      "95650"
+    ],
+    "latitude": 49.0659,
+    "longitude": 2.0135
+  },
+  {
+    "ville": "La Roche-Guyon",
+    "codes_postaux": [
+      "95780"
+    ],
+    "latitude": 49.0899,
+    "longitude": 1.6337
+  },
+  {
+    "ville": "Roissy-en-France",
+    "codes_postaux": [
+      "95700"
+    ],
+    "latitude": 49.0036,
+    "longitude": 2.5188
+  },
+  {
+    "ville": "Ronquerolles",
+    "codes_postaux": [
+      "95340"
+    ],
+    "latitude": 49.1674,
+    "longitude": 2.2111
+  },
+  {
+    "ville": "Sagy",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.0531,
+    "longitude": 1.9674
+  },
+  {
+    "ville": "Saint-Brice-sous-Forêt",
+    "codes_postaux": [
+      "95350"
+    ],
+    "latitude": 49.0034,
+    "longitude": 2.3453
+  },
+  {
+    "ville": "Saint-Clair-sur-Epte",
+    "codes_postaux": [
+      "95770"
+    ],
+    "latitude": 49.211,
+    "longitude": 1.7047
+  },
+  {
+    "ville": "Saint-Cyr-en-Arthies",
+    "codes_postaux": [
+      "95510"
+    ],
+    "latitude": 49.0604,
+    "longitude": 1.7416
+  },
+  {
+    "ville": "Saint-Gervais",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.1655,
+    "longitude": 1.7583
+  },
+  {
+    "ville": "Saint-Gratien",
+    "codes_postaux": [
+      "95210"
+    ],
+    "latitude": 48.9679,
+    "longitude": 2.285
+  },
+  {
+    "ville": "Saint-Leu-la-Forêt",
+    "codes_postaux": [
+      "95320"
+    ],
+    "latitude": 49.0211,
+    "longitude": 2.243
+  },
+  {
+    "ville": "Saint-Martin-du-Tertre",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.1008,
+    "longitude": 2.3353
+  },
+  {
+    "ville": "Saint-Ouen-l'Aumône",
+    "codes_postaux": [
+      "95310"
+    ],
+    "latitude": 49.045,
+    "longitude": 2.1293
+  },
+  {
+    "ville": "Saint-Prix",
+    "codes_postaux": [
+      "95390"
+    ],
+    "latitude": 49.0191,
+    "longitude": 2.2748
+  },
+  {
+    "ville": "Saint-Witz",
+    "codes_postaux": [
+      "95470"
+    ],
+    "latitude": 49.0844,
+    "longitude": 2.5533
+  },
+  {
+    "ville": "Sannois",
+    "codes_postaux": [
+      "95110"
+    ],
+    "latitude": 48.9731,
+    "longitude": 2.2509
+  },
+  {
+    "ville": "Santeuil",
+    "codes_postaux": [
+      "95640"
+    ],
+    "latitude": 49.1312,
+    "longitude": 1.9563
+  },
+  {
+    "ville": "Sarcelles",
+    "codes_postaux": [
+      "95200"
+    ],
+    "latitude": 48.9925,
+    "longitude": 2.3858
+  },
+  {
+    "ville": "Seraincourt",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.0401,
+    "longitude": 1.8798
+  },
+  {
+    "ville": "Seugy",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.1224,
+    "longitude": 2.3956
+  },
+  {
+    "ville": "Soisy-sous-Montmorency",
+    "codes_postaux": [
+      "95230"
+    ],
+    "latitude": 48.9888,
+    "longitude": 2.3003
+  },
+  {
+    "ville": "Survilliers",
+    "codes_postaux": [
+      "95470"
+    ],
+    "latitude": 49.1077,
+    "longitude": 2.5451
+  },
+  {
+    "ville": "Taverny",
+    "codes_postaux": [
+      "95150"
+    ],
+    "latitude": 49.0274,
+    "longitude": 2.2179
+  },
+  {
+    "ville": "Théméricourt",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.0882,
+    "longitude": 1.9064
+  },
+  {
+    "ville": "Theuville",
+    "codes_postaux": [
+      "95810"
+    ],
+    "latitude": 49.1567,
+    "longitude": 2.0678
+  },
+  {
+    "ville": "Le Thillay",
+    "codes_postaux": [
+      "95500"
+    ],
+    "latitude": 49.003,
+    "longitude": 2.4673
+  },
+  {
+    "ville": "Us",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.1053,
+    "longitude": 1.9562
+  },
+  {
+    "ville": "Vallangoujard",
+    "codes_postaux": [
+      "95810"
+    ],
+    "latitude": 49.1323,
+    "longitude": 2.1078
+  },
+  {
+    "ville": "Valmondois",
+    "codes_postaux": [
+      "95760"
+    ],
+    "latitude": 49.0977,
+    "longitude": 2.1841
+  },
+  {
+    "ville": "Vaudherland",
+    "codes_postaux": [
+      "95500"
+    ],
+    "latitude": 49.0005,
+    "longitude": 2.4864
+  },
+  {
+    "ville": "Vauréal",
+    "codes_postaux": [
+      "95490"
+    ],
+    "latitude": 49.0293,
+    "longitude": 2.0254
+  },
+  {
+    "ville": "Vémars",
+    "codes_postaux": [
+      "95470"
+    ],
+    "latitude": 49.0602,
+    "longitude": 2.5706
+  },
+  {
+    "ville": "Vétheuil",
+    "codes_postaux": [
+      "95510"
+    ],
+    "latitude": 49.0619,
+    "longitude": 1.7097
+  },
+  {
+    "ville": "Viarmes",
+    "codes_postaux": [
+      "95270"
+    ],
+    "latitude": 49.1229,
+    "longitude": 2.3836
+  },
+  {
+    "ville": "Vienne-en-Arthies",
+    "codes_postaux": [
+      "95510"
+    ],
+    "latitude": 49.0655,
+    "longitude": 1.7236
+  },
+  {
+    "ville": "Vigny",
+    "codes_postaux": [
+      "95450"
+    ],
+    "latitude": 49.0811,
+    "longitude": 1.9296
+  },
+  {
+    "ville": "Villaines-sous-Bois",
+    "codes_postaux": [
+      "95570"
+    ],
+    "latitude": 49.0751,
+    "longitude": 2.3548
+  },
+  {
+    "ville": "Villeron",
+    "codes_postaux": [
+      "95380"
+    ],
+    "latitude": 49.059,
+    "longitude": 2.5348
+  },
+  {
+    "ville": "Villers-en-Arthies",
+    "codes_postaux": [
+      "95510"
+    ],
+    "latitude": 49.0864,
+    "longitude": 1.7322
+  },
+  {
+    "ville": "Villiers-Adam",
+    "codes_postaux": [
+      "95840"
+    ],
+    "latitude": 49.0704,
+    "longitude": 2.2383
+  },
+  {
+    "ville": "Villiers-le-Bel",
+    "codes_postaux": [
+      "95400"
+    ],
+    "latitude": 49.008,
+    "longitude": 2.4036
+  },
+  {
+    "ville": "Villiers-le-Sec",
+    "codes_postaux": [
+      "95720"
+    ],
+    "latitude": 49.0751,
+    "longitude": 2.3862
+  },
+  {
+    "ville": "Wy-dit-Joli-Village",
+    "codes_postaux": [
+      "95420"
+    ],
+    "latitude": 49.0964,
+    "longitude": 1.8249
+  }
+]

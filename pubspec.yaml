@@ -43,6 +43,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   easy_localization: ^3.0.0
+  geolocator: ^9.0.2
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,8 @@ flutter:
   assets:
     - assets/langs/en.json
     - assets/langs/fr.json
+    - assets/city/
+    - assets/users/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

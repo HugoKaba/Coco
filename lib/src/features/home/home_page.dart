@@ -32,7 +32,7 @@ class HomePage extends ConsumerWidget {
             ElevatedButton.icon(
               icon: const Icon(Icons.favorite),
               label: const Text("Voir les profils"),
-              onPressed: () => context.push('/swipe'), // <--- ICI
+              onPressed: () => context.push('/swipe'),
             ),
             const SizedBox(height: 16),
             ElevatedButton.icon(
@@ -41,6 +41,12 @@ class HomePage extends ConsumerWidget {
               onPressed: () async {
                 await auth.signOut();
               },
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton.icon(
+              icon: const Icon(Icons.filter_list),
+              label: const Text('Filtres'),
+              onPressed: () => context.push('/filters'),
             ),
           ],
         ),

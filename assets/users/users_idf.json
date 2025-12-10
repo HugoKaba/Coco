@@ -1,0 +1,352 @@
+[
+    {
+        "id": "u1",
+        "name": "Alice Martin",
+        "city": "Paris",
+        "latitude": 48.8566,
+        "longitude": 2.3522,
+        "sports": [
+            "Padel"
+        ],
+        "level": "Expert",
+        "availabilities": [
+            "Jeudi"
+        ],
+        "age": 32
+    },
+    {
+        "id": "u2",
+        "name": "Bob Dupont",
+        "city": "Versailles",
+        "latitude": 48.8048,
+        "longitude": 2.1204,
+        "sports": [
+            "Padel"
+        ],
+        "level": "Expert",
+        "availabilities": [
+            "Mardi"
+        ],
+        "age": 50
+    },
+    {
+        "id": "u3",
+        "name": "Charlie Durand",
+        "city": "Saint-Denis",
+        "latitude": 48.9362,
+        "longitude": 2.3574,
+        "sports": [
+            "Basketball"
+        ],
+        "level": "Confirmé",
+        "availabilities": [
+            "Mardi",
+            "Lundi",
+            "Jeudi",
+            "Samedi"
+        ],
+        "age": 35
+    },
+    {
+        "id": "u4",
+        "name": "David Leroy",
+        "city": "Créteil",
+        "latitude": 48.7904,
+        "longitude": 2.4556,
+        "sports": [
+            "Padel"
+        ],
+        "level": "Débutant",
+        "availabilities": [
+            "Mercredi",
+            "Dimanche",
+            "Vendredi",
+            "Samedi"
+        ],
+        "age": 23
+    },
+    {
+        "id": "u5",
+        "name": "Emma Petit",
+        "city": "Boulogne-Billancourt",
+        "latitude": 48.8397,
+        "longitude": 2.2399,
+        "sports": [
+            "Tennis",
+            "Football"
+        ],
+        "level": "Débutant",
+        "availabilities": [
+            "Dimanche",
+            "Vendredi",
+            "Jeudi"
+        ],
+        "age": 20
+    },
+    {
+        "id": "u6",
+        "name": "Frank Moreau",
+        "city": "Nanterre",
+        "latitude": 48.8924,
+        "longitude": 2.2071,
+        "sports": [
+            "Running",
+            "Football"
+        ],
+        "level": "Expert",
+        "availabilities": [
+            "Lundi",
+            "Dimanche"
+        ],
+        "age": 23
+    },
+    {
+        "id": "u7",
+        "name": "Grace Fournier",
+        "city": "Cergy",
+        "latitude": 49.0389,
+        "longitude": 2.0776,
+        "sports": [
+            "Padel"
+        ],
+        "level": "Débutant",
+        "availabilities": [
+            "Dimanche",
+            "Mercredi"
+        ],
+        "age": 48
+    },
+    {
+        "id": "u8",
+        "name": "Hugo Girard",
+        "city": "Évry",
+        "latitude": 48.6298,
+        "longitude": 2.4418,
+        "sports": [
+            "Basketball",
+            "Tennis"
+        ],
+        "level": "Expert",
+        "availabilities": [
+            "Mercredi",
+            "Lundi",
+            "Vendredi",
+            "Mardi"
+        ],
+        "age": 22
+    },
+    {
+        "id": "u9",
+        "name": "Ivy Bonnet",
+        "city": "Melun",
+        "latitude": 48.5397,
+        "longitude": 2.6607,
+        "sports": [
+            "Padel",
+            "Football"
+        ],
+        "level": "Expert",
+        "availabilities": [
+            "Dimanche",
+            "Samedi"
+        ],
+        "age": 34
+    },
+    {
+        "id": "u10",
+        "name": "Jack Rousseau",
+        "city": "Meaux",
+        "latitude": 48.9566,
+        "longitude": 2.8765,
+        "sports": [
+            "Basketball",
+            "Running"
+        ],
+        "level": "Expert",
+        "availabilities": [
+            "Dimanche"
+        ],
+        "age": 46
+    },
+    {
+        "id": "u11",
+        "name": "Kevin Blanc",
+        "city": "Chelles",
+        "latitude": 48.8797,
+        "longitude": 2.5928,
+        "sports": [
+            "Running"
+        ],
+        "level": "Confirmé",
+        "availabilities": [
+            "Dimanche",
+            "Mardi",
+            "Samedi",
+            "Vendredi"
+        ],
+        "age": 33
+    },
+    {
+        "id": "u12",
+        "name": "Lea Garnier",
+        "city": "Neuilly-sur-Seine",
+        "latitude": 48.8846,
+        "longitude": 2.2688,
+        "sports": [
+            "Tennis",
+            "Basketball"
+        ],
+        "level": "Confirmé",
+        "availabilities": [
+            "Mercredi",
+            "Mardi"
+        ],
+        "age": 22
+    },
+    {
+        "id": "u13",
+        "name": "Mael Faure",
+        "city": "Antony",
+        "latitude": 48.7538,
+        "longitude": 2.2975,
+        "sports": [
+            "Running",
+            "Football",
+            "Tennis"
+        ],
+        "level": "Confirmé",
+        "availabilities": [
+            "Lundi"
+        ],
+        "age": 31
+    },
+    {
+        "id": "u14",
+        "name": "Nina Roux",
+        "city": "Sarcelles",
+        "latitude": 48.9956,
+        "longitude": 2.3808,
+        "sports": [
+            "Padel",
+            "Running",
+            "Football"
+        ],
+        "level": "Débutant",
+        "availabilities": [
+            "Lundi"
+        ],
+        "age": 45
+    },
+    {
+        "id": "u15",
+        "name": "Oscar Renard",
+        "city": "Clichy",
+        "latitude": 48.9044,
+        "longitude": 2.3064,
+        "sports": [
+            "Basketball",
+            "Padel",
+            "Tennis"
+        ],
+        "level": "Expert",
+        "availabilities": [
+            "Mardi",
+            "Jeudi",
+            "Lundi",
+            "Dimanche"
+        ],
+        "age": 45
+    },
+    {
+        "id": "u16",
+        "name": "Pauline Mercier",
+        "city": "Ivry-sur-Seine",
+        "latitude": 48.8116,
+        "longitude": 2.3874,
+        "sports": [
+            "Football"
+        ],
+        "level": "Confirmé",
+        "availabilities": [
+            "Vendredi",
+            "Samedi",
+            "Dimanche"
+        ],
+        "age": 26
+    },
+    {
+        "id": "u17",
+        "name": "Quentin Guerin",
+        "city": "Villejuif",
+        "latitude": 48.7933,
+        "longitude": 2.3644,
+        "sports": [
+            "Basketball",
+            "Padel",
+            "Running"
+        ],
+        "level": "Expert",
+        "availabilities": [
+            "Mercredi",
+            "Lundi"
+        ],
+        "age": 23
+    },
+    {
+        "id": "u18",
+        "name": "Rose Boyer",
+        "city": "Maisons-Alfort",
+        "latitude": 48.8053,
+        "longitude": 2.4383,
+        "sports": [
+            "Football"
+        ],
+        "level": "Intermédiaire",
+        "availabilities": [
+            "Samedi",
+            "Dimanche",
+            "Mercredi",
+            "Jeudi"
+        ],
+        "age": 18
+    },
+    {
+        "id": "u19",
+        "name": "Simon Bertrand",
+        "city": "Fontenay-sous-Bois",
+        "latitude": 48.8514,
+        "longitude": 2.4772,
+        "sports": [
+            "Padel",
+            "Running",
+            "Basketball"
+        ],
+        "level": "Débutant",
+        "availabilities": [
+            "Vendredi",
+            "Mardi",
+            "Dimanche"
+        ],
+        "age": 39
+    },
+    {
+        "id": "u20",
+        "name": "Tom Richard",
+        "city": "Pantin",
+        "latitude": 48.8966,
+        "longitude": 2.4017,
+        "sports": [
+            "Basketball",
+            "Football",
+            "Running"
+        ],
+        "level": "Débutant",
+        "availabilities": [
+            "Vendredi",
+            "Lundi",
+            "Jeudi",
+            "Mercredi"
+        ],
+        "age": 22
+    }
+]
