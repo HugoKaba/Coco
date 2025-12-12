@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sportlinker/src/features/filters/services/geolocation_service.dart';
-import 'package:sportlinker/src/features/filters/models/location_entity.dart';
+
+import '../../domain/models/person_entity.dart';
+import '../../domain/services/geolocation_service.dart';
 
 class SearchResultsScreen extends ConsumerWidget {
   final List<PersonEntity> results;
@@ -69,12 +70,14 @@ class SearchResultsScreen extends ConsumerWidget {
                     leading: CircleAvatar(
                       backgroundColor: Colors.deepPurple.shade50,
                       child: Text(
-                        it.name.substring(0, 1),
+                        it.fullName.isNotEmpty
+                            ? it.fullName.substring(0, 1).toUpperCase()
+                            : '?',
                         style: const TextStyle(color: Colors.deepPurple),
                       ),
                     ),
                     title: Text(
-                      it.name,
+                      it.fullName,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: Column(
@@ -89,7 +92,7 @@ class SearchResultsScreen extends ConsumerWidget {
                               .map(
                                 (s) => Chip(
                                   label: Text(
-                                    s,
+                                    '${s.sportName} (${s.level})',
                                     style: const TextStyle(fontSize: 10),
                                   ),
                                   padding: EdgeInsets.zero,

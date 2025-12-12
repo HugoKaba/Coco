@@ -1,82 +1,61 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sportlinker/src/features/filters/services/geolocation_service.dart';
-import 'package:sportlinker/src/features/filters/models/location_entity.dart';
+import 'package:sportlinker/src/features/filters/domain/services/geohash_index.dart';
+import 'package:sportlinker/src/features/filters/domain/models/person_entity.dart';
 
 void main() {
-  test('boundary exact radius and zero radius behave correctly', () {
-    const centerLat = 48.8566;
-    const centerLng = 2.3522;
+  test('CellIndex should bucket items and query candidates correctly', () {
+    final index = CellIndex<PersonEntity>();
 
-    // Inline fake data
-    final items = [
-      PersonEntity(
-        id: 'c1',
-        name: 'City1',
-        lat: 48.8566,
-        lng: 2.3522,
-      ), // At center
-      PersonEntity(
-        id: 'c2',
-        name: 'City2',
-        lat: 48.9000,
-        lng: 2.4000,
-      ), // Nearby
-    ];
-
-    final service = GeolocationService();
-
-    // Pick a known point: first item
-    final first = items.first;
-    final d = service.distanceMeters(
-      centerLat,
-      centerLng,
-      first.lat,
-      first.lng,
+    final parisUser = PersonEntity(
+      id: "paris",
+      nom: "Dupont",
+      prenom: "Jean",
+      genre: "H",
+      age: 30,
+      lat: 48.8566,
+      lng: 2.3522,
     );
 
-    // radius exactly at d should include the point
-    final resExact = service.searchNearby(items, centerLat, centerLng, d);
-    expect(resExact.contains(first), isTrue);
-
-    // radius zero should only include exact same coordinate
-    final resZero = service.searchNearby(items, centerLat, centerLng, 0.0);
-    // if there is a point exactly at center it's included, otherwise empty
-    expect(
-      resZero.every(
-        (p) =>
-            service.distanceMeters(centerLat, centerLng, p.lat, p.lng) <=
-            0.0 + 1e-9,
-      ),
-      isTrue,
+    final marseilleUser = PersonEntity(
+      id: "marseille",
+      nom: "Sardine",
+      prenom: "Patrick",
+      genre: "H",
+      age: 40,
+      lat: 43.2965,
+      lng: 5.3698,
     );
+
+    index.build([parisUser, marseilleUser]);
+
+    // Query bucket around Paris (Radius 10km)
+    final candidates = index.queryCandidates(48.8566, 2.3522, 10000);
+
+    expect(candidates, contains(parisUser));
+    expect(candidates, isNot(contains(marseilleUser)));
   });
 
-  test('performance smoke test with many items completes', () {
-    const centerLat = 48.8566;
-    const centerLng = 2.3522;
-    final service = GeolocationService();
-
-    // create many copies of cities to simulate load
-    final base = [
-      PersonEntity(id: 'c1', name: 'City1', lat: 48.8566, lng: 2.3522),
-      PersonEntity(id: 'c2', name: 'City2', lat: 48.9000, lng: 2.4000),
-      PersonEntity(id: 'c3', name: 'City3', lat: 49.0000, lng: 3.0000),
-    ];
-
-    final big = <LocationEntity>[];
-    for (var i = 0; i < 2000; i++) {
-      big.addAll(base);
-    }
+  test('Performance with 1000 entities', () {
+    final index = CellIndex<PersonEntity>();
+    final entities = List.generate(1000, (i) {
+      return PersonEntity(
+        id: "user_$i",
+        nom: "User",
+        prenom: "$i",
+        genre: "H",
+        age: 20,
+        lat: 48.0 + (i * 0.001),
+        lng: 2.0 + (i * 0.001),
+      );
+    });
 
     final stopwatch = Stopwatch()..start();
-    final out = service.searchNearby(big, centerLat, centerLng, 50000.0);
+    index.build(entities);
+    // Query a subset
+    final candidates = index.queryCandidates(48.5, 2.5, 10000);
     stopwatch.stop();
-    // ensure it returned a list (and completed)
-    expect(out, isNotNull);
-    // Print time for information
-    // ignore: avoid_print
-    print(
-      'Search over ${big.length} items took: ${stopwatch.elapsedMilliseconds}ms',
-    );
+
+    expect(candidates.isNotEmpty, isTrue);
+    expect(stopwatch.elapsedMilliseconds, lessThan(500));
   });
 }

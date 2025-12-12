@@ -1,13 +1,12 @@
 import 'dart:math';
-import '../models/location_entity.dart';
-import 'geohash_index.dart';
+import '../models/person_entity.dart';
+import 'package:sportlinker/src/features/filters/domain/services/geohash_index.dart';
 
 class GeolocationService {
   const GeolocationService();
 
-  // Haversine formula -> distance in meters
   double distanceMeters(double lat1, double lng1, double lat2, double lng2) {
-    const R = 6371000.0; // Earth radius in meters
+    const R = 6371000.0;
     final dLat = _toRad(lat2 - lat1);
     final dLon = _toRad(lng2 - lng1);
     final a =
@@ -19,9 +18,6 @@ class GeolocationService {
 
   double _toRad(double deg) => deg * pi / 180;
 
-  /// Search nearby entities within [radiusMeters] from center.
-  /// Optional [typeFilter] to limit to 'person' or 'event'.
-  /// Optional [metadataFilter] is a simple subset match: all keys present with equal values.
   List<T> searchNearby<T extends LocationEntity>(
     List<T> items,
     double centerLat,
@@ -31,7 +27,6 @@ class GeolocationService {
     Map<String, dynamic>? metadataFilter,
     CellIndex<T>? index,
   }) {
-    // If an index is provided, query candidates first to reduce distance calcs.
     final candidates = index != null
         ? index.queryCandidates(centerLat, centerLng, radiusMeters)
         : items;

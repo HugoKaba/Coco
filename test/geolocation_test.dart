@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sportlinker/src/features/filters/services/geolocation_service.dart';
-import 'package:sportlinker/src/features/filters/models/location_entity.dart';
+import 'package:sportlinker/src/features/filters/domain/services/geolocation_service.dart';
+import 'package:sportlinker/src/features/filters/domain/models/person_entity.dart';
 
 void main() {
   test(
@@ -10,17 +10,32 @@ void main() {
       const centerLng = 2.3522;
 
       // Create inline fake data
+      // Create inline fake data
       final items = [
         PersonEntity(
           id: 'p1',
-          name: 'P1',
+          nom: 'One',
+          prenom: 'Person',
+          genre: 'H',
+          age: 20,
           lat: 48.8566,
           lng: 2.3522,
         ), // At center
-        PersonEntity(id: 'p2', name: 'P2', lat: 48.8600, lng: 2.3600), // Nearby
+        PersonEntity(
+          id: 'p2',
+          nom: 'Two',
+          prenom: 'Person',
+          genre: 'F',
+          age: 22,
+          lat: 48.8600,
+          lng: 2.3600,
+        ), // Nearby
         PersonEntity(
           id: 'p3',
-          name: 'P3',
+          nom: 'Three',
+          prenom: 'Person',
+          genre: 'H',
+          age: 30,
           lat: 49.0000,
           lng: 3.0000,
         ), // Far away

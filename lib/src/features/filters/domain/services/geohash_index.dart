@@ -1,10 +1,8 @@
 import 'dart:math';
-import '../models/location_entity.dart';
+import '../models/person_entity.dart';
 
-/// Simple grid-based spatial index (prototype of geohash).
-/// It buckets points into lat/lng cells of size 1/precision degrees.
 class CellIndex<T extends LocationEntity> {
-  final double precision; // e.g. 100 means cell = 0.01 deg
+  final double precision;
   final Map<String, List<T>> _cells = {};
 
   CellIndex({this.precision = 100});
@@ -21,13 +19,12 @@ class CellIndex<T extends LocationEntity> {
     }
   }
 
-  /// Query candidates within a bounding box that covers radiusMeters around center.
   List<T> queryCandidates(
     double centerLat,
     double centerLng,
     double radiusMeters,
   ) {
-    final dmLat = radiusMeters / 111320.0; // ~deg per meter
+    final dmLat = radiusMeters / 111320.0;
     final dmLng = radiusMeters / (111320.0 * cos(centerLat * pi / 180));
     final minLat = centerLat - dmLat;
     final maxLat = centerLat + dmLat;
@@ -42,7 +39,7 @@ class CellIndex<T extends LocationEntity> {
     final out = <T>[];
     for (var ky = minKeyLat; ky <= maxKeyLat; ky++) {
       for (var kx = minKeyLng; kx <= maxKeyLng; kx++) {
-        final k = '\$ky:\$kx';
+        final k = '$ky:$kx';
         final list = _cells[k];
         if (list != null) out.addAll(list);
       }
