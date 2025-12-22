@@ -1,9 +1,14 @@
 import 'dart:typed_data';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sportlinker/src/core/providers.dart';
+import 'package:sportlinker/src/core/city_service.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'sign_in_page.dart';
 import 'package:go_router/go_router.dart';
@@ -43,6 +48,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   XFile? _profilePhoto;
   Uint8List? _profilePhotoBytes;
   DateTime _birthDate = DateTime(1970, 1, 1);
+  bool _citiesLoaded = false;
 
   @override
   void initState() {
@@ -50,6 +56,17 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     _updateBirthControllers(_birthDate);
     _zipController.text = "93066";
     _cityController.text = "Saint-Denis";
+    // Charger les villes au démarrage
+    _loadCities();
+  }
+  
+  Future<void> _loadCities() async {
+    await CityService.instance.loadCities();
+    if (mounted) {
+      setState(() {
+        _citiesLoaded = CityService.instance.isLoaded;
+      });
+    }
   }
 
   @override
@@ -70,9 +87,58 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     super.dispose();
   }
 
-  void _submit() {
-    // TODO: envoyer les données plus tard
-    print("Submit appelé");
+  Future<void> _submit() async {
+    try {
+      final UserCredential userCredential =
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+
+      final String uid = userCredential.user!.uid;
+
+      String? photoUrl;
+      if (_profilePhotoBytes != null) {
+        final storageRef =
+        FirebaseStorage.instance.ref().child("users/$uid/profile.jpg");
+
+        await storageRef.putData(
+          _profilePhotoBytes!,
+          SettableMetadata(contentType: "image/jpeg"),
+        );
+
+        photoUrl = await storageRef.getDownloadURL();
+      }
+
+      await FirebaseFirestore.instance.collection("users").doc(uid).set({
+        "firstName": _firstNameController.text.trim(),
+        "lastName": _nameController.text.trim(),
+        "username": _userNameController.text.trim(),
+        "email": _emailController.text.trim(),
+        "photoUrl": photoUrl,
+        "gender": _selectedGender,
+        "birthday": _birthDate.toIso8601String(),
+        "zip": _zipController.text.trim(),
+        "city": _cityController.text.trim(),
+        "bio": _bioController.text.trim(),
+        "sportCategory": _sportCategoryController.text.trim(),
+        "activityFrequency": _activityFrequencyController.text.trim(),
+        "dailyPreference": _dailyPreference,
+        "createdAt": FieldValue.serverTimestamp(),
+      });
+
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Compte créé avec succès !")),
+      );
+      // Rediriger vers la page d'accueil
+      context.go('/');
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Erreur : $e")),
+      );
+    }
   }
 
   int step = 0;
@@ -144,14 +210,14 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           children: [
             Expanded(
               child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (step == 0) ...[
-              Form(
-                key: _formKey,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    if (step == 0) ...[
+                      Form(
+                        key: _formKey,
+                        child: Column(
+                          children: [
                             Container(
                               width: 120,
                               height: 120,
@@ -165,38 +231,38 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                             _buildDarkTextField(
                               controller: _firstNameController,
                               hintText: "Firstname",
-                    ),
-                    const SizedBox(height: 20),
+                            ),
+                            const SizedBox(height: 20),
                             _buildInputLabel("Nom"),
                             _buildDarkTextField(
-                      controller: _nameController,
+                              controller: _nameController,
                               hintText: "Name",
-                    ),
-                    const SizedBox(height: 20),
+                            ),
+                            const SizedBox(height: 20),
                             _buildInputLabel("Nom d'utilisateur"),
                             _buildDarkTextField(
-                      controller: _userNameController,
+                              controller: _userNameController,
                               hintText: "Username",
-                    ),
-                    const SizedBox(height: 20),
+                            ),
+                            const SizedBox(height: 20),
                             _buildInputLabel("Email"),
                             _buildDarkTextField(
-                      controller: _emailController,
+                              controller: _emailController,
                               hintText: tr('sign_in.email_label'),
-                      keyboardType: TextInputType.emailAddress,
-                    ),
-                    const SizedBox(height: 20),
+                              keyboardType: TextInputType.emailAddress,
+                            ),
+                            const SizedBox(height: 20),
                             _buildInputLabel("Password"),
                             _buildDarkTextField(
-                      controller: _passwordController,
+                              controller: _passwordController,
                               hintText: tr('sign_in.password_label'),
-                      obscureText: true,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-            if (step == 1) ...[
+                              obscureText: true,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                    if (step == 1) ...[
                       _buildProfileCompletionStep(context),
                     ],
                     if (step == 2) ...[
@@ -214,23 +280,23 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: TextButton(
-                  onPressed: () {
-                    if (step == 0) {
+                      onPressed: () {
+                        if (step == 0) {
                           context.pop();
-                    } else {
-                      setState(() {
+                        } else {
+                          setState(() {
                             step--;
-                      });
-                    }
-                  },
-                  style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(const Color(0xFFCD8232)),
-                    foregroundColor: WidgetStateProperty.all(Colors.white),
-                        shape: WidgetStateProperty.all(
+                          });
+                        }
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(const Color(0xFFCD8232)),
+                        foregroundColor: MaterialStateProperty.all(Colors.white),
+                        shape: MaterialStateProperty.all(
                           RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                         ),
-                    elevation: WidgetStateProperty.all(0),
-                        padding: WidgetStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 14)),
+                        elevation: MaterialStateProperty.all(0),
+                        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 14)),
                       ),
                       child: const Text('Précédent'),
                     ),
@@ -240,40 +306,45 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
-                  onPressed: () {
-                    if (step < 2) {
-                      setState(() => step++);
-                    } else {
+                      onPressed: () {
+                        if (step == 0) {
+                          if (!_formKey.currentState!.validate()) return;
+                        }
+                        if (step < 2) {
+                          setState(() => step++);
+                        } else {
                           _submit();
-                    }
-                  },
-                  style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(const Color(0xFFCD8232)),
-                    foregroundColor: WidgetStateProperty.all(Colors.white),
-                        shape: WidgetStateProperty.all(
+                        }
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(const Color(0xFFCD8232)),
+                        foregroundColor: MaterialStateProperty.all(Colors.white),
+                        shape: MaterialStateProperty.all(
                           RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                         ),
-                    elevation: WidgetStateProperty.all(0),
-                        padding: WidgetStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 14)),
-                  ),
-                  child: Text(step == 2 ? "Valider" : "Suivant"),
+                        elevation: MaterialStateProperty.all(0),
+                        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 14)),
+                      ),
+                      child: Text(step == 2 ? "Valider" : "Suivant"),
                     ),
                   ),
                 ),
               ],
-                ),
-              ],
             ),
+          ],
+        ),
       ),
     );
   }
 
+  // ------------------- Widgets Step 1 & 2 -------------------
+
   Widget _buildProfileCompletionStep(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-              child: Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+        children: [
           Align(
             alignment: Alignment.center,
             child: Container(
@@ -289,9 +360,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           Text(
             "Photo de profile",
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w600,
-                ),
+              color: Colors.white70,
+              fontWeight: FontWeight.w600,
+            ),
           ),
           const SizedBox(height: 12),
           Row(
@@ -307,9 +378,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           Text(
             "Date de naissance",
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w600,
-                ),
+              color: Colors.white70,
+              fontWeight: FontWeight.w600,
+            ),
           ),
           const SizedBox(height: 12),
           Row(
@@ -352,9 +423,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           Text(
             "Localisation",
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w600,
-                ),
+              color: Colors.white70,
+              fontWeight: FontWeight.w600,
+            ),
           ),
           const SizedBox(height: 12),
           Row(
@@ -370,10 +441,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
               const SizedBox(width: 12),
               Expanded(
                 flex: 3,
-                child: _buildDarkTextField(
-                  controller: _cityController,
-                  hintText: "Saint-Denis",
-                ),
+                child: _buildCityAutocomplete(),
               ),
             ],
           ),
@@ -381,9 +449,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           Text(
             "Genre",
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w600,
-                ),
+              color: Colors.white70,
+              fontWeight: FontWeight.w600,
+            ),
           ),
           const SizedBox(height: 12),
           Row(
@@ -398,6 +466,75 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
       ),
     );
   }
+
+  Widget _buildLifestyleStep(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            child: Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                color: _accentColor,
+                borderRadius: BorderRadius.circular(24),
+              ),
+            ),
+          ),
+          const SizedBox(height: 28),
+          Text(
+            "Description",
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: Colors.white70,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 8),
+          _buildDarkTextField(
+            controller: _bioController,
+            maxLines: 3,
+          ),
+          const SizedBox(height: 22),
+          Text(
+            "Catégorie de sport",
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: Colors.white70,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 8),
+          _buildDarkTextField(
+            controller: _sportCategoryController,
+          ),
+          const SizedBox(height: 22),
+          Text(
+            "Fréquence d'activité",
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: Colors.white70,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 8),
+          _buildDarkTextField(
+            controller: _activityFrequencyController,
+          ),
+          const SizedBox(height: 22),
+          Text(
+            "Préférence journalière",
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: Colors.white70,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 12),
+          _buildPreferenceRow(),
+        ],
+      ),
+    );
+  }
+
 
   Widget _buildDarkTextField({
     required TextEditingController controller,
@@ -420,7 +557,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
         readOnly: readOnly,
         onTap: onTap,
         style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
+        decoration: InputDecoration(
           hintText: hintText,
           hintStyle: const TextStyle(color: Colors.white54),
           filled: false,
@@ -444,15 +581,15 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
           child: Row(
-                    children: [
+            children: [
               Expanded(
                 child: Text(
                   label,
                   style: const TextStyle(color: Colors.white),
                   overflow: TextOverflow.ellipsis,
                 ),
-                      ),
-                      const SizedBox(width: 12),
+              ),
+              const SizedBox(width: 12),
               const Icon(Icons.photo_library_rounded, color: Colors.white70),
             ],
           ),
@@ -519,109 +656,17 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
             ),
             child: isSelected
                 ? Center(
-                    child: Container(
-                      width: 14,
-                      height: 14,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: _accentColor,
-                      ),
-                    ),
-                  )
-                        : null,
-                  ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildInputWrapper({required Widget child, double borderRadius = 20}) {
-    final borderColor = Colors.white.withOpacity(0.08);
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: _fieldColor,
-        borderRadius: BorderRadius.circular(borderRadius),
-        border: Border.all(color: borderColor),
-        boxShadow: [
-          BoxShadow(
-            color: _inputInnerShadow,
-            blurRadius: 15,
-            offset: const Offset(0, 0),
-            spreadRadius: 0,
-            blurStyle: BlurStyle.inner,
-                      ),
-                    ],
-                  ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(borderRadius),
-        child: child,
-      ),
-    );
-  }
-
-  Widget _buildLifestyleStep(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Center(
-            child: Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                color: _accentColor,
-                borderRadius: BorderRadius.circular(24),
+              child: Container(
+                width: 14,
+                height: 14,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: _accentColor,
+                ),
               ),
-            ),
+            )
+                : null,
           ),
-          const SizedBox(height: 28),
-          Text(
-            "Description",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w500,
-                ),
-          ),
-          const SizedBox(height: 8),
-          _buildDarkTextField(
-            controller: _bioController,
-            maxLines: 3,
-          ),
-          const SizedBox(height: 22),
-          Text(
-            "Catégorie de sport",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w500,
-                ),
-          ),
-          const SizedBox(height: 8),
-          _buildDarkTextField(
-            controller: _sportCategoryController,
-          ),
-          const SizedBox(height: 22),
-          Text(
-            "Fréquence d'activité",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w500,
-                ),
-          ),
-          const SizedBox(height: 8),
-          _buildDarkTextField(
-            controller: _activityFrequencyController,
-          ),
-          const SizedBox(height: 22),
-          Text(
-            "Préférence journalière",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w500,
-                ),
-          ),
-          const SizedBox(height: 12),
-          _buildPreferenceRow(),
         ],
       ),
     );
@@ -634,7 +679,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
       children: options
           .map(
             (opt) => _buildPreferenceOption(opt),
-          )
+      )
           .toList(),
     );
   }
@@ -670,28 +715,52 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
               color: isSelected ? Colors.white12 : Colors.transparent,
               boxShadow: isSelected
                   ? [
-                      BoxShadow(
-                        color: _accentColor.withOpacity(0.4),
-                        blurRadius: 10,
-                        offset: const Offset(0, 4),
-                      ),
-                    ]
+                BoxShadow(
+                  color: _accentColor.withOpacity(0.4),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ]
                   : null,
             ),
             child: isSelected
                 ? Center(
-                    child: Container(
-                      width: 12,
-                      height: 12,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: _accentColor,
-                      ),
-                    ),
-                  )
+              child: Container(
+                width: 12,
+                height: 12,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: _accentColor,
+                ),
+              ),
+            )
                 : null,
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildInputWrapper({required Widget child, double borderRadius = 20}) {
+    final borderColor = Colors.white.withOpacity(0.08);
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: _fieldColor,
+        borderRadius: BorderRadius.circular(borderRadius),
+        border: Border.all(color: borderColor),
+        boxShadow: [
+          BoxShadow(
+            color: _inputInnerShadow,
+            blurRadius: 15,
+            offset: const Offset(0, 0),
+            spreadRadius: 0,
+            blurStyle: BlurStyle.inner,
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(borderRadius),
+        child: child,
       ),
     );
   }
@@ -709,6 +778,162 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
             fontWeight: FontWeight.w500,
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildCityAutocomplete() {
+    if (!_citiesLoaded) {
+      CityService.instance.loadCities().then((_) {
+        if (mounted) {
+          setState(() {
+            _citiesLoaded = CityService.instance.isLoaded;
+          });
+        }
+      });
+    }
+    
+    return _buildInputWrapper(
+      borderRadius: 20,
+      child: Autocomplete<CityData>(
+        key: ValueKey('autocomplete_$_citiesLoaded'),
+        displayStringForOption: (CityData option) => option.nomStandard,
+        optionsBuilder: (TextEditingValue textEditingValue) {
+          // Vérifier si les villes sont chargées
+          final isLoaded = CityService.instance.isLoaded;
+          if (!isLoaded && !_citiesLoaded) {
+            // Essayer de charger si pas encore fait
+            CityService.instance.loadCities().then((_) {
+              if (mounted) {
+                setState(() {
+                  _citiesLoaded = CityService.instance.isLoaded;
+                });
+              }
+            });
+            return const Iterable<CityData>.empty();
+          }
+          
+          if (textEditingValue.text.isEmpty) {
+            return const Iterable<CityData>.empty();
+          }
+          
+          final query = textEditingValue.text.trim();
+          if (query.isEmpty) {
+            return const Iterable<CityData>.empty();
+          }
+          
+          final results = CityService.instance.searchCities(query);
+          debugPrint('Recherche "$query": ${results.length} résultats (villes chargées: $isLoaded)');
+          return results;
+        },
+        onSelected: (CityData selection) {
+          setState(() {
+            _cityController.text = selection.nomStandard;
+            _zipController.text = selection.codePostal;
+          });
+        },
+        fieldViewBuilder: (
+          BuildContext context,
+          TextEditingController fieldTextEditingController,
+          FocusNode fieldFocusNode,
+          VoidCallback onFieldSubmitted,
+        ) {
+          if (fieldTextEditingController.text.isEmpty && _cityController.text.isNotEmpty) {
+            fieldTextEditingController.text = _cityController.text;
+          }
+          
+          return TextFormField(
+            controller: fieldTextEditingController,
+            focusNode: fieldFocusNode,
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              hintText: "Saint-Denis",
+              hintStyle: const TextStyle(color: Colors.white54),
+              filled: false,
+              border: InputBorder.none,
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 18,
+                vertical: 16,
+              ),
+            ),
+            onChanged: (String value) {
+              _cityController.text = value;
+            },
+            onFieldSubmitted: (String value) {
+              onFieldSubmitted();
+              final city = CityService.instance.findCityByName(value);
+              if (city != null) {
+                setState(() {
+                  _zipController.text = city.codePostal;
+                });
+              }
+            },
+          );
+        },
+        optionsViewBuilder: (
+          BuildContext context,
+          AutocompleteOnSelected<CityData> onSelected,
+          Iterable<CityData> options,
+        ) {
+          return Align(
+            alignment: Alignment.topLeft,
+            child: Material(
+              color: const Color(0xFF1F1F1F),
+              borderRadius: BorderRadius.circular(12),
+              elevation: 4.0,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxHeight: 200),
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  itemCount: options.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final CityData option = options.elementAt(index);
+                    return InkWell(
+                      onTap: () {
+                        onSelected(option);
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 18,
+                          vertical: 12,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              color: Colors.white.withOpacity(0.1),
+                              width: 0.5,
+                            ),
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              option.nomStandard,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                              ),
+                            ),
+                            if (option.codePostal.isNotEmpty)
+                              Text(
+                                option.codePostal,
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(0.6),
+                                  fontSize: 12,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
