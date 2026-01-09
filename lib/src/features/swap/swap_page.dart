@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class Profile {
   final String name;
-  final int age;
+  final String username;
   final String imageUrl;
-  final List<String> practicedSports; // 2 sports max pour l'affichage
-  final String desiredSport;
+  final List<IconData> sportIcons;
   final String description;
-  final Set<String> availableDays; // ex : {'Lun', 'Mer', 'Ven'}
+  final String activityFrequency;
+  final Set<String> availableDays;
 
   Profile({
     required this.name,
-    required this.age,
+    required this.username,
     required this.imageUrl,
-    required this.practicedSports,
-    required this.desiredSport,
+    required this.sportIcons,
     required this.description,
+    required this.activityFrequency,
     required this.availableDays,
   });
 }
@@ -32,90 +31,83 @@ class SwipeMatchPage extends ConsumerStatefulWidget {
 class _SwipeMatchPageState extends ConsumerState<SwipeMatchPage> {
   final List<Profile> _profiles = [
     Profile(
-      name: 'Emma',
-      age: 24,
+      name: 'Garance Turpin',
+      username: '@aelysee',
       imageUrl:
           'https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg',
-      practicedSports: ['Course', 'Yoga'],
-      desiredSport: 'Muscu',
-      description:
-          'Je cherche quelqu’un pour aller courir 2-3x par semaine et se motiver mutuellement 💪',
+      sportIcons: [Icons.fitness_center, Icons.hiking],
+      description: '"c\'est pas acheter radin, c\'est acheter malin"',
+      activityFrequency: '2 fois par mois',
       availableDays: {'Lun', 'Mer', 'Ven'},
     ),
     Profile(
-      name: 'Lucas',
-      age: 27,
+      name: 'Lucas Martin',
+      username: '@lucas_m',
       imageUrl:
           'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg',
-      practicedSports: ['Foot', 'Natation'],
-      desiredSport: 'Trail',
-      description:
-          'Plutôt sportif le soir après le travail. Partant pour découvrir de nouveaux sports.',
+      sportIcons: [Icons.sports_soccer, Icons.pool],
+      description: 'Plutot sportif le soir apres le travail.',
+      activityFrequency: '3 fois par semaine',
       availableDays: {'Mar', 'Jeu', 'Sam'},
     ),
   ];
 
-  double _dragDx = 0; // déplacement horizontal courant
+  double _dragDx = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // Tu pourras remplacer par tr('swipe.title') si tu ajoutes la clé
-        title: const Text('SportLinker'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.go('/'),
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: _profiles.isEmpty
-              ? Text(
-                  'Plus de profils à afficher',
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: _profiles.isEmpty
+            ? Center(
+                child: Text(
+                  'Plus de profils',
                   style: Theme.of(context).textTheme.titleMedium,
-                )
-              : Stack(
-                  alignment: Alignment.center,
-                  children: _profiles.asMap().entries.map((entry) {
-                    final index = entry.key;
-                    final profile = entry.value;
-                    final isTopCard = index == _profiles.length - 1;
-
-                    if (!isTopCard) {
-                      // cartes du dessous : juste affichées
-                      return _ProfileCard(profile: profile);
-                    }
-
-                    // carte du dessus : pivotée / swipable
-                    return _TopSwipeCard(
-                      profile: profile,
-                      dragDx: _dragDx,
-                      onPanUpdate: (details) {
-                        setState(() {
-                          _dragDx += details.delta.dx;
-                        });
-                      },
-                      onPanEnd: (details) {
-                        final width = MediaQuery.of(context).size.width;
-                        const thresholdRatio = 0.25; // 25% de la largeur écran
-
-                        if (_dragDx > width * thresholdRatio) {
-                          _onSwipeRight(profile);
-                        } else if (_dragDx < -width * thresholdRatio) {
-                          _onSwipeLeft(profile);
-                        }
-
-                        // dans tous les cas, on recentre la carte visuellement
-                        setState(() {
-                          _dragDx = 0;
-                        });
-                      },
-                    );
-                  }).toList(),
                 ),
-        ),
+              )
+            : Stack(
+                alignment: Alignment.center,
+                children: _profiles.asMap().entries.map((entry) {
+                  final index = entry.key;
+                  final profile = entry.value;
+                  final isTopCard = index == _profiles.length - 1;
+
+                  if (!isTopCard) {
+                    return _ProfileCard(
+                      profile: profile,
+                      onSwipeLeft: () {},
+                      onSwipeRight: () {},
+                    );
+                  }
+
+                  return _TopSwipeCard(
+                    profile: profile,
+                    dragDx: _dragDx,
+                    onPanUpdate: (details) {
+                      setState(() {
+                        _dragDx += details.delta.dx;
+                      });
+                    },
+                    onPanEnd: (details) {
+                      final width = MediaQuery.of(context).size.width;
+                      const thresholdRatio = 0.25;
+
+                      if (_dragDx > width * thresholdRatio) {
+                        _onSwipeRight(profile);
+                      } else if (_dragDx < -width * thresholdRatio) {
+                        _onSwipeLeft(profile);
+                      }
+
+                      setState(() {
+                        _dragDx = 0;
+                      });
+                    },
+                    onSwipeLeft: () => _onSwipeLeft(profile),
+                    onSwipeRight: () => _onSwipeRight(profile),
+                  );
+                }).toList(),
+              ),
       ),
     );
   }
@@ -140,25 +132,26 @@ class _TopSwipeCard extends StatelessWidget {
   final double dragDx;
   final void Function(DragUpdateDetails) onPanUpdate;
   final void Function(DragEndDetails) onPanEnd;
+  final VoidCallback onSwipeLeft;
+  final VoidCallback onSwipeRight;
 
   const _TopSwipeCard({
-    super.key,
     required this.profile,
     required this.dragDx,
     required this.onPanUpdate,
     required this.onPanEnd,
+    required this.onSwipeLeft,
+    required this.onSwipeRight,
   });
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    // angle max ~ 20°
-    const maxAngle = 0.35; // radians
+    const maxAngle = 0.35;
     final normalized = (dragDx / (size.width * 0.5)).clamp(-1.0, 1.0);
     final angle = normalized * maxAngle;
 
-    // petite translation pour accompagner la rotation
     final offsetX = dragDx * 0.05;
     final offsetY = -dragDx.abs() * 0.02;
 
@@ -168,9 +161,13 @@ class _TopSwipeCard extends StatelessWidget {
       child: Transform.translate(
         offset: Offset(offsetX, offsetY),
         child: Transform.rotate(
-          alignment: Alignment.bottomCenter, // pivot en bas
+          alignment: Alignment.bottomCenter,
           angle: angle,
-          child: _ProfileCard(profile: profile),
+          child: _ProfileCard(
+            profile: profile,
+            onSwipeLeft: onSwipeLeft,
+            onSwipeRight: onSwipeRight,
+          ),
         ),
       ),
     );
@@ -179,203 +176,234 @@ class _TopSwipeCard extends StatelessWidget {
 
 class _ProfileCard extends StatelessWidget {
   final Profile profile;
+  final VoidCallback onSwipeLeft;
+  final VoidCallback onSwipeRight;
 
-  const _ProfileCard({required this.profile});
+  const _ProfileCard({
+    required this.profile,
+    required this.onSwipeLeft,
+    required this.onSwipeRight,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
-    final size = MediaQuery.of(context).size;
+    const orangeColor = Color(0xFFD4913D);
 
-    return SizedBox(
-      height: size.height * 0.75, // card assez grande mais scrollable
-      child: Card(
-        elevation: 6,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-        color: isDark ? theme.colorScheme.surface : Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+    return Container(
+      color: Colors.white,
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        child: Column(
+          children: [
+            // Photo + Boutons swipe
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // PHOTO
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: AspectRatio(
-                    aspectRatio: 3 / 4,
-                    child: Image.network(profile.imageUrl, fit: BoxFit.cover),
-                  ),
-                ),
-                const SizedBox(height: 12),
-
-                // NOM / ÂGE
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    '${profile.name}, ${profile.age}',
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
+                // Bouton X
+                GestureDetector(
+                  onTap: onSwipeLeft,
+                  child: Container(
+                    width: 56,
+                    height: 56,
+                    decoration: const BoxDecoration(
+                      color: orangeColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.close,
+                      color: Colors.white,
+                      size: 32,
                     ),
                   ),
                 ),
-                const SizedBox(height: 12),
-
-                // 3 CASES : 2 sports pratiqués + 1 souhaité
-                Row(
-                  children: [
-                    Expanded(
-                      child: _InfoBox(
-                        label: 'Sport 1',
-                        value: profile.practicedSports.isNotEmpty
-                            ? profile.practicedSports[0]
-                            : '-',
-                      ),
+                const SizedBox(width: 24),
+                // Photo de profil ronde
+                Container(
+                  width: 160,
+                  height: 160,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.grey[800],
+                    image: DecorationImage(
+                      image: NetworkImage(profile.imageUrl),
+                      fit: BoxFit.cover,
                     ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: _InfoBox(
-                        label: 'Sport 2',
-                        value: profile.practicedSports.length > 1
-                            ? profile.practicedSports[1]
-                            : '-',
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: _InfoBox(
-                        label: 'Souhaité',
-                        value: profile.desiredSport,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-
-                // DESCRIPTION
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    profile.description,
-                    style: theme.textTheme.bodyMedium,
                   ),
                 ),
-                const SizedBox(height: 12),
-
-                // JOURS DISPONIBLES
-                _DaysCard(availableDays: profile.availableDays),
+                const SizedBox(width: 24),
+                // Bouton V
+                GestureDetector(
+                  onTap: onSwipeRight,
+                  child: Container(
+                    width: 56,
+                    height: 56,
+                    decoration: const BoxDecoration(
+                      color: orangeColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.check,
+                      color: Colors.white,
+                      size: 32,
+                    ),
+                  ),
+                ),
               ],
             ),
-          ),
+            const SizedBox(height: 16),
+
+            // Nom
+            Text(
+              profile.name,
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
+            ),
+            const SizedBox(height: 4),
+
+            // Username
+            Text(
+              profile.username,
+              style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+            ),
+            const SizedBox(height: 20),
+
+            // Icones de sports
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: profile.sportIcons.map((icon) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Container(
+                    width: 52,
+                    height: 52,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: orangeColor, width: 2),
+                    ),
+                    child: Icon(icon, color: orangeColor, size: 28),
+                  ),
+                );
+              }).toList(),
+            ),
+            const SizedBox(height: 24),
+
+            // Description label
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Description',
+                style: TextStyle(fontSize: 14, color: Colors.grey),
+              ),
+            ),
+            const SizedBox(height: 8),
+
+            // Description box
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.grey[100],
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                profile.description,
+                style: const TextStyle(fontSize: 16, color: Colors.black87),
+              ),
+            ),
+            const SizedBox(height: 24),
+
+            // Frequence d'activite label
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Frequence d'activite",
+                style: TextStyle(fontSize: 14, color: Colors.grey),
+              ),
+            ),
+            const SizedBox(height: 8),
+
+            // Frequence box
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey[300]!),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                profile.activityFrequency,
+                style: const TextStyle(fontSize: 16, color: Colors.black87),
+              ),
+            ),
+            const SizedBox(height: 24),
+
+            // Preference journaliere
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Preference journaliere',
+                style: TextStyle(fontSize: 14, color: Colors.grey),
+              ),
+            ),
+            const SizedBox(height: 12),
+
+            // Jours de la semaine
+            _DaysRow(availableDays: profile.availableDays),
+            const SizedBox(height: 24),
+          ],
         ),
       ),
     );
   }
 }
 
-class _InfoBox extends StatelessWidget {
-  final String label;
-  final String value;
+class _DaysRow extends StatelessWidget {
+  final Set<String> availableDays;
 
-  const _InfoBox({required this.label, required this.value});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
-
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: isDark ? Colors.grey.shade700 : Colors.grey.shade300,
-        ),
-      ),
-      child: Column(
-        children: [
-          Text(
-            label,
-            style: theme.textTheme.labelSmall?.copyWith(
-              color: Colors.grey.shade600,
-              fontSize: 11,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            value,
-            textAlign: TextAlign.center,
-            style: theme.textTheme.bodySmall?.copyWith(
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _DaysCard extends StatelessWidget {
-  final Set<String> availableDays; // ex: {'Lun', 'Mer'}
-
-  const _DaysCard({required this.availableDays});
+  const _DaysRow({required this.availableDays});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final days = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
+    final days = [
+      ('Lun.', 'Lun'),
+      ('Mar.', 'Mar'),
+      ('Mer.', 'Mer'),
+      ('Jeu.', 'Jeu'),
+      ('Ven.', 'Ven'),
+      ('Sam.', 'Sam'),
+      ('Dim.', 'Dim'),
+    ];
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: theme.colorScheme.surfaceVariant.withOpacity(0.6),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Jours pour faire du sport',
-            style: theme.textTheme.bodyMedium?.copyWith(
-              fontWeight: FontWeight.bold,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: days.map((day) {
+        final isActive = availableDays.contains(day.$2);
+        return Column(
+          children: [
+            Text(
+              day.$1,
+              style: const TextStyle(fontSize: 14, color: Colors.black87),
             ),
-          ),
-          const SizedBox(height: 8),
-          Wrap(
-            spacing: 6,
-            runSpacing: 6,
-            children: days.map((day) {
-              final isActive = availableDays.contains(day);
-              return Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 6,
-                  horizontal: 10,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: isActive
-                      ? theme.colorScheme.primary.withOpacity(0.2)
-                      : Colors.transparent,
-                  border: Border.all(
-                    color: isActive
-                        ? theme.colorScheme.primary
-                        : Colors.grey.shade400,
-                  ),
-                ),
-                child: Text(
-                  day,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    fontSize: 12,
-                    fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-                  ),
-                ),
-              );
-            }).toList(),
-          ),
-        ],
-      ),
+            const SizedBox(height: 8),
+            Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.black87, width: 2),
+                color: isActive ? Colors.black87 : Colors.transparent,
+              ),
+              child: isActive
+                  ? const Icon(Icons.circle, color: Colors.black87, size: 16)
+                  : null,
+            ),
+          ],
+        );
+      }).toList(),
     );
   }
 }
