@@ -10,6 +10,7 @@ import 'core/providers.dart';
 import 'features/auth/sign_in_page.dart';
 import 'features/settings/settings_page.dart';
 import 'features/filters/presentation/pages/filter_screen.dart';
+import 'features/events/presentation/pages/event_list_screen.dart';
 
 final authChangeNotifierProvider = Provider<ChangeNotifier>((ref) {
   return AuthChangeNotifier(ref);
@@ -82,6 +83,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         parentNavigatorKey: _rootNavKey,
         path: '/filters',
         builder: (context, state) => const FilterScreen(),
+      ),
+      GoRoute(
+        path: '/events',
+        builder: (context, state) => const EventListScreen(),
       ),
     ],
   );

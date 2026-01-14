@@ -280,6 +280,88 @@ class DataSeeder {
     }
   }
 
+  Future<void> seedEvents() async {
+    final httpClient = HttpClient();
+    final random = Random();
+    int count = 0;
+
+    debugPrint('🎉 Seeding 10 events via REST API...');
+
+    try {
+      for (int i = 0; i < 10; i++) {
+        final city = _citiesIdf[random.nextInt(_citiesIdf.length)];
+        final sport = _sportsList[random.nextInt(_sportsList.length)];
+        final maxPlaces = random.nextInt(20) + 5;
+        final docId = 'test_event_$i';
+        final url = Uri.parse('$_baseUrl/events?documentId=$docId');
+
+        final date = DateTime.now().add(
+          Duration(days: random.nextInt(30), hours: random.nextInt(10)),
+        );
+        final creatorId = 'test_user_${random.nextInt(10)}';
+
+        final body = jsonEncode({
+          "fields": {
+            "creatorId": {"stringValue": creatorId},
+            "title": {"stringValue": "$sport à ${city['name']}"},
+            "description": {
+              "stringValue": "Venez nombreux pour un match de folie !",
+            },
+            "sport": {"stringValue": sport},
+            "date": {"timestampValue": date.toUtc().toIso8601String()},
+            "locationName": {"stringValue": city['name']},
+            "lat": {"doubleValue": city['lat']},
+            "lng": {"doubleValue": city['lng']},
+            "maxPlaces": {"integerValue": maxPlaces.toString()},
+            "attendees": {
+              "arrayValue": {
+                "values": [
+                  {"stringValue": creatorId},
+                ],
+              },
+            },
+            "createdAt": {
+              "timestampValue": DateTime.now().toUtc().toIso8601String(),
+            },
+            "imageUrl": {
+              "stringValue":
+                  "https://source.unsplash.com/800x600/?${sport.toLowerCase()}",
+            },
+          },
+        });
+
+        final request = await httpClient.postUrl(url);
+        request.headers.contentType = ContentType.json;
+        request.write(body);
+        final response = await request.close();
+
+        if (response.statusCode == 200 || response.statusCode == 409) {
+          if (response.statusCode == 409) {
+            final patchUrl = Uri.parse('$_baseUrl/events/$docId');
+            final patchReq = await httpClient.patchUrl(patchUrl);
+            patchReq.headers.contentType = ContentType.json;
+            patchReq.write(body);
+            await patchReq.close();
+          }
+          count++;
+        } else {
+          final respBody = await utf8.decoder.bind(response).join();
+          debugPrint(
+            '❌ Failed to seed event $i: ${response.statusCode} $respBody',
+          );
+        }
+      }
+      debugPrint(
+        '✅ REST Event Seeding complete! Created/Updated $count events.',
+      );
+    } catch (e) {
+      debugPrint('❌ REST Event Seeding Error: $e');
+      rethrow;
+    } finally {
+      httpClient.close();
+    }
+  }
+
   List<T> _getRandomSubset<T>(List<T> list, int count, Random random) {
     final shuffled = List<T>.from(list)..shuffle(random);
     return shuffled.take(count).toList();
