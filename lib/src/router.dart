@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'core/providers.dart';
 import 'features/auth/sign_in_page.dart';
+import 'features/account/account_page.dart';
 import 'features/home/home_page.dart';
 import 'features/settings/settings_page.dart';
 
@@ -38,6 +39,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/settings',
         builder: (context, state) => const SettingsPage(),
+      ),
+      GoRoute(
+        path: '/account',
+        name: 'account',
+        builder: (context, state) => const AccountPage(),
       ),
     ],
   );

@@ -23,6 +23,10 @@ class HomePage extends ConsumerWidget {
               icon: const Icon(Icons.settings),
               onPressed: () => context.push('/settings'),
             ),
+          IconButton(
+            icon: const Icon(Icons.person),
+            onPressed: () => context.go('/account'),
+          ),
         ],
       ),
       body: Center(

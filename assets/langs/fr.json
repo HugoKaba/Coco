@@ -23,5 +23,10 @@
 	"home": {
 		"title": "Accueil",
 		"sign_out_button": "Se déconnecter"
-	}
+	},
+	"account": {
+		"title": "Compte",
+		"edit_profile": "Modifier le profil",
+		"change_password": "Changer le mot de passe"
+	}		
 }
