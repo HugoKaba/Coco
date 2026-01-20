@@ -20,8 +20,15 @@
 		"dark_theme": "Dark theme",
 		"language": "Language"
 	},
-	"home": {
-		"title": "Home",
-		"sign_out_button": "Sign out"
+	"account": {
+		"title": "My Account",
+		"settings": "Settings",
+		"sign_out": "Sign out"
+	},
+	"nav": {
+		"events": "Events",
+		"swipe": "Swipe",
+		"chats": "Chats",
+		"account": "Account"
 	}
 }

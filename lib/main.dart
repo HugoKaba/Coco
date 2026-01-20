@@ -59,11 +59,27 @@ class AppRoot extends ConsumerWidget {
         return locale ?? supportedLocales.first;
       },
       localizationsDelegates: context.localizationDelegates,
-      theme: ThemeData.light().copyWith(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFFD4913D),
+          brightness: Brightness.light,
+          surfaceTint: Colors.transparent,
+        ),
+        scaffoldBackgroundColor: Colors.white,
+        cardColor: Colors.white,
       ),
-      darkTheme: ThemeData.dark().copyWith(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFFD4913D),
+          brightness: Brightness.dark,
+          surfaceTint: Colors.transparent,
+        ),
+        scaffoldBackgroundColor: Colors.black,
+        cardColor: Colors.black,
       ),
       themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
       locale: context.locale,

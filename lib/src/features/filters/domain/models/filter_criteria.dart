@@ -12,7 +12,7 @@ class FilterCriteria {
 
   const FilterCriteria({
     this.isAroundMe = true,
-    this.radius = 5000.0,
+    this.radius = 50000.0,
     this.deviceLat,
     this.deviceLng,
     this.selectedSports = const [],

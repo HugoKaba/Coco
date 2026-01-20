@@ -20,8 +20,15 @@
 		"dark_theme": "Thème sombre",
 		"language": "Langue"
 	},
-	"home": {
-		"title": "Accueil",
-		"sign_out_button": "Se déconnecter"
+	"account": {
+		"title": "Mon Compte",
+		"settings": "Paramètres",
+		"sign_out": "Se déconnecter"
+	},
+	"nav": {
+		"events": "Événements",
+		"swipe": "Swipe",
+		"chats": "Messages",
+		"account": "Compte"
 	}
 }

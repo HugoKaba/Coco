@@ -11,24 +11,51 @@ class AgeFilterSection extends ConsumerWidget {
     final notifier = ref.read(filterProvider.notifier);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Âge",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Tranche d'âge",
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "${ageRange.start.round()} - ${ageRange.end.round()} ans",
+                style: TextStyle(
+                  color: const Color(0xFFD4913D),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+            ],
           ),
-          RangeSlider(
-            values: ageRange,
-            min: 18,
-            max: 100,
-            divisions: 82,
-            labels: RangeLabels(
-              "${ageRange.start.round()}",
-              "${ageRange.end.round()}",
+          const SizedBox(height: 8),
+          SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              activeTrackColor: const Color(0xFFD4913D),
+              inactiveTrackColor: const Color(
+                0xFFD4913D,
+              ).withValues(alpha: 0.1),
+              thumbColor: Colors.white,
+              overlayColor: const Color(0xFFD4913D).withValues(alpha: 0.1),
+              rangeThumbShape: RoundRangeSliderThumbShape(
+                enabledThumbRadius: 12,
+                elevation: 4,
+              ),
+              trackHeight: 4,
             ),
-            onChanged: (v) => notifier.updateAgeRange(v),
+            child: RangeSlider(
+              values: ageRange,
+              min: 18,
+              max: 100,
+              divisions: 82,
+              onChanged: (v) => notifier.updateAgeRange(v),
+            ),
           ),
         ],
       ),

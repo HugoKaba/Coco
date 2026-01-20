@@ -25,18 +25,23 @@ class TopSwipeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    final normalized = (dragDx / (size.width * 0.5)).clamp(-1.0, 1.0);
+    // Use full width for normalization to prevent premature clamping
+    final normalized = (dragDx / size.width).clamp(-1.0, 1.0);
     final absNormalized = normalized.abs();
 
-    const maxAngle = 0.4;
+    const maxAngle = 0.6; // Slightly more tilt for better visual cue
     final angle = normalized * maxAngle;
 
-    final offsetX = dragDx * 1.2;
-    final offsetY = absNormalized * 80;
+    final offsetX = dragDx; // Direct mapping
+    final offsetY = absNormalized * 100;
 
-    const fadeStart = 0.6;
-    final fadeProgress = ((absNormalized - fadeStart) / (1.0 - fadeStart)).clamp(0.0, 1.0);
-    final opacity = 1.0 - fadeProgress;
+    // Start fading only when the card is already significantly moved
+    const fadeStart = 0.7;
+    final fadeProgress = ((absNormalized - fadeStart) / (1.0 - fadeStart))
+        .clamp(0.0, 1.0);
+    final opacity =
+        1.0 -
+        (fadeProgress * 0.8); // Fade to 20% instead of 0% to keep it visible
 
     return GestureDetector(
       onPanUpdate: onPanUpdate,
