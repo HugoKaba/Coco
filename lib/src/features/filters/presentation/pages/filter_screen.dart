@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import '../providers/filter_state_provider.dart';
 import '../../application/user_search_service.dart';
-import '../widgets/location_filter_section.dart';
-import '../widgets/sports_filter_section.dart';
-import '../widgets/level_filter_section.dart';
-import '../widgets/availabilities_filter_section.dart';
-import '../widgets/age_filter_section.dart';
-import '../widgets/city_suggestions_overlay.dart';
 import '../widgets/filter_search_button.dart';
 import '../widgets/filter_app_bar.dart';
+import '../widgets/filter_screen_content.dart';
 import 'search_results_screen.dart';
 import '../../domain/models/city.dart';
 
@@ -103,47 +99,17 @@ class _FilterScreenState extends ConsumerState<FilterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final searchState = ref.watch(userSearchProvider);
-    final criteria = ref.watch(filterProvider);
     return Scaffold(
       appBar: const FilterAppBar(),
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            padding: const EdgeInsets.only(bottom: 100),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                LocationFilterSection(
-                  searchController: _searchController,
-                  searchFocus: _searchFocus,
-                  onClearSearch: _clearSearch,
-                ),
-                const Divider(height: 32, thickness: 1),
-                const SportsFilterSection(),
-                const SizedBox(height: 16),
-                const LevelFilterSection(),
-                const SizedBox(height: 16),
-                const AvailabilitiesFilterSection(),
-                const SizedBox(height: 16),
-                const AgeFilterSection(),
-              ],
-            ),
-          ),
-          if (!criteria.isAroundMe &&
-              searchState.filteredCities.isNotEmpty &&
-              searchState.selectedCity == null)
-            CitySuggestionsOverlay(
-              cities: searchState.filteredCities,
-              onSelect: _selectCity,
-            ),
-          if (searchState.isLoading)
-            const Center(child: CircularProgressIndicator()),
-        ],
+      body: FilterScreenContent(
+        searchController: _searchController,
+        searchFocus: _searchFocus,
+        onClearSearch: _clearSearch,
+        onSelectCity: _selectCity,
       ),
       bottomNavigationBar: FilterSearchButton(
         onPressed: _showResults,
-        label: 'Rechercher',
+        label: tr('filters.search'),
       ),
     );
   }

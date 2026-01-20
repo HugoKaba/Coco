@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sportlinker/src/core/providers.dart';
+import 'package:coco/src/core/providers.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class SignInPage extends ConsumerStatefulWidget {

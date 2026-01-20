@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sportlinker/src/features/filters/domain/services/geolocation_service.dart';
-import 'package:sportlinker/src/features/filters/domain/models/person_entity.dart';
+import 'package:coco/src/features/filters/domain/services/geolocation_service.dart';
+import 'package:coco/src/features/filters/domain/models/person_entity.dart';
 
 void main() {
   test(

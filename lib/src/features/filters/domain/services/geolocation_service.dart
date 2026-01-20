@@ -1,6 +1,6 @@
 import 'dart:math';
 import '../models/person_entity.dart';
-import 'package:sportlinker/src/features/filters/domain/services/geohash_index.dart';
+import 'package:coco/src/features/filters/domain/services/geohash_index.dart';
 
 class GeolocationService {
   const GeolocationService();

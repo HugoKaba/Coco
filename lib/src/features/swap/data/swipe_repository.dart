@@ -58,7 +58,6 @@ class SwipeRepository {
       'lastMessage': null,
     };
 
-    // Create match document (could be in a top-level 'matches' collection)
     await _firestore.collection('matches').doc(matchId).set(matchData);
   }
 
@@ -66,7 +65,6 @@ class SwipeRepository {
     return a.compareTo(b) < 0 ? '${a}_$b' : '${b}_$a';
   }
 
-  /// Fetch IDs of users that [userId] has already swiped on.
   Future<List<String>> getSwipedUserIds(String userId) async {
     try {
       final snapshot = await _firestore

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../models/profile.dart';
 import 'days_row.dart';
 import 'profile_sections.dart';
@@ -33,10 +34,13 @@ class ProfileCard extends StatelessWidget {
             const SizedBox(height: 20),
             _buildSportIcons(),
             const SizedBox(height: 24),
-            InfoSection(title: 'Description', content: profile.description),
+            InfoSection(
+              title: tr('swipe.description'),
+              content: profile.description,
+            ),
             const SizedBox(height: 24),
             InfoSection(
-              title: "Fréquence d'activité",
+              title: tr('swipe.activity_frequency'),
               content: profile.activityFrequency,
             ),
             const SizedBox(height: 24),
@@ -70,7 +74,8 @@ class ProfileCard extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Tooltip(
-            message: sport.name,
+            triggerMode: TooltipTriggerMode.tap,
+            message: '${sport.name} - ${sport.level}',
             child: Container(
               width: 52,
               height: 52,
@@ -90,9 +95,9 @@ class ProfileCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Préférence journalière',
-          style: TextStyle(fontSize: 14, color: Colors.grey),
+        Text(
+          tr('swipe.daily_preference'),
+          style: const TextStyle(fontSize: 14, color: Colors.grey),
         ),
         const SizedBox(height: 12),
         DaysRow(availableDays: profile.availableDays),

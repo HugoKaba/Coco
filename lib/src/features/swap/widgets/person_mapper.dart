@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../filters/domain/models/person_entity.dart';
 import '../models/profile.dart';
 
@@ -9,8 +10,8 @@ extension PersonEntityMapper on PersonEntity {
       username: '@${prenom.toLowerCase()}',
       imageUrl: profilePhotoUrl ?? 'https://placehold.co/400x400.png',
       sports: sports.take(5).map(_mapSport).toList(),
-      description: description ?? 'No description',
-      activityFrequency: '$frequency fois par semaine',
+      description: description ?? tr('swipe.no_description'),
+      activityFrequency: '$frequency ${tr('swipe.times_per_week')}',
       availableDays: availabilities.map(_normalizeDay).toSet(),
     );
   }
@@ -67,7 +68,12 @@ extension PersonEntityMapper on PersonEntity {
         color = Colors.grey;
     }
 
-    return ProfileSport(icon: icon, color: color, name: sport.sportName);
+    return ProfileSport(
+      icon: icon,
+      color: color,
+      name: sport.sportName,
+      level: sport.level,
+    );
   }
 
   String _normalizeDay(String day) {

@@ -1,6 +1,6 @@
 {
 	"app": {
-		"title": "Sportlinker"
+		"title": "Coco"
 	},
 	"common": {
 		"error": "Erreur"
@@ -30,5 +30,29 @@
 		"swipe": "Swipe",
 		"chats": "Messages",
 		"account": "Compte"
+	},
+	"swipe": {
+		"empty_state": "Aucun profil trouvé",
+		"modify_filters": "Modifier les filtres",
+		"match_title": "C'est un Match !",
+		"match_message": "Vous avez matché avec {name}",
+		"send_message": "Envoyer un message",
+		"keep_swiping": "Continuer à swiper",
+		"description": "Description",
+		"activity_frequency": "Fréquence d'activité",
+		"daily_preference": "Préférence journalière",
+		"times_per_week": "fois par semaine",
+		"no_description": "Aucune description",
+		"empty_hint": "Essayez d'élargir vos filtres"
+	},
+	"filters": {
+		"title": "Filtres",
+		"location": "Localisation",
+		"sports": "Sports",
+		"levels": "Niveaux",
+		"frequency": "Fréquence",
+		"apply": "Appliquer les filtres",
+		"reset": "Réinitialiser",
+		"search": "Rechercher"
 	}
 }

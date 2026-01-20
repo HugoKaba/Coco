@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sportlinker/src/features/auth/auth_service.dart';
+import 'package:coco/src/features/auth/auth_service.dart';
 
 final authServiceProvider = Provider<AuthService>((ref) => AuthService());
 

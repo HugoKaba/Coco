@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class EmptySearchState extends StatelessWidget {
   const EmptySearchState({super.key});
@@ -11,14 +12,14 @@ class EmptySearchState extends StatelessWidget {
         children: [
           Icon(Icons.search_off, size: 80, color: Colors.grey[300]),
           const SizedBox(height: 16),
-          const Text(
-            'Aucun profil trouvé',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Text(
+            tr('swipe.empty_state'),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
-          const Text(
-            'Essayez d\'élargir vos filtres',
-            style: TextStyle(color: Colors.grey),
+          Text(
+            tr('swipe.empty_hint'),
+            style: const TextStyle(color: Colors.grey),
           ),
         ],
       ),

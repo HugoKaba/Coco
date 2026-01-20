@@ -4,8 +4,14 @@ class ProfileSport {
   final IconData icon;
   final Color color;
   final String name;
+  final String level;
 
-  ProfileSport({required this.icon, required this.color, required this.name});
+  ProfileSport({
+    required this.icon,
+    required this.color,
+    required this.name,
+    required this.level,
+  });
 }
 
 class Profile {

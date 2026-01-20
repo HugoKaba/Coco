@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'firebase_options.dart';
-import 'package:sportlinker/src/router.dart';
-import 'package:sportlinker/src/core/providers.dart';
+import 'package:coco/src/router.dart';
+import 'package:coco/src/core/providers.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 void main() async {
