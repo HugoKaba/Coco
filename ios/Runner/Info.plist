@@ -49,6 +49,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>GIDClientID</key>
 	<string>277044426287-f3d30knm2pt3tkrdmeqund8k8f58nlec.apps.googleusercontent.com</string>
 	<key>GIDServerClientID</key>

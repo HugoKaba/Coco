@@ -4,8 +4,6 @@ import 'package:flutter/foundation.dart';
 class SwipeRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  /// Records a swipe (like or nope) for the current user against a target user.
-  /// Returns true if it's a match (mutual like), false otherwise.
   Future<bool> recordSwipe({
     required String userId,
     required String targetId,
@@ -25,7 +23,6 @@ class SwipeRepository {
         'timestamp': FieldValue.serverTimestamp(),
       };
 
-      // Store the swipe
       await _firestore
           .collection('users_test')
           .doc(userId)
@@ -35,7 +32,6 @@ class SwipeRepository {
 
       if (!isLike) return false;
 
-      // Check for mutual like (Match)
       final targetSwipeDoc = await _firestore
           .collection('users_test')
           .doc(targetId)
@@ -44,7 +40,6 @@ class SwipeRepository {
           .get();
 
       if (targetSwipeDoc.exists && targetSwipeDoc.data()?['type'] == 'like') {
-        // IT'S A MATCH!
         await _createMatch(userId, targetId);
         return true;
       }
