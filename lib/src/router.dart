@@ -46,10 +46,6 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const SwipeMatchPage(),
       ),
       GoRoute(
-        path: '/geo-demo',
-        builder: (context, state) => const GeolocationDemoPage(),
-      ),
-      GoRoute(
         path: '/filters',
         builder: (context, state) => const FilterScreen(),
       ),
