@@ -1,4 +1,4 @@
-name: sportlinker
+name: coco
 description: 'A new Flutter project.'
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -43,6 +43,12 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   easy_localization: ^3.0.0
+  geolocator: ^9.0.2
+  cloud_firestore: ^6.0.3
+  geoflutterfire_plus: ^0.0.3
+  liquid_glass_bottom_bar: ^0.0.6
+  liquidglass_container: ^1.0.2
+  liquid_glass_renderer: ^0.2.0-dev.4
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +74,8 @@ flutter:
   assets:
     - assets/langs/en.json
     - assets/langs/fr.json
+    - assets/city/
+    - assets/users/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

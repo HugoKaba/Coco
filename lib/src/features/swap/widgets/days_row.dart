@@ -16,6 +16,7 @@ class DaysRow extends StatelessWidget {
       ('Sam.', 'Sam'),
       ('Dim.', 'Dim'),
     ];
+    final color = Theme.of(context).colorScheme.onSurface;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -25,19 +26,34 @@ class DaysRow extends StatelessWidget {
           children: [
             Text(
               day.$1,
-              style: const TextStyle(fontSize: 14, color: Colors.black87),
+              style: TextStyle(
+                fontSize: 14,
+                color: color.withValues(alpha: 0.5),
+              ),
             ),
             const SizedBox(height: 8),
             Container(
-              width: 32,
-              height: 32,
+              width: 34,
+              height: 34,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.black87, width: 2),
-                color: isActive ? Colors.black87 : Colors.transparent,
+                color: isActive ? color : Colors.transparent,
+                border: Border.all(
+                  color: color.withValues(alpha: 0.3),
+                  width: 2,
+                ),
               ),
               child: isActive
-                  ? const Icon(Icons.circle, color: Colors.black87, size: 16)
+                  ? Center(
+                      child: Container(
+                        width: 12,
+                        height: 12,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                        ),
+                      ),
+                    )
                   : null,
             ),
           ],

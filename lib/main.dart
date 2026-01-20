@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'firebase_options.dart';
-import 'package:sportlinker/src/router.dart';
-import 'package:sportlinker/src/core/providers.dart';
+import 'package:coco/src/router.dart';
+import 'package:coco/src/core/providers.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseFirestore.setLoggingEnabled(true);
+  FirebaseFirestore.instance.settings = const Settings(
+    persistenceEnabled: false,
+    sslEnabled: true,
+  );
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('fr')],
@@ -53,11 +59,27 @@ class AppRoot extends ConsumerWidget {
         return locale ?? supportedLocales.first;
       },
       localizationsDelegates: context.localizationDelegates,
-      theme: ThemeData.light().copyWith(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFFD4913D),
+          brightness: Brightness.light,
+          surfaceTint: Colors.transparent,
+        ),
+        scaffoldBackgroundColor: Colors.white,
+        cardColor: Colors.white,
       ),
-      darkTheme: ThemeData.dark().copyWith(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFFD4913D),
+          brightness: Brightness.dark,
+          surfaceTint: Colors.transparent,
+        ),
+        scaffoldBackgroundColor: Colors.black,
+        cardColor: Colors.black,
       ),
       themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
       locale: context.locale,

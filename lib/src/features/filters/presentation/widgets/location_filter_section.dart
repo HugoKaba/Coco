@@ -1,0 +1,81 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/filter_state_provider.dart';
+import 'location_mode_toggle.dart';
+import 'radius_filter_control.dart';
+
+class LocationFilterSection extends ConsumerWidget {
+  final TextEditingController searchController;
+  final FocusNode searchFocus;
+  final VoidCallback onClearSearch;
+  final Color activeColor;
+
+  const LocationFilterSection({
+    super.key,
+    required this.searchController,
+    required this.searchFocus,
+    required this.onClearSearch,
+    this.activeColor = const Color(0xFFD4913D),
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final criteria = ref.watch(filterProvider);
+    final isAroundMe = criteria.isAroundMe;
+    final radius = criteria.radius;
+    final notifier = ref.read(filterProvider.notifier);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+          child: LocationModeToggle(
+            isAroundMe: isAroundMe,
+            notifier: notifier,
+            onClearSearch: onClearSearch,
+          ),
+        ),
+        if (!isAroundMe)
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20.0,
+              vertical: 8.0,
+            ),
+            child: TextField(
+              controller: searchController,
+              focusNode: searchFocus,
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              decoration: InputDecoration(
+                hintText: 'Rechercher une ville...',
+                prefixIcon: const Icon(Icons.search_rounded, size: 20),
+                suffixIcon: searchController.text.isNotEmpty
+                    ? IconButton(
+                        icon: const Icon(Icons.close_rounded, size: 18),
+                        onPressed: onClearSearch,
+                      )
+                    : null,
+                filled: true,
+                fillColor: Theme.of(
+                  context,
+                ).dividerColor.withValues(alpha: 0.05),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide.none,
+                ),
+                contentPadding: const EdgeInsets.symmetric(vertical: 12),
+              ),
+            ),
+          ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+          child: RadiusFilterControl(
+            radius: radius,
+            notifier: notifier,
+            activeColor: activeColor,
+          ),
+        ),
+      ],
+    );
+  }
+}

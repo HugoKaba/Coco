@@ -93,8 +93,6 @@ class AuthService {
     await _auth.signOut();
     try {
       await _googleSignIn.signOut();
-    } catch (_) {
-      // ignore
-    }
+    } catch (_) {}
   }
 }
