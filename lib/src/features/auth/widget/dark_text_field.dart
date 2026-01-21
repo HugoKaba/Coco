@@ -1,50 +1,56 @@
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'input_wrapper.dart';
 
 class DarkTextField extends StatelessWidget {
   final TextEditingController controller;
-  final String hintText;
-  final TextInputType keyboardType;
+  final String? hintText;
   final bool obscureText;
+  final TextInputType? keyboardType;
+  final int? maxLines;
+  final TextAlign? textAlign;
+  final bool readOnly;
+  final VoidCallback? onTap;
   final Color fieldColor;
   final Color innerShadow;
 
   const DarkTextField({
     super.key,
     required this.controller,
-    this.hintText = "",
-    this.keyboardType = TextInputType.text,
+    this.hintText,
     this.obscureText = false,
+    this.keyboardType,
+    this.maxLines = 1,
+    this.textAlign = TextAlign.start,
+    this.readOnly = false,
+    this.onTap,
     required this.fieldColor,
     required this.innerShadow,
   });
 
   @override
   Widget build(BuildContext context) {
-    return InputWrapper(
-      fieldColor: fieldColor,
-      innerShadow: innerShadow,
-      child: TextFormField(
-        controller: controller,
-        keyboardType: keyboardType,
-        obscureText: obscureText,
-        style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.white54),
-          border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+    return TextField(
+      controller: controller,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
+      maxLines: maxLines,
+      textAlign: textAlign ?? TextAlign.start,
+      readOnly: readOnly,
+      onTap: onTap,
+      style: const TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: const TextStyle(color: Colors.white54),
+        filled: true,
+        fillColor: fieldColor,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: innerShadow.withOpacity(0.4)),
         ),
-        validator: (v) {
-          if (keyboardType == TextInputType.emailAddress) {
-            return (v == null || v.isEmpty) ? tr('sign_in.enter_email') : null;
-          }
-          if (obscureText) {
-            return (v == null || v.length < 6) ? tr('sign_in.password_length') : null;
-          }
-          return null;
-        },
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: innerShadow.withOpacity(0.7)),
+        ),
       ),
     );
   }

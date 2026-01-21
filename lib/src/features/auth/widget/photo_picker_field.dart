@@ -1,13 +1,12 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'dark_text_field.dart';
-import 'input_wrapper.dart';
 
 class PhotoPickerField extends StatelessWidget {
   final Uint8List? profilePhotoBytes;
   final VoidCallback onTap;
   final Color fieldColor;
   final Color innerShadow;
+  final double borderRadius;
 
   const PhotoPickerField({
     super.key,
@@ -15,32 +14,35 @@ class PhotoPickerField extends StatelessWidget {
     required this.onTap,
     required this.fieldColor,
     required this.innerShadow,
+    this.borderRadius = 12,
   });
 
   @override
   Widget build(BuildContext context) {
-    final label = profilePhotoBytes == null ? "image.jpg" : "Selected Image";
-    return InputWrapper(
-      borderRadius: 20,
-      fieldColor: fieldColor,
-      innerShadow: innerShadow,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(20),
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  label,
-                  style: const TextStyle(color: Colors.white),
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              const SizedBox(width: 12),
-              const Icon(Icons.photo_library_rounded, color: Colors.white70),
-            ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 100,
+        decoration: BoxDecoration(
+          color: fieldColor,
+          borderRadius: BorderRadius.circular(borderRadius),
+          boxShadow: [
+            BoxShadow(
+              color: innerShadow,
+              offset: const Offset(0, 2),
+              blurRadius: 4,
+            ),
+          ],
+        ),
+        child: profilePhotoBytes != null
+            ? ClipRRect(
+          borderRadius: BorderRadius.circular(borderRadius),
+          child: Image.memory(profilePhotoBytes!, fit: BoxFit.cover),
+        )
+            : Center(
+          child: Text(
+            "Sélectionner une photo",
+            style: TextStyle(color: Colors.white54),
           ),
         ),
       ),

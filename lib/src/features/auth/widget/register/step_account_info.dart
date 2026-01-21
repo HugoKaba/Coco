@@ -3,6 +3,7 @@ import '../dark_text_field.dart';
 import '../input_label.dart';
 
 class StepAccountInfo extends StatelessWidget {
+  final GlobalKey<FormState> formKey;
   final TextEditingController firstNameController;
   final TextEditingController nameController;
   final TextEditingController userNameController;
@@ -14,6 +15,7 @@ class StepAccountInfo extends StatelessWidget {
 
   const StepAccountInfo({
     super.key,
+    required this.formKey,
     required this.firstNameController,
     required this.nameController,
     required this.userNameController,
@@ -27,6 +29,7 @@ class StepAccountInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: formKey,
       child: Column(
         children: [
           Container(
@@ -39,19 +42,46 @@ class StepAccountInfo extends StatelessWidget {
           ),
           const SizedBox(height: 36),
           InputLabel(label: "Prénom"),
-          DarkTextField(controller: firstNameController, hintText: "Firstname", fieldColor: fieldColor, innerShadow: innerShadow),
+          DarkTextField(
+            controller: firstNameController,
+            hintText: "Firstname",
+            fieldColor: fieldColor,
+            innerShadow: innerShadow,
+          ),
           const SizedBox(height: 20),
           InputLabel(label: "Nom"),
-          DarkTextField(controller: nameController, hintText: "Name", fieldColor: fieldColor, innerShadow: innerShadow),
+          DarkTextField(
+            controller: nameController,
+            hintText: "Name",
+            fieldColor: fieldColor,
+            innerShadow: innerShadow,
+          ),
           const SizedBox(height: 20),
           InputLabel(label: "Nom d'utilisateur"),
-          DarkTextField(controller: userNameController, hintText: "Username", fieldColor: fieldColor, innerShadow: innerShadow),
+          DarkTextField(
+            controller: userNameController,
+            hintText: "Username",
+            fieldColor: fieldColor,
+            innerShadow: innerShadow,
+          ),
           const SizedBox(height: 20),
           InputLabel(label: "Email"),
-          DarkTextField(controller: emailController, hintText: "Email", keyboardType: TextInputType.emailAddress, fieldColor: fieldColor, innerShadow: innerShadow),
+          DarkTextField(
+            controller: emailController,
+            hintText: "Email",
+            keyboardType: TextInputType.emailAddress,
+            fieldColor: fieldColor,
+            innerShadow: innerShadow,
+          ),
           const SizedBox(height: 20),
           InputLabel(label: "Password"),
-          DarkTextField(controller: passwordController, hintText: "Password", obscureText: true, fieldColor: fieldColor, innerShadow: innerShadow),
+          DarkTextField(
+            controller: passwordController,
+            hintText: "Password",
+            obscureText: true,
+            fieldColor: fieldColor,
+            innerShadow: innerShadow,
+          ),
         ],
       ),
     );

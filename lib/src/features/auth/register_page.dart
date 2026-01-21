@@ -10,9 +10,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sportlinker/src/core/providers.dart';
 import 'package:sportlinker/src/core/city_service.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'sign_in_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+
+import 'widget/register/step_account_info.dart';
+import 'widget/register/step_profile_completion.dart';
+import 'widget/register/step_lifestyle.dart';
 
 class RegisterPage extends ConsumerStatefulWidget {
   const RegisterPage({super.key});
@@ -23,6 +26,7 @@ class RegisterPage extends ConsumerStatefulWidget {
 
 class _RegisterPageState extends ConsumerState<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
+
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _firstNameController = TextEditingController();
@@ -36,6 +40,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   final _bioController = TextEditingController(text: "À propos de moi...");
   final _sportCategoryController = TextEditingController(text: "Musculation en salle");
   final _activityFrequencyController = TextEditingController(text: "4 fois par semaine");
+
   final ImagePicker _imagePicker = ImagePicker();
 
   static const Color _accentColor = Color(0xFFF2A33A);
@@ -49,6 +54,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   Uint8List? _profilePhotoBytes;
   DateTime _birthDate = DateTime(1970, 1, 1);
   bool _citiesLoaded = false;
+  int step = 0;
 
   @override
   void initState() {
@@ -56,10 +62,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     _updateBirthControllers(_birthDate);
     _zipController.text = "93066";
     _cityController.text = "Saint-Denis";
-    // Charger les villes au démarrage
     _loadCities();
   }
-  
+
   Future<void> _loadCities() async {
     await CityService.instance.loadCities();
     if (mounted) {
@@ -89,7 +94,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
 
   Future<void> _submit() async {
     try {
-      final UserCredential userCredential =
+      final userCredential =
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
@@ -99,8 +104,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
 
       String? photoUrl;
       if (_profilePhotoBytes != null) {
-        final storageRef =
-        FirebaseStorage.instance.ref().child("users/$uid/profile.jpg");
+        final storageRef = FirebaseStorage.instance
+            .ref()
+            .child("users/$uid/profile.jpg");
 
         await storageRef.putData(
           _profilePhotoBytes!,
@@ -131,7 +137,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Compte créé avec succès !")),
       );
-      // Rediriger vers la page d'accueil
+
       context.go('/');
     } catch (e) {
       if (!mounted) return;
@@ -140,8 +146,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
       );
     }
   }
-
-  int step = 0;
 
   Future<void> _pickProfilePhoto() async {
     try {
@@ -196,7 +200,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    final auth = ref.read(authServiceProvider);
     return Scaffold(
       backgroundColor: const Color(0xFF121212),
       appBar: AppBar(
@@ -210,65 +213,45 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
           children: [
             Expanded(
               child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (step == 0) ...[
-                      Form(
-                        key: _formKey,
-                        child: Column(
-                          children: [
-                            Container(
-                              width: 120,
-                              height: 120,
-                              decoration: BoxDecoration(
-                                color: _accentColor,
-                                borderRadius: BorderRadius.circular(22),
-                              ),
-                            ),
-                            const SizedBox(height: 36),
-                            _buildInputLabel("Prénom"),
-                            _buildDarkTextField(
-                              controller: _firstNameController,
-                              hintText: "Firstname",
-                            ),
-                            const SizedBox(height: 20),
-                            _buildInputLabel("Nom"),
-                            _buildDarkTextField(
-                              controller: _nameController,
-                              hintText: "Name",
-                            ),
-                            const SizedBox(height: 20),
-                            _buildInputLabel("Nom d'utilisateur"),
-                            _buildDarkTextField(
-                              controller: _userNameController,
-                              hintText: "Username",
-                            ),
-                            const SizedBox(height: 20),
-                            _buildInputLabel("Email"),
-                            _buildDarkTextField(
-                              controller: _emailController,
-                              hintText: tr('sign_in.email_label'),
-                              keyboardType: TextInputType.emailAddress,
-                            ),
-                            const SizedBox(height: 20),
-                            _buildInputLabel("Password"),
-                            _buildDarkTextField(
-                              controller: _passwordController,
-                              hintText: tr('sign_in.password_label'),
-                              obscureText: true,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                    if (step == 1) ...[
-                      _buildProfileCompletionStep(context),
-                    ],
-                    if (step == 2) ...[
-                      _buildLifestyleStep(context),
-                    ],
-                  ],
+                child: step == 0
+                    ? StepAccountInfo(
+                  formKey: _formKey,
+                  firstNameController: _firstNameController,
+                  nameController: _nameController,
+                  userNameController: _userNameController,
+                  emailController: _emailController,
+                  passwordController: _passwordController,
+                  accentColor: _accentColor,
+                  fieldColor: _fieldColor,
+                  innerShadow: _inputInnerShadow,
+                )
+                    : step == 1
+                    ? StepProfileCompletion(
+                  birthDayController: _birthDayController,
+                  birthMonthController: _birthMonthController,
+                  birthYearController: _birthYearController,
+                  zipController: _zipController,
+                  cityController: _cityController,
+                  citiesLoaded: _citiesLoaded,
+                  setCitiesLoaded: (loaded) => setState(() => _citiesLoaded = loaded),
+                  profilePhotoBytes: _profilePhotoBytes,
+                  pickProfilePhoto: _pickProfilePhoto,
+                  pickBirthDate: _pickBirthDate,
+                  selectedGender: _selectedGender,
+                  onGenderSelected: (g) => setState(() => _selectedGender = g),
+                  accentColor: _accentColor,
+                  fieldColor: _fieldColor,
+                  innerShadow: _inputInnerShadow,
+                )
+                    : StepLifestyle(
+                  bioController: _bioController,
+                  sportCategoryController: _sportCategoryController,
+                  activityFrequencyController: _activityFrequencyController,
+                  dailyPreference: _dailyPreference,
+                  onPreferenceSelected: (p) => setState(() => _dailyPreference = p),
+                  accentColor: _accentColor,
+                  fieldColor: _fieldColor,
+                  innerShadow: _inputInnerShadow,
                 ),
               ),
             ),
@@ -290,13 +273,18 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                         }
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(const Color(0xFFCD8232)),
-                        foregroundColor: MaterialStateProperty.all(Colors.white),
+                        backgroundColor:
+                        MaterialStateProperty.all(const Color(0xFFCD8232)),
+                        foregroundColor:
+                        MaterialStateProperty.all(Colors.white),
                         shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)),
                         ),
                         elevation: MaterialStateProperty.all(0),
-                        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 14)),
+                        padding: MaterialStateProperty.all(
+                            const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 14)),
                       ),
                       child: const Text('Précédent'),
                     ),
@@ -307,9 +295,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {
-                        if (step == 0) {
-                          if (!_formKey.currentState!.validate()) return;
-                        }
+                        if (step == 0 && !_formKey.currentState!.validate()) return;
                         if (step < 2) {
                           setState(() => step++);
                         } else {
@@ -317,13 +303,18 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                         }
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(const Color(0xFFCD8232)),
-                        foregroundColor: MaterialStateProperty.all(Colors.white),
+                        backgroundColor:
+                        MaterialStateProperty.all(const Color(0xFFCD8232)),
+                        foregroundColor:
+                        MaterialStateProperty.all(Colors.white),
                         shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)),
                         ),
                         elevation: MaterialStateProperty.all(0),
-                        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 14)),
+                        padding: MaterialStateProperty.all(
+                            const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 14)),
                       ),
                       child: Text(step == 2 ? "Valider" : "Suivant"),
                     ),
@@ -333,607 +324,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  // ------------------- Widgets Step 1 & 2 -------------------
-
-  Widget _buildProfileCompletionStep(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              width: 130,
-              height: 130,
-              decoration: BoxDecoration(
-                color: _accentColor,
-                borderRadius: BorderRadius.circular(28),
-              ),
-            ),
-          ),
-          const SizedBox(height: 32),
-          Text(
-            "Photo de profile",
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: Colors.white70,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Row(
-            children: [
-              Expanded(
-                child: _buildPhotoPickerField(),
-              ),
-              const SizedBox(width: 16),
-              _buildPhotoPreviewBox(),
-            ],
-          ),
-          const SizedBox(height: 24),
-          Text(
-            "Date de naissance",
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: Colors.white70,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Row(
-            children: [
-              Expanded(
-                child: _buildDarkTextField(
-                  controller: _birthDayController,
-                  hintText: "01",
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  readOnly: true,
-                  onTap: _pickBirthDate,
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: _buildDarkTextField(
-                  controller: _birthMonthController,
-                  hintText: "01",
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  readOnly: true,
-                  onTap: _pickBirthDate,
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: _buildDarkTextField(
-                  controller: _birthYearController,
-                  hintText: "1970",
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  readOnly: true,
-                  onTap: _pickBirthDate,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 24),
-          Text(
-            "Localisation",
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: Colors.white70,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Row(
-            children: [
-              Expanded(
-                flex: 2,
-                child: _buildDarkTextField(
-                  controller: _zipController,
-                  hintText: "93066",
-                  keyboardType: TextInputType.number,
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                flex: 3,
-                child: _buildCityAutocomplete(),
-              ),
-            ],
-          ),
-          const SizedBox(height: 24),
-          Text(
-            "Genre",
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: Colors.white70,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildGenderOption("H"),
-              _buildGenderOption("F"),
-              _buildGenderOption("NB"),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildLifestyleStep(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Center(
-            child: Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                color: _accentColor,
-                borderRadius: BorderRadius.circular(24),
-              ),
-            ),
-          ),
-          const SizedBox(height: 28),
-          Text(
-            "Description",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.white70,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          const SizedBox(height: 8),
-          _buildDarkTextField(
-            controller: _bioController,
-            maxLines: 3,
-          ),
-          const SizedBox(height: 22),
-          Text(
-            "Catégorie de sport",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.white70,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          const SizedBox(height: 8),
-          _buildDarkTextField(
-            controller: _sportCategoryController,
-          ),
-          const SizedBox(height: 22),
-          Text(
-            "Fréquence d'activité",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.white70,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          const SizedBox(height: 8),
-          _buildDarkTextField(
-            controller: _activityFrequencyController,
-          ),
-          const SizedBox(height: 22),
-          Text(
-            "Préférence journalière",
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.white70,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          const SizedBox(height: 12),
-          _buildPreferenceRow(),
-        ],
-      ),
-    );
-  }
-
-
-  Widget _buildDarkTextField({
-    required TextEditingController controller,
-    String hintText = "",
-    TextInputType keyboardType = TextInputType.text,
-    TextAlign textAlign = TextAlign.start,
-    int maxLines = 1,
-    bool obscureText = false,
-    bool readOnly = false,
-    VoidCallback? onTap,
-  }) {
-    return _buildInputWrapper(
-      borderRadius: 20,
-      child: TextFormField(
-        controller: controller,
-        keyboardType: keyboardType,
-        textAlign: textAlign,
-        maxLines: maxLines,
-        obscureText: obscureText,
-        readOnly: readOnly,
-        onTap: onTap,
-        style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.white54),
-          filled: false,
-          border: InputBorder.none,
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: 18,
-            vertical: maxLines > 1 ? 18 : 16,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPhotoPickerField() {
-    final label = _profilePhoto?.name ?? _defaultPhotoLabel;
-    return _buildInputWrapper(
-      borderRadius: 20,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(20),
-        onTap: _pickProfilePhoto,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  label,
-                  style: const TextStyle(color: Colors.white),
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              const SizedBox(width: 12),
-              const Icon(Icons.photo_library_rounded, color: Colors.white70),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPhotoPreviewBox() {
-    final borderRadius = BorderRadius.circular(18);
-    const double size = 70;
-    if (_profilePhotoBytes == null) {
-      return Container(
-        width: size,
-        height: size,
-        decoration: BoxDecoration(
-          color: Colors.grey[800],
-          borderRadius: borderRadius,
-        ),
-      );
-    }
-
-    return ClipRRect(
-      borderRadius: borderRadius,
-      child: SizedBox(
-        width: size,
-        height: size,
-        child: Image.memory(
-          _profilePhotoBytes!,
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildGenderOption(String value) {
-    final isSelected = _selectedGender == value;
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedGender = value;
-        });
-      },
-      child: Column(
-        children: [
-          Text(
-            value,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 12),
-          AnimatedContainer(
-            duration: const Duration(milliseconds: 180),
-            width: 32,
-            height: 32,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: isSelected ? _accentColor : Colors.white30,
-                width: 2,
-              ),
-            ),
-            child: isSelected
-                ? Center(
-              child: Container(
-                width: 14,
-                height: 14,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: _accentColor,
-                ),
-              ),
-            )
-                : null,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildPreferenceRow() {
-    final options = ["Aucune", "L", "M", "M+"];
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: options
-          .map(
-            (opt) => _buildPreferenceOption(opt),
-      )
-          .toList(),
-    );
-  }
-
-  Widget _buildPreferenceOption(String label) {
-    final isSelected = _dailyPreference == label;
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _dailyPreference = label;
-        });
-      },
-      child: Column(
-        children: [
-          Text(
-            label,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 10),
-          AnimatedContainer(
-            duration: const Duration(milliseconds: 180),
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: isSelected ? _accentColor : Colors.white38,
-                width: 2,
-              ),
-              color: isSelected ? Colors.white12 : Colors.transparent,
-              boxShadow: isSelected
-                  ? [
-                BoxShadow(
-                  color: _accentColor.withOpacity(0.4),
-                  blurRadius: 10,
-                  offset: const Offset(0, 4),
-                ),
-              ]
-                  : null,
-            ),
-            child: isSelected
-                ? Center(
-              child: Container(
-                width: 12,
-                height: 12,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: _accentColor,
-                ),
-              ),
-            )
-                : null,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildInputWrapper({required Widget child, double borderRadius = 20}) {
-    final borderColor = Colors.white.withOpacity(0.08);
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: _fieldColor,
-        borderRadius: BorderRadius.circular(borderRadius),
-        border: Border.all(color: borderColor),
-        boxShadow: [
-          BoxShadow(
-            color: _inputInnerShadow,
-            blurRadius: 15,
-            offset: const Offset(0, 0),
-            spreadRadius: 0,
-            blurStyle: BlurStyle.inner,
-          ),
-        ],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(borderRadius),
-        child: child,
-      ),
-    );
-  }
-
-  Widget _buildInputLabel(String label) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 4.0, bottom: 6.0),
-        child: Text(
-          label,
-          style: const TextStyle(
-            color: Colors.white70,
-            fontSize: 11,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildCityAutocomplete() {
-    if (!_citiesLoaded) {
-      CityService.instance.loadCities().then((_) {
-        if (mounted) {
-          setState(() {
-            _citiesLoaded = CityService.instance.isLoaded;
-          });
-        }
-      });
-    }
-    
-    return _buildInputWrapper(
-      borderRadius: 20,
-      child: Autocomplete<CityData>(
-        key: ValueKey('autocomplete_$_citiesLoaded'),
-        displayStringForOption: (CityData option) => option.nomStandard,
-        optionsBuilder: (TextEditingValue textEditingValue) {
-          // Vérifier si les villes sont chargées
-          final isLoaded = CityService.instance.isLoaded;
-          if (!isLoaded && !_citiesLoaded) {
-            // Essayer de charger si pas encore fait
-            CityService.instance.loadCities().then((_) {
-              if (mounted) {
-                setState(() {
-                  _citiesLoaded = CityService.instance.isLoaded;
-                });
-              }
-            });
-            return const Iterable<CityData>.empty();
-          }
-          
-          if (textEditingValue.text.isEmpty) {
-            return const Iterable<CityData>.empty();
-          }
-          
-          final query = textEditingValue.text.trim();
-          if (query.isEmpty) {
-            return const Iterable<CityData>.empty();
-          }
-          
-          final results = CityService.instance.searchCities(query);
-          debugPrint('Recherche "$query": ${results.length} résultats (villes chargées: $isLoaded)');
-          return results;
-        },
-        onSelected: (CityData selection) {
-          setState(() {
-            _cityController.text = selection.nomStandard;
-            _zipController.text = selection.codePostal;
-          });
-        },
-        fieldViewBuilder: (
-          BuildContext context,
-          TextEditingController fieldTextEditingController,
-          FocusNode fieldFocusNode,
-          VoidCallback onFieldSubmitted,
-        ) {
-          if (fieldTextEditingController.text.isEmpty && _cityController.text.isNotEmpty) {
-            fieldTextEditingController.text = _cityController.text;
-          }
-          
-          return TextFormField(
-            controller: fieldTextEditingController,
-            focusNode: fieldFocusNode,
-            style: const TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              hintText: "Saint-Denis",
-              hintStyle: const TextStyle(color: Colors.white54),
-              filled: false,
-              border: InputBorder.none,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 18,
-                vertical: 16,
-              ),
-            ),
-            onChanged: (String value) {
-              _cityController.text = value;
-            },
-            onFieldSubmitted: (String value) {
-              onFieldSubmitted();
-              final city = CityService.instance.findCityByName(value);
-              if (city != null) {
-                setState(() {
-                  _zipController.text = city.codePostal;
-                });
-              }
-            },
-          );
-        },
-        optionsViewBuilder: (
-          BuildContext context,
-          AutocompleteOnSelected<CityData> onSelected,
-          Iterable<CityData> options,
-        ) {
-          return Align(
-            alignment: Alignment.topLeft,
-            child: Material(
-              color: const Color(0xFF1F1F1F),
-              borderRadius: BorderRadius.circular(12),
-              elevation: 4.0,
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxHeight: 200),
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  shrinkWrap: true,
-                  itemCount: options.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final CityData option = options.elementAt(index);
-                    return InkWell(
-                      onTap: () {
-                        onSelected(option);
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 18,
-                          vertical: 12,
-                        ),
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(
-                              color: Colors.white.withOpacity(0.1),
-                              width: 0.5,
-                            ),
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              option.nomStandard,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                              ),
-                            ),
-                            if (option.codePostal.isNotEmpty)
-                              Text(
-                                option.codePostal,
-                                style: TextStyle(
-                                  color: Colors.white.withOpacity(0.6),
-                                  fontSize: 12,
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ),
-          );
-        },
       ),
     );
   }

@@ -44,24 +44,50 @@ class StepLifestyle extends StatelessWidget {
           const SizedBox(height: 28),
           Text("Description",
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w500
-              )
+                  color: Colors.white70, fontWeight: FontWeight.w500)),
+          const SizedBox(height: 8),
+          DarkTextField(
+            controller: bioController,
+            maxLines: 3,
+            fieldColor: fieldColor,
+            innerShadow: innerShadow,
           ),
-          const SizedBox(height: 8),
-          DarkTextField(controller: bioController, maxLines: 3, fieldColor: fieldColor, innerShadow: innerShadow),
           const SizedBox(height: 22),
-          Text("Catégorie de sport", style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white70, fontWeight: FontWeight.w500)),
+          Text("Catégorie de sport",
+              style: Theme.of(context)
+                  .textTheme
+                  .bodySmall
+                  ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w500)),
           const SizedBox(height: 8),
-          DarkTextField(controller: sportCategoryController, fieldColor: fieldColor, innerShadow: innerShadow),
+          DarkTextField(
+            controller: sportCategoryController,
+            fieldColor: fieldColor,
+            innerShadow: innerShadow,
+          ),
           const SizedBox(height: 22),
-          Text("Fréquence d'activité", style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white70, fontWeight: FontWeight.w500)),
+          Text("Fréquence d'activité",
+              style: Theme.of(context)
+                  .textTheme
+                  .bodySmall
+                  ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w500)),
           const SizedBox(height: 8),
-          DarkTextField(controller: activityFrequencyController, fieldColor: fieldColor, innerShadow: innerShadow),
+          DarkTextField(
+            controller: activityFrequencyController,
+            fieldColor: fieldColor,
+            innerShadow: innerShadow,
+          ),
           const SizedBox(height: 22),
-          Text("Préférence journalière", style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white70, fontWeight: FontWeight.w500)),
+          Text("Préférence journalière",
+              style: Theme.of(context)
+                  .textTheme
+                  .bodySmall
+                  ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w500)),
           const SizedBox(height: 12),
-          PreferenceRow(selectedPreference: dailyPreference, onTap: onPreferenceSelected, accentColor: accentColor),
+          PreferenceRow(
+            selectedPreference: dailyPreference,
+            onTap: onPreferenceSelected,
+            accentColor: accentColor,
+          ),
         ],
       ),
     );

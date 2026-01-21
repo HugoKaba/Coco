@@ -4,22 +4,25 @@ class InputWrapper extends StatelessWidget {
   final Widget child;
   final Color fieldColor;
   final Color innerShadow;
+  final double borderRadius; // <-- ajouté
 
   const InputWrapper({
     super.key,
     required this.child,
     required this.fieldColor,
     required this.innerShadow,
+    this.borderRadius = 20, // valeur par défaut
   });
 
   @override
   Widget build(BuildContext context) {
-    final borderRadius = BorderRadius.circular(20);
     final borderColor = Colors.white.withOpacity(0.08);
+    final radius = BorderRadius.circular(borderRadius);
+
     return DecoratedBox(
       decoration: BoxDecoration(
         color: fieldColor,
-        borderRadius: borderRadius,
+        borderRadius: radius,
         border: Border.all(color: borderColor),
         boxShadow: [
           BoxShadow(
@@ -32,7 +35,7 @@ class InputWrapper extends StatelessWidget {
         ],
       ),
       child: ClipRRect(
-        borderRadius: borderRadius,
+        borderRadius: radius,
         child: child,
       ),
     );
