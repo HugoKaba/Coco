@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class EventFormFields extends StatelessWidget {
   final TextEditingController titleController;
@@ -33,18 +34,18 @@ class EventFormFields extends StatelessWidget {
       children: [
         TextFormField(
           controller: titleController,
-          decoration: const InputDecoration(
-            labelText: 'Titre',
-            border: OutlineInputBorder(),
+          decoration: InputDecoration(
+            labelText: tr('events.event_title'),
+            border: const OutlineInputBorder(),
           ),
-          validator: (v) => v == null || v.isEmpty ? 'Requis' : null,
+          validator: (v) => v == null || v.isEmpty ? tr('common.error') : null,
         ),
         const SizedBox(height: 16),
         DropdownButtonFormField<String>(
           initialValue: selectedSport,
-          decoration: const InputDecoration(
-            labelText: 'Sport',
-            border: OutlineInputBorder(),
+          decoration: InputDecoration(
+            labelText: tr('filters.sports'),
+            border: const OutlineInputBorder(),
           ),
           items: sports
               .map((s) => DropdownMenuItem(value: s, child: Text(s)))
@@ -60,6 +61,9 @@ class EventFormFields extends StatelessWidget {
                 label: Text(
                   '${selectedDate.day}/${selectedDate.month}/${selectedDate.year}',
                 ),
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                ),
                 onPressed: onDatePick,
               ),
             ),
@@ -68,6 +72,9 @@ class EventFormFields extends StatelessWidget {
               child: OutlinedButton.icon(
                 icon: const Icon(Icons.access_time),
                 label: Text(selectedTime.format(context)),
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                ),
                 onPressed: onTimePick,
               ),
             ),
@@ -76,23 +83,23 @@ class EventFormFields extends StatelessWidget {
         const SizedBox(height: 16),
         TextFormField(
           controller: locationController,
-          decoration: const InputDecoration(
-            labelText: 'Lieu',
-            border: OutlineInputBorder(),
-            prefixIcon: Icon(Icons.location_on),
+          decoration: InputDecoration(
+            labelText: tr('events.location'),
+            border: const OutlineInputBorder(),
+            prefixIcon: const Icon(Icons.location_on),
           ),
-          validator: (v) => v == null || v.isEmpty ? 'Requis' : null,
+          validator: (v) => v == null || v.isEmpty ? tr('common.error') : null,
         ),
         const SizedBox(height: 16),
         TextFormField(
           controller: descriptionController,
           maxLines: 4,
-          decoration: const InputDecoration(
-            labelText: 'Description',
+          decoration: InputDecoration(
+            labelText: tr('events.description'),
             alignLabelWithHint: true,
-            border: OutlineInputBorder(),
+            border: const OutlineInputBorder(),
           ),
-          validator: (v) => v == null || v.isEmpty ? 'Requis' : null,
+          validator: (v) => v == null || v.isEmpty ? tr('common.error') : null,
         ),
       ],
     );

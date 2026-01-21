@@ -22,6 +22,8 @@
 	<string>Votre position est utilisée pour trouver des personnes et événements proches.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Autorisation de localisation nécessaire pour améliorer les recommandations basées sur la position.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Coco a besoin d'accéder à votre galerie pour ajouter des images aux événements.</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>

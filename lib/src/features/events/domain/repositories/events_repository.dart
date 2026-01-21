@@ -1,11 +1,9 @@
 import '../models/event_entity.dart';
 
+import '../models/event_filter_state.dart';
+
 abstract class EventsRepository {
-  Future<List<EventEntity>> getEvents({
-    String? sport,
-    DateTime? date,
-    int? limit,
-  });
+  Future<List<EventEntity>> getEvents({EventFilterState? filter, int? limit});
 
   Future<void> createEvent(EventEntity event);
 
@@ -16,4 +14,8 @@ abstract class EventsRepository {
   Future<List<EventEntity>> getMyEvents(String userId);
 
   Future<List<EventEntity>> getJoinedEvents(String userId);
+
+  Future<void> deleteEvent(String eventId);
+
+  Future<void> updateEvent(EventEntity event);
 }

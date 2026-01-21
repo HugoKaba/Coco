@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/models/event_entity.dart';
+import '../domain/models/event_filter_state.dart';
 import '../domain/repositories/events_repository.dart';
 import '../data/repositories/events_repository_impl.dart';
 
@@ -20,10 +21,10 @@ class EventsService extends StateNotifier<AsyncValue<List<EventEntity>>> {
     loadEvents();
   }
 
-  Future<void> loadEvents({String? sport, DateTime? date}) async {
+  Future<void> loadEvents({EventFilterState? filter}) async {
     try {
       state = const AsyncValue.loading();
-      final events = await _repository.getEvents(sport: sport, date: date);
+      final events = await _repository.getEvents(filter: filter);
       state = AsyncValue.data(events);
     } catch (e, st) {
       state = AsyncValue.error(e, st);
@@ -32,17 +33,27 @@ class EventsService extends StateNotifier<AsyncValue<List<EventEntity>>> {
 
   Future<void> createEvent(EventEntity event) async {
     await _repository.createEvent(event);
-    loadEvents(); // Refresh list
+    loadEvents();
   }
 
   Future<void> joinEvent(String eventId, String userId) async {
     await _repository.joinEvent(eventId, userId);
-    loadEvents(); // Refresh list
+    loadEvents();
   }
 
   Future<void> leaveEvent(String eventId, String userId) async {
     await _repository.leaveEvent(eventId, userId);
-    loadEvents(); // Refresh list
+    loadEvents();
+  }
+
+  Future<void> deleteEvent(String eventId) async {
+    await _repository.deleteEvent(eventId);
+    loadEvents();
+  }
+
+  Future<void> updateEvent(EventEntity event) async {
+    await _repository.updateEvent(event);
+    loadEvents();
   }
 }
 

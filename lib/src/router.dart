@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:coco/src/features/swap/swap_page.dart';
 import 'package:coco/src/features/home/presentation/main_shell.dart';
-import 'package:coco/src/features/events/presentation/events_page.dart';
 import 'package:coco/src/features/chats/presentation/chats_page.dart';
 import 'package:coco/src/features/profile/presentation/account_page.dart';
 import 'core/providers.dart';
@@ -44,7 +43,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: '/events',
-                builder: (context, state) => const EventsPage(),
+                builder: (context, state) => const EventListScreen(),
               ),
             ],
           ),
@@ -83,10 +82,6 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         parentNavigatorKey: _rootNavKey,
         path: '/filters',
         builder: (context, state) => const FilterScreen(),
-      ),
-      GoRoute(
-        path: '/events',
-        builder: (context, state) => const EventListScreen(),
       ),
     ],
   );

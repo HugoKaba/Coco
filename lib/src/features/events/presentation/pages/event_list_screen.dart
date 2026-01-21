@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
-import '../../application/events_service.dart';
-import '../../domain/models/event_entity.dart';
-import 'create_event_screen.dart';
-import 'event_details_screen.dart';
-import 'my_events_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/features/events/application/events_service.dart';
+import 'package:coco/src/features/events/presentation/pages/create_event_screen.dart';
+import 'package:coco/src/features/events/presentation/pages/event_details_screen.dart';
+
+import 'package:coco/src/features/events/presentation/widgets/event_card.dart';
+import 'package:coco/src/features/events/application/event_filter_provider.dart';
+import 'package:coco/src/features/events/presentation/widgets/event_filter_sheet.dart';
+import 'package:coco/src/features/filters/application/location_helper.dart';
 
 class EventListScreen extends ConsumerStatefulWidget {
   const EventListScreen({super.key});
@@ -15,7 +18,37 @@ class EventListScreen extends ConsumerStatefulWidget {
 }
 
 class _EventListScreenState extends ConsumerState<EventListScreen> {
-  String? _selectedSport;
+  @override
+  void initState() {
+    super.initState();
+    _initLocation();
+  }
+
+  Future<void> _initLocation() async {
+    final pos = await AppLocationHelper.initLocation();
+    if (pos != null) {
+      ref
+          .read(eventFilterProvider.notifier)
+          .setDeviceLocation(pos.latitude, pos.longitude);
+      ref
+          .read(eventsServiceProvider.notifier)
+          .loadEvents(filter: ref.read(eventFilterProvider));
+    }
+  }
+
+  void _showFilterSheet() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      useRootNavigator: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const EventFilterSheet(),
+    ).then((_) {
+      ref
+          .read(eventsServiceProvider.notifier)
+          .loadEvents(filter: ref.read(eventFilterProvider));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,215 +56,91 @@ class _EventListScreenState extends ConsumerState<EventListScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Événements'),
+        title: Text(tr('events.title')),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.person),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const MyEventsScreen()),
-              );
-            },
+            icon: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Icon(
+                Icons.tune_rounded,
+                color: Theme.of(context).primaryColor,
+                size: 20,
+              ),
+            ),
+            onPressed: _showFilterSheet,
           ),
+          const SizedBox(width: 8),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 110),
+        child: FloatingActionButton(
+          onPressed: () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const CreateEventScreen()),
-          );
-        },
-        child: const Icon(Icons.add),
+            MaterialPageRoute(builder: (_) => const CreateEventScreen()),
+          ),
+          backgroundColor: Theme.of(context).primaryColor,
+          elevation: 4,
+          shape: const CircleBorder(),
+          child: const Icon(Icons.add, color: Colors.white),
+        ),
       ),
       body: Column(
         children: [
-          _buildSportFilters(),
+          const SizedBox(height: 10),
+          const SizedBox(height: 10),
           Expanded(
             child: eventsAsync.when(
               data: (events) {
-                final filtered = _selectedSport == null
-                    ? events
-                    : events.where((e) => e.sport == _selectedSport).toList();
-
-                if (filtered.isEmpty) {
-                  return const Center(child: Text('Aucun événement trouvé.'));
+                if (events.isEmpty) {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.event_busy_rounded,
+                          size: 64,
+                          color: Colors.grey.shade300,
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          tr('events.no_events'),
+                          style: TextStyle(
+                            color: Colors.grey.shade500,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
                 }
-
                 return ListView.builder(
-                  padding: const EdgeInsets.all(16),
-                  itemCount: filtered.length,
+                  padding: const EdgeInsets.fromLTRB(20, 10, 20, 150),
+                  itemCount: events.length,
                   itemBuilder: (context, index) {
-                    final event = filtered[index];
-                    return _EventTile(event: event);
+                    final event = events[index];
+                    return EventCard(
+                      event: event,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => EventDetailsScreen(event: event),
+                        ),
+                      ),
+                    );
                   },
                 );
               },
               loading: () => const Center(child: CircularProgressIndicator()),
-              error: (err, stack) => Center(child: Text('Erreur: $err')),
+              error: (err, _) => Center(child: Text(tr('events.failed_load'))),
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildSportFilters() {
-    final sports = ['Football', 'Tennis', 'Padel', 'Running', 'Basketball'];
-    return SizedBox(
-      height: 60,
-      child: ListView.separated(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        scrollDirection: Axis.horizontal,
-        itemCount: sports.length + 1,
-        separatorBuilder: (_, __) => const SizedBox(width: 8),
-        itemBuilder: (context, index) {
-          if (index == 0) {
-            final isSelected = _selectedSport == null;
-            return ChoiceChip(
-              label: const Text('Tout'),
-              selected: isSelected,
-              onSelected: (selected) {
-                if (selected) {
-                  setState(() => _selectedSport = null);
-                  ref.read(eventsServiceProvider.notifier).loadEvents();
-                }
-              },
-            );
-          }
-          final sport = sports[index - 1];
-          final isSelected = _selectedSport == sport;
-          return ChoiceChip(
-            label: Text(sport),
-            selected: isSelected,
-            onSelected: (selected) {
-              if (selected) {
-                setState(() => _selectedSport = sport);
-                ref
-                    .read(eventsServiceProvider.notifier)
-                    .loadEvents(sport: sport);
-              }
-            },
-          );
-        },
-      ),
-    );
-  }
-}
-
-class _EventTile extends StatelessWidget {
-  final EventEntity event;
-
-  const _EventTile({required this.event});
-
-  @override
-  Widget build(BuildContext context) {
-    final dateFormat = DateFormat('dd/MM HH:mm');
-    return Card(
-      margin: const EdgeInsets.only(bottom: 16),
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => EventDetailsScreen(event: event),
-            ),
-          );
-        },
-        borderRadius: BorderRadius.circular(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 120,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade200,
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(12),
-                ),
-                image: event.imageUrl != null
-                    ? DecorationImage(
-                        image: NetworkImage(event.imageUrl!),
-                        fit: BoxFit.cover,
-                      )
-                    : null,
-              ),
-              child: event.imageUrl == null
-                  ? const Center(
-                      child: Icon(Icons.event, size: 40, color: Colors.grey),
-                    )
-                  : null,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        event.sport.toUpperCase(),
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      ),
-                      Text(
-                        dateFormat.format(event.date),
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey.shade600,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    event.title,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.location_on,
-                        size: 14,
-                        color: Colors.grey.shade600,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        event.locationName ?? 'Lieu inconnu',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey.shade600,
-                        ),
-                      ),
-                      const Spacer(),
-                      Icon(Icons.group, size: 14, color: Colors.grey.shade600),
-                      const SizedBox(width: 4),
-                      Text(
-                        '${event.attendees.length} / ${event.maxPlaces}',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey.shade600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

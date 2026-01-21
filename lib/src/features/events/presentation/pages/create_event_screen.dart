@@ -1,16 +1,14 @@
-// For now, hardcode or assume a test user ID.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:uuid/uuid.dart';
-import '../../../../core/providers.dart';
-import '../../application/events_service.dart';
-import '../../domain/models/event_entity.dart';
-import '../widgets/event_form_fields.dart';
-import '../widgets/event_submit_button.dart';
-import '../widgets/event_places_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/features/events/domain/models/event_entity.dart';
+import 'package:coco/src/features/events/presentation/controllers/create_event_controller.dart';
+import 'package:coco/src/features/events/presentation/widgets/create_event_form_body.dart';
 
 class CreateEventScreen extends ConsumerStatefulWidget {
-  const CreateEventScreen({super.key});
+  final EventEntity? eventToEdit;
+
+  const CreateEventScreen({super.key, this.eventToEdit});
   @override
   ConsumerState<CreateEventScreen> createState() => _CreateEventScreenState();
 }
@@ -21,11 +19,11 @@ class _CreateEventScreenState extends ConsumerState<CreateEventScreen> {
   final _descriptionController = TextEditingController();
   final _locationController = TextEditingController();
 
+  String? _uploadedImageUrl;
   String _selectedSport = 'Football';
   DateTime _selectedDate = DateTime.now().add(const Duration(days: 1));
   TimeOfDay _selectedTime = const TimeOfDay(hour: 14, minute: 0);
   int _maxPlaces = 10;
-  bool _isLoading = false;
 
   final List<String> _sports = [
     'Football',
@@ -37,6 +35,22 @@ class _CreateEventScreenState extends ConsumerState<CreateEventScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    if (widget.eventToEdit != null) {
+      final e = widget.eventToEdit!;
+      _titleController.text = e.title;
+      _descriptionController.text = e.description;
+      _locationController.text = e.locationName ?? '';
+      _selectedSport = e.sport;
+      _selectedDate = e.date;
+      _selectedTime = TimeOfDay.fromDateTime(e.date);
+      _maxPlaces = e.maxPlaces;
+      _uploadedImageUrl = e.imageUrl;
+    }
+  }
+
+  @override
   void dispose() {
     _titleController.dispose();
     _descriptionController.dispose();
@@ -46,43 +60,31 @@ class _CreateEventScreenState extends ConsumerState<CreateEventScreen> {
 
   Future<void> _submit() async {
     if (!_formKey.currentState!.validate()) return;
-    setState(() => _isLoading = true);
-
     try {
-      final date = DateTime(
-        _selectedDate.year,
-        _selectedDate.month,
-        _selectedDate.day,
-        _selectedTime.hour,
-        _selectedTime.minute,
-      );
-
-      final user = ref.read(authStateChangesProvider).value;
-      if (user == null) throw Exception('User not authenticated');
-
-      final newEvent = EventEntity(
-        id: const Uuid().v4(),
-        creatorId: user.uid,
-        title: _titleController.text,
-        description: _descriptionController.text,
-        sport: _selectedSport,
-        date: date,
-        locationName: _locationController.text,
-        lat: 48.8566,
-        lng: 2.3522,
-        maxPlaces: _maxPlaces,
-        attendees: [user.uid],
-        createdAt: DateTime.now(),
-        imageUrl:
-            'https://source.unsplash.com/800x600/?${_selectedSport.toLowerCase()}',
-      );
-
-      await ref.read(eventsServiceProvider.notifier).createEvent(newEvent);
+      await ref
+          .read(createEventControllerProvider.notifier)
+          .submit(
+            eventToEdit: widget.eventToEdit,
+            title: _titleController.text,
+            description: _descriptionController.text,
+            locationName: _locationController.text,
+            sport: _selectedSport,
+            date: _selectedDate,
+            time: _selectedTime,
+            maxPlaces: _maxPlaces,
+            imageUrl: _uploadedImageUrl,
+          );
 
       if (mounted) {
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Événement créé avec succès !')),
+          SnackBar(
+            content: Text(
+              widget.eventToEdit != null
+                  ? tr('events.update_success')
+                  : tr('events.create_success'),
+            ),
+          ),
         );
       }
     } catch (e) {
@@ -91,56 +93,41 @@ class _CreateEventScreenState extends ConsumerState<CreateEventScreen> {
           context,
         ).showSnackBar(SnackBar(content: Text('Erreur: $e')));
       }
-    } finally {
-      if (mounted) setState(() => _isLoading = false);
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final isEditing = widget.eventToEdit != null;
+    final state = ref.watch(createEventControllerProvider);
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Créer un événement')),
+      appBar: AppBar(
+        title: Text(
+          isEditing ? tr('events.edit_title') : tr('events.create_title'),
+        ),
+      ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 200),
         child: Form(
           key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              EventFormFields(
-                titleController: _titleController,
-                locationController: _locationController,
-                descriptionController: _descriptionController,
-                selectedSport: _selectedSport,
-                sports: _sports,
-                onSportChanged: (v) => setState(() => _selectedSport = v!),
-                selectedDate: _selectedDate,
-                selectedTime: _selectedTime,
-                onDatePick: () async {
-                  final d = await showDatePicker(
-                    context: context,
-                    initialDate: _selectedDate,
-                    firstDate: DateTime.now(),
-                    lastDate: DateTime.now().add(const Duration(days: 365)),
-                  );
-                  if (d != null) setState(() => _selectedDate = d);
-                },
-                onTimePick: () async {
-                  final t = await showTimePicker(
-                    context: context,
-                    initialTime: _selectedTime,
-                  );
-                  if (t != null) setState(() => _selectedTime = t);
-                },
-              ),
-              const SizedBox(height: 16),
-              EventPlacesSlider(
-                maxPlaces: _maxPlaces,
-                onChanged: (v) => setState(() => _maxPlaces = v.toInt()),
-              ),
-              const SizedBox(height: 24),
-              EventSubmitButton(isLoading: _isLoading, onPressed: _submit),
-            ],
+          child: CreateEventFormBody(
+            titleController: _titleController,
+            descriptionController: _descriptionController,
+            locationController: _locationController,
+            selectedSport: _selectedSport,
+            selectedDate: _selectedDate,
+            selectedTime: _selectedTime,
+            maxPlaces: _maxPlaces,
+            isLoading: state.isLoading,
+            sports: _sports,
+            isEditing: isEditing,
+            onSubmit: _submit,
+            onSportChanged: (v) => setState(() => _selectedSport = v!),
+            onDateChanged: (v) => setState(() => _selectedDate = v),
+            onTimeChanged: (v) => setState(() => _selectedTime = v),
+            onImageUploaded: (v) => setState(() => _uploadedImageUrl = v),
+            onPlacesChanged: (v) => setState(() => _maxPlaces = v),
           ),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class EventSubmitButton extends StatelessWidget {
   final bool isLoading;
@@ -9,7 +10,7 @@ class EventSubmitButton extends StatelessWidget {
     super.key,
     required this.isLoading,
     required this.onPressed,
-    this.label = 'Créer l\'événement',
+    this.label = 'events.create_button',
   });
 
   @override
@@ -23,7 +24,9 @@ class EventSubmitButton extends StatelessWidget {
       ),
       child: isLoading
           ? const CircularProgressIndicator(color: Colors.white)
-          : Text(label),
+          : Text(
+              tr(label) == label ? label : tr(label),
+            ), // Simple fallback or handling
     );
   }
 }

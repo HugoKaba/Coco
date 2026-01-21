@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../domain/models/event_entity.dart';
 import '../../domain/repositories/events_repository.dart';
+import '../../domain/models/event_filter_state.dart';
+import '../../application/event_filter_extension.dart';
 
 class EventsRepositoryImpl implements EventsRepository {
   final FirebaseFirestore _firestore;
@@ -9,35 +11,35 @@ class EventsRepositoryImpl implements EventsRepository {
 
   @override
   Future<List<EventEntity>> getEvents({
-    String? sport,
-    DateTime? date,
+    EventFilterState? filter,
     int? limit,
   }) async {
-    Query query = _firestore.collection('events').orderBy('date');
+    try {
+      final snapshot = await _firestore
+          .collection('events')
+          .orderBy('date')
+          .get();
 
-    if (sport != null && sport.isNotEmpty) {
-      query = query.where('sport', isEqualTo: sport);
+      var events = snapshot.docs
+          .map((doc) => EventEntity.fromFirestore(doc))
+          .applyFilter(filter);
+
+      if (limit != null && events.length > limit) {
+        events = events.take(limit).toList();
+      }
+
+      return events;
+    } catch (e) {
+      rethrow;
     }
-
-    if (date != null) {
-      final start = DateTime(date.year, date.month, date.day);
-      final end = start.add(const Duration(days: 1));
-      query = query
-          .where('date', isGreaterThanOrEqualTo: Timestamp.fromDate(start))
-          .where('date', isLessThan: Timestamp.fromDate(end));
-    }
-
-    if (limit != null) {
-      query = query.limit(limit);
-    }
-
-    final snapshot = await query.get();
-    return snapshot.docs.map((doc) => EventEntity.fromFirestore(doc)).toList();
   }
 
   @override
   Future<void> createEvent(EventEntity event) async {
-    await _firestore.collection('events').add(event.toFirestore());
+    await _firestore
+        .collection('events')
+        .doc(event.id)
+        .set(event.toFirestore());
   }
 
   @override
@@ -87,5 +89,18 @@ class EventsRepositoryImpl implements EventsRepository {
         .get();
 
     return snapshot.docs.map((doc) => EventEntity.fromFirestore(doc)).toList();
+  }
+
+  @override
+  Future<void> deleteEvent(String eventId) async {
+    await _firestore.collection('events').doc(eventId).delete();
+  }
+
+  @override
+  Future<void> updateEvent(EventEntity event) async {
+    await _firestore
+        .collection('events')
+        .doc(event.id)
+        .update(event.toFirestore());
   }
 }

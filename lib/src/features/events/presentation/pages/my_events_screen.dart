@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
-import '../../../../core/providers.dart';
-import '../../application/events_service.dart';
-import '../../domain/models/event_entity.dart';
-import 'event_details_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/providers.dart';
+import 'package:coco/src/features/events/application/events_service.dart';
+
+import 'package:coco/src/features/events/presentation/pages/event_details_screen.dart';
+import 'package:coco/src/features/events/presentation/widgets/event_card.dart';
 
 class MyEventsScreen extends ConsumerStatefulWidget {
   const MyEventsScreen({super.key});
@@ -31,14 +32,21 @@ class _MyEventsScreenState extends ConsumerState<MyEventsScreen>
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mes Événements'),
+        title: Text(tr('events.title')),
         bottom: TabBar(
           controller: _tabController,
-          tabs: const [
-            Tab(text: 'J\'organise'),
-            Tab(text: 'Je participe'),
+          labelColor: theme.primaryColor,
+          unselectedLabelColor: Colors.grey,
+          indicatorColor: theme.primaryColor,
+          indicatorSize: TabBarIndicatorSize.label,
+          dividerColor: Colors.transparent,
+          labelStyle: const TextStyle(fontWeight: FontWeight.bold),
+          tabs: [
+            Tab(text: tr('events.you_organize')),
+            Tab(text: tr('events.participants')),
           ],
         ),
       ),
@@ -71,53 +79,44 @@ class _EventListTab extends ConsumerWidget {
       data: (events) {
         if (events.isEmpty) {
           return Center(
-            child: Text(
-              isOrganized
-                  ? 'Vous n\'orginisez aucun événement.'
-                  : 'Vous ne participez à aucun événement.',
-              style: const TextStyle(color: Colors.grey),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.event_busy_rounded,
+                  size: 60,
+                  color: Colors.grey.shade300,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  tr('events.no_events'),
+                  style: TextStyle(color: Colors.grey.shade500, fontSize: 16),
+                ),
+              ],
             ),
           );
         }
         return ListView.builder(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 150),
           itemCount: events.length,
           itemBuilder: (context, index) {
-            return _CompactEventTile(event: events[index]);
+            final event = events[index];
+            return EventCard(
+              event: event,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EventDetailsScreen(event: event),
+                  ),
+                );
+              },
+            );
           },
         );
       },
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (err, stack) => Center(child: Text('Erreur: $err')),
-    );
-  }
-}
-
-class _CompactEventTile extends StatelessWidget {
-  final EventEntity event;
-
-  const _CompactEventTile({required this.event});
-
-  @override
-  Widget build(BuildContext context) {
-    final dateFormat = DateFormat('dd/MM HH:mm');
-    return Card(
-      child: ListTile(
-        leading: event.imageUrl != null
-            ? CircleAvatar(backgroundImage: NetworkImage(event.imageUrl!))
-            : CircleAvatar(child: Text(event.sport[0])),
-        title: Text(event.title, maxLines: 1, overflow: TextOverflow.ellipsis),
-        subtitle: Text('${event.sport} • ${dateFormat.format(event.date)}'),
-        trailing: Text('${event.attendees.length}/${event.maxPlaces}'),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => EventDetailsScreen(event: event),
-            ),
-          );
-        },
-      ),
+      error: (err, stack) => Center(child: Text(tr('events.failed_load'))),
     );
   }
 }
