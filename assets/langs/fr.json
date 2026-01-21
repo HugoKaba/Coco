@@ -3,7 +3,17 @@
 		"title": "Coco"
 	},
 	"common": {
-		"error": "Erreur"
+		"error": "Erreur",
+		"cancel": "Annuler",
+		"edit": "Modifier"
+	},
+	"errors": {
+		"location_error": "Erreur de localisation",
+		"geocoding_error": "Erreur de géocodage",
+		"auth_invalid_credential": "Identifiants invalides",
+		"auth_failed_authorization": "Échec de l'autorisation",
+		"upload_failed": "Échec du téléchargement",
+		"address_not_found": "Adresse introuvable"
 	},
 	"sign_in": {
 		"title": "Se connecter",
@@ -53,6 +63,38 @@
 		"frequency": "Fréquence",
 		"apply": "Appliquer les filtres",
 		"reset": "Réinitialiser",
-		"search": "Rechercher"
+		"search": "Rechercher",
+		"sort_by": "Trier par",
+		"proximity": "Proximité",
+		"date": "Date",
+		"radius": "Rayon",
+		"around_me": "Autour de moi",
+		"city": "Ville",
+		"search_city": "Rechercher une ville"
+	},
+	"events": {
+		"title": "Événements",
+		"update_success": "Événement mis à jour avec succès",
+		"create_success": "Événement créé avec succès",
+		"edit_title": "Modifier l'événement",
+		"create_title": "Créer un événement",
+		"you_organize": "Vous organisez",
+		"participants": "Participants",
+		"no_events": "Aucun événement trouvé",
+		"failed_load": "Échec du chargement des événements",
+		"delete": "Supprimer",
+		"delete_confirm": "Êtes-vous sûr de vouloir supprimer cet événement ?",
+		"deleted": "Événement supprimé",
+		"event_title": "Titre de l'événement",
+		"location": "Lieu",
+		"description": "Description",
+		"leave": "Quitter",
+		"full": "Complet",
+		"join": "Rejoindre",
+		"add_photo": "Ajouter une photo",
+		"location_unknown": "Lieu inconnu",
+		"all": "Tous",
+		"max_places": "Places max",
+		"create_button": "Créer"
 	}
 }

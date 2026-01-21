@@ -36,7 +36,7 @@ class CreateEventController extends AutoDisposeAsyncNotifier<void> {
       final user = ref.read(authStateChangesProvider).value;
       if (user == null) throw Exception('User not authenticated');
 
-      final locations = await AppLocationHelper.getCoordinatesFromAddress(
+      final locations = await LocationHelper.getCoordinatesFromAddress(
         locationName,
       );
 

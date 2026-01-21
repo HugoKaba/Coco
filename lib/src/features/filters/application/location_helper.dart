@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class LocationHelper {
   static Future<Position?> initLocation() async {
@@ -17,8 +19,29 @@ class LocationHelper {
 
       return await Geolocator.getCurrentPosition();
     } catch (e) {
-      debugPrint('Error getting location: $e');
+      debugPrint('${tr("errors.location_error")}: $e');
       return null;
+    }
+  }
+
+  static double calculateDistance(
+    double startLat,
+    double startLng,
+    double endLat,
+    double endLng,
+  ) {
+    return Geolocator.distanceBetween(startLat, startLng, endLat, endLng) /
+        1000;
+  }
+
+  static Future<List<Location>> getCoordinatesFromAddress(
+    String address,
+  ) async {
+    try {
+      return await locationFromAddress(address);
+    } catch (e) {
+      debugPrint('${tr("errors.geocoding_error")}: $e');
+      return [];
     }
   }
 }

@@ -25,7 +25,7 @@ class _EventListScreenState extends ConsumerState<EventListScreen> {
   }
 
   Future<void> _initLocation() async {
-    final pos = await AppLocationHelper.initLocation();
+    final pos = await LocationHelper.initLocation();
     if (pos != null) {
       ref
           .read(eventFilterProvider.notifier)

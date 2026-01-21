@@ -12,6 +12,7 @@ import '../../domain/models/city.dart';
 
 class FilterScreen extends ConsumerStatefulWidget {
   const FilterScreen({super.key});
+
   @override
   ConsumerState<FilterScreen> createState() => _FilterScreenState();
 }
@@ -58,7 +59,7 @@ class _FilterScreenState extends ConsumerState<FilterScreen> {
           .read(userSearchProvider.notifier)
           .performSearch(ref.read(filterProvider));
     } catch (e) {
-      debugPrint('Location Error: \$e');
+      debugPrint('Location Error: $e');
     }
   }
 

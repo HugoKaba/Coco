@@ -11,13 +11,11 @@ class ImageUploadService {
   final FirebaseStorage _storage = FirebaseStorage.instance;
   final Uuid _uuid = const Uuid();
 
-  /// Picks an image from the gallery.
-  /// Returns the [File] if an image is selected, otherwise null.
   Future<File?> pickImageFromGallery() async {
     try {
       final XFile? pickedFile = await _picker.pickImage(
         source: ImageSource.gallery,
-        maxWidth: 1024, // Resize for performance
+        maxWidth: 1024,
         maxHeight: 1024,
         imageQuality: 85,
       );
@@ -27,15 +25,10 @@ class ImageUploadService {
       }
       return null;
     } catch (e) {
-      // Handle permission errors or picker failures
-      // In a real app, you might want to log this or throw a custom exception
       return null;
     }
   }
 
-  /// Uploads an image to Firebase Storage at the specified [path].
-  /// If [path] is not provided, uploads to 'uploads/{uuid}.jpg'.
-  /// Returns the download URL of the uploaded image.
   Future<String?> uploadImage(File file, {String? path}) async {
     try {
       final String storagePath = path ?? 'uploads/${_uuid.v4()}.jpg';
@@ -47,7 +40,6 @@ class ImageUploadService {
       final String downloadUrl = await snapshot.ref.getDownloadURL();
       return downloadUrl;
     } catch (e) {
-      // Handle upload errors (network, permission, etc.)
       return null;
     }
   }

@@ -3,7 +3,17 @@
 		"title": "Coco"
 	},
 	"common": {
-		"error": "Error"
+		"error": "Error",
+		"cancel": "Cancel",
+		"edit": "Edit"
+	},
+	"errors": {
+		"location_error": "Error getting location",
+		"geocoding_error": "Error geocoding address",
+		"auth_invalid_credential": "Invalid credentials",
+		"auth_failed_authorization": "Failed to get authorization",
+		"upload_failed": "Image upload failed",
+		"address_not_found": "Address not found"
 	},
 	"sign_in": {
 		"title": "Sign in",
@@ -53,6 +63,38 @@
 		"frequency": "Frequency",
 		"apply": "Apply filters",
 		"reset": "Reset",
-		"search": "Search"
+		"search": "Search",
+		"sort_by": "Sort by",
+		"proximity": "Proximity",
+		"date": "Date",
+		"radius": "Radius",
+		"around_me": "Around me",
+		"city": "City",
+		"search_city": "Search city"
+	},
+	"events": {
+		"title": "Events",
+		"update_success": "Event updated successfully",
+		"create_success": "Event created successfully",
+		"edit_title": "Edit Event",
+		"create_title": "Create Event",
+		"you_organize": "You organize",
+		"participants": "Participants",
+		"no_events": "No events found",
+		"failed_load": "Failed to load events",
+		"delete": "Delete",
+		"delete_confirm": "Are you sure you want to delete this event?",
+		"deleted": "Event deleted",
+		"event_title": "Event Title",
+		"location": "Location",
+		"description": "Description",
+		"leave": "Leave",
+		"full": "Full",
+		"join": "Join",
+		"add_photo": "Add photo",
+		"location_unknown": "Location unknown",
+		"all": "All",
+		"max_places": "Max places",
+		"create_button": "Create"
 	}
 }

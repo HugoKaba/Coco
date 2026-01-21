@@ -40,7 +40,7 @@ extension EventFilterX on Iterable<EventEntity> {
 
     if (centerLat != null && centerLng != null) {
       events = events.where((e) {
-        final dist = AppLocationHelper.calculateDistance(
+        final dist = LocationHelper.calculateDistance(
           centerLat!,
           centerLng!,
           e.lat,
@@ -51,13 +51,13 @@ extension EventFilterX on Iterable<EventEntity> {
 
       final sortedEvents = events.toList();
       sortedEvents.sort((a, b) {
-        final distA = AppLocationHelper.calculateDistance(
+        final distA = LocationHelper.calculateDistance(
           centerLat!,
           centerLng!,
           a.lat,
           a.lng,
         );
-        final distB = AppLocationHelper.calculateDistance(
+        final distB = LocationHelper.calculateDistance(
           centerLat,
           centerLng,
           b.lat,
