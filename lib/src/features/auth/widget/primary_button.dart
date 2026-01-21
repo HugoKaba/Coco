@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String label;
@@ -32,14 +33,14 @@ class PrimaryButton extends StatelessWidget {
           ),
         ),
         child: icon == null
-            ? Text(label)
+            ? Text(label.tr())
             : Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(icon, color: Colors.white),
             const SizedBox(width: 8),
-            Text(label),
+            Text(label.tr()),
           ],
         ),
       ),

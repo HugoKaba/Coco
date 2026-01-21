@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class PhotoPickerField extends StatelessWidget {
@@ -41,7 +42,7 @@ class PhotoPickerField extends StatelessWidget {
         )
             : Center(
           child: Text(
-            "Sélectionner une photo",
+            tr('register.select_profile_picture'),
             style: TextStyle(color: Colors.white54),
           ),
         ),

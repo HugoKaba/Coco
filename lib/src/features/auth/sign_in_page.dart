@@ -124,7 +124,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 ),
                 const SizedBox(height: 14),
                 PrimaryButton(
-                  label: "Connexion avec Apple",
+                  label: tr('sign_in.sign_in_apple'),
                   icon: Icons.apple,
                   onPressed: () {
                     // TODO: brancher Apple Sign-In

@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../dark_text_field.dart';
 import '../photo_picker_field.dart';
@@ -85,7 +86,7 @@ class StepProfileCompletion extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 32),
-          _sectionTitle(context, "Photo de profil"),
+          _sectionTitle(context, tr('register.profile_picture')),
           const SizedBox(height: 12),
           Row(
             children: [
@@ -102,19 +103,19 @@ class StepProfileCompletion extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          _sectionTitle(context, "Date de naissance"),
+          _sectionTitle(context, tr('register.birth_date')),
           const SizedBox(height: 12),
           Row(
             children: [
-              _dateField(birthDayController, "01"),
+              _dateField(birthDayController, tr('register.birth_date_day')),
               const SizedBox(width: 12),
-              _dateField(birthMonthController, "01"),
+              _dateField(birthMonthController, tr('register.birth_date_month')),
               const SizedBox(width: 12),
-              _dateField(birthYearController, "1970"),
+              _dateField(birthYearController, tr('register.birth_date_year')),
             ],
           ),
           const SizedBox(height: 24),
-          _sectionTitle(context, "Localisation"),
+          _sectionTitle(context, tr('register.location')),
           const SizedBox(height: 12),
           Row(
             children: [
@@ -122,7 +123,7 @@ class StepProfileCompletion extends StatelessWidget {
                 flex: 2,
                 child: DarkTextField(
                   controller: zipController,
-                  hintText: "93066",
+                  hintText: tr('register.postal_code'),
                   keyboardType: TextInputType.number,
                   fieldColor: fieldColor,
                   innerShadow: innerShadow,
@@ -143,11 +144,11 @@ class StepProfileCompletion extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          _sectionTitle(context, "Genre"),
+          _sectionTitle(context, tr('register.gender')),
           const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: ["H", "F", "NB"].map(_genderOption).toList(),
+            children: [tr('register.gender_male'), tr('register.gender_female'), tr('register.gender_nb')].map(_genderOption).toList(),
           ),
         ],
       ),

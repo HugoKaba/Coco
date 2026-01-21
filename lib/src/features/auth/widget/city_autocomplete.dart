@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:sportlinker/src/core/city_service.dart';
 import 'input_wrapper.dart';
 
@@ -53,8 +54,8 @@ class CityAutocomplete extends StatelessWidget {
             controller: fieldTextEditingController,
             focusNode: focusNode,
             style: const TextStyle(color: Colors.white),
-            decoration: const InputDecoration(
-              hintText: "Saint-Denis",
+            decoration: InputDecoration(
+              hintText: tr('register.city'),
               hintStyle: TextStyle(color: Colors.white54),
               border: InputBorder.none,
               contentPadding: EdgeInsets.symmetric(horizontal: 18, vertical: 16),

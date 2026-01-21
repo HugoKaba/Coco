@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../dark_text_field.dart';
 import '../preference_row.dart';
 
@@ -42,7 +43,7 @@ class StepLifestyle extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 28),
-          Text("Description",
+          Text(tr('register.description'),
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: Colors.white70, fontWeight: FontWeight.w500)),
           const SizedBox(height: 8),
@@ -53,7 +54,7 @@ class StepLifestyle extends StatelessWidget {
             innerShadow: innerShadow,
           ),
           const SizedBox(height: 22),
-          Text("Catégorie de sport",
+          Text(tr('register.sport_category'),
               style: Theme.of(context)
                   .textTheme
                   .bodySmall
@@ -65,7 +66,7 @@ class StepLifestyle extends StatelessWidget {
             innerShadow: innerShadow,
           ),
           const SizedBox(height: 22),
-          Text("Fréquence d'activité",
+          Text(tr('register.activity_frequency'),
               style: Theme.of(context)
                   .textTheme
                   .bodySmall
@@ -77,7 +78,7 @@ class StepLifestyle extends StatelessWidget {
             innerShadow: innerShadow,
           ),
           const SizedBox(height: 22),
-          Text("Préférence journalière",
+          Text(tr('register.daily_preference'),
               style: Theme.of(context)
                   .textTheme
                   .bodySmall

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../dark_text_field.dart';
 import '../input_label.dart';
@@ -41,43 +42,43 @@ class StepAccountInfo extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 36),
-          InputLabel(label: "Prénom"),
+          InputLabel(label: tr('register.firstname')),
           DarkTextField(
             controller: firstNameController,
-            hintText: "Firstname",
+            hintText: tr('register.firstname'),
             fieldColor: fieldColor,
             innerShadow: innerShadow,
           ),
           const SizedBox(height: 20),
-          InputLabel(label: "Nom"),
+          InputLabel(label: tr('register.name')),
           DarkTextField(
             controller: nameController,
-            hintText: "Name",
+            hintText: tr('register.name'),
             fieldColor: fieldColor,
             innerShadow: innerShadow,
           ),
           const SizedBox(height: 20),
-          InputLabel(label: "Nom d'utilisateur"),
+          InputLabel(label: tr('register.username')),
           DarkTextField(
             controller: userNameController,
-            hintText: "Username",
+            hintText: tr('register.username'),
             fieldColor: fieldColor,
             innerShadow: innerShadow,
           ),
           const SizedBox(height: 20),
-          InputLabel(label: "Email"),
+          InputLabel(label: tr('register.email')),
           DarkTextField(
             controller: emailController,
-            hintText: "Email",
+            hintText: tr('register.email'),
             keyboardType: TextInputType.emailAddress,
             fieldColor: fieldColor,
             innerShadow: innerShadow,
           ),
           const SizedBox(height: 20),
-          InputLabel(label: "Password"),
+          InputLabel(label: tr('register.password')),
           DarkTextField(
             controller: passwordController,
-            hintText: "Password",
+            hintText: tr('register.password'),
             obscureText: true,
             fieldColor: fieldColor,
             innerShadow: innerShadow,

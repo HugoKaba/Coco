@@ -26,7 +26,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   static const Color _fieldColor = Color(0xFF1F1F1F);
   static final Color _inputInnerShadow = Colors.black.withOpacity(0.55);
 
-  String _selectedGender = "H", _dailyPreference = "Aucune";
+  String _selectedGender = tr('register.gender_male'), _dailyPreference = tr('register.daily_preference_option1');
   Uint8List? _profilePhotoBytes;
   DateTime _birthDate = DateTime(1970, 1, 1);
   bool _citiesLoaded = false;
@@ -91,7 +91,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF121212),
         foregroundColor: Colors.white,
-        title: Text(tr('sign_in.title')),
+        title: Text(tr('register.title')),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -123,12 +123,12 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 NavigationButton(
-                  text: "Précédent",
+                  text: tr('register.previous_button'),
                   alignment: Alignment.centerLeft,
                   onPressed: () { if (step == 0) context.pop(); else setState(() => step--); },
                 ),
                 NavigationButton(
-                  text: step == 2 ? "Valider" : "Suivant",
+                  text: step == 2 ? tr('register.validate_button') : tr('register.next_button'),
                   alignment: Alignment.centerRight,
                   onPressed: () {
                     if (step == 0 && !_formKey.currentState!.validate()) return;
