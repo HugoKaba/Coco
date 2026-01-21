@@ -1,11 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import '../../domain/models/event_entity.dart';
 import '../../domain/repositories/events_repository.dart';
 import '../../domain/models/event_filter_state.dart';
 import '../../application/event_filter_extension.dart';
+import 'package:coco/src/features/chats/domain/repositories/conversations_repository.dart';
+import 'package:coco/src/features/chats/data/repositories/conversations_repository_impl.dart';
+import 'package:coco/src/features/chats/domain/models/conversation_entity.dart';
 
 class EventsRepositoryImpl implements EventsRepository {
   final FirebaseFirestore _firestore;
+  final ConversationsRepository _conversationsRepo =
+      ConversationsRepositoryImpl();
 
   EventsRepositoryImpl(this._firestore);
 
@@ -40,6 +46,16 @@ class EventsRepositoryImpl implements EventsRepository {
         .collection('events')
         .doc(event.id)
         .set(event.toFirestore());
+
+    try {
+      await _conversationsRepo.createConversation(
+        participantIds: [event.creatorId],
+        type: ConversationType.event,
+        eventId: event.id,
+      );
+    } catch (e) {
+      debugPrint('Error creating event conversation: $e');
+    }
   }
 
   @override
@@ -60,6 +76,24 @@ class EventsRepositoryImpl implements EventsRepository {
         'attendees': FieldValue.arrayUnion([userId]),
       });
     });
+
+    try {
+      final conversationsSnapshot = await _firestore
+          .collection('conversations')
+          .where('eventId', isEqualTo: eventId)
+          .where('type', isEqualTo: 'event')
+          .limit(1)
+          .get();
+
+      if (conversationsSnapshot.docs.isNotEmpty) {
+        await _conversationsRepo.addParticipant(
+          conversationId: conversationsSnapshot.docs.first.id,
+          userId: userId,
+        );
+      }
+    } catch (e) {
+      debugPrint('Error adding user to event conversation: $e');
+    }
   }
 
   @override

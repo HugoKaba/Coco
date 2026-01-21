@@ -199,5 +199,22 @@
 		"all": "Tous",
 		"max_places": "Places max",
 		"create_button": "Créer"
+	},
+	"chats": {
+		"title": "Messages",
+		"no_conversations": "Aucune conversation",
+		"no_conversations_hint": "Matchez ou rejoignez un événement pour commencer à discuter",
+		"delete": "Supprimer",
+		"delete_confirm": "Supprimer cette conversation ?",
+		"mute": "Muet",
+		"unmute": "Activer",
+		"type_message": "Tapez un message...",
+		"send": "Envoyer",
+		"typing": "est en train d'écrire...",
+		"today": "Aujourd'hui",
+		"yesterday": "Hier",
+		"participants": "participants",
+		"event_chat": "Discussion événement",
+		"match_chat": "Match avec"
 	}
 }

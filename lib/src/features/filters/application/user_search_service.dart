@@ -19,7 +19,13 @@ class UserSearchNotifier extends Notifier<UserSearchState> {
 
   @override
   UserSearchState build() {
-    Future.microtask(() => _loadData());
+    final authSub = FirebaseAuth.instance.authStateChanges().listen((user) {
+      if (user != null) {
+        _loadData();
+      }
+    });
+    ref.onDispose(() => authSub.cancel());
+
     return const UserSearchState(isLoading: true);
   }
 
@@ -43,7 +49,12 @@ class UserSearchNotifier extends Notifier<UserSearchState> {
         ref.read(filterProvider.notifier).setDeviceLocation(48.8566, 2.3522);
       }
 
-      final userId = FirebaseAuth.instance.currentUser?.uid ?? 'user_test_me';
+      final userId = FirebaseAuth.instance.currentUser?.uid;
+
+      if (userId == null) {
+        state = state.copyWith(isLoading: false);
+        return;
+      }
 
       final swipeSub = FirebaseFirestore.instance
           .collection('users_test')
@@ -77,10 +88,15 @@ class UserSearchNotifier extends Notifier<UserSearchState> {
   void _updateUsers(String userId, Set<String> swipedIds, List<City> cities) {
     if (_cachedDocs.isEmpty) return;
 
-    final users = _cachedDocs
-        .map((doc) => UserMapper.fromFirestore(doc))
-        .where((u) => !swipedIds.contains(u.id) && u.id != userId)
-        .toList();
+
+
+    final users = _cachedDocs.map((doc) => UserMapper.fromFirestore(doc)).where(
+      (u) {
+        final isSwiped = swipedIds.contains(u.id);
+        final isCurrentUser = u.id == userId;
+        return !isSwiped && !isCurrentUser;
+      },
+    ).toList();
 
     state = state.copyWith(
       allUsers: users,

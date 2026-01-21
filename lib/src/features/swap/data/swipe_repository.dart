@@ -1,8 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+import 'package:coco/src/features/chats/domain/repositories/conversations_repository.dart';
+import 'package:coco/src/features/chats/data/repositories/conversations_repository_impl.dart';
+import 'package:coco/src/features/chats/domain/models/conversation_entity.dart';
 
 class SwipeRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final ConversationsRepository _conversationsRepo =
+      ConversationsRepositoryImpl();
 
   Future<bool> recordSwipe({
     required String userId,
@@ -59,6 +64,15 @@ class SwipeRepository {
     };
 
     await _firestore.collection('matches').doc(matchId).set(matchData);
+
+    try {
+      await _conversationsRepo.createConversation(
+        participantIds: [userA, userB],
+        type: ConversationType.match,
+      );
+    } catch (e) {
+      debugPrint('Error creating conversation: $e');
+    }
   }
 
   String _generateMatchId(String a, String b) {

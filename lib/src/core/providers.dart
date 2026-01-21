@@ -3,6 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:coco/src/features/auth/auth_service.dart';
+import 'package:coco/src/features/chats/data/repositories/conversations_repository_impl.dart';
+import 'package:coco/src/features/chats/data/repositories/messages_repository_impl.dart';
+import 'package:coco/src/features/chats/domain/repositories/conversations_repository.dart';
+import 'package:coco/src/features/chats/domain/repositories/messages_repository.dart';
+import 'package:coco/src/features/chats/application/messaging_service.dart';
+import 'package:coco/src/features/chats/application/notification_service.dart';
 
 final authServiceProvider = Provider<AuthService>((ref) => AuthService());
 
@@ -93,4 +99,24 @@ class _SettingsPersistenceNotifier {
 
 final settingsPersistenceProvider = Provider.autoDispose((ref) {
   return _SettingsPersistenceNotifier(ref);
+});
+
+final conversationsRepositoryProvider = Provider<ConversationsRepository>((
+  ref,
+) {
+  return ConversationsRepositoryImpl();
+});
+
+final messagesRepositoryProvider = Provider<MessagesRepository>((ref) {
+  return MessagesRepositoryImpl();
+});
+
+final messagingServiceProvider = Provider<MessagingService>((ref) {
+  final conversationsRepo = ref.watch(conversationsRepositoryProvider);
+  final messagesRepo = ref.watch(messagesRepositoryProvider);
+  return MessagingService(conversationsRepo, messagesRepo);
+});
+
+final notificationServiceProvider = Provider<NotificationService>((ref) {
+  return NotificationService();
 });

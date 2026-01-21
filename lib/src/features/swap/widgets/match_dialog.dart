@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../filters/domain/models/person_entity.dart';
+import '../../chats/presentation/pages/chat_screen.dart';
 
 class MatchDialog extends StatelessWidget {
   final PersonEntity person;
@@ -95,7 +98,53 @@ class MatchDialog extends StatelessWidget {
                 width: double.infinity,
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(),
+                  onPressed: () async {
+                    final currentUserId =
+                        FirebaseAuth.instance.currentUser?.uid;
+                    if (currentUserId == null) {
+                      Navigator.of(context).pop();
+                      return;
+                    }
+
+                    try {
+                      final conversationsSnapshot = await FirebaseFirestore
+                          .instance
+                          .collection('conversations')
+                          .where('participantIds', arrayContains: currentUserId)
+                          .get();
+
+                      final conversation = conversationsSnapshot.docs
+                          .firstWhere((doc) {
+                            final data = doc.data();
+                            final participants = List<String>.from(
+                              data['participantIds'] ?? [],
+                            );
+                            return participants.contains(person.id) &&
+                                data['type'] == 'match';
+                          });
+
+                      if (context.mounted) {
+                        Navigator.of(context, rootNavigator: true).pop();
+                        await Future.delayed(const Duration(milliseconds: 100));
+
+                        if (context.mounted) {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ChatScreen(
+                                conversationId: conversation.id,
+                                currentUserId: currentUserId,
+                              ),
+                            ),
+                          );
+                        }
+                      }
+                    } catch (e) {
+                      if (context.mounted) {
+                        Navigator.of(context, rootNavigator: true).pop();
+                      }
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFD4913D),
                     foregroundColor: Colors.white,

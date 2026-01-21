@@ -200,5 +200,22 @@
 		"all": "All",
 		"max_places": "Max places",
 		"create_button": "Create"
+	},
+	"chats": {
+		"title": "Messages",
+		"no_conversations": "No conversations",
+		"no_conversations_hint": "Match or join an event to start chatting",
+		"delete": "Delete",
+		"delete_confirm": "Delete this conversation?",
+		"mute": "Mute",
+		"unmute": "Unmute",
+		"type_message": "Type a message...",
+		"send": "Send",
+		"typing": "is typing...",
+		"today": "Today",
+		"yesterday": "Yesterday",
+		"participants": "participants",
+		"event_chat": "Event chat",
+		"match_chat": "Match with"
 	}
 }
