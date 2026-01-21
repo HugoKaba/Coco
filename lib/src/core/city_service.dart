@@ -57,13 +57,15 @@ class CityService {
       _cities = [];
     }
   }
-  
+
   bool get isLoaded => _isLoaded;
 
   List<CityData> searchCities(String query) {
     if (query.isEmpty) return [];
     if (!_isLoaded) {
-      debugPrint('Recherche effectuée mais les villes ne sont pas encore chargées');
+      debugPrint(
+        'Recherche effectuée mais les villes ne sont pas encore chargées',
+      );
       return [];
     }
 
@@ -77,15 +79,16 @@ class CityService {
       if (nomStandardLower.contains(queryLower) ||
           nomSansPronomLower.contains(queryLower)) {
         results.add(city);
-        if (results.length >= 10) break; // Limiter à 10 résultats
+        if (results.length >= 10) break;
       }
     }
 
-    // Trier par pertinence (commence par la requête en premier)
     results.sort((a, b) {
-      final aStarts = a.nomStandard.toLowerCase().startsWith(queryLower) ||
+      final aStarts =
+          a.nomStandard.toLowerCase().startsWith(queryLower) ||
           a.nomSansPronom.toLowerCase().startsWith(queryLower);
-      final bStarts = b.nomStandard.toLowerCase().startsWith(queryLower) ||
+      final bStarts =
+          b.nomStandard.toLowerCase().startsWith(queryLower) ||
           b.nomSansPronom.toLowerCase().startsWith(queryLower);
 
       if (aStarts && !bStarts) return -1;
@@ -108,4 +111,3 @@ class CityService {
     return null;
   }
 }
-

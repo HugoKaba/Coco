@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:sportlinker/src/core/city_service.dart';
+import 'package:coco/src/core/city_service.dart';
 import 'input_wrapper.dart';
 
 class CityAutocomplete extends StatelessWidget {
@@ -37,37 +37,46 @@ class CityAutocomplete extends StatelessWidget {
         key: ValueKey('autocomplete_$citiesLoaded'),
         displayStringForOption: (CityData option) => option.nomStandard,
         optionsBuilder: (TextEditingValue textEditingValue) {
-          if (!CityService.instance.isLoaded) return const Iterable<CityData>.empty();
+          if (!CityService.instance.isLoaded) {
+            return const Iterable<CityData>.empty();
+          }
           final query = textEditingValue.text.trim();
-          if (query.isEmpty) return const Iterable<CityData>.empty();
+          if (query.isEmpty) {
+            return const Iterable<CityData>.empty();
+          }
           return CityService.instance.searchCities(query);
         },
         onSelected: (CityData selection) {
           cityController.text = selection.nomStandard;
           zipController.text = selection.codePostal;
         },
-        fieldViewBuilder: (context, fieldTextEditingController, focusNode, onFieldSubmitted) {
-          if (fieldTextEditingController.text.isEmpty && cityController.text.isNotEmpty) {
-            fieldTextEditingController.text = cityController.text;
-          }
-          return TextFormField(
-            controller: fieldTextEditingController,
-            focusNode: focusNode,
-            style: const TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              hintText: tr('register.city'),
-              hintStyle: TextStyle(color: Colors.white54),
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-            ),
-            onChanged: (value) => cityController.text = value,
-            onFieldSubmitted: (value) {
-              onFieldSubmitted();
-              final city = CityService.instance.findCityByName(value);
-              if (city != null) zipController.text = city.codePostal;
+        fieldViewBuilder:
+            (context, fieldTextEditingController, focusNode, onFieldSubmitted) {
+              if (fieldTextEditingController.text.isEmpty &&
+                  cityController.text.isNotEmpty) {
+                fieldTextEditingController.text = cityController.text;
+              }
+              return TextFormField(
+                controller: fieldTextEditingController,
+                focusNode: focusNode,
+                style: const TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: tr('register.city'),
+                  hintStyle: TextStyle(color: Colors.white54),
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 18,
+                    vertical: 16,
+                  ),
+                ),
+                onChanged: (value) => cityController.text = value,
+                onFieldSubmitted: (value) {
+                  onFieldSubmitted();
+                  final city = CityService.instance.findCityByName(value);
+                  if (city != null) zipController.text = city.codePostal;
+                },
+              );
             },
-          );
-        },
         optionsViewBuilder: (context, onSelected, options) {
           return Align(
             alignment: Alignment.topLeft,
@@ -85,16 +94,36 @@ class CityAutocomplete extends StatelessWidget {
                     return InkWell(
                       onTap: () => onSelected(option),
                       child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 18,
+                          vertical: 12,
+                        ),
                         decoration: BoxDecoration(
-                          border: Border(bottom: BorderSide(color: Colors.white.withOpacity(0.1), width: 0.5)),
+                          border: Border(
+                            bottom: BorderSide(
+                              color: Colors.white.withValues(alpha: 0.1),
+                              width: 0.5,
+                            ),
+                          ),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(option.nomStandard, style: const TextStyle(color: Colors.white, fontSize: 14)),
+                            Text(
+                              option.nomStandard,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                              ),
+                            ),
                             if (option.codePostal.isNotEmpty)
-                              Text(option.codePostal, style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 12)),
+                              Text(
+                                option.codePostal,
+                                style: TextStyle(
+                                  color: Colors.white.withValues(alpha: 0.6),
+                                  fontSize: 12,
+                                ),
+                              ),
                           ],
                         ),
                       ),

@@ -1,15 +1,17 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sportlinker/src/core/city_service.dart';
+import 'package:coco/src/core/city_service.dart';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:go_router/go_router.dart';
-import 'package:image_picker/image_picker.dart';
+import 'utils/photo_picker_helper.dart';
 
 import 'widget/register_step_widget.dart';
-import 'widget/navigation_button.dart';
+import 'utils/birth_date_picker.dart';
 import 'widget/register_controllers.dart';
 import 'widget/register_submit.dart';
+import 'widget/register/register_navigation_bottom_bar.dart';
 
 class RegisterPage extends ConsumerStatefulWidget {
   const RegisterPage({super.key});
@@ -20,13 +22,13 @@ class RegisterPage extends ConsumerStatefulWidget {
 class _RegisterPageState extends ConsumerState<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   final controllers = RegisterControllers();
-  final ImagePicker _imagePicker = ImagePicker();
 
   static const Color _accentColor = Color(0xFFF2A33A);
   static const Color _fieldColor = Color(0xFF1F1F1F);
-  static final Color _inputInnerShadow = Colors.black.withOpacity(0.55);
+  static final Color _inputInnerShadow = Colors.black.withValues(alpha: 0.55);
 
-  String _selectedGender = tr('register.gender_male'), _dailyPreference = tr('register.daily_preference_option1');
+  String _selectedGender = tr('register.gender_male'),
+      _dailyPreference = tr('register.daily_preference_option1');
   Uint8List? _profilePhotoBytes;
   DateTime _birthDate = DateTime(1970, 1, 1);
   bool _citiesLoaded = false;
@@ -35,7 +37,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   @override
   void initState() {
     super.initState();
-    _updateBirthControllers(_birthDate);
+    controllers.birthDay.text = DateFormat('dd').format(_birthDate);
+    controllers.birthMonth.text = DateFormat('MM').format(_birthDate);
+    controllers.birthYear.text = DateFormat('yyyy').format(_birthDate);
     _loadCities();
   }
 
@@ -52,36 +56,25 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   }
 
   Future<void> _pickProfilePhoto() async {
-    try {
-      final picked = await _imagePicker.pickImage(source: ImageSource.gallery);
-      if (picked != null) {
-        _profilePhotoBytes = await picked.readAsBytes();
-        setState(() {});
-      }
-    } catch (e) { debugPrint("Erreur photo: $e"); }
+    final bytes = await pickProfilePhotoHelper();
+    if (bytes != null) {
+      setState(() => _profilePhotoBytes = bytes);
+    }
   }
 
   Future<void> _pickBirthDate() async {
-    final now = DateTime.now();
-    final picked = await showDatePicker(
+    final picked = await pickBirthDate(
       context: context,
-      initialDate: _birthDate,
-      firstDate: DateTime(1900),
-      lastDate: now,
-      builder: (ctx, child) => Theme(
-        data: Theme.of(ctx).copyWith(
-            colorScheme: const ColorScheme.dark(primary: _accentColor, surface: Color(0xFF121212), onSurface: Colors.white)
-        ),
-        child: child ?? const SizedBox.shrink(),
-      ),
+      accentColor: _accentColor,
+      dayController: controllers.birthDay,
+      monthController: controllers.birthMonth,
+      yearController: controllers.birthYear,
     );
-    if (picked != null) setState(() { _birthDate = picked; _updateBirthControllers(picked); });
-  }
-
-  void _updateBirthControllers(DateTime date) {
-    controllers.birthDay.text = date.day.toString().padLeft(2,'0');
-    controllers.birthMonth.text = date.month.toString().padLeft(2,'0');
-    controllers.birthYear.text = date.year.toString();
+    if (picked != null) {
+      setState(() {
+        _birthDate = picked;
+      });
+    }
   }
 
   @override
@@ -111,7 +104,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   selectedGender: _selectedGender,
                   onGenderSelected: (g) => setState(() => _selectedGender = g),
                   dailyPreference: _dailyPreference,
-                  onPreferenceSelected: (p) => setState(() => _dailyPreference = p),
+                  onPreferenceSelected: (p) =>
+                      setState(() => _dailyPreference = p),
                   accentColor: _accentColor,
                   fieldColor: _fieldColor,
                   innerShadow: _inputInnerShadow,
@@ -119,31 +113,32 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
               ),
             ),
             const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                NavigationButton(
-                  text: tr('register.previous_button'),
-                  alignment: Alignment.centerLeft,
-                  onPressed: () { if (step == 0) context.pop(); else setState(() => step--); },
-                ),
-                NavigationButton(
-                  text: step == 2 ? tr('register.validate_button') : tr('register.next_button'),
-                  alignment: Alignment.centerRight,
-                  onPressed: () {
-                    if (step == 0 && !_formKey.currentState!.validate()) return;
-                    if (step < 2) setState(() => step++);
-                    else registerSubmit(
-                      context: context,
-                      controllers: controllers,
-                      profilePhotoBytes: _profilePhotoBytes,
-                      birthDate: _birthDate,
-                      selectedGender: _selectedGender,
-                      dailyPreference: _dailyPreference,
-                    );
-                  },
-                ),
-              ],
+            RegisterNavigationBottomBar(
+              step: step,
+              onPrevious: () {
+                if (step == 0) {
+                  context.pop();
+                } else {
+                  setState(() => step--);
+                }
+              },
+              onNext: () {
+                if (step == 0 && !_formKey.currentState!.validate()) {
+                  return;
+                }
+                if (step < 2) {
+                  setState(() => step++);
+                } else {
+                  registerSubmit(
+                    context: context,
+                    controllers: controllers,
+                    profilePhotoBytes: _profilePhotoBytes,
+                    birthDate: _birthDate,
+                    selectedGender: _selectedGender,
+                    dailyPreference: _dailyPreference,
+                  );
+                }
+              },
             ),
           ],
         ),

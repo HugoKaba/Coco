@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:coco/src/core/providers.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'register_page.dart';
+
 import 'widget/dark_text_field.dart';
 import 'widget/primary_button.dart';
 import 'widget/input_label.dart';
-import 'widget/input_wrapper.dart';
 
 class SignInPage extends ConsumerStatefulWidget {
   const SignInPage({super.key});
@@ -18,7 +18,7 @@ class SignInPage extends ConsumerStatefulWidget {
 class _SignInPageState extends ConsumerState<SignInPage> {
   static const Color _accentColor = Color(0xFFCD8232);
   static const Color _fieldColor = Color(0xFF1F1F1F);
-  static final Color _inputInnerShadow = Colors.black.withOpacity(0.55);
+  static final Color _inputInnerShadow = Colors.black.withValues(alpha: 0.55);
 
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
@@ -126,9 +126,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 PrimaryButton(
                   label: tr('sign_in.sign_in_apple'),
                   icon: Icons.apple,
-                  onPressed: () {
-                    // TODO: brancher Apple Sign-In
-                  },
+                  onPressed: () {},
                   accentColor: _accentColor,
                 ),
                 const SizedBox(height: 14),

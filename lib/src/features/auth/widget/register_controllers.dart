@@ -10,17 +10,41 @@ class RegisterControllers {
   final TextEditingController birthDay = TextEditingController();
   final TextEditingController birthMonth = TextEditingController();
   final TextEditingController birthYear = TextEditingController();
-  final TextEditingController zip = TextEditingController(text: tr('register.postal_code_nb'));
-  final TextEditingController city = TextEditingController(text: tr('register.city'));
-  final TextEditingController bio = TextEditingController(text: tr('register.about_me'));
-  final TextEditingController sportCategory = TextEditingController(text: tr('register.sport_category_value'));
-  final TextEditingController activityFrequency = TextEditingController(text: tr('register.activity_frequency_value'));
+  final TextEditingController zip = TextEditingController(
+    text: tr('register.postal_code_nb'),
+  );
+  final TextEditingController city = TextEditingController(
+    text: tr('register.city'),
+  );
+  final TextEditingController bio = TextEditingController(
+    text: tr('register.about_me'),
+  );
+  final TextEditingController sportCategory = TextEditingController(
+    text: tr('register.sport_category_value'),
+  );
+  final TextEditingController activityFrequency = TextEditingController(
+    text: tr('register.activity_frequency_value'),
+  );
 
   List<TextEditingController> get all => [
-    firstName, lastName, username, email, password,
-    birthDay, birthMonth, birthYear,
-    zip, city, bio, sportCategory, activityFrequency,
+    firstName,
+    lastName,
+    username,
+    email,
+    password,
+    birthDay,
+    birthMonth,
+    birthYear,
+    zip,
+    city,
+    bio,
+    sportCategory,
+    activityFrequency,
   ];
 
-  void disposeAll() => all.forEach((c) => c.dispose());
+  void disposeAll() {
+    for (final c in all) {
+      c.dispose();
+    }
+  }
 }

@@ -16,7 +16,7 @@ class InputWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderColor = Colors.white.withOpacity(0.08);
+    final borderColor = Colors.white.withValues(alpha: 0.08);
     final radius = BorderRadius.circular(borderRadius);
 
     return DecoratedBox(
@@ -34,10 +34,7 @@ class InputWrapper extends StatelessWidget {
           ),
         ],
       ),
-      child: ClipRRect(
-        borderRadius: radius,
-        child: child,
-      ),
+      child: ClipRRect(borderRadius: radius, child: child),
     );
   }
 }

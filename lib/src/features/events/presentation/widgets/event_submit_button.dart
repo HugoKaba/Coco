@@ -24,9 +24,7 @@ class EventSubmitButton extends StatelessWidget {
       ),
       child: isLoading
           ? const CircularProgressIndicator(color: Colors.white)
-          : Text(
-              tr(label) == label ? label : tr(label),
-            ), // Simple fallback or handling
+          : Text(tr(label) == label ? label : tr(label)),
     );
   }
 }

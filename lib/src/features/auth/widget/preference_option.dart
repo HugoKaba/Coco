@@ -22,7 +22,10 @@ class PreferenceOption extends StatelessWidget {
         children: [
           Text(
             label,
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
           ),
           const SizedBox(height: 10),
           AnimatedContainer(
@@ -31,29 +34,32 @@ class PreferenceOption extends StatelessWidget {
             height: 30,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: isSelected ? accentColor : Colors.white38, width: 2),
+              border: Border.all(
+                color: isSelected ? accentColor : Colors.white38,
+                width: 2,
+              ),
               color: isSelected ? Colors.white12 : Colors.transparent,
               boxShadow: isSelected
                   ? [
-                BoxShadow(
-                  color: accentColor.withOpacity(0.4),
-                  blurRadius: 10,
-                  offset: const Offset(0, 4),
-                ),
-              ]
+                      BoxShadow(
+                        color: accentColor.withValues(alpha: 0.4),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ]
                   : null,
             ),
             child: isSelected
                 ? Center(
-              child: Container(
-                width: 12,
-                height: 12,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: accentColor,
-                ),
-              ),
-            )
+                    child: Container(
+                      width: 12,
+                      height: 12,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: accentColor,
+                      ),
+                    ),
+                  )
                 : null,
           ),
         ],

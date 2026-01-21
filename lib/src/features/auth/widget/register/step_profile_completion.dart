@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import '../dark_text_field.dart';
 import '../photo_picker_field.dart';
 import '../photo_preview_box.dart';
-import '../gender_option.dart';
+
 import '../city_autocomplete.dart';
+import 'profile_birth_date_row.dart';
+import 'gender_selector_row.dart';
 
 class StepProfileCompletion extends StatelessWidget {
   final Uint8List? profilePhotoBytes;
@@ -45,29 +47,10 @@ class StepProfileCompletion extends StatelessWidget {
 
   Widget _sectionTitle(BuildContext context, String text) => Text(
     text,
-    style: Theme.of(context)
-        .textTheme
-        .bodyLarge
-        ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
-  );
-
-  Widget _dateField(TextEditingController controller, String hint) => Expanded(
-    child: DarkTextField(
-      controller: controller,
-      hintText: hint,
-      keyboardType: TextInputType.number,
-      readOnly: true,
-      onTap: pickBirthDate,
-      fieldColor: fieldColor,
-      innerShadow: innerShadow,
+    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+      color: Colors.white70,
+      fontWeight: FontWeight.w600,
     ),
-  );
-
-  Widget _genderOption(String label) => GenderOption(
-    label: label,
-    selectedGender: selectedGender,
-    onTap: onGenderSelected,
-    accentColor: accentColor,
   );
 
   @override
@@ -82,7 +65,9 @@ class StepProfileCompletion extends StatelessWidget {
               width: 130,
               height: 130,
               decoration: BoxDecoration(
-                  color: accentColor, borderRadius: BorderRadius.circular(28)),
+                color: accentColor,
+                borderRadius: BorderRadius.circular(28),
+              ),
             ),
           ),
           const SizedBox(height: 32),
@@ -105,14 +90,13 @@ class StepProfileCompletion extends StatelessWidget {
           const SizedBox(height: 24),
           _sectionTitle(context, tr('register.birth_date')),
           const SizedBox(height: 12),
-          Row(
-            children: [
-              _dateField(birthDayController, tr('register.birth_date_day')),
-              const SizedBox(width: 12),
-              _dateField(birthMonthController, tr('register.birth_date_month')),
-              const SizedBox(width: 12),
-              _dateField(birthYearController, tr('register.birth_date_year')),
-            ],
+          ProfileBirthDateRow(
+            dayController: birthDayController,
+            monthController: birthMonthController,
+            yearController: birthYearController,
+            onTap: pickBirthDate,
+            fieldColor: fieldColor,
+            innerShadow: innerShadow,
           ),
           const SizedBox(height: 24),
           _sectionTitle(context, tr('register.location')),
@@ -146,9 +130,10 @@ class StepProfileCompletion extends StatelessWidget {
           const SizedBox(height: 24),
           _sectionTitle(context, tr('register.gender')),
           const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [tr('register.gender_male'), tr('register.gender_female'), tr('register.gender_nb')].map(_genderOption).toList(),
+          GenderSelectorRow(
+            selectedGender: selectedGender,
+            onGenderSelected: onGenderSelected,
+            accentColor: accentColor,
           ),
         ],
       ),

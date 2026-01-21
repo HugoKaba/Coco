@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String label;
@@ -22,27 +21,27 @@ class PrimaryButton extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(accentColor),
-          foregroundColor: MaterialStateProperty.all(Colors.white),
-          shape: MaterialStateProperty.all(
+          backgroundColor: WidgetStateProperty.all(accentColor),
+          foregroundColor: WidgetStateProperty.all(Colors.white),
+          shape: WidgetStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
-          elevation: MaterialStateProperty.all(0),
-          padding: MaterialStateProperty.all(
+          elevation: WidgetStateProperty.all(0),
+          padding: WidgetStateProperty.all(
             const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
           ),
         ),
         child: icon == null
-            ? Text(label.tr())
+            ? Text(label)
             : Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, color: Colors.white),
-            const SizedBox(width: 8),
-            Text(label.tr()),
-          ],
-        ),
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(icon, color: Colors.white),
+                  const SizedBox(width: 8),
+                  Text(label),
+                ],
+              ),
       ),
     );
   }

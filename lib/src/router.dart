@@ -10,6 +10,7 @@ import 'features/auth/sign_in_page.dart';
 import 'features/settings/settings_page.dart';
 import 'features/filters/presentation/pages/filter_screen.dart';
 import 'features/events/presentation/pages/event_list_screen.dart';
+import 'features/auth/register_page.dart';
 
 final authChangeNotifierProvider = Provider<ChangeNotifier>((ref) {
   return AuthChangeNotifier(ref);
@@ -28,8 +29,9 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       final user = ref
           .read(authStateChangesProvider)
           .maybeWhen(data: (u) => u, orElse: () => null);
-      final isSigningIn = state.location == '/';
-      if (user == null && !isSigningIn) return '/';
+      final isSigningIn = state.matchedLocation == '/';
+      final isRegistering = state.matchedLocation == '/register';
+      if (user == null && !isSigningIn && !isRegistering) return '/';
       if (user != null && isSigningIn) return '/swipe';
       return null;
     },

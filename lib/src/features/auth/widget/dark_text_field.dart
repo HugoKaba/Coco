@@ -42,14 +42,17 @@ class DarkTextField extends StatelessWidget {
         hintStyle: const TextStyle(color: Colors.white54),
         filled: true,
         fillColor: fieldColor,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 10,
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: innerShadow.withOpacity(0.4)),
+          borderSide: BorderSide(color: innerShadow.withValues(alpha: 0.4)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: innerShadow.withOpacity(0.7)),
+          borderSide: BorderSide(color: innerShadow.withValues(alpha: 0.7)),
         ),
       ),
     );

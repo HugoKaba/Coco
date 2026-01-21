@@ -64,10 +64,7 @@ class EventInfoSection extends StatelessWidget {
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 12),
-          EventAttendeesList(
-            attendees: event.attendees,
-            currentUserId: '', // Not strictly needed for display list
-          ),
+          EventAttendeesList(attendees: event.attendees, currentUserId: ''),
         ],
       ),
     );

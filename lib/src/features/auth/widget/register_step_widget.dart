@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'register/step_account_info.dart';
 import 'register/step_profile_completion.dart';
 import 'register/step_lifestyle.dart';
-import '../register_page.dart';
+
 import 'register_controllers.dart';
 
 class RegisterStepWidget extends StatelessWidget {

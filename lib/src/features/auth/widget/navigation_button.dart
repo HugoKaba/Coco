@@ -20,13 +20,13 @@ class NavigationButton extends StatelessWidget {
         child: TextButton(
           onPressed: onPressed,
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(const Color(0xFFCD8232)),
-            foregroundColor: MaterialStateProperty.all(Colors.white),
-            shape: MaterialStateProperty.all(
+            backgroundColor: WidgetStateProperty.all(const Color(0xFFCD8232)),
+            foregroundColor: WidgetStateProperty.all(Colors.white),
+            shape: WidgetStateProperty.all(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
-            elevation: MaterialStateProperty.all(0),
-            padding: MaterialStateProperty.all(
+            elevation: WidgetStateProperty.all(0),
+            padding: WidgetStateProperty.all(
               const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
             ),
           ),
