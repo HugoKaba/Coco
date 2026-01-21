@@ -14,11 +14,12 @@ class RegisterStepWidget extends StatelessWidget {
   final Function(bool) setCitiesLoaded;
   final Uint8List? profilePhotoBytes;
   final VoidCallback pickProfilePhoto;
-  final VoidCallback pickBirthDate;
   final String selectedGender;
   final ValueChanged<String> onGenderSelected;
-  final String dailyPreference;
-  final ValueChanged<String> onPreferenceSelected;
+  final List<int> selectedDays;
+  final ValueChanged<List<int>> onDaysChanged;
+  final ValueChanged<List<Map<String, dynamic>>> onSportsChanged;
+  final ValueChanged<int> onFrequencyChanged;
   final Color accentColor;
   final Color fieldColor;
   final Color innerShadow;
@@ -32,11 +33,12 @@ class RegisterStepWidget extends StatelessWidget {
     required this.setCitiesLoaded,
     required this.profilePhotoBytes,
     required this.pickProfilePhoto,
-    required this.pickBirthDate,
     required this.selectedGender,
     required this.onGenderSelected,
-    required this.dailyPreference,
-    required this.onPreferenceSelected,
+    required this.selectedDays,
+    required this.onDaysChanged,
+    required this.onSportsChanged,
+    required this.onFrequencyChanged,
     required this.accentColor,
     required this.fieldColor,
     required this.innerShadow,
@@ -59,16 +61,13 @@ class RegisterStepWidget extends StatelessWidget {
         );
       case 1:
         return StepProfileCompletion(
-          birthDayController: controllers.birthDay,
-          birthMonthController: controllers.birthMonth,
-          birthYearController: controllers.birthYear,
+          ageController: controllers.age,
           zipController: controllers.zip,
           cityController: controllers.city,
           citiesLoaded: citiesLoaded,
           setCitiesLoaded: setCitiesLoaded,
           profilePhotoBytes: profilePhotoBytes,
           pickProfilePhoto: pickProfilePhoto,
-          pickBirthDate: pickBirthDate,
           selectedGender: selectedGender,
           onGenderSelected: onGenderSelected,
           accentColor: accentColor,
@@ -78,10 +77,12 @@ class RegisterStepWidget extends StatelessWidget {
       default:
         return StepLifestyle(
           bioController: controllers.bio,
-          sportCategoryController: controllers.sportCategory,
-          activityFrequencyController: controllers.activityFrequency,
-          dailyPreference: dailyPreference,
-          onPreferenceSelected: onPreferenceSelected,
+          selectedSports: controllers.selectedSports,
+          onSportsChanged: onSportsChanged,
+          frequency: controllers.trainingFrequency,
+          onFrequencyChanged: onFrequencyChanged,
+          selectedDays: selectedDays,
+          onDaysChanged: onDaysChanged,
           accentColor: accentColor,
           fieldColor: fieldColor,
           innerShadow: innerShadow,

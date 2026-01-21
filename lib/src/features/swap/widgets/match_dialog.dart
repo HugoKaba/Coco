@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../filters/domain/models/person_entity.dart';
 
 class MatchDialog extends StatelessWidget {
@@ -34,10 +35,10 @@ class MatchDialog extends StatelessWidget {
                 size: 60,
               ),
               const SizedBox(height: 16),
-              const Text(
-                'IT\'S A MATCH !',
+              Text(
+                tr('match.title'),
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w900,
                   color: Color(0xFFD4913D),
@@ -81,7 +82,7 @@ class MatchDialog extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               Text(
-                'Vous et ${person.prenom} avez flashé l\'un sur l\'autre !',
+                tr('match.description', args: [person.firstName]),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 18,
@@ -103,9 +104,12 @@ class MatchDialog extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
-                  child: const Text(
-                    'Envoyer un message',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  child: Text(
+                    tr('match.send_message'),
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
@@ -118,9 +122,12 @@ class MatchDialog extends StatelessWidget {
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.grey[600],
                   ),
-                  child: const Text(
-                    'Continuer à swiper',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  child: Text(
+                    tr('match.keep_swiping'),
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),

@@ -48,7 +48,9 @@ class CityAutocomplete extends StatelessWidget {
         },
         onSelected: (CityData selection) {
           cityController.text = selection.nomStandard;
-          zipController.text = selection.codePostal;
+          zipController.text = selection.zipCodes.isNotEmpty
+              ? selection.zipCodes.first
+              : '';
         },
         fieldViewBuilder:
             (context, fieldTextEditingController, focusNode, onFieldSubmitted) {
@@ -73,7 +75,9 @@ class CityAutocomplete extends StatelessWidget {
                 onFieldSubmitted: (value) {
                   onFieldSubmitted();
                   final city = CityService.instance.findCityByName(value);
-                  if (city != null) zipController.text = city.codePostal;
+                  if (city != null && city.zipCodes.isNotEmpty) {
+                    zipController.text = city.zipCodes.first;
+                  }
                 },
               );
             },
@@ -116,9 +120,9 @@ class CityAutocomplete extends StatelessWidget {
                                 fontSize: 14,
                               ),
                             ),
-                            if (option.codePostal.isNotEmpty)
+                            if (option.zipCodes.isNotEmpty)
                               Text(
-                                option.codePostal,
+                                option.zipCodes.join(', '),
                                 style: TextStyle(
                                   color: Colors.white.withValues(alpha: 0.6),
                                   fontSize: 12,

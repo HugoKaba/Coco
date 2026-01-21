@@ -11,9 +11,9 @@ class FirestoreSeederService {
     await _deleteCollection('users_test');
     await _createUser(
       id: myUserId,
-      prenom: 'Hugo',
-      nom: 'Kaba',
-      genre: 'M',
+      firstName: 'Hugo',
+      lastName: 'Kaba',
+      gender: 'M',
       isHero: true,
     );
 
@@ -50,15 +50,15 @@ class FirestoreSeederService {
 
   Future<String> _createUser({
     String? id,
-    String? prenom,
-    String? nom,
-    String? genre,
+    String? firstName,
+    String? lastName,
+    String? gender,
     bool isHero = false,
   }) async {
     final random = Random();
-    final isMale = genre != null ? genre == 'M' : random.nextBool();
-    final genPrenom =
-        prenom ??
+    final isMale = gender != null ? gender == 'M' : random.nextBool();
+    final genFirstName =
+        firstName ??
         (isMale
             ? SeederConstants.firstNamesM[random.nextInt(
                 SeederConstants.firstNamesM.length,
@@ -66,8 +66,8 @@ class FirestoreSeederService {
             : SeederConstants.firstNamesF[random.nextInt(
                 SeederConstants.firstNamesF.length,
               )]);
-    final genNom =
-        nom ??
+    final genLastName =
+        lastName ??
         SeederConstants.lastNames[random.nextInt(
           SeederConstants.lastNames.length,
         )];
@@ -81,15 +81,15 @@ class FirestoreSeederService {
     final shuffledSports = List.of(SeederConstants.sports)..shuffle();
     for (int i = 0; i < numSports; i++) {
       final s = shuffledSports[i];
-      final levels = s['levels'] as List<String>;
+      final levelIds = (s['levels'] as List).cast<int>();
       selectedSports.add({
-        'sportName': s['name'],
-        'level': levels[random.nextInt(levels.length)],
+        'sportId': s['id'],
+        'levelId': levelIds[random.nextInt(levelIds.length)],
       });
     }
 
     final numDays = 1 + random.nextInt(4);
-    final selectedDays = <String>{};
+    final selectedDays = <int>{};
     while (selectedDays.length < numDays) {
       selectedDays.add(
         SeederConstants.days[random.nextInt(SeederConstants.days.length)],
@@ -98,26 +98,26 @@ class FirestoreSeederService {
 
     final data = {
       'id': id ?? '',
-      'prenom': genPrenom,
-      'nom': genNom,
+      'firstName': genFirstName,
+      'lastName': genLastName,
       'age': 18 + random.nextInt(30),
-      'genre': isMale ? 'M' : 'F',
-      'dateDeNaissance': Timestamp.fromDate(DateTime(1990, 1, 1)),
-      'ville': 'Paris',
+      'gender': isMale ? 'M' : 'F',
+      'birthDate': Timestamp.fromDate(DateTime(1990, 1, 1)),
+      'city': 'Paris',
       'latitude': lat,
       'longitude': lng,
-      'coordonnees': geoLoc.data,
-      'frequence_entrainement': 1 + random.nextInt(6),
-      'objectif_sportif': [
+      'coordinates': geoLoc.data,
+      'trainingFrequency': 1 + random.nextInt(6),
+      'sportsGoal': [
         'Loisir',
         'Compétition',
         'Perte de poids',
       ][random.nextInt(3)],
-      'photo_profil': isHero
+      'profilePhoto': isHero
           ? 'https://randomuser.me/api/portraits/men/1.jpg'
           : 'https://randomuser.me/api/portraits/${isMale ? "men" : "women"}/${random.nextInt(99)}.jpg',
-      'jours': selectedDays.toList(),
-      'description': SeederConstants
+      'days': selectedDays.toList(),
+      'bio': SeederConstants
           .descriptions[random.nextInt(SeederConstants.descriptions.length)],
       'userSports': selectedSports,
     };

@@ -5,9 +5,9 @@ class FilterCriteria {
   final double radius;
   final double? deviceLat;
   final double? deviceLng;
-  final List<String> selectedSports;
-  final String? selectedLevel;
-  final List<String> selectedAvailabilities;
+  final List<int> selectedSports;
+  final int? selectedLevel;
+  final List<int> selectedAvailabilities;
   final RangeValues ageRange;
 
   const FilterCriteria({
@@ -26,10 +26,10 @@ class FilterCriteria {
     double? radius,
     double? deviceLat,
     double? deviceLng,
-    List<String>? selectedSports,
-    String? selectedLevel,
+    List<int>? selectedSports,
+    int? selectedLevel,
     bool clearLevel = false,
-    List<String>? selectedAvailabilities,
+    List<int>? selectedAvailabilities,
     RangeValues? ageRange,
   }) {
     return FilterCriteria(

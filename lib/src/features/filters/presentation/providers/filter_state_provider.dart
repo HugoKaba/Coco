@@ -20,28 +20,40 @@ class FilterNotifier extends Notifier<FilterCriteria> {
     state = state.copyWith(deviceLat: lat, deviceLng: lng);
   }
 
-  void toggleSport(String sport) {
-    final current = List<String>.from(state.selectedSports);
-    if (current.contains(sport)) {
-      current.remove(sport);
+  void toggleSport(int sportId) {
+    if (state.selectedSports.contains(sportId)) {
+      state = state.copyWith(
+        selectedSports: state.selectedSports
+            .where((s) => s != sportId)
+            .toList(),
+      );
     } else {
-      current.add(sport);
+      state = state.copyWith(
+        selectedSports: [...state.selectedSports, sportId],
+      );
     }
-    state = state.copyWith(selectedSports: current);
   }
 
-  void setLevel(String? level) {
-    state = state.copyWith(selectedLevel: level, clearLevel: level == null);
+  void setLevel(int? levelId) {
+    if (levelId == null) {
+      state = state.copyWith(clearLevel: true);
+    } else {
+      state = state.copyWith(selectedLevel: levelId);
+    }
   }
 
-  void toggleAvailability(String day) {
-    final current = List<String>.from(state.selectedAvailabilities);
-    if (current.contains(day)) {
-      current.remove(day);
+  void toggleAvailability(int dayId) {
+    if (state.selectedAvailabilities.contains(dayId)) {
+      state = state.copyWith(
+        selectedAvailabilities: state.selectedAvailabilities
+            .where((d) => d != dayId)
+            .toList(),
+      );
     } else {
-      current.add(day);
+      state = state.copyWith(
+        selectedAvailabilities: [...state.selectedAvailabilities, dayId],
+      );
     }
-    state = state.copyWith(selectedAvailabilities: current);
   }
 
   void updateAgeRange(RangeValues range) {

@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../providers/filter_state_provider.dart';
+import '../../../../core/data/reference_tables.dart';
 
 class LevelFilterSection extends ConsumerWidget {
   const LevelFilterSection({super.key});
-
-  static const List<String> _allLevels = [
-    "Débutant",
-    "Intermédiaire",
-    "Confirmé",
-    "Expert",
-  ];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,40 +14,39 @@ class LevelFilterSection extends ConsumerWidget {
     );
     final notifier = ref.read(filterProvider.notifier);
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Niveau",
-            style: Theme.of(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          tr('filters.level'),
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 12),
+        Wrap(
+          spacing: 10,
+          runSpacing: 10,
+          children: [
+            _buildLevelItem(
               context,
-            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 16),
-          Wrap(
-            spacing: 10,
-            runSpacing: 10,
-            children: [
-              _buildLevelItem(
+              tr("levels.all"),
+              selectedLevel == null,
+              () => notifier.setLevel(null),
+            ),
+            ...ReferenceTables.levels.entries.map((entry) {
+              return _buildLevelItem(
                 context,
-                "Tous",
-                selectedLevel == null,
-                () => notifier.setLevel(null),
-              ),
-              ..._allLevels.map(
-                (l) => _buildLevelItem(
-                  context,
-                  l,
-                  selectedLevel == l,
-                  () => notifier.setLevel(l),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+                tr(entry.value),
+                selectedLevel == entry.key,
+                () => notifier.setLevel(entry.key),
+              );
+            }),
+          ],
+        ),
+      ],
     );
   }
 

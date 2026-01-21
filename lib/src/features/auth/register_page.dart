@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'utils/photo_picker_helper.dart';
 
 import 'widget/register_step_widget.dart';
-import 'utils/birth_date_picker.dart';
+
 import 'widget/register_controllers.dart';
 import 'widget/register_submit.dart';
 import 'widget/register/register_navigation_bottom_bar.dart';
@@ -27,19 +27,16 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   static const Color _fieldColor = Color(0xFF1F1F1F);
   static final Color _inputInnerShadow = Colors.black.withValues(alpha: 0.55);
 
-  String _selectedGender = tr('register.gender_male'),
-      _dailyPreference = tr('register.daily_preference_option1');
+  String _selectedGender = tr('register.gender_male');
+
   Uint8List? _profilePhotoBytes;
-  DateTime _birthDate = DateTime(1970, 1, 1);
   bool _citiesLoaded = false;
   int step = 0;
 
   @override
   void initState() {
     super.initState();
-    controllers.birthDay.text = DateFormat('dd').format(_birthDate);
-    controllers.birthMonth.text = DateFormat('MM').format(_birthDate);
-    controllers.birthYear.text = DateFormat('yyyy').format(_birthDate);
+    super.initState();
     _loadCities();
   }
 
@@ -59,21 +56,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     final bytes = await pickProfilePhotoHelper();
     if (bytes != null) {
       setState(() => _profilePhotoBytes = bytes);
-    }
-  }
-
-  Future<void> _pickBirthDate() async {
-    final picked = await pickBirthDate(
-      context: context,
-      accentColor: _accentColor,
-      dayController: controllers.birthDay,
-      monthController: controllers.birthMonth,
-      yearController: controllers.birthYear,
-    );
-    if (picked != null) {
-      setState(() {
-        _birthDate = picked;
-      });
     }
   }
 
@@ -100,12 +82,15 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   setCitiesLoaded: (v) => setState(() => _citiesLoaded = v),
                   profilePhotoBytes: _profilePhotoBytes,
                   pickProfilePhoto: _pickProfilePhoto,
-                  pickBirthDate: _pickBirthDate,
+
                   selectedGender: _selectedGender,
                   onGenderSelected: (g) => setState(() => _selectedGender = g),
-                  dailyPreference: _dailyPreference,
-                  onPreferenceSelected: (p) =>
-                      setState(() => _dailyPreference = p),
+                  selectedDays: controllers.selectedDays,
+                  onDaysChanged: (d) =>
+                      setState(() => controllers.selectedDays = d),
+                  onSportsChanged: (s) => setState(() {}),
+                  onFrequencyChanged: (f) =>
+                      setState(() => controllers.trainingFrequency = f),
                   accentColor: _accentColor,
                   fieldColor: _fieldColor,
                   innerShadow: _inputInnerShadow,
@@ -133,9 +118,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                     context: context,
                     controllers: controllers,
                     profilePhotoBytes: _profilePhotoBytes,
-                    birthDate: _birthDate,
+
                     selectedGender: _selectedGender,
-                    dailyPreference: _dailyPreference,
+                    dailyPreference: '',
                   );
                 }
               },

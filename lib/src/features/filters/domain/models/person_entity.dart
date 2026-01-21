@@ -15,51 +15,51 @@ abstract class LocationEntity {
 }
 
 class UserSport {
-  final String sportName;
-  final String level;
+  final int sportId;
+  final int levelId;
 
-  const UserSport({required this.sportName, required this.level});
+  const UserSport({required this.sportId, required this.levelId});
 
-  Map<String, dynamic> toJson() => {'sportName': sportName, 'level': level};
+  Map<String, dynamic> toJson() => {'sportId': sportId, 'levelId': levelId};
 
   factory UserSport.fromJson(Map<String, dynamic> json) {
     return UserSport(
-      sportName: json['sportName'] ?? '',
-      level: json['level'] ?? '',
+      sportId: json['sportId'] ?? 0,
+      levelId: json['levelId'] ?? 0,
     );
   }
 }
 
 class PersonEntity extends LocationEntity {
-  final String nom;
-  final String prenom;
-  final String genre;
+  final String lastName;
+  final String firstName;
+  final String gender;
   final int age;
   final List<UserSport> sports;
-  final List<String> availabilities;
-  final String? description;
+  final List<int> availabilities;
+  final String? bio;
   final String? profilePhotoUrl;
   final int frequency;
   final String objective;
 
   const PersonEntity({
     required super.id,
-    required this.nom,
-    required this.prenom,
-    required this.genre,
+    required this.lastName,
+    required this.firstName,
+    required this.gender,
     required this.age,
     required super.lat,
     required super.lng,
     super.metadata,
     this.sports = const [],
     this.availabilities = const [],
-    this.description,
+    this.bio,
     this.profilePhotoUrl,
     this.frequency = 0,
     this.objective = '',
   }) : super(type: 'person');
 
-  String get fullName => '$prenom $nom';
+  String get fullName => '$firstName $lastName';
 }
 
 class EventEntity extends LocationEntity {

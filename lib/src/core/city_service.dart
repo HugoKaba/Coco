@@ -5,24 +5,41 @@ import 'package:flutter/services.dart';
 class CityData {
   final String nomStandard;
   final String nomSansPronom;
-  final String codePostal;
-  final String codesPostaux;
+  final List<String> zipCodes;
+  final double latitude;
+  final double longitude;
 
   CityData({
     required this.nomStandard,
     required this.nomSansPronom,
-    required this.codePostal,
-    required this.codesPostaux,
+    required this.zipCodes,
+    required this.latitude,
+    required this.longitude,
   });
 
   factory CityData.fromJson(Map<String, dynamic> json) {
+    final name = json['ville'] as String;
+    final normalized = _removeDiacritics(name.toLowerCase());
+    final zipList =
+        (json['codes_postaux'] as List<dynamic>?)?.cast<String>() ?? [];
+
     return CityData(
-      nomStandard: json['nom_standard'] ?? '',
-      nomSansPronom: json['nom_sans_pronom'] ?? '',
-      codePostal: json['code_postal'] ?? '',
-      codesPostaux: json['codes_postaux'] ?? json['code_postal'] ?? '',
+      nomStandard: name,
+      nomSansPronom: normalized,
+      zipCodes: zipList,
+      latitude: (json['latitude'] as num).toDouble(),
+      longitude: (json['longitude'] as num).toDouble(),
     );
   }
+}
+
+String _removeDiacritics(String str) {
+  var withDia = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ';
+  var withoutDia = 'AAAAAAaaaaaaOOOOOOooooooEEEEeeeeCcIIIIiiiiUUUUuuuuyNn';
+  for (int i = 0; i < withDia.length; i++) {
+    str = str.replaceAll(withDia[i], withoutDia[i]);
+  }
+  return str;
 }
 
 class CityService {
@@ -42,10 +59,10 @@ class CityService {
 
     try {
       final String jsonString = await rootBundle.loadString(
-        'assets/communes-france-avec-polygon-2025.json',
+        'assets/city/villes_idf.json',
       );
-      final Map<String, dynamic> jsonData = json.decode(jsonString);
-      final List<dynamic> data = jsonData['data'] as List<dynamic>;
+      final dynamic jsonData = json.decode(jsonString);
+      final List<dynamic> data = jsonData is List ? jsonData : jsonData['data'];
 
       _cities = data
           .map((item) => CityData.fromJson(item as Map<String, dynamic>))
@@ -63,48 +80,40 @@ class CityService {
   List<CityData> searchCities(String query) {
     if (query.isEmpty) return [];
     if (!_isLoaded) {
-      debugPrint(
-        'Recherche effectuée mais les villes ne sont pas encore chargées',
-      );
       return [];
     }
 
-    final queryLower = query.toLowerCase().trim();
-    final results = <CityData>[];
+    final queryLower = _removeDiacritics(query.toLowerCase().trim());
+    final matches = <CityData>[];
 
     for (final city in _cities) {
-      final nomStandardLower = city.nomStandard.toLowerCase();
-      final nomSansPronomLower = city.nomSansPronom.toLowerCase();
+      final nomStandardLower = city.nomSansPronom;
 
       if (nomStandardLower.contains(queryLower) ||
-          nomSansPronomLower.contains(queryLower)) {
-        results.add(city);
-        if (results.length >= 10) break;
+          city.zipCodes.any((z) => z.startsWith(queryLower))) {
+        matches.add(city);
       }
     }
 
-    results.sort((a, b) {
-      final aStarts =
-          a.nomStandard.toLowerCase().startsWith(queryLower) ||
-          a.nomSansPronom.toLowerCase().startsWith(queryLower);
-      final bStarts =
-          b.nomStandard.toLowerCase().startsWith(queryLower) ||
-          b.nomSansPronom.toLowerCase().startsWith(queryLower);
+    matches.sort((a, b) {
+      final aName = a.nomSansPronom;
+      final bName = b.nomSansPronom;
+      final aStarts = aName.startsWith(queryLower);
+      final bStarts = bName.startsWith(queryLower);
 
       if (aStarts && !bStarts) return -1;
       if (!aStarts && bStarts) return 1;
       return a.nomStandard.compareTo(b.nomStandard);
     });
 
-    debugPrint('Recherche "$query": ${results.length} résultats trouvés');
-    return results;
+    return matches.take(50).toList();
   }
 
   CityData? findCityByName(String cityName) {
-    final queryLower = cityName.toLowerCase().trim();
+    final queryLower = _removeDiacritics(cityName.toLowerCase().trim());
     for (final city in _cities) {
-      if (city.nomStandard.toLowerCase() == queryLower ||
-          city.nomSansPronom.toLowerCase() == queryLower) {
+      if (city.nomSansPronom == queryLower ||
+          city.nomStandard.toLowerCase() == queryLower) {
         return city;
       }
     }

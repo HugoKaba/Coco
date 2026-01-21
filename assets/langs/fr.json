@@ -5,7 +5,8 @@
 	"common": {
 		"error": "Erreur",
 		"cancel": "Annuler",
-		"edit": "Modifier"
+		"edit": "Modifier",
+		"level": "Niveau"
 	},
 	"errors": {
 		"location_error": "Erreur de localisation",
@@ -61,10 +62,72 @@
 		"gender_female": "F",
 		"gender_nb": "NB",
 		"about_me": "À propos de moi...",
-		"submit_success": "Compte créé avec succès !"
+		"submit_success": "Compte créé avec succès !",
+		"your_age": "Votre âge",
+		"age_placeholder": "18"
+	},
+	"days": {
+		"monday": "Lundi",
+		"tuesday": "Mardi",
+		"wednesday": "Mercredi",
+		"thursday": "Jeudi",
+		"friday": "Vendredi",
+		"saturday": "Samedi",
+		"sunday": "Dimanche",
+		"Lundi": "Lundi",
+		"Mardi": "Mardi",
+		"Mercredi": "Mercredi",
+		"Jeudi": "Jeudi",
+		"Vendredi": "Vendredi",
+		"Samedi": "Samedi",
+		"Dimanche": "Dimanche",
+		"short": {
+			"monday": "Lun",
+			"tuesday": "Mar",
+			"wednesday": "Mer",
+			"thursday": "Jeu",
+			"friday": "Ven",
+			"saturday": "Sam",
+			"sunday": "Dim"
+		}
+	},
+	"levels": {
+		"beginner": "Débutant",
+		"intermediate": "Intermédiaire",
+		"confirmed": "Confirmé",
+		"expert": "Expert",
+		"all": "Tous",
+		"Débutant": "Débutant",
+		"Intermédiaire": "Intermédiaire",
+		"Confirmé": "Confirmé",
+		"Expert": "Expert",
+		"Tous": "Tous"
+	},
+	"match": {
+		"title": "C'EST UN MATCH !",
+		"description": "Vous et {} avez flashé l'un sur l'autre !",
+		"send_message": "Envoyer un message",
+		"keep_swiping": "Continuer à swiper"
+	},
+	"sports": {
+		"football": "Football",
+		"tennis": "Tennis",
+		"running": "Running",
+		"fitness": "Fitness",
+		"basketball": "Basketball",
+		"crossfit": "Crossfit",
+		"swimming": "Natation",
+		"cycling": "Cyclisme",
+		"Football": "Football",
+		"Tennis": "Tennis",
+		"Running": "Running",
+		"Fitness": "Fitness",
+		"Basketball": "Basketball",
+		"Crossfit": "Crossfit",
+		"Natation": "Natation",
+		"Cyclisme": "Cyclisme"
 	},
 	"settings": {
-		"title": "Paramètres",
 		"dark_theme": "Thème sombre",
 		"language": "Langue"
 	},
@@ -98,6 +161,8 @@
 		"location": "Localisation",
 		"sports": "Sports",
 		"levels": "Niveaux",
+		"level": "Niveau",
+		"availabilities": "Disponibilités",
 		"frequency": "Fréquence",
 		"apply": "Appliquer les filtres",
 		"reset": "Réinitialiser",

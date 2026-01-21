@@ -5,7 +5,8 @@
 	"common": {
 		"error": "Error",
 		"cancel": "Cancel",
-		"edit": "Edit"
+		"edit": "Edit",
+		"level": "Level"
 	},
 	"errors": {
 		"location_error": "Error getting location",
@@ -61,9 +62,71 @@
 		"gender_female": "F",
 		"gender_nb": "NB",
 		"about_me": "About me...",
-		"submit_success": "Account created successfully !"
-
+		"submit_success": "Account created successfully !",
+		"your_age": "Your age",
+		"age_placeholder": "18"
 	},
+	"days": {
+		"monday": "Monday",
+		"tuesday": "Tuesday",
+		"wednesday": "Wednesday",
+		"thursday": "Thursday",
+		"friday": "Friday",
+		"saturday": "Saturday",
+		"sunday": "Sunday",
+		"Lundi": "Monday",
+		"Mardi": "Tuesday",
+		"Mercredi": "Wednesday",
+		"Jeudi": "Thursday",
+		"Vendredi": "Friday",
+		"Samedi": "Saturday",
+		"Dimanche": "Sunday",
+		"short": {
+			"monday": "Mon",
+			"tuesday": "Tue",
+			"wednesday": "Wed",
+			"thursday": "Thu",
+			"friday": "Fri",
+			"saturday": "Sat",
+			"sunday": "Sun"
+		}
+	},
+	"levels": {
+		"beginner": "Beginner",
+		"intermediate": "Intermediate",
+		"confirmed": "Confirmed",
+		"expert": "Expert",
+		"all": "All"
+	},
+	"Débutant": "Beginner",
+	"Intermédiaire": "Intermediate",
+	"Confirmé": "Confirmed",
+	"Expert": "Expert",
+	"Tous": "All",
+	"match": {
+		"title": "IT'S A MATCH!",
+		"description": "You and {} liked each other!",
+		"send_message": "Send a message",
+		"keep_swiping": "Keep swiping"
+	},
+	"sports": {
+		"football": "Football",
+		"tennis": "Tennis",
+		"running": "Running",
+		"fitness": "Fitness",
+		"basketball": "Basketball",
+		"crossfit": "Crossfit",
+		"swimming": "Swimming",
+		"cycling": "Cycling"
+	},
+	"Football": "Football",
+	"Tennis": "Tennis",
+	"Running": "Running",
+	"Fitness": "Fitness",
+	"Basketball": "Basketball",
+	"Crossfit": "Crossfit",
+	"Natation": "Swimming",
+	"Cyclisme": "Cycling",
 	"settings": {
 		"title": "Settings",
 		"dark_theme": "Dark theme",
@@ -99,6 +162,8 @@
 		"location": "Location",
 		"sports": "Sports",
 		"levels": "Levels",
+		"level": "Level",
+		"availabilities": "Availabilities",
 		"frequency": "Frequency",
 		"apply": "Apply filters",
 		"reset": "Reset",

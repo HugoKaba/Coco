@@ -2,20 +2,17 @@ import 'dart:typed_data';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../dark_text_field.dart';
+import 'stylish_age_input.dart';
 import '../photo_picker_field.dart';
 import '../photo_preview_box.dart';
 
 import '../city_autocomplete.dart';
-import 'profile_birth_date_row.dart';
 import 'gender_selector_row.dart';
 
 class StepProfileCompletion extends StatelessWidget {
   final Uint8List? profilePhotoBytes;
   final VoidCallback pickProfilePhoto;
-  final TextEditingController birthDayController;
-  final TextEditingController birthMonthController;
-  final TextEditingController birthYearController;
-  final VoidCallback pickBirthDate;
+  final TextEditingController ageController;
   final TextEditingController zipController;
   final TextEditingController cityController;
   final bool citiesLoaded;
@@ -30,10 +27,7 @@ class StepProfileCompletion extends StatelessWidget {
     super.key,
     required this.profilePhotoBytes,
     required this.pickProfilePhoto,
-    required this.birthDayController,
-    required this.birthMonthController,
-    required this.birthYearController,
-    required this.pickBirthDate,
+    required this.ageController,
     required this.zipController,
     required this.cityController,
     required this.citiesLoaded,
@@ -62,17 +56,18 @@ class StepProfileCompletion extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              width: 130,
-              height: 130,
+              width: 80,
+              height: 80,
               decoration: BoxDecoration(
                 color: accentColor,
-                borderRadius: BorderRadius.circular(28),
+                borderRadius: BorderRadius.circular(20),
               ),
             ),
           ),
-          const SizedBox(height: 32),
-          _sectionTitle(context, tr('register.profile_picture')),
+
           const SizedBox(height: 12),
+          _sectionTitle(context, tr('register.profile_picture')),
+          const SizedBox(height: 8),
           Row(
             children: [
               Expanded(
@@ -87,20 +82,14 @@ class StepProfileCompletion extends StatelessWidget {
               PhotoPreviewBox(profilePhotoBytes: profilePhotoBytes),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 16),
           _sectionTitle(context, tr('register.birth_date')),
-          const SizedBox(height: 12),
-          ProfileBirthDateRow(
-            dayController: birthDayController,
-            monthController: birthMonthController,
-            yearController: birthYearController,
-            onTap: pickBirthDate,
-            fieldColor: fieldColor,
-            innerShadow: innerShadow,
-          ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 8),
+
+          StylishAgeInput(controller: ageController, accentColor: accentColor),
+          const SizedBox(height: 16),
           _sectionTitle(context, tr('register.location')),
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
           Row(
             children: [
               Expanded(
@@ -127,9 +116,9 @@ class StepProfileCompletion extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 16),
           _sectionTitle(context, tr('register.gender')),
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
           GenderSelectorRow(
             selectedGender: selectedGender,
             onGenderSelected: onGenderSelected,

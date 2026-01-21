@@ -81,7 +81,6 @@ flutter:
     - assets/langs/fr.json
     - assets/city/
     - assets/users/
-    - assets/communes-france-avec-polygon-2025.json
 
   # To add assets to your application, add an assets section, like this:
   # assets:

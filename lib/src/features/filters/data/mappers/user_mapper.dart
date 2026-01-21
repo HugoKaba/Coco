@@ -11,7 +11,10 @@ class UserMapper {
       for (final s in rawSports) {
         if (s is Map) {
           userSports.add(
-            UserSport(sportName: s['sportName'] ?? '', level: s['level'] ?? ''),
+            UserSport(
+              sportId: (s['sportId'] as num?)?.toInt() ?? 0,
+              levelId: (s['levelId'] as num?)?.toInt() ?? 0,
+            ),
           );
         }
       }
@@ -20,21 +23,25 @@ class UserMapper {
     final personId = (e['id'] as String?)?.isNotEmpty == true
         ? e['id']
         : doc.id;
+
+    final days =
+        (e['days'] as List?)?.map((e) => (e as num).toInt()).toList() ?? [];
+
     return PersonEntity(
       id: personId,
-      prenom: e['prenom'] ?? 'User',
-      nom: e['nom'] ?? '',
-      genre: e['genre'] ?? 'M',
+      firstName: e['firstName'] ?? 'User',
+      lastName: e['lastName'] ?? '',
+      gender: e['gender'] ?? 'M',
       age: e['age'] ?? 25,
       lat: (e['latitude'] as num?)?.toDouble() ?? 0.0,
       lng: (e['longitude'] as num?)?.toDouble() ?? 0.0,
       metadata: {'city': e['city']},
       sports: userSports,
-      availabilities: (e['jours'] as List?)?.cast<String>() ?? [],
-      description: e['description'],
-      profilePhotoUrl: e['profilePhotoUrl'],
-      frequency: e['frequency'] ?? 0,
-      objective: e['objective'] ?? 'Loisir',
+      availabilities: days,
+      bio: e['bio'],
+      profilePhotoUrl: e['profilePhoto'] ?? e['profilePhotoUrl'],
+      frequency: e['trainingFrequency'] ?? 0,
+      objective: e['sportsGoal'] ?? 'Loisir',
     );
   }
 }

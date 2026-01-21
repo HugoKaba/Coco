@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class DaysRow extends StatelessWidget {
   final Set<String> availableDays;
@@ -8,13 +9,13 @@ class DaysRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final days = [
-      ('Lun.', 'Lun'),
-      ('Mar.', 'Mar'),
-      ('Mer.', 'Mer'),
-      ('Jeu.', 'Jeu'),
-      ('Ven.', 'Ven'),
-      ('Sam.', 'Sam'),
-      ('Dim.', 'Dim'),
+      ('days.short.monday', 'days.monday'),
+      ('days.short.tuesday', 'days.tuesday'),
+      ('days.short.wednesday', 'days.wednesday'),
+      ('days.short.thursday', 'days.thursday'),
+      ('days.short.friday', 'days.friday'),
+      ('days.short.saturday', 'days.saturday'),
+      ('days.short.sunday', 'days.sunday'),
     ];
     final color = Theme.of(context).colorScheme.onSurface;
 
@@ -25,7 +26,7 @@ class DaysRow extends StatelessWidget {
         return Column(
           children: [
             Text(
-              day.$1,
+              tr(day.$1),
               style: TextStyle(
                 fontSize: 14,
                 color: color.withValues(alpha: 0.5),
