@@ -26,6 +26,10 @@ class _SwipeFilterSheetState extends ConsumerState<SwipeFilterSheet> {
   @override
   void initState() {
     super.initState();
+    final selectedCity = ref.read(userSearchProvider).selectedCity;
+    if (selectedCity != null) {
+      _searchController.text = selectedCity.name;
+    }
     _searchController.addListener(_onSearchChanged);
   }
 

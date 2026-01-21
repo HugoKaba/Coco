@@ -8,9 +8,9 @@ void main() {
 
     final parisUser = PersonEntity(
       id: "paris",
-      nom: "Dupont",
-      prenom: "Jean",
-      genre: "H",
+      lastName: "Dupont",
+      firstName: "Jean",
+      gender: "H",
       age: 30,
       lat: 48.8566,
       lng: 2.3522,
@@ -18,9 +18,9 @@ void main() {
 
     final marseilleUser = PersonEntity(
       id: "marseille",
-      nom: "Sardine",
-      prenom: "Patrick",
-      genre: "H",
+      lastName: "Sardine",
+      firstName: "Patrick",
+      gender: "H",
       age: 40,
       lat: 43.2965,
       lng: 5.3698,
@@ -28,7 +28,6 @@ void main() {
 
     index.build([parisUser, marseilleUser]);
 
-    // Query bucket around Paris (Radius 10km)
     final candidates = index.queryCandidates(48.8566, 2.3522, 10000);
 
     expect(candidates, contains(parisUser));
@@ -40,9 +39,9 @@ void main() {
     final entities = List.generate(1000, (i) {
       return PersonEntity(
         id: "user_$i",
-        nom: "User",
-        prenom: "$i",
-        genre: "H",
+        lastName: "User",
+        firstName: "$i",
+        gender: "H",
         age: 20,
         lat: 48.0 + (i * 0.001),
         lng: 2.0 + (i * 0.001),

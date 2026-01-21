@@ -28,13 +28,11 @@ class UserSearchNotifier extends Notifier<UserSearchState> {
       final cityString = await rootBundle.loadString(
         'assets/city/villes_idf.json',
       );
-      state = state.copyWith(
-        allCities:
-            (json.decode(cityString) as List)
-                .map((e) => City.fromJson(e))
-                .toList()
-              ..sort((a, b) => a.name.compareTo(b.name)),
-      );
+      final cities =
+          (json.decode(cityString) as List)
+              .map((e) => City.fromJson(e))
+              .toList()
+            ..sort((a, b) => a.name.compareTo(b.name));
 
       final pos = await LocationHelper.initLocation();
       if (pos != null) {
@@ -46,22 +44,49 @@ class UserSearchNotifier extends Notifier<UserSearchState> {
       }
 
       final userId = FirebaseAuth.instance.currentUser?.uid ?? 'user_test_me';
-      final swipedIds = await _swipeRepo.getSwipedUserIds(userId);
-      final userSnapshot = await FirebaseFirestore.instance
-          .collection('users_test')
-          .get();
 
-      state = state.copyWith(
-        allUsers: userSnapshot.docs
-            .map((doc) => UserMapper.fromFirestore(doc))
-            .where((u) => !swipedIds.contains(u.id) && u.id != userId)
-            .toList(),
-        isLoading: false,
-      );
-      performSearch(ref.read(filterProvider));
+      final swipeSub = FirebaseFirestore.instance
+          .collection('users_test')
+          .doc(userId)
+          .collection('swipes')
+          .snapshots()
+          .listen((swipeSnapshot) {
+            final swipedIds = swipeSnapshot.docs.map((doc) => doc.id).toSet();
+            _updateUsers(userId, swipedIds, cities);
+          });
+      ref.onDispose(() => swipeSub.cancel());
+
+      final userSub = FirebaseFirestore.instance
+          .collection('users_test')
+          .snapshots()
+          .listen((userSnapshot) async {
+            final swipedIds = await _swipeRepo.getSwipedUserIds(userId);
+            _cachedDocs = userSnapshot.docs;
+            _updateUsers(userId, swipedIds.toSet(), cities);
+          });
+      ref.onDispose(() => userSub.cancel());
+
+      state = state.copyWith(isLoading: false, allCities: cities);
     } catch (e) {
       state = state.copyWith(isLoading: false);
     }
+  }
+
+  List<QueryDocumentSnapshot> _cachedDocs = [];
+
+  void _updateUsers(String userId, Set<String> swipedIds, List<City> cities) {
+    if (_cachedDocs.isEmpty) return;
+
+    final users = _cachedDocs
+        .map((doc) => UserMapper.fromFirestore(doc))
+        .where((u) => !swipedIds.contains(u.id) && u.id != userId)
+        .toList();
+
+    state = state.copyWith(
+      allUsers: users,
+      allCities: cities.isNotEmpty ? cities : state.allCities,
+    );
+    performSearch(ref.read(filterProvider));
   }
 
   void onSearchCityChanged(String query) {
@@ -92,13 +117,6 @@ class UserSearchNotifier extends Notifier<UserSearchState> {
       state = state.copyWith(selectedCity: city, filteredCities: []);
   void clearCity() =>
       state = state.copyWith(clearSelectedCity: true, filteredCities: []);
-
-  void markAsSwiped(String userId) {
-    state = state.copyWith(
-      allUsers: state.allUsers.where((u) => u.id != userId).toList(),
-      filteredUsers: state.filteredUsers.where((u) => u.id != userId).toList(),
-    );
-  }
 
   void performSearch(FilterCriteria criteria) {
     final lat = criteria.isAroundMe

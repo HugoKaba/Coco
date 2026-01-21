@@ -20,26 +20,34 @@ class SearchFilters {
       bool sportMatch = true;
       if (criteria.selectedSports.isNotEmpty) {
         final matches = p.sports.where(
-          (s) => criteria.selectedSports.contains(s.sportName),
+          (s) => criteria.selectedSports.contains(s.sportId),
         );
         if (matches.isEmpty) {
           sportMatch = false;
         } else if (criteria.selectedLevel != null &&
-            !matches.any((s) => s.level == criteria.selectedLevel)) {
+            !matches.any((s) => s.levelId == criteria.selectedLevel)) {
           sportMatch = false;
         }
       } else if (criteria.selectedLevel != null &&
-          !p.sports.any((s) => s.level == criteria.selectedLevel)) {
+          !p.sports.any((s) => s.levelId == criteria.selectedLevel)) {
         sportMatch = false;
       }
-      if (!sportMatch ||
-          (criteria.selectedAvailabilities.isNotEmpty &&
-              !p.availabilities.any(
-                (a) => criteria.selectedAvailabilities.contains(a),
-              )) ||
-          (p.age < criteria.ageRange.start || p.age > criteria.ageRange.end)) {
+
+      if (!sportMatch) {
         continue;
       }
+
+      if (criteria.selectedAvailabilities.isNotEmpty &&
+          !p.availabilities.any(
+            (a) => criteria.selectedAvailabilities.contains(a),
+          )) {
+        continue;
+      }
+
+      if (p.age < criteria.ageRange.start || p.age > criteria.ageRange.end) {
+        continue;
+      }
+
       out.add(MapEntry(p, d));
     }
     out.sort((a, b) => a.value.compareTo(b.value));

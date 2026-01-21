@@ -1,3 +1,5 @@
+import '../../../core/data/reference_tables.dart';
+
 class SeederConstants {
   static const List<String> firstNamesM = [
     'Thomas',
@@ -10,6 +12,7 @@ class SeederConstants {
     'Louis',
     'Paul',
     'Maxime',
+    'Manon',
   ];
   static const List<String> firstNamesF = [
     'Emma',
@@ -35,41 +38,16 @@ class SeederConstants {
     'Moreau',
     'Laurent',
   ];
-  static const List<Map<String, dynamic>> sports = [
-    {
-      'name': 'Football',
-      'levels': ['Débutant', 'Intermédiaire', 'Confirmé'],
-    },
-    {
-      'name': 'Tennis',
-      'levels': ['Débutant', 'Intermédiaire', 'Confirmé', 'Expert'],
-    },
-    {
-      'name': 'Running',
-      'levels': ['Débutant', 'Intermédiaire', 'Expert'],
-    },
-    {
-      'name': 'Fitness',
-      'levels': ['Débutant', 'Confirmé'],
-    },
-    {
-      'name': 'Basketball',
-      'levels': ['Intermédiaire', 'Confirmé'],
-    },
-    {
-      'name': 'Crossfit',
-      'levels': ['Débutant', 'Confirmé', 'Expert'],
-    },
-  ];
-  static const List<String> days = [
-    'Lundi',
-    'Mardi',
-    'Mercredi',
-    'Jeudi',
-    'Vendredi',
-    'Samedi',
-    'Dimanche',
-  ];
+
+  static List<int> get _stdLevelIds => ReferenceTables.levels.keys.toList();
+
+  static List<Map<String, dynamic>> get sports =>
+      ReferenceTables.sports.entries.map((e) {
+        return {'id': e.key, 'name': e.value, 'levels': _stdLevelIds};
+      }).toList();
+
+  static List<int> get days => ReferenceTables.days.keys.toList();
+
   static const List<String> descriptions = [
     "Passionné de sport depuis toujours !",
     "À la recherche de partenaires pour s'entraîner",

@@ -78,7 +78,6 @@ class _SwapMatchPageState extends ConsumerState<SwapMatchPage> {
       targetId: person.id,
       isLike: isRight,
     );
-    ref.read(userSearchProvider.notifier).markAsSwiped(person.id);
     if (isMatch && mounted) {
       showDialog(
         context: context,

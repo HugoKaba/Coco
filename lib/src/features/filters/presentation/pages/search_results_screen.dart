@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/models/person_entity.dart';
 import '../../domain/services/geolocation_service.dart';
+import 'package:easy_localization/easy_localization.dart';
+import '../../../../core/data/reference_tables.dart';
 
 class SearchResultsScreen extends ConsumerWidget {
   final List<PersonEntity> results;
@@ -88,19 +90,23 @@ class SearchResultsScreen extends ConsumerWidget {
                         const SizedBox(height: 4),
                         Wrap(
                           spacing: 4,
-                          children: it.sports
-                              .map(
-                                (s) => Chip(
-                                  label: Text(
-                                    '${s.sportName} (${s.level})',
-                                    style: const TextStyle(fontSize: 10),
-                                  ),
-                                  padding: EdgeInsets.zero,
-                                  materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                ),
-                              )
-                              .toList(),
+                          children: it.sports.map((s) {
+                            final sportName = ReferenceTables.getSportName(
+                              s.sportId,
+                            );
+                            final levelName = ReferenceTables.getLevelName(
+                              s.levelId,
+                            );
+                            return Chip(
+                              label: Text(
+                                '${tr(sportName)} (${tr(levelName)})',
+                                style: const TextStyle(fontSize: 10),
+                              ),
+                              padding: EdgeInsets.zero,
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                            );
+                          }).toList(),
                         ),
                       ],
                     ),

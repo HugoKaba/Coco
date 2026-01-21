@@ -75,7 +75,7 @@ class ProfileCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Tooltip(
             triggerMode: TooltipTriggerMode.tap,
-            message: '${sport.name} - ${sport.level}',
+            message: '${tr(sport.name)} - ${tr(sport.level)}',
             child: Container(
               width: 52,
               height: 52,
