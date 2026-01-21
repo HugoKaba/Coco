@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -43,7 +44,7 @@ class AuthService {
         if (googleAuthorization == null) {
           throw FirebaseAuthException(
             code: 'auth/invalid-credential',
-            message: 'Failed to get authorization',
+            message: tr('errors.auth_failed_authorization'),
           );
         }
 
