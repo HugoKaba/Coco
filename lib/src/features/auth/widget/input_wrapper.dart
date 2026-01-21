@@ -4,14 +4,14 @@ class InputWrapper extends StatelessWidget {
   final Widget child;
   final Color fieldColor;
   final Color innerShadow;
-  final double borderRadius; // <-- ajouté
+  final double borderRadius;
 
   const InputWrapper({
     super.key,
     required this.child,
     required this.fieldColor,
     required this.innerShadow,
-    this.borderRadius = 20, // valeur par défaut
+    this.borderRadius = 20,
   });
 
   @override

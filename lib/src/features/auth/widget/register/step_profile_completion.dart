@@ -42,10 +42,37 @@ class StepProfileCompletion extends StatelessWidget {
     required this.innerShadow,
   });
 
+  Widget _sectionTitle(BuildContext context, String text) => Text(
+    text,
+    style: Theme.of(context)
+        .textTheme
+        .bodyLarge
+        ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
+  );
+
+  Widget _dateField(TextEditingController controller, String hint) => Expanded(
+    child: DarkTextField(
+      controller: controller,
+      hintText: hint,
+      keyboardType: TextInputType.number,
+      readOnly: true,
+      onTap: pickBirthDate,
+      fieldColor: fieldColor,
+      innerShadow: innerShadow,
+    ),
+  );
+
+  Widget _genderOption(String label) => GenderOption(
+    label: label,
+    selectedGender: selectedGender,
+    onTap: onGenderSelected,
+    accentColor: accentColor,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+      padding: const EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -54,19 +81,11 @@ class StepProfileCompletion extends StatelessWidget {
               width: 130,
               height: 130,
               decoration: BoxDecoration(
-                color: accentColor,
-                borderRadius: BorderRadius.circular(28),
-              ),
+                  color: accentColor, borderRadius: BorderRadius.circular(28)),
             ),
           ),
           const SizedBox(height: 32),
-          Text(
-            "Photo de profil",
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge
-                ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
-          ),
+          _sectionTitle(context, "Photo de profil"),
           const SizedBox(height: 12),
           Row(
             children: [
@@ -83,61 +102,19 @@ class StepProfileCompletion extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          Text(
-            "Date de naissance",
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge
-                ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
-          ),
+          _sectionTitle(context, "Date de naissance"),
           const SizedBox(height: 12),
           Row(
             children: [
-              Expanded(
-                child: DarkTextField(
-                  controller: birthDayController,
-                  hintText: "01",
-                  keyboardType: TextInputType.number,
-                  readOnly: true,
-                  onTap: pickBirthDate,
-                  fieldColor: fieldColor,
-                  innerShadow: innerShadow,
-                ),
-              ),
+              _dateField(birthDayController, "01"),
               const SizedBox(width: 12),
-              Expanded(
-                child: DarkTextField(
-                  controller: birthMonthController,
-                  hintText: "01",
-                  keyboardType: TextInputType.number,
-                  readOnly: true,
-                  onTap: pickBirthDate,
-                  fieldColor: fieldColor,
-                  innerShadow: innerShadow,
-                ),
-              ),
+              _dateField(birthMonthController, "01"),
               const SizedBox(width: 12),
-              Expanded(
-                child: DarkTextField(
-                  controller: birthYearController,
-                  hintText: "1970",
-                  keyboardType: TextInputType.number,
-                  readOnly: true,
-                  onTap: pickBirthDate,
-                  fieldColor: fieldColor,
-                  innerShadow: innerShadow,
-                ),
-              ),
+              _dateField(birthYearController, "1970"),
             ],
           ),
           const SizedBox(height: 24),
-          Text(
-            "Localisation",
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge
-                ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
-          ),
+          _sectionTitle(context, "Localisation"),
           const SizedBox(height: 12),
           Row(
             children: [
@@ -166,33 +143,11 @@ class StepProfileCompletion extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
-          Text(
-            "Genre",
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge
-                ?.copyWith(color: Colors.white70, fontWeight: FontWeight.w600),
-          ),
+          _sectionTitle(context, "Genre"),
           const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GenderOption(
-                  label: "H",
-                  selectedGender: selectedGender,
-                  onTap: onGenderSelected,
-                  accentColor: accentColor),
-              GenderOption(
-                  label: "F",
-                  selectedGender: selectedGender,
-                  onTap: onGenderSelected,
-                  accentColor: accentColor),
-              GenderOption(
-                  label: "NB",
-                  selectedGender: selectedGender,
-                  onTap: onGenderSelected,
-                  accentColor: accentColor),
-            ],
+            children: ["H", "F", "NB"].map(_genderOption).toList(),
           ),
         ],
       ),
