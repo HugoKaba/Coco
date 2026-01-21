@@ -8,10 +8,11 @@ import '../domain/models/filter_criteria.dart';
 import '../domain/services/geolocation_service.dart';
 import '../presentation/providers/filter_state_provider.dart';
 import '../../swap/data/swipe_repository.dart';
-import '../data/mappers/user_mapper.dart';
 import 'user_search_state.dart';
 import 'location_helper.dart';
 import 'search_filters.dart';
+import 'user_filter_helper.dart';
+import 'city_search_helper.dart';
 
 class UserSearchNotifier extends Notifier<UserSearchState> {
   final GeolocationService _geoService = const GeolocationService();
@@ -88,15 +89,7 @@ class UserSearchNotifier extends Notifier<UserSearchState> {
   void _updateUsers(String userId, Set<String> swipedIds, List<City> cities) {
     if (_cachedDocs.isEmpty) return;
 
-
-
-    final users = _cachedDocs.map((doc) => UserMapper.fromFirestore(doc)).where(
-      (u) {
-        final isSwiped = swipedIds.contains(u.id);
-        final isCurrentUser = u.id == userId;
-        return !isSwiped && !isCurrentUser;
-      },
-    ).toList();
+    final users = UserFilterHelper.filterUsers(_cachedDocs, userId, swipedIds);
 
     state = state.copyWith(
       allUsers: users,
@@ -106,27 +99,8 @@ class UserSearchNotifier extends Notifier<UserSearchState> {
   }
 
   void onSearchCityChanged(String query) {
-    if (query.isEmpty) {
-      state = state.copyWith(filteredCities: []);
-      return;
-    }
-    final q = removeDiacritics(query.toLowerCase());
-    final matches = state.allCities
-        .where(
-          (c) =>
-              c.normalizedName.contains(q) ||
-              c.zipCodes.any((z) => z.startsWith(q)),
-        )
-        .toList();
-    matches.sort(
-      (a, b) =>
-          a.normalizedName.startsWith(q) && !b.normalizedName.startsWith(q)
-          ? -1
-          : (b.normalizedName.startsWith(q) && !a.normalizedName.startsWith(q)
-                ? 1
-                : a.name.compareTo(b.name)),
-    );
-    state = state.copyWith(filteredCities: matches.take(50).toList());
+    final matches = CitySearchHelper.searchAndSort(state.allCities, query);
+    state = state.copyWith(filteredCities: matches);
   }
 
   void selectCity(City city) =>

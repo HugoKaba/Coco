@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import '../controllers/chat_controller.dart';
 import '../widgets/message_bubble.dart';
 import '../widgets/message_input_field.dart';
+import '../widgets/chat_header_title.dart';
 
 class ChatScreen extends ConsumerStatefulWidget {
   final String conversationId;
@@ -65,74 +64,9 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
-        title: StreamBuilder<DocumentSnapshot>(
-          stream: FirebaseFirestore.instance
-              .collection('conversations')
-              .doc(widget.conversationId)
-              .snapshots(),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return Text(
-                tr('chats.title'),
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
-              );
-            }
-
-            final data = snapshot.data?.data() as Map<String, dynamic>?;
-            final participants = List<String>.from(
-              data?['participantIds'] ?? [],
-            );
-            final otherUserId = participants.firstWhere(
-              (id) => id != widget.currentUserId,
-              orElse: () => '',
-            );
-
-            if (otherUserId.isEmpty) {
-              return Text(
-                tr('chats.title'),
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
-              );
-            }
-
-            return StreamBuilder<DocumentSnapshot>(
-              stream: FirebaseFirestore.instance
-                  .collection('users_test')
-                  .doc(otherUserId)
-                  .snapshots(),
-              builder: (context, userSnapshot) {
-                if (!userSnapshot.hasData) {
-                  return const Text('...');
-                }
-
-                final userData =
-                    userSnapshot.data?.data() as Map<String, dynamic>?;
-                final firstName = userData?['firstName'] ?? '';
-                final lastName = userData?['lastName'] ?? '';
-                final username = userData?['username'] ?? '';
-
-                final displayName = firstName.isNotEmpty
-                    ? '$firstName ${lastName.isNotEmpty ? lastName[0] + '.' : ''}'
-                    : username;
-
-                return Text(
-                  displayName,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
-                );
-              },
-            );
-          },
+        title: ChatHeaderTitle(
+          conversationId: widget.conversationId,
+          currentUserId: widget.currentUserId,
         ),
       ),
       body: Column(
