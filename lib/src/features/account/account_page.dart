@@ -232,16 +232,6 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                 ),
               ),
 
-              _label("Coordonnées"),
-              _darkField(
-                child: TextFormField(
-                  initialValue: coordonees,
-                  style: const TextStyle(color: Colors.white),
-                  decoration: _inputDecoration(),
-                  onChanged: (v) => coordonees = v,
-                ),
-              ),
-
               _label("Description"),
               _darkField(
                 child: TextFormField(
