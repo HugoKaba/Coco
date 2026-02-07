@@ -83,6 +83,18 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
             }
 
             final data = snapshot.data?.data() as Map<String, dynamic>?;
+            final title = data?['title'] as String?;
+            if (title != null && title.isNotEmpty) {
+              return Text(
+                title,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
+              );
+            }
+
             final participants = List<String>.from(
               data?['participantIds'] ?? [],
             );

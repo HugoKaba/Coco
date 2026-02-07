@@ -28,6 +28,10 @@ class MainShell extends StatelessWidget {
             label: tr('nav.events'),
           ),
           LiquidGlassBottomBarItem(
+            icon: Icons.sports,
+            label: tr('clubs.title'),
+          ),
+          LiquidGlassBottomBarItem(
             icon: Icons.favorite_rounded,
             label: tr('nav.swipe'),
           ),

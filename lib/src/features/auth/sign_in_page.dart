@@ -129,6 +129,17 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                   onPressed: () {},
                   accentColor: _accentColor,
                 ),
+                const SizedBox(height: 24),
+                const Divider(color: Colors.white24),
+                const SizedBox(height: 16),
+                PrimaryButton(
+                  label: 'Professional Sign Up',
+                  icon: Icons.business,
+                  onPressed: () {
+                    context.push('/professional-signup');
+                  },
+                  accentColor: const Color(0xFFCD8232),
+                ),
                 const SizedBox(height: 14),
                 PrimaryButton(
                   label: tr('sign_in.register'),

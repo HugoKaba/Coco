@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:coco/src/core/providers.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import '../../clubs/application/club_providers.dart';
+import '../../clubs/domain/models/club_entity.dart';
+import '../../clubs/presentation/pages/club_dashboard_screen.dart';
+
 import '../../filters/application/firestore_seeder_service.dart';
+import 'edit_profile_screen.dart';
 
 class AccountPage extends ConsumerWidget {
   const AccountPage({super.key});
@@ -14,10 +18,11 @@ class AccountPage extends ConsumerWidget {
     final authState = ref.watch(authStateChangesProvider);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFF121212),
       appBar: AppBar(
         title: Text(tr('account.title')),
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFF121212),
+        foregroundColor: Colors.white,
         elevation: 0,
       ),
       body: authState.when(
@@ -26,79 +31,95 @@ class AccountPage extends ConsumerWidget {
             return const Center(child: Text('Not authenticated'));
           }
 
+          final clubRepo = ref.watch(clubRepositoryProvider);
+
           return SingleChildScrollView(
             child: Column(
               children: [
+                // Section Info Utilisateur - HIDDEN
+                /*
                 Container(
-                  margin: const EdgeInsets.all(16),
+                  margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFD4913D).withValues(alpha: 0.1),
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: const Color(0xFFD4913D),
-                      width: 2,
-                    ),
+                    color: const Color(0xFF1F1F1F),
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: Colors.white10),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'DEBUG - Compte Connecté',
+                        'Compte Utilisateur',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFFD4913D),
+                          color: Color(0xFFCD8232),
                         ),
                       ),
-                      const SizedBox(height: 12),
-                      _buildInfoRow('User ID', user.uid),
+                      const SizedBox(height: 16),
                       _buildInfoRow('Email', user.email ?? 'Non défini'),
-                      _buildInfoRow(
-                        'Display Name',
-                        user.displayName ?? 'Non défini',
-                      ),
-                      const SizedBox(height: 8),
-                      StreamBuilder<DocumentSnapshot>(
-                        stream: FirebaseFirestore.instance
-                            .collection('users_test')
-                            .doc(user.uid)
-                            .snapshots(),
-                        builder: (context, snapshot) {
-                          if (!snapshot.hasData) {
-                            return const Text('Chargement...');
-                          }
-                          final data =
-                              snapshot.data?.data() as Map<String, dynamic>?;
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              _buildInfoRow(
-                                'Prénom',
-                                data?['firstName'] ?? 'Non défini',
-                              ),
-                              _buildInfoRow(
-                                'Nom',
-                                data?['lastName'] ?? 'Non défini',
-                              ),
-                              _buildInfoRow(
-                                'Username',
-                                data?['username'] ?? 'Non défini',
-                              ),
-                            ],
-                          );
-                        },
-                      ),
+                      // Add more user info here if needed
                     ],
                   ),
                 ),
+                */
+
+                // Section Club (FutureBuilder)
+                FutureBuilder<List<ClubEntity>>(
+                  future: clubRepo.getClubsByOwnerId(user.uid),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+
+                    if (snapshot.hasError) {
+                      return Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          'Erreur club: ${snapshot.error}',
+                          style: const TextStyle(color: Colors.red),
+                        ),
+                      );
+                    }
+
+                    if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                      final club = snapshot.data!.first;
+                      return Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                        child: _buildClubCard(context, club),
+                      );
+                    }
+
+                    return const SizedBox.shrink();
+                  },
+                ),
+
+                const SizedBox(height: 24),
+
+                // Menu Items
                 _buildItem(
                   context: context,
                   icon: Icons.settings,
                   label: tr('account.settings'),
                   onTap: () {},
                 ),
-                const Divider(height: 1),
+                _buildItem(
+                  context: context,
+                  icon: Icons.person,
+                  label: 'Modifier mon profil',
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const EditProfileScreen(),
+                      ),
+                    );
+                  },
+                ),
+                const Divider(height: 1, color: Colors.white10),
                 _buildItem(
                   context: context,
                   icon: Icons.logout,
@@ -109,7 +130,7 @@ class AccountPage extends ConsumerWidget {
                     await authService.signOut();
                   },
                 ),
-                          _buildItem(
+                _buildItem(
                   context: context,
                   icon: Icons.cloud_upload_rounded,
                   label: 'Seed Test Data',
@@ -126,6 +147,42 @@ class AccountPage extends ConsumerWidget {
                   },
                   color: const Color(0xFFD4913D),
                 ),
+                _buildItem(
+                  context: context,
+                  icon: Icons.stadium,
+                  label: 'Seed Clubs & Slots (10)',
+                  onTap: () async {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Seeding Clubs...')),
+                    );
+                    await FirestoreSeederService().seedClubsAndSlots();
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Club Seeding complete!')),
+                      );
+                    }
+                  },
+                  color: const Color(0xFFD4913D),
+                ),
+                _buildItem(
+                  context: context,
+                  icon: Icons.emoji_events,
+                  label: 'Seed Events (10)',
+                  onTap: () async {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Seeding Events...')),
+                    );
+                    await FirestoreSeederService().seedEvents();
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Events Seeding complete!'),
+                        ),
+                      );
+                    }
+                  },
+                  color: const Color(0xFFD4913D),
+                ),
               ],
             ),
           );
@@ -136,32 +193,76 @@ class AccountPage extends ConsumerWidget {
     );
   }
 
-  Widget _buildInfoRow(String label, String value) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Row(
-        children: [
-          Expanded(
-            flex: 2,
-            child: Text(
-              '$label:',
-              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
-            ),
+  Widget _buildClubCard(BuildContext context, ClubEntity club) {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => ClubDashboardScreen(clubId: club.id),
           ),
-          Expanded(
-            flex: 3,
-            child: GestureDetector(
-              onTap: () {
-                Clipboard.setData(ClipboardData(text: value));
-              },
-              child: Text(
-                value,
-                style: const TextStyle(fontSize: 13),
-                overflow: TextOverflow.ellipsis,
+        );
+      },
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [Color(0xFFCD8232), Color(0xFFA05E15)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xFFCD8232).withValues(alpha: 0.3),
+              blurRadius: 12,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.2),
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.storefront,
+                color: Colors.white,
+                size: 24,
               ),
             ),
-          ),
-        ],
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Gérer mon Club',
+                    style: TextStyle(
+                      color: Colors.white.withValues(alpha: 0.8),
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    club.name,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 16),
+          ],
+        ),
       ),
     );
   }
@@ -174,12 +275,19 @@ class AccountPage extends ConsumerWidget {
     Color? color,
   }) {
     return ListTile(
-      leading: Icon(icon, color: color ?? const Color(0xFFD4913D)),
+      leading: Icon(icon, color: color ?? Colors.white70),
       title: Text(
         label,
-        style: TextStyle(color: color, fontWeight: FontWeight.w500),
+        style: TextStyle(
+          color: color ?? Colors.white,
+          fontWeight: FontWeight.w500,
+        ),
       ),
-      trailing: const Icon(Icons.chevron_right, size: 20),
+      trailing: const Icon(
+        Icons.chevron_right,
+        size: 20,
+        color: Colors.white24,
+      ),
       onTap: onTap,
     );
   }

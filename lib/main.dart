@@ -38,6 +38,7 @@ class AppRoot extends ConsumerWidget {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         ref.read(settingsInitProvider.future).catchError((_) {});
         ref.read(settingsPersistenceProvider);
+        ref.read(notificationServiceProvider).initialize();
       });
     }
     ref.listen<String>(localeProvider, (previous, next) {

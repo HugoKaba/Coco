@@ -25,15 +25,22 @@ class _EventListScreenState extends ConsumerState<EventListScreen> {
   }
 
   Future<void> _initLocation() async {
-    final pos = await LocationHelper.initLocation();
-    if (pos != null) {
-      ref
-          .read(eventFilterProvider.notifier)
-          .setDeviceLocation(pos.latitude, pos.longitude);
-      ref
-          .read(eventsServiceProvider.notifier)
-          .loadEvents(filter: ref.read(eventFilterProvider));
-    }
+    // Default to Paris
+    ref.read(eventFilterProvider.notifier).setDeviceLocation(48.8566, 2.3522);
+
+    // Try to get real location
+    try {
+      final pos = await LocationHelper.initLocation();
+      if (pos != null) {
+        ref
+            .read(eventFilterProvider.notifier)
+            .setDeviceLocation(pos.latitude, pos.longitude);
+      }
+    } catch (_) {}
+
+    ref
+        .read(eventsServiceProvider.notifier)
+        .loadEvents(filter: ref.read(eventFilterProvider));
   }
 
   void _showFilterSheet() {

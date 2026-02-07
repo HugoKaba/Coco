@@ -19,6 +19,10 @@ class ConversationTile extends StatelessWidget {
   });
 
   Future<String> _getConversationName() async {
+    if (conversation.title != null && conversation.title!.isNotEmpty) {
+      return conversation.title!;
+    }
+
     if (conversation.type == ConversationType.event) {
       if (conversation.eventId != null) {
         try {
@@ -34,6 +38,8 @@ class ConversationTile extends StatelessWidget {
         }
       }
       return tr('chats.event_chat');
+    } else if (conversation.type == ConversationType.slot) {
+      return tr('chats.slot_chat');
     } else {
       final otherUserId = conversation.participantIds.firstWhere(
         (id) => id != currentUserId,
