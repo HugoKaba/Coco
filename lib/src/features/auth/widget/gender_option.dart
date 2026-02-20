@@ -23,7 +23,10 @@ class GenderOption extends StatelessWidget {
         children: [
           Text(
             label,
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
           ),
           const SizedBox(height: 12),
           AnimatedContainer(
@@ -32,19 +35,22 @@ class GenderOption extends StatelessWidget {
             height: 32,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: isSelected ? accentColor : Colors.white30, width: 2),
+              border: Border.all(
+                color: isSelected ? accentColor : Colors.white30,
+                width: 2,
+              ),
             ),
             child: isSelected
                 ? Center(
-              child: Container(
-                width: 14,
-                height: 14,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: accentColor,
-                ),
-              ),
-            )
+                    child: Container(
+                      width: 14,
+                      height: 14,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: accentColor,
+                      ),
+                    ),
+                  )
                 : null,
           ),
         ],

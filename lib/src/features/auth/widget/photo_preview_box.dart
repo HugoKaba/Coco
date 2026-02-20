@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 class PhotoPreviewBox extends StatelessWidget {
   final Uint8List? profilePhotoBytes;
 
-  const PhotoPreviewBox({
-    super.key,
-    required this.profilePhotoBytes,
-  });
+  const PhotoPreviewBox({super.key, required this.profilePhotoBytes});
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +27,7 @@ class PhotoPreviewBox extends StatelessWidget {
       child: SizedBox(
         width: size,
         height: size,
-        child: Image.memory(
-          profilePhotoBytes!,
-          fit: BoxFit.cover,
-        ),
+        child: Image.memory(profilePhotoBytes!, fit: BoxFit.cover),
       ),
     );
   }

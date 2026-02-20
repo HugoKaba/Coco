@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+
 import '../../domain/models/subscription_tier.dart';
 
-class SubscriptionSelectionScreen extends StatefulWidget {
-  final Function(SubscriptionType) onSubscriptionSelected;
+part 'subscription_selection_screen_cards.part.dart';
 
+class SubscriptionSelectionScreen extends StatefulWidget {
   const SubscriptionSelectionScreen({
     super.key,
     required this.onSubscriptionSelected,
   });
+  final Function(SubscriptionType) onSubscriptionSelected;
 
   @override
   State<SubscriptionSelectionScreen> createState() =>
@@ -16,18 +18,17 @@ class SubscriptionSelectionScreen extends StatefulWidget {
 
 class _SubscriptionSelectionScreenState
     extends State<SubscriptionSelectionScreen> {
+  static const _accent = Color(0xFFCD8232);
+  static const _bg = Color(0xFF121212);
+  static const _field = Color(0xFF1F1F1F);
   SubscriptionType? _selectedType;
-
-  static const Color _accentColor = Color(0xFFCD8232);
-  static const Color _bgColor = Color(0xFF121212);
-  static const Color _fieldColor = Color(0xFF1F1F1F);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _bgColor,
+      backgroundColor: _bg,
       appBar: AppBar(
-        backgroundColor: _bgColor,
+        backgroundColor: _bg,
         foregroundColor: Colors.white,
         title: const Text('Choisissez votre formule'),
         centerTitle: true,
@@ -37,18 +38,20 @@ class _SubscriptionSelectionScreenState
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(24.0),
+                padding: const EdgeInsets.all(24),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _buildPlanCard(
+                    _planCard(
+                      this,
                       type: SubscriptionType.monthly,
                       price: 29.99,
                       period: '/mois',
                       isPopular: false,
                     ),
                     const SizedBox(height: 20),
-                    _buildPlanCard(
+                    _planCard(
+                      this,
                       type: SubscriptionType.annual,
                       price: 299.99,
                       period: '/an',
@@ -61,7 +64,7 @@ class _SubscriptionSelectionScreenState
             ),
             if (_selectedType != null)
               Padding(
-                padding: const EdgeInsets.all(24.0),
+                padding: const EdgeInsets.all(24),
                 child: SizedBox(
                   width: double.infinity,
                   height: 56,
@@ -69,7 +72,7 @@ class _SubscriptionSelectionScreenState
                     onPressed: () =>
                         widget.onSubscriptionSelected(_selectedType!),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: _accentColor,
+                      backgroundColor: _accent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -87,109 +90,6 @@ class _SubscriptionSelectionScreenState
               ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildPlanCard({
-    required SubscriptionType type,
-    required double price,
-    required String period,
-    required bool isPopular,
-    int? savings,
-  }) {
-    final isSelected = _selectedType == type;
-
-    return GestureDetector(
-      onTap: () => setState(() => _selectedType = type),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.all(24),
-        decoration: BoxDecoration(
-          color: _fieldColor,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: isSelected ? _accentColor : Colors.transparent,
-            width: 3,
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  type == SubscriptionType.monthly ? 'Mensuel' : 'Annuel',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                if (isPopular)
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 6,
-                    ),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF4CAF50),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      savings != null ? '-$savings%' : 'Populaire',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Text(
-                  '€${price.toStringAsFixed(0)}',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  period,
-                  style: const TextStyle(fontSize: 18, color: Colors.white54),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            _buildFeature('Créneaux illimités'),
-            _buildFeature('Accès chat participants'),
-            _buildFeature('Statistiques en temps réel'),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildFeature(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Row(
-        children: [
-          const Icon(Icons.check_circle, color: Color(0xFF4CAF50), size: 20),
-          const SizedBox(width: 12),
-          Text(
-            text,
-            style: const TextStyle(color: Colors.white70, fontSize: 14),
-          ),
-        ],
       ),
     );
   }

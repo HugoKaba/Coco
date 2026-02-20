@@ -37,15 +37,15 @@ class PhotoPickerField extends StatelessWidget {
         ),
         child: profilePhotoBytes != null
             ? ClipRRect(
-          borderRadius: BorderRadius.circular(borderRadius),
-          child: Image.memory(profilePhotoBytes!, fit: BoxFit.cover),
-        )
+                borderRadius: BorderRadius.circular(borderRadius),
+                child: Image.memory(profilePhotoBytes!, fit: BoxFit.cover),
+              )
             : Center(
-          child: Text(
-            tr('register.select_profile_picture'),
-            style: TextStyle(color: Colors.white54),
-          ),
-        ),
+                child: Text(
+                  tr('register.select_profile_picture'),
+                  style: TextStyle(color: Colors.white54),
+                ),
+              ),
       ),
     );
   }

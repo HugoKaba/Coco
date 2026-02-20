@@ -1,24 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../domain/models/slot_entity.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../application/club_providers.dart';
+import '../../domain/models/slot_entity.dart';
+
+part 'slot_booking_dialog_actions.part.dart';
 
 class SlotBookingDialog extends ConsumerWidget {
-  final SlotEntity slot;
-  final String clubId;
-
   const SlotBookingDialog({
     super.key,
     required this.slot,
     required this.clubId,
   });
+  final SlotEntity slot;
+  final String clubId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userId = FirebaseAuth.instance.currentUser?.uid;
-
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Padding(
@@ -42,15 +43,15 @@ class SlotBookingDialog extends ConsumerWidget {
               style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
             ),
             const SizedBox(height: 24),
-            _buildInfoRow(
+            _row(
               Icons.people,
               'clubs.slot.participants',
               '${slot.participants.length}/${slot.maxParticipants}',
             ),
             if (slot.level != null)
-              _buildInfoRow(Icons.trending_up, 'clubs.slot.level', slot.level!),
+              _row(Icons.trending_up, 'clubs.slot.level', slot.level!),
             if (slot.ageGroup != null)
-              _buildInfoRow(Icons.cake, 'clubs.slot.age_group', slot.ageGroup!),
+              _row(Icons.cake, 'clubs.slot.age_group', slot.ageGroup!),
             const SizedBox(height: 24),
             if (slot.isFull)
               Container(
@@ -73,20 +74,18 @@ class SlotBookingDialog extends ConsumerWidget {
                 ),
               )
             else if (userId != null && slot.participants.contains(userId))
-              _buildActionButton(
+              _button(
                 context,
-                ref,
-                label: 'clubs.slot.cancel_booking'.tr(),
-                color: Colors.red,
-                onPressed: () => _cancelBooking(context, ref, userId),
+                'clubs.slot.cancel_booking'.tr(),
+                Colors.red,
+                () => _cancelBooking(context, ref, slot, clubId, userId),
               )
             else
-              _buildActionButton(
+              _button(
                 context,
-                ref,
-                label: 'clubs.slot.book'.tr(),
-                color: Theme.of(context).colorScheme.primary,
-                onPressed: () => _bookSlot(context, ref, userId),
+                'clubs.slot.book'.tr(),
+                Theme.of(context).colorScheme.primary,
+                () => _bookSlot(context, ref, slot, clubId, userId),
               ),
           ],
         ),
@@ -94,103 +93,41 @@ class SlotBookingDialog extends ConsumerWidget {
     );
   }
 
-  Widget _buildInfoRow(IconData icon, String labelKey, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        children: [
-          Icon(icon, size: 20, color: Colors.grey.shade600),
-          const SizedBox(width: 12),
-          Text(labelKey.tr(), style: TextStyle(color: Colors.grey.shade600)),
-          const Spacer(),
-          Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
-        ],
-      ),
-    );
-  }
+  Widget _row(IconData icon, String labelKey, String value) => Padding(
+    padding: const EdgeInsets.symmetric(vertical: 8),
+    child: Row(
+      children: [
+        Icon(icon, size: 20, color: Colors.grey.shade600),
+        const SizedBox(width: 12),
+        Text(labelKey.tr(), style: TextStyle(color: Colors.grey.shade600)),
+        const Spacer(),
+        Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
+      ],
+    ),
+  );
 
-  Widget _buildActionButton(
+  Widget _button(
     BuildContext context,
-    WidgetRef ref, {
-    required String label,
-    required Color color,
-    required VoidCallback onPressed,
-  }) {
-    return SizedBox(
-      width: double.infinity,
-      height: 50,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: color,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-        child: Text(
-          label,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
+    String label,
+    Color color,
+    VoidCallback onPressed,
+  ) => SizedBox(
+    width: double.infinity,
+    height: 50,
+    child: ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
+      child: Text(
+        label,
+        style: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
         ),
       ),
-    );
-  }
-
-  Future<void> _bookSlot(
-    BuildContext context,
-    WidgetRef ref,
-    String? userId,
-  ) async {
-    if (userId == null) return;
-
-    Navigator.pop(context);
-    final bookingService = ref.read(clubBookingServiceProvider);
-    final result = await bookingService.bookSlot(
-      slotId: slot.id,
-      userId: userId,
-      clubId: clubId,
-    );
-
-    if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            result.isSuccess
-                ? 'clubs.slot.booking_confirmed'.tr()
-                : result.errorMessage ?? 'clubs.slot.booking_failed'.tr(),
-          ),
-          backgroundColor: result.isSuccess ? Colors.green : Colors.red,
-        ),
-      );
-    }
-  }
-
-  Future<void> _cancelBooking(
-    BuildContext context,
-    WidgetRef ref,
-    String userId,
-  ) async {
-    Navigator.pop(context);
-    final bookingService = ref.read(clubBookingServiceProvider);
-    final result = await bookingService.cancelBooking(
-      slotId: slot.id,
-      userId: userId,
-      clubId: clubId,
-    );
-
-    if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            result.isSuccess
-                ? 'Booking cancelled'
-                : result.errorMessage ?? 'Cancellation failed',
-          ),
-        ),
-      );
-    }
-  }
+    ),
+  );
 }

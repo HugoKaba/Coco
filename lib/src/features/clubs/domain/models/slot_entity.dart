@@ -1,20 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+part 'slot_entity_mapper.part.dart';
+
 enum SlotType {
   course,
   openPlay,
   event;
 
-  String get displayName {
-    switch (this) {
-      case SlotType.course:
-        return 'Course';
-      case SlotType.openPlay:
-        return 'Open Play';
-      case SlotType.event:
-        return 'Event';
-    }
-  }
+  String get displayName => switch (this) {
+    SlotType.course => 'Course',
+    SlotType.openPlay => 'Open Play',
+    SlotType.event => 'Event',
+  };
 }
 
 class SlotEntity {
@@ -55,20 +52,15 @@ class SlotEntity {
   });
 
   bool get isFull => participants.length >= maxParticipants;
-
   int get availableSpots => maxParticipants - participants.length;
-
   double get fillRate => participants.length / maxParticipants;
-
   bool get isUpcoming => startTime.isAfter(DateTime.now());
-
   bool get isOngoing {
     final now = DateTime.now();
     return now.isAfter(startTime) && now.isBefore(endTime);
   }
 
   bool get isPast => endTime.isBefore(DateTime.now());
-
   Duration get duration => endTime.difference(startTime);
 
   SlotEntity copyWith({
@@ -88,80 +80,27 @@ class SlotEntity {
     DateTime? createdAt,
     String? description,
     double? price,
-  }) {
-    return SlotEntity(
-      id: id ?? this.id,
-      clubId: clubId ?? this.clubId,
-      type: type ?? this.type,
-      startTime: startTime ?? this.startTime,
-      endTime: endTime ?? this.endTime,
-      maxParticipants: maxParticipants ?? this.maxParticipants,
-      participants: participants ?? this.participants,
-      level: level ?? this.level,
-      ageGroup: ageGroup ?? this.ageGroup,
-      courtNumber: courtNumber ?? this.courtNumber,
-      roomName: roomName ?? this.roomName,
-      isRecurring: isRecurring ?? this.isRecurring,
-      recurrencePattern: recurrencePattern ?? this.recurrencePattern,
-      createdAt: createdAt ?? this.createdAt,
-      description: description ?? this.description,
-      price: price ?? this.price,
-    );
-  }
+  }) => _slotCopyWith(
+    this,
+    id: id,
+    clubId: clubId,
+    type: type,
+    startTime: startTime,
+    endTime: endTime,
+    maxParticipants: maxParticipants,
+    participants: participants,
+    level: level,
+    ageGroup: ageGroup,
+    courtNumber: courtNumber,
+    roomName: roomName,
+    isRecurring: isRecurring,
+    recurrencePattern: recurrencePattern,
+    createdAt: createdAt,
+    description: description,
+    price: price,
+  );
 
-  factory SlotEntity.fromFirestore(DocumentSnapshot doc) {
-    final data = doc.data() as Map<String, dynamic>;
-
-    DateTime parseDate(dynamic val) {
-      if (val is Timestamp) return val.toDate();
-      if (val is String) return DateTime.tryParse(val) ?? DateTime.now();
-      return DateTime.now();
-    }
-
-    return SlotEntity(
-      id: doc.id,
-      clubId: data['clubId']?.toString() ?? '',
-      type: SlotType.values.firstWhere(
-        (e) => e.name == data['type'],
-        orElse: () => SlotType.openPlay,
-      ),
-      startTime: parseDate(data['startTime']),
-      endTime: parseDate(data['endTime']),
-      maxParticipants: (data['maxParticipants'] as num?)?.toInt() ?? 0,
-      participants:
-          (data['participants'] as List<dynamic>?)
-              ?.map((e) => e.toString())
-              .toList() ??
-          [],
-      level: data['level']?.toString(),
-      ageGroup: data['ageGroup']?.toString(),
-      courtNumber: (data['courtNumber'] as num?)?.toInt(),
-      roomName: data['roomName']?.toString(),
-      isRecurring: data['isRecurring'] as bool? ?? false,
-      recurrencePattern: data['recurrencePattern']?.toString(),
-      createdAt: parseDate(data['createdAt']),
-      description: data['description']?.toString(),
-      price: (data['price'] as num?)?.toDouble(),
-    );
-  }
-
-  Map<String, dynamic> toFirestore() {
-    return {
-      'clubId': clubId,
-      'type': type.name,
-      'startTime': Timestamp.fromDate(startTime),
-      'endTime': Timestamp.fromDate(endTime),
-      'maxParticipants': maxParticipants,
-      'participants': participants,
-      if (level != null) 'level': level,
-      if (ageGroup != null) 'ageGroup': ageGroup,
-      if (courtNumber != null) 'courtNumber': courtNumber,
-      if (roomName != null) 'roomName': roomName,
-      'isRecurring': isRecurring,
-      if (recurrencePattern != null) 'recurrencePattern': recurrencePattern,
-      'createdAt': Timestamp.fromDate(createdAt),
-      if (description != null) 'description': description,
-      if (price != null) 'price': price,
-    };
-  }
+  factory SlotEntity.fromFirestore(DocumentSnapshot doc) =>
+      _slotFromFirestore(doc);
+  Map<String, dynamic> toFirestore() => _slotToFirestore(this);
 }
