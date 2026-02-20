@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:coco/src/features/swap/swap_page.dart';
 import 'package:coco/src/features/home/presentation/main_shell.dart';
@@ -11,6 +11,9 @@ import 'features/settings/settings_page.dart';
 import 'features/filters/presentation/pages/filter_screen.dart';
 import 'features/events/presentation/pages/event_list_screen.dart';
 import 'features/auth/register_page.dart';
+import 'features/clubs/presentation/pages/club_discovery_screen.dart';
+import 'features/clubs/presentation/pages/subscription_selection_screen.dart';
+import 'features/clubs/presentation/pages/club_creation_screen.dart';
 
 final authChangeNotifierProvider = Provider<ChangeNotifier>((ref) {
   return AuthChangeNotifier(ref);
@@ -31,7 +34,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           .maybeWhen(data: (u) => u, orElse: () => null);
       final isSigningIn = state.matchedLocation == '/';
       final isRegistering = state.matchedLocation == '/register';
-      if (user == null && !isSigningIn && !isRegistering) return '/';
+      final isProfessionalSignup =
+          state.matchedLocation == '/professional-signup';
+
+      if (user == null &&
+          !isSigningIn &&
+          !isRegistering &&
+          !isProfessionalSignup) {
+        return '/';
+      }
       if (user != null && isSigningIn) return '/swipe';
       return null;
     },
@@ -46,6 +57,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               GoRoute(
                 path: '/events',
                 builder: (context, state) => const EventListScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/clubs',
+                builder: (context, state) => const ClubDiscoveryScreen(),
               ),
             ],
           ),
@@ -90,6 +109,28 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: '/register',
         builder: (context, state) => const RegisterPage(),
       ),
+      GoRoute(
+        parentNavigatorKey: _rootNavKey,
+        path: '/professional-signup',
+        builder: (context, state) => const _ProfessionalSignupFlow(),
+      ),
     ],
   );
 });
+
+class _ProfessionalSignupFlow extends StatelessWidget {
+  const _ProfessionalSignupFlow();
+
+  @override
+  Widget build(BuildContext context) {
+    return SubscriptionSelectionScreen(
+      onSubscriptionSelected: (type) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => ClubCreationScreen(subscriptionType: type),
+          ),
+        );
+      },
+    );
+  }
+}

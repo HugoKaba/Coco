@@ -61,7 +61,7 @@ class AvailabilitiesFilterSection extends ConsumerWidget {
             style: TextStyle(
               color: isSelected
                   ? const Color(0xFFD4913D)
-                  : Colors.white.withValues(alpha: 0.5),
+                  : Colors.white.withValues(alpha: 0.7),
               fontSize: 12,
               fontWeight: FontWeight.w500,
             ),

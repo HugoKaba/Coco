@@ -1,14 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../filters/domain/models/person_entity.dart';
+import 'package:flutter/material.dart';
+
 import '../../chats/presentation/pages/chat_screen.dart';
+import '../../filters/domain/models/person_entity.dart';
+
+part 'match_dialog_actions.part.dart';
 
 class MatchDialog extends StatelessWidget {
-  final PersonEntity person;
-
   const MatchDialog({super.key, required this.person});
+  final PersonEntity person;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class MatchDialog extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(32.0),
+          padding: const EdgeInsets.all(32),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -49,39 +51,31 @@ class MatchDialog extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    width: 120,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: const Color(0xFFD4913D),
-                        width: 4,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0xFFD4913D).withValues(alpha: 0.3),
-                          blurRadius: 15,
-                          spreadRadius: 2,
-                        ),
-                      ],
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: const Color(0xFFD4913D), width: 4),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFFD4913D).withValues(alpha: 0.3),
+                      blurRadius: 15,
+                      spreadRadius: 2,
                     ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(60),
-                      child: Image.network(
-                        person.profilePhotoUrl ?? '',
-                        fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => Container(
-                          color: Colors.grey[200],
-                          child: const Icon(Icons.person, size: 50),
-                        ),
-                      ),
+                  ],
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(60),
+                  child: Image.network(
+                    person.profilePhotoUrl ?? '',
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => Container(
+                      color: Colors.grey[200],
+                      child: const Icon(Icons.person, size: 50),
                     ),
                   ),
-                ],
+                ),
               ),
               const SizedBox(height: 24),
               Text(
@@ -98,53 +92,7 @@ class MatchDialog extends StatelessWidget {
                 width: double.infinity,
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: () async {
-                    final currentUserId =
-                        FirebaseAuth.instance.currentUser?.uid;
-                    if (currentUserId == null) {
-                      Navigator.of(context).pop();
-                      return;
-                    }
-
-                    try {
-                      final conversationsSnapshot = await FirebaseFirestore
-                          .instance
-                          .collection('conversations')
-                          .where('participantIds', arrayContains: currentUserId)
-                          .get();
-
-                      final conversation = conversationsSnapshot.docs
-                          .firstWhere((doc) {
-                            final data = doc.data();
-                            final participants = List<String>.from(
-                              data['participantIds'] ?? [],
-                            );
-                            return participants.contains(person.id) &&
-                                data['type'] == 'match';
-                          });
-
-                      if (context.mounted) {
-                        Navigator.of(context, rootNavigator: true).pop();
-                        await Future.delayed(const Duration(milliseconds: 100));
-
-                        if (context.mounted) {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ChatScreen(
-                                conversationId: conversation.id,
-                                currentUserId: currentUserId,
-                              ),
-                            ),
-                          );
-                        }
-                      }
-                    } catch (e) {
-                      if (context.mounted) {
-                        Navigator.of(context, rootNavigator: true).pop();
-                      }
-                    }
-                  },
+                  onPressed: () => _openChat(context, person),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFD4913D),
                     foregroundColor: Colors.white,

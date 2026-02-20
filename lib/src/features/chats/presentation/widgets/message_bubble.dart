@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:intl/intl.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../domain/models/message_entity.dart';
 
 class MessageBubble extends StatelessWidget {
@@ -18,28 +19,59 @@ class MessageBubble extends StatelessWidget {
             ? CrossAxisAlignment.end
             : CrossAxisAlignment.start,
         children: [
-          if (!isMe)
+          if (!isMe) ...[
             Padding(
-              padding: const EdgeInsets.only(left: 8, bottom: 4),
-              child: Container(
-                width: 28,
-                height: 28,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: const Color(0xFFD4913D).withValues(alpha: 0.2),
-                ),
-                child: const Icon(
-                  Icons.person,
-                  size: 16,
-                  color: Color(0xFFD4913D),
-                ),
+              padding: const EdgeInsets.only(
+                left: 44,
+                bottom: 2,
+              ), // Align with text
+              child: FutureBuilder<DocumentSnapshot>(
+                future: FirebaseFirestore.instance
+                    .collection('users_test')
+                    .doc(message.senderId)
+                    .get(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData && snapshot.data != null) {
+                    final data = snapshot.data!.data() as Map<String, dynamic>?;
+                    final name =
+                        data?['firstName'] ?? data?['username'] ?? 'User';
+                    return Text(
+                      name,
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: Colors.grey[600],
+                        fontWeight: FontWeight.bold,
+                      ),
+                    );
+                  }
+                  return const SizedBox();
+                },
               ),
             ),
+          ],
           Row(
             mainAxisAlignment: isMe
                 ? MainAxisAlignment.end
                 : MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end, // Align avatar bottom
             children: [
+              if (!isMe)
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: Container(
+                    width: 28,
+                    height: 28,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: const Color(0xFFD4913D).withValues(alpha: 0.2),
+                    ),
+                    child: const Icon(
+                      Icons.person,
+                      size: 16,
+                      color: Color(0xFFD4913D),
+                    ),
+                  ),
+                ),
               Flexible(
                 child: Container(
                   constraints: BoxConstraints(
