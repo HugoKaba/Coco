@@ -21,7 +21,7 @@ class MainShell extends StatelessWidget {
         ),
         activeColor: const Color(0xFFD4913D),
         showLabels: true,
-        margin: const EdgeInsets.fromLTRB(12, 0, 12, -10),
+        margin: const EdgeInsets.fromLTRB(12, 0, 12, 0),
         items: [
           LiquidGlassBottomBarItem(
             icon: Icons.grid_view_rounded,
