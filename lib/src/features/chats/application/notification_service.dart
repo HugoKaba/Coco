@@ -14,7 +14,7 @@ class NotificationService {
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       debugPrint('User granted notification permission');
       await _setupForegroundNotifications();
-      final token = await _fcm.getToken();
+      final token = await getToken();
       debugPrint('FCM Token: $token');
     } else {
       debugPrint('User declined notification permission');
@@ -38,7 +38,31 @@ class NotificationService {
   }
 
   Future<String?> getToken() async {
-    return await _fcm.getToken();
+    try {
+      if (defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.macOS) {
+        String? apnsToken;
+        int retries = 0;
+        while (apnsToken == null && retries < 3) {
+          try {
+            apnsToken = await _fcm.getAPNSToken();
+          } catch (e) {
+            debugPrint('Failed to get APNS token: $e');
+          }
+          if (apnsToken == null) {
+            await Future.delayed(const Duration(seconds: 1));
+            retries++;
+          }
+        }
+        if (apnsToken == null) {
+          debugPrint('APNS token is null after retries');
+          return null;
+        }
+      }
+      return await _fcm.getToken();
+    } catch (e) {
+      debugPrint('Failed to get FCM token: $e');
+      return null;
+    }
   }
 
   Future<void> subscribeToTopic(String topic) async {

@@ -23,6 +23,7 @@ class _EventListScreenState extends ConsumerState<EventListScreen> {
   }
 
   Future<void> _initLocation() async {
+    await Future.microtask(() {});
     final notifier = ref.read(eventFilterProvider.notifier);
     notifier.setDeviceLocation(48.8566, 2.3522);
     try {
