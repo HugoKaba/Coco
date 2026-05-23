@@ -219,17 +219,17 @@
 		"match_chat": "Match avec"
 	},
 	"clubs": {
-		"title": "Clubs",
-		"discover": "Découvrir des Clubs",
-		"my_clubs": "Mes Clubs",
-		"join": "Rejoindre le Club",
-		"leave_club": "Quitter le Club",
+		"title": "Associations",
+		"discover": "Découvrir des Assos",
+		"my_clubs": "Mes Assos",
+		"join": "Rejoindre l'Asso",
+		"leave_club": "Quitter l'Asso",
 		"book_slot": "Reserver un Créneau",
-		"create_club": "Créer un Club",
+		"create_club": "Créer une Asso",
 		"manage_slots": "Gérer les Créneaux",
 		"dashboard": "Tableau de Bord",
 		"members": "Membres",
-		"no_clubs_found": "Aucun club trouvé",
+		"no_clubs_found": "Aucune Asso trouvée",
 		"subscription": {
 			"select_plan": "Choisissez Votre Forfait",
 			"monthly": "Mensuel",
@@ -245,7 +245,7 @@
 			"custom_branding": "Personnalisation"
 		},
 		"create": {
-			"club_name": "Nom du Club",
+			"club_name": "Nom de l'Asso",
 			"sport_type": "Type de Sport",
 			"description": "Description",
 			"address": "Adresse",
@@ -259,7 +259,7 @@
 			"next": "Suivant",
 			"previous": "Précédent",
 			"finish": "Terminer",
-			"creating": "Création du club..."
+			"creating": "Création de l'Asso..."
 		},
 		"slot": {
 			"create": "Créer un Créneau",
