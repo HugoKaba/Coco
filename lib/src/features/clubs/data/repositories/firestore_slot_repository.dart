@@ -34,7 +34,7 @@ class FirestoreSlotRepository implements SlotRepository {
   Future<List<SlotEntity>> getUpcomingSlots(String clubId) async {
     final now = DateTime.now();
     final slots = await _loadAndSort(clubId);
-    return slots.where((s) => s.startTime.isAfter(now)).toList();
+    return slots.where((s) => s.endTime.isAfter(now)).toList();
   }
 
   @override

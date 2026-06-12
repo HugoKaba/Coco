@@ -54,7 +54,7 @@ class SlotEntity {
   bool get isFull => participants.length >= maxParticipants;
   int get availableSpots => maxParticipants - participants.length;
   double get fillRate => participants.length / maxParticipants;
-  bool get isUpcoming => startTime.isAfter(DateTime.now());
+  bool get isUpcoming => endTime.isAfter(DateTime.now());
   bool get isOngoing {
     final now = DateTime.now();
     return now.isAfter(startTime) && now.isBefore(endTime);

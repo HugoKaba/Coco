@@ -60,7 +60,7 @@ Stream<List<SlotEntity>> _watchUpcomingSlots(
         final now = DateTime.now();
         final slots = snap.docs
             .map(SlotEntity.fromFirestore)
-            .where((s) => s.startTime.isAfter(now))
+            .where((s) => s.endTime.isAfter(now))
             .toList();
         slots.sort((a, b) => a.startTime.compareTo(b.startTime));
         return slots;

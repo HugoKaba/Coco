@@ -2,7 +2,6 @@ import 'package:coco/src/core/providers.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:table_calendar/table_calendar.dart';
 import 'package:coco/src/features/clubs/presentation/widgets/club_slots_calendar.dart';
 
 import '../../application/club_providers.dart';
