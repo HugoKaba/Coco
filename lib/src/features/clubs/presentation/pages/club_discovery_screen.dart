@@ -2,8 +2,10 @@ import 'package:coco/src/core/city_service.dart';
 import 'package:coco/src/core/providers.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:latlong2/latlong.dart';
 
 import '../../application/club_providers.dart';
 import '../../domain/models/club_entity.dart';
@@ -31,11 +33,23 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
   List<ClubEntity> _clubs = [];
   bool _showOnlyMyClubs = false;
   bool _isLoading = false;
+  bool _isMapView = false;
+  bool _citiesLoaded = false;
+  final MapController _mapController = MapController();
 
   @override
   void initState() {
     super.initState();
+    CityService.instance.loadCities().then((_) {
+      if (mounted) setState(() => _citiesLoaded = true);
+    });
     _initializeLocation();
+  }
+
+  @override
+  void dispose() {
+    _mapController.dispose();
+    super.dispose();
   }
 
   Future<void> _initializeLocation() async {
@@ -47,9 +61,9 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
           deviceLng: position.longitude,
         ),
       );
-      if (!CityService.instance.isLoaded) {}
       _searchClubs();
     } catch (_) {
+      _searchClubs();
       if (mounted) {
         ScaffoldMessenger.of(
           context,
@@ -120,6 +134,11 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
         title: Text('clubs.discover'.tr()),
         actions: [
           IconButton(
+            icon: Icon(_isMapView ? Icons.list : Icons.map_outlined),
+            tooltip: _isMapView ? 'Vue liste' : 'Vue carte',
+            onPressed: () => setState(() => _isMapView = !_isMapView),
+          ),
+          IconButton(
             icon: const Icon(Icons.filter_list),
             onPressed: _showFilters,
           ),
@@ -128,7 +147,9 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
       body: Column(
         children: [
           _buildClubQuickFilters(this),
-          Expanded(child: _buildClubList(this)),
+          Expanded(
+            child: _isMapView ? _buildClubMap(this) : _buildClubList(this),
+          ),
         ],
       ),
     );
