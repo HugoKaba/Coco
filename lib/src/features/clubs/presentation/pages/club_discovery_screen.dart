@@ -14,6 +14,7 @@ import '../widgets/club_filters_sheet.dart';
 import 'club_detail_screen.dart';
 
 part 'club_discovery_screen_ui.part.dart';
+part 'club_discovery_screen_map.part.dart';
 
 class ClubDiscoveryScreen extends ConsumerStatefulWidget {
   const ClubDiscoveryScreen({super.key});
@@ -33,7 +34,7 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
   List<ClubEntity> _clubs = [];
   bool _showOnlyMyClubs = false;
   bool _isLoading = false;
-  bool _isMapView = false;
+  bool _isMapView = true;
   bool _citiesLoaded = false;
   final MapController _mapController = MapController();
 
@@ -135,7 +136,7 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
         actions: [
           IconButton(
             icon: Icon(_isMapView ? Icons.list : Icons.map_outlined),
-            tooltip: _isMapView ? 'Vue liste' : 'Vue carte',
+            tooltip: _isMapView ? 'clubs.view.list'.tr() : 'clubs.view.map'.tr(),
             onPressed: () => setState(() => _isMapView = !_isMapView),
           ),
           IconButton(

@@ -308,6 +308,13 @@
 			"distance": "Distance",
 			"rating": "Note",
 			"members": "Membres"
+		},
+		"map": {
+			"search_city_hint": "Rechercher une ville en Île-de-France..."
+		},
+		"view": {
+			"list": "Vue liste",
+			"map": "Vue carte"
 		}
 	}
 }
