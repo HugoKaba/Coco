@@ -2,22 +2,14 @@ part of 'club_detail_screen.dart';
 
 Widget _buildClubDetailSlotsTab(_ClubDetailScreenState s, String clubId) {
   final slotsAsync = s.ref.watch(upcomingSlotsProvider(clubId));
+
   return slotsAsync.when(
     data: (slots) {
       final list = slots.cast<SlotEntity>();
       if (list.isEmpty) {
         return Center(child: Text('clubs.schedule.no_slots'.tr()));
       }
-      return ListView.builder(
-        padding: const EdgeInsets.only(
-          left: 16,
-          right: 16,
-          top: 16,
-          bottom: 100,
-        ),
-        itemCount: list.length,
-        itemBuilder: (_, i) => _slotCard(s, list[i]),
-      );
+      return _SlotsWithCalendar(s: s, slots: list, clubId: clubId);
     },
     loading: () => const Center(child: CircularProgressIndicator()),
     error: (e, _) => Center(
@@ -26,11 +18,103 @@ Widget _buildClubDetailSlotsTab(_ClubDetailScreenState s, String clubId) {
   );
 }
 
+class _SlotsWithCalendar extends StatefulWidget {
+  final _ClubDetailScreenState s;
+  final List<SlotEntity> slots;
+  final String clubId;
+
+  const _SlotsWithCalendar({
+    required this.s,
+    required this.slots,
+    required this.clubId,
+  });
+
+  @override
+  State<_SlotsWithCalendar> createState() => _SlotsWithCalendarState();
+}
+
+class _SlotsWithCalendarState extends State<_SlotsWithCalendar>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surfaceContainerHighest,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: TabBar(
+            controller: _tabController,
+            indicator: BoxDecoration(
+              color: theme.colorScheme.primary,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            indicatorSize: TabBarIndicatorSize.tab,
+            dividerColor: Colors.transparent,
+            labelColor: Colors.white,
+            unselectedLabelColor: theme.colorScheme.onSurfaceVariant,
+            tabs: const [
+              Tab(
+                text: 'Créneaux',
+                icon: Icon(Icons.list_rounded, size: 18),
+                iconMargin: EdgeInsets.only(bottom: 2),
+              ),
+              Tab(
+                text: 'Calendrier',
+                icon: Icon(Icons.calendar_month_rounded, size: 18),
+                iconMargin: EdgeInsets.only(bottom: 2),
+              ),
+            ],
+          ),
+        ),
+
+        Expanded(
+          child: TabBarView(
+            controller: _tabController,
+            children: [
+              ListView.builder(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
+                itemCount: widget.slots.length,
+                itemBuilder: (_, i) => _slotCard(widget.s, widget.slots[i]),
+              ),
+
+              ClubSlotsCalendar(
+                slots: widget.slots,
+                clubId: widget.clubId,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+
 Widget _slotCard(_ClubDetailScreenState s, SlotEntity slot) {
   final user = s.ref.watch(authServiceProvider).currentUser;
   final isJoined = user != null && slot.participants.contains(user.uid);
+
   return Card(
-    color: isJoined ? Colors.green.withValues(alpha: 0.2) : null,
+    color: isJoined ? Colors.green.withOpacity(0.2) : null,
     margin: const EdgeInsets.only(bottom: 12),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
