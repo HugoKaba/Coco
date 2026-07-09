@@ -309,6 +309,13 @@
 			"distance": "Distance",
 			"rating": "Rating",
 			"members": "Members"
+		},
+		"map": {
+			"search_city_hint": "Search a city in Île-de-France..."
+		},
+		"view": {
+			"list": "List view",
+			"map": "Map view"
 		}
 	}
 }

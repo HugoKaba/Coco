@@ -8,7 +8,7 @@ Widget _buildClubQuickFilters(_ClubDiscoveryScreenState s) {
     child: Row(
       children: [
         FilterChip(
-          label: const Text('Mes Clubs'),
+          label: Text('clubs.my_clubs'.tr()),
           selected: s._showOnlyMyClubs,
           onSelected: (selected) {
             s.setState(() => s._showOnlyMyClubs = selected);
@@ -98,6 +98,15 @@ Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
                   height: 60,
                   fit: BoxFit.cover,
                   cacheWidth: 120,
+                  errorBuilder: (_, __, ___) => Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Theme.of(s.context).colorScheme.primary.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Icon(Icons.sports, color: Theme.of(s.context).colorScheme.primary),
+                  ),
                 ),
               )
             else
@@ -141,3 +150,4 @@ Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
     ),
   );
 }
+
