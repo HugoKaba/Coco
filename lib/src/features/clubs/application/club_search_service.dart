@@ -52,10 +52,10 @@ class ClubSearchService {
     return sports;
   }
 
-  Future<SportConfig> getSportConfig(String sportType) async {
+  Future<SportConfig> getSportConfig(String activityKey) async {
     try {
       final type = SportType.values.firstWhere(
-        (e) => e.name == ClubSportCatalog.normalizeKey(sportType),
+        (e) => e.name == ClubSportCatalog.normalizeKey(activityKey),
         orElse: () => SportType.other,
       );
       return SportConfig.forSport(type);

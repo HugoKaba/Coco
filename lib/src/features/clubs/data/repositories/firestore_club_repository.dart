@@ -42,8 +42,8 @@ class FirestoreClubRepository implements ClubRepository {
       final center = GeoFirePoint(GeoPoint(lat, lng));
       final snapshot = await _firestore
           .collection(_collection)
-          .where('isActive', isEqualTo: true)
-          .get();
+          .where('isActive', isEqualTo: true);
+      final snapshot = await query.get();
       final normalizedActivities = activities == null
           ? const <String>[]
           : ClubSportCatalog.normalizeKeys(activities);

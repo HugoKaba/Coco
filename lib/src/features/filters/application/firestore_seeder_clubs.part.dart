@@ -31,7 +31,7 @@ Future<void> _seedEvents(FirestoreSeederService s) async {
     final rawActivities = club['activities'];
     final sport = rawActivities is List && rawActivities.isNotEmpty
         ? ClubSportCatalog.labelFor(rawActivities.first.toString())
-        : ClubSportCatalog.labelFor(club['sportType']?.toString());
+        : 'Sport';
     final eventRef = s._firestore.collection('events').doc();
     final title = 'Grand Tournoi $sport #${i + 1}';
     final eventDate = DateTime.now().add(

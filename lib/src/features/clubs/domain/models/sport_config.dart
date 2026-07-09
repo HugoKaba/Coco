@@ -31,7 +31,7 @@ enum SportType {
 }
 
 class SportConfig {
-  final SportType sportType;
+  final SportType type;
   final bool supportsMultipleCourts;
   final bool supportsLevels;
   final bool supportsAgeGroups;
@@ -41,7 +41,7 @@ class SportConfig {
   final Map<String, dynamic> customFields;
 
   const SportConfig({
-    required this.sportType,
+    required this.type,
     required this.supportsMultipleCourts,
     required this.supportsLevels,
     required this.supportsAgeGroups,
@@ -55,7 +55,7 @@ class SportConfig {
     switch (type) {
       case SportType.tennis:
         return SportConfig(
-          sportType: type,
+          type: type,
           supportsMultipleCourts: true,
           supportsLevels: true,
           supportsAgeGroups: true,
@@ -70,7 +70,7 @@ class SportConfig {
 
       case SportType.gym:
         return SportConfig(
-          sportType: type,
+          type: type,
           supportsMultipleCourts: true,
           supportsLevels: true,
           supportsAgeGroups: true,
@@ -85,7 +85,7 @@ class SportConfig {
 
       case SportType.football:
         return SportConfig(
-          sportType: type,
+          type: type,
           supportsMultipleCourts: true,
           supportsLevels: true,
           supportsAgeGroups: true,
@@ -100,7 +100,7 @@ class SportConfig {
 
       case SportType.athletics:
         return SportConfig(
-          sportType: type,
+          type: type,
           supportsMultipleCourts: false,
           supportsLevels: true,
           supportsAgeGroups: true,
@@ -114,7 +114,7 @@ class SportConfig {
 
       default:
         return SportConfig(
-          sportType: type,
+          type: type,
           supportsMultipleCourts: false,
           supportsLevels: true,
           supportsAgeGroups: true,

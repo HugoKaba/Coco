@@ -22,18 +22,9 @@ class ClubSportCatalog {
     for (final value in values) {
       final key = normalizeKey(value);
       if (key.isEmpty) continue;
-      if (sports.any((sport) => sport.key == key)) {
-        normalized.add(key);
-      }
+      if (sports.any((sport) => sport.key == key)) normalized.add(key);
     }
     return normalized.toList()..sort();
-  }
-
-  static String ensureKnownKey(String value) {
-    final normalized = normalizeKey(value);
-    return sports.any((sport) => sport.key == normalized)
-        ? normalized
-        : defaultSportKey;
   }
 
   static List<String> ensureKnownKeys(Iterable<String> values) {
@@ -66,7 +57,6 @@ class ClubSportCatalog {
     Iterable<String> values, {
     String separator = ', ',
   }) {
-    final labels = labelsFor(values);
-    return labels.join(separator);
+    return labelsFor(values).join(separator);
   }
 }

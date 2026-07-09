@@ -60,7 +60,6 @@ class ClubEntity {
       ClubSportCatalog.normalizeKeys(activities);
   String get primaryActivity =>
       normalizedActivities.isNotEmpty ? normalizedActivities.first : '';
-  String get sportType => primaryActivity;
 
   ClubEntity copyWith({
     String? id,

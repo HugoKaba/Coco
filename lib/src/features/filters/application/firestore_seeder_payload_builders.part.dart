@@ -29,7 +29,6 @@ extension _SeederPayloadBuilders on FirestoreSeederService {
       'lng': lng,
       'geopoint': GeoPoint(lat, lng),
       'activities': activities,
-      'sportType': sportKey,
       'contactEmail': 'club$i@test.com',
       'contactPhone': '010203040$i',
       'logoUrl': 'https://api.dicebear.com/7.x/initials/png?seed=Club$i',
