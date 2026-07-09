@@ -70,6 +70,21 @@ ClubEntity _clubFromFirestore(DocumentSnapshot doc) {
     parseActivities(data['activities']),
   );
 
+  List<String> parseActivities(dynamic v) {
+    if (v is List) {
+      return v.map((e) => e.toString()).toList();
+    }
+    if (v is String && v.isNotEmpty) {
+      return [v];
+    }
+    return [];
+  }
+
+  final activities = ClubSportCatalog.ensureKnownKeys([
+    ...parseActivities(data['activities']),
+    ...parseActivities(data['sportType']),
+  ]);
+
   return ClubEntity(
     id: doc.id,
     ownerId: data['ownerId']?.toString() ?? '',

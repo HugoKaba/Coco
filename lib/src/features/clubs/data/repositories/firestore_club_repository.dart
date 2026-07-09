@@ -40,7 +40,7 @@ class FirestoreClubRepository implements ClubRepository {
   }) async {
     try {
       final center = GeoFirePoint(GeoPoint(lat, lng));
-      Query query = _firestore
+      final snapshot = await _firestore
           .collection(_collection)
           .where('isActive', isEqualTo: true);
       final snapshot = await query.get();

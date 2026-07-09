@@ -9,6 +9,7 @@ extension _SeederPayloadBuilders on FirestoreSeederService {
     double lng,
     Random random,
   ) {
+    final sportLabel = ClubSportCatalog.labelFor(sport);
     final sportKey = ClubSportCatalog.normalizeKey(sport);
     final extraActivities =
         ClubSportCatalog.sports.where((s) => s.key != sportKey).toList()
@@ -17,13 +18,11 @@ extension _SeederPayloadBuilders on FirestoreSeederService {
       sportKey,
       if (random.nextBool()) extraActivities.first.key,
     ]);
-
     return {
       'id': clubId,
       'ownerId': FirestoreSeederService.myUserId,
-      'name': 'Club ${ClubSportCatalog.labelFor(sport)} ${i + 1}',
-      'description':
-          'Un super club de ${ClubSportCatalog.labelFor(sport)} au coeur de Paris.',
+      'name': 'Club $sportLabel ${i + 1}',
+      'description': 'Un super club de $sportLabel au coeur de Paris.',
       'address': 'Rue de Paris $i',
       'city': 'Paris',
       'lat': lat,
