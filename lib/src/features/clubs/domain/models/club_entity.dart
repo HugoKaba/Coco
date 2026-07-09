@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'club_sport_catalog.dart';
 import 'opening_hours.dart';
 import 'subscription_tier.dart';
 
@@ -9,7 +10,7 @@ class ClubEntity {
   final String id;
   final String ownerId;
   final String name;
-  final String sportType;
+  final List<String> activities;
   final String description;
   final String address;
   final String city;
@@ -31,7 +32,7 @@ class ClubEntity {
     required this.id,
     required this.ownerId,
     required this.name,
-    required this.sportType,
+    required this.activities,
     required this.description,
     required this.address,
     required this.city,
@@ -55,12 +56,17 @@ class ClubEntity {
   int get subscriptionDaysRemaining => isSubscriptionActive
       ? subscriptionExpiresAt.difference(DateTime.now()).inDays
       : 0;
+  List<String> get normalizedActivities =>
+      ClubSportCatalog.normalizeKeys(activities);
+  String get primaryActivity =>
+      normalizedActivities.isNotEmpty ? normalizedActivities.first : '';
+  String get sportType => primaryActivity;
 
   ClubEntity copyWith({
     String? id,
     String? ownerId,
     String? name,
-    String? sportType,
+    List<String>? activities,
     String? description,
     String? address,
     String? city,
@@ -82,7 +88,7 @@ class ClubEntity {
     id: id,
     ownerId: ownerId,
     name: name,
-    sportType: sportType,
+    activities: activities,
     description: description,
     address: address,
     city: city,

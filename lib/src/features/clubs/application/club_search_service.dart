@@ -1,5 +1,6 @@
 import '../domain/repositories/club_repository.dart';
 import '../domain/models/club_entity.dart';
+import '../domain/models/club_sport_catalog.dart';
 import '../domain/models/sport_config.dart';
 
 class ClubSearchService {
@@ -12,14 +13,17 @@ class ClubSearchService {
     required double lat,
     required double lng,
     double radiusKm = 10.0,
-    String? sportType,
+    List<String>? activities,
     List<String>? levels,
   }) async {
+    final normalizedActivities = activities == null
+        ? const <String>[]
+        : ClubSportCatalog.normalizeKeys(activities);
     final clubs = await _clubRepository.searchClubsByLocation(
       lat: lat,
       lng: lng,
       radiusKm: radiusKm,
-      sportType: sportType,
+      activities: normalizedActivities,
     );
 
     return clubs.where((club) => club.isSubscriptionActive).toList()
@@ -40,15 +44,18 @@ class ClubSearchService {
 
   Future<List<String>> getAvailableSports() async {
     final clubs = await _clubRepository.getActiveClubs();
-    final sports = clubs.map((c) => c.sportType).toSet().toList();
-    sports.sort();
+    final sports = clubs.expand((c) => c.normalizedActivities).toSet().toList();
+    sports.sort(
+      (a, b) =>
+          ClubSportCatalog.labelFor(a).compareTo(ClubSportCatalog.labelFor(b)),
+    );
     return sports;
   }
 
   Future<SportConfig> getSportConfig(String sportType) async {
     try {
       final type = SportType.values.firstWhere(
-        (e) => e.name == sportType.toLowerCase(),
+        (e) => e.name == ClubSportCatalog.normalizeKey(sportType),
         orElse: () => SportType.other,
       );
       return SportConfig.forSport(type);

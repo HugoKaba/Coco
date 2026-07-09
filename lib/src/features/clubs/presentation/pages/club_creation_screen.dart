@@ -1,4 +1,5 @@
 import 'package:coco/src/features/clubs/domain/models/subscription_tier.dart';
+import 'package:coco/src/features/clubs/domain/models/club_sport_catalog.dart';
 import 'package:coco/src/features/clubs/presentation/widgets/club_creation/club_creation_account_step.dart';
 import 'package:coco/src/features/clubs/presentation/widgets/club_creation/club_creation_info_step.dart';
 import 'package:coco/src/features/clubs/presentation/widgets/club_creation/club_creation_navigation_bar.dart';
@@ -31,7 +32,7 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
   final _address = TextEditingController();
   final _phone = TextEditingController();
   int _step = 0;
-  String _sportType = 'tennis';
+  List<String> _activities = const [ClubSportCatalog.defaultSportKey];
   bool _citiesLoaded = false;
   bool _isLoading = false;
 
@@ -90,14 +91,18 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
             cityController: _city,
             addressController: _address,
             phoneController: _phone,
-            sportType: _sportType,
-            onSportChanged: (v) => setState(() => _sportType = v),
+            activities: _activities,
+            onActivitiesChanged: (v) => setState(
+              () => _activities = v.isEmpty
+                  ? const [ClubSportCatalog.defaultSportKey]
+                  : v,
+            ),
             citiesLoaded: _citiesLoaded,
           ),
           ClubCreationReviewStep(
             email: _email.text,
             clubName: _clubName.text,
-            sportType: _sportType,
+            activities: _activities,
             city: _city.text,
             address: _address.text,
             phone: _phone.text,
