@@ -6,9 +6,9 @@ import 'package:coco/src/features/clubs/presentation/widgets/club_slots_calendar
 
 import '../../application/club_providers.dart';
 import '../../domain/models/club_entity.dart';
+import '../../domain/models/club_sport_catalog.dart';
 import '../../domain/models/slot_entity.dart';
 import '../widgets/slot_booking_dialog.dart';
-
 
 part 'club_detail_screen_sections.part.dart';
 part 'club_detail_screen_info.part.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:coco/src/features/clubs/domain/models/subscription_tier.dart';
+import 'package:coco/src/features/clubs/domain/models/club_sport_catalog.dart';
 
 import 'club_creation_style.dart';
 
@@ -8,7 +9,7 @@ class ClubCreationReviewStep extends StatelessWidget {
     super.key,
     required this.email,
     required this.clubName,
-    required this.sportType,
+    required this.activities,
     required this.city,
     required this.address,
     required this.phone,
@@ -17,7 +18,7 @@ class ClubCreationReviewStep extends StatelessWidget {
 
   final String email;
   final String clubName;
-  final String sportType;
+  final List<String> activities;
   final String city;
   final String address;
   final String phone;
@@ -46,7 +47,11 @@ class ClubCreationReviewStep extends StatelessWidget {
           const SizedBox(height: 16),
           _section(context, 'Club', [
             _item(context, 'Nom', clubName),
-            _item(context, 'Sport', sportType),
+            _item(
+              context,
+              'Activités',
+              ClubSportCatalog.labelsTextFor(activities),
+            ),
             _item(context, 'Ville', city),
             _item(context, 'Adresse', address),
             if (phone.isNotEmpty) _item(context, 'Téléphone', phone),

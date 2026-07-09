@@ -10,6 +10,7 @@ import 'package:latlong2/latlong.dart';
 import '../../application/club_providers.dart';
 import '../../domain/models/club_entity.dart';
 import '../../domain/models/club_filter_criteria.dart';
+import '../../domain/models/club_sport_catalog.dart';
 import '../widgets/club_filters_sheet.dart';
 import 'club_detail_screen.dart';
 
@@ -152,9 +153,9 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
             lat: searchLat,
             lng: searchLng,
             radiusKm: _filters.radiusKm,
-            sportType: _filters.selectedSports.isEmpty
+            activities: _filters.selectedSports.isEmpty
                 ? null
-                : _filters.selectedSports.first,
+                : ClubSportCatalog.normalizeKeys(_filters.selectedSports),
           );
       setState(() {
         _clubs = results;
@@ -180,7 +181,9 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
         actions: [
           IconButton(
             icon: Icon(_isMapView ? Icons.list : Icons.map_outlined),
-            tooltip: _isMapView ? 'clubs.view.list'.tr() : 'clubs.view.map'.tr(),
+            tooltip: _isMapView
+                ? 'clubs.view.list'.tr()
+                : 'clubs.view.map'.tr(),
             onPressed: () => setState(() => _isMapView = !_isMapView),
           ),
           IconButton(

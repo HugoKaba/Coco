@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../../clubs/domain/models/club_sport_catalog.dart';
 import 'firestore_seeder_payloads.dart';
 
 part 'firestore_seeder_clubs.part.dart';

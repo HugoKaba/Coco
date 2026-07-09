@@ -3,6 +3,7 @@ String? clubCreationStepError({
   required String email,
   required String password,
   required String clubName,
+  required List<String> activities,
   required String description,
   required String city,
   required String address,
@@ -15,6 +16,7 @@ String? clubCreationStepError({
 
   if (step == 1) {
     if (clubName.isEmpty ||
+        activities.isEmpty ||
         description.isEmpty ||
         city.isEmpty ||
         address.isEmpty) {

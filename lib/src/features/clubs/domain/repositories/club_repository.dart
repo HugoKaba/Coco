@@ -11,7 +11,7 @@ abstract class ClubRepository {
     required double lat,
     required double lng,
     required double radiusKm,
-    String? sportType,
+    List<String>? activities,
   });
 
   Future<String> createClub(ClubEntity club);
