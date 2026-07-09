@@ -54,7 +54,7 @@ Widget _buildClubDetailHeader(_ClubDetailScreenState s, ClubEntity club) {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    club.sportType,
+                    ClubSportCatalog.labelsTextFor(club.activities),
                     style: TextStyle(
                       color: Theme.of(s.context).colorScheme.onSurfaceVariant,
                       fontSize: 16,

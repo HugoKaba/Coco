@@ -5,7 +5,7 @@ ClubEntity _clubCopyWith(
   String? id,
   String? ownerId,
   String? name,
-  String? sportType,
+  List<String>? activities,
   String? description,
   String? address,
   String? city,
@@ -27,7 +27,7 @@ ClubEntity _clubCopyWith(
     id: id ?? c.id,
     ownerId: ownerId ?? c.ownerId,
     name: name ?? c.name,
-    sportType: sportType ?? c.sportType,
+    activities: activities ?? c.activities,
     description: description ?? c.description,
     address: address ?? c.address,
     city: city ?? c.city,
@@ -61,11 +61,26 @@ ClubEntity _clubFromFirestore(DocumentSnapshot doc) {
         )
       : {};
 
+  List<String> parseActivities(dynamic v) {
+    if (v is List) {
+      return v.map((e) => e.toString()).toList();
+    }
+    if (v is String && v.isNotEmpty) {
+      return [v];
+    }
+    return [];
+  }
+
+  final activities = ClubSportCatalog.ensureKnownKeys([
+    ...parseActivities(data['activities']),
+    ...parseActivities(data['sportType']),
+  ]);
+
   return ClubEntity(
     id: doc.id,
     ownerId: data['ownerId']?.toString() ?? '',
     name: data['name']?.toString() ?? '',
-    sportType: data['sportType']?.toString() ?? '',
+    activities: activities,
     description: data['description']?.toString() ?? '',
     address: data['address']?.toString() ?? '',
     city: data['city']?.toString() ?? '',
@@ -95,7 +110,8 @@ ClubEntity _clubFromFirestore(DocumentSnapshot doc) {
 Map<String, dynamic> _clubToFirestore(ClubEntity c) => {
   'ownerId': c.ownerId,
   'name': c.name,
-  'sportType': c.sportType,
+  'activities': c.normalizedActivities,
+  'sportType': c.primaryActivity,
   'description': c.description,
   'address': c.address,
   'city': c.city,

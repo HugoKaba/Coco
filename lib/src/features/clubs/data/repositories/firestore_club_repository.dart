@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
 import '../../domain/repositories/club_repository.dart';
 import '../../domain/models/club_entity.dart';
+import '../../domain/models/club_sport_catalog.dart';
 
 class FirestoreClubRepository implements ClubRepository {
   final FirebaseFirestore _firestore;
@@ -35,24 +36,28 @@ class FirestoreClubRepository implements ClubRepository {
     required double lat,
     required double lng,
     required double radiusKm,
-    String? sportType,
+    List<String>? activities,
   }) async {
     try {
       final center = GeoFirePoint(GeoPoint(lat, lng));
-      Query query = _firestore
+      final snapshot = await _firestore
           .collection(_collection)
-          .where('isActive', isEqualTo: true);
-
-      if (sportType != null) {
-        query = query.where('sportType', isEqualTo: sportType);
-      }
-
-      final snapshot = await query.get();
+          .where('isActive', isEqualTo: true)
+          .get();
+      final normalizedActivities = activities == null
+          ? const <String>[]
+          : ClubSportCatalog.normalizeKeys(activities);
       final clubs = snapshot.docs
           .map((doc) => ClubEntity.fromFirestore(doc))
           .toList();
 
       return clubs.where((club) {
+        if (normalizedActivities.isNotEmpty &&
+            club.normalizedActivities.every(
+              (activity) => !normalizedActivities.contains(activity),
+            )) {
+          return false;
+        }
         final clubGeoPoint = GeoPoint(club.lat, club.lng);
         final distance = center.distanceBetweenInKm(geopoint: clubGeoPoint);
         return distance <= radiusKm;

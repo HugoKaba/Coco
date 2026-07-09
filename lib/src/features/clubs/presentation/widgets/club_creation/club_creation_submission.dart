@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:coco/src/core/city_service.dart';
 import 'package:coco/src/features/clubs/application/club_providers.dart';
+import 'package:coco/src/features/clubs/domain/models/club_sport_catalog.dart';
 import 'package:coco/src/features/clubs/domain/models/club_entity.dart';
 import 'package:coco/src/features/clubs/domain/models/opening_hours.dart';
 import 'package:coco/src/features/clubs/domain/models/subscription_tier.dart';
@@ -12,7 +13,7 @@ Future<void> submitClubCreation({
   required String email,
   required String password,
   required String clubName,
-  required String sportType,
+  required List<String> activities,
   required String description,
   required String address,
   required String cityName,
@@ -31,12 +32,13 @@ Future<void> submitClubCreation({
   final expiresAt = subscriptionType == SubscriptionType.monthly
       ? now.add(const Duration(days: 30))
       : now.add(const Duration(days: 365));
+  final normalizedActivities = ClubSportCatalog.ensureKnownKeys(activities);
 
   final club = ClubEntity(
     id: '',
     ownerId: userId,
     name: clubName,
-    sportType: sportType,
+    activities: normalizedActivities,
     description: description,
     address: address,
     city: cityName,

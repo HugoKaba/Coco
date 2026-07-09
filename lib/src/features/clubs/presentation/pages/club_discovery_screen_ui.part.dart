@@ -17,22 +17,25 @@ Widget _buildClubQuickFilters(_ClubDiscoveryScreenState s) {
           avatar: s._showOnlyMyClubs ? const Icon(Icons.check, size: 16) : null,
         ),
         const SizedBox(width: 8),
-        ...['Tennis', 'Padel', 'Football', 'Badminton'].map((sport) {
-          final isSelected = s._filters.selectedSports.contains(sport);
+        ...ClubSportCatalog.sports.map((sport) {
+          final isSelected = s._filters.selectedSports.any(
+            (value) => ClubSportCatalog.normalizeKey(value) == sport.key,
+          );
           return Padding(
             padding: const EdgeInsets.only(right: 8),
             child: FilterChip(
-              label: Text(sport),
+              label: Text(sport.label),
               selected: isSelected,
               onSelected: (selected) {
                 s.setState(() {
                   final sports = Set<String>.from(s._filters.selectedSports);
                   if (selected) {
-                    sports
-                      ..clear()
-                      ..add(sport);
+                    sports.add(sport.key);
                   } else {
-                    sports.remove(sport);
+                    sports.removeWhere(
+                      (value) =>
+                          ClubSportCatalog.normalizeKey(value) == sport.key,
+                    );
                   }
                   s._filters = s._filters.copyWith(selectedSports: sports);
                 });
@@ -109,10 +112,15 @@ Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
                     width: 60,
                     height: 60,
                     decoration: BoxDecoration(
-                      color: Theme.of(s.context).colorScheme.primary.withValues(alpha: 0.1),
+                      color: Theme.of(
+                        s.context,
+                      ).colorScheme.primary.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Icon(Icons.sports, color: Theme.of(s.context).colorScheme.primary),
+                    child: Icon(
+                      Icons.sports,
+                      color: Theme.of(s.context).colorScheme.primary,
+                    ),
                   ),
                 ),
               )
@@ -145,7 +153,7 @@ Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    club.sportType,
+                    ClubSportCatalog.labelsTextFor(club.activities),
                     style: TextStyle(
                       color: Theme.of(s.context).colorScheme.onSurfaceVariant,
                       fontSize: 14,
@@ -160,4 +168,3 @@ Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
     ),
   );
 }
-

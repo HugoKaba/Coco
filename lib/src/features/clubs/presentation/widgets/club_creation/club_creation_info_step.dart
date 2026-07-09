@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:coco/src/features/auth/widget/dark_text_field.dart';
 import 'package:coco/src/features/auth/widget/input_label.dart';
 
+import '../../../domain/models/club_sport_catalog.dart';
 import 'club_creation_style.dart';
 import 'club_creation_city_autocomplete.dart';
 
@@ -13,8 +14,8 @@ class ClubCreationInfoStep extends StatelessWidget {
     required this.cityController,
     required this.addressController,
     required this.phoneController,
-    required this.sportType,
-    required this.onSportChanged,
+    required this.activities,
+    required this.onActivitiesChanged,
     required this.citiesLoaded,
   });
 
@@ -23,8 +24,8 @@ class ClubCreationInfoStep extends StatelessWidget {
   final TextEditingController cityController;
   final TextEditingController addressController;
   final TextEditingController phoneController;
-  final String sportType;
-  final ValueChanged<String> onSportChanged;
+  final List<String> activities;
+  final ValueChanged<List<String>> onActivitiesChanged;
   final bool citiesLoaded;
 
   @override
@@ -52,8 +53,8 @@ class ClubCreationInfoStep extends StatelessWidget {
             innerShadow: shadow,
           ),
           const SizedBox(height: 20),
-          const InputLabel(label: 'Sport'),
-          clubCreationDecoratedField(context, _sportDropdown(context)),
+          const InputLabel(label: 'Activités'),
+          clubCreationDecoratedField(context, _activitySelector(context)),
           const SizedBox(height: 20),
           const InputLabel(label: 'Description'),
           DarkTextField(
@@ -94,27 +95,30 @@ class ClubCreationInfoStep extends StatelessWidget {
     );
   }
 
-  Widget _sportDropdown(BuildContext context) {
-    const sports = ['tennis', 'gym', 'football', 'athletics'];
-    return DropdownButtonFormField<String>(
-      initialValue: sportType,
-      dropdownColor: ClubCreationStyle.field(context),
-      decoration: const InputDecoration(
-        border: InputBorder.none,
-        contentPadding: EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+  Widget _activitySelector(BuildContext context) {
+    final selectedActivities = ClubSportCatalog.ensureKnownKeys(activities);
+    return Padding(
+      padding: const EdgeInsets.all(4),
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: ClubSportCatalog.sports.map((sport) {
+          final isSelected = selectedActivities.contains(sport.key);
+          return FilterChip(
+            label: Text(sport.label),
+            selected: isSelected,
+            onSelected: (_) {
+              final updated = List<String>.from(selectedActivities);
+              if (isSelected) {
+                updated.remove(sport.key);
+              } else {
+                updated.add(sport.key);
+              }
+              onActivitiesChanged(updated);
+            },
+          );
+        }).toList(),
       ),
-      style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
-      items: sports
-          .map(
-            (s) => DropdownMenuItem(
-              value: s,
-              child: Text(s[0].toUpperCase() + s.substring(1)),
-            ),
-          )
-          .toList(),
-      onChanged: (value) {
-        if (value != null) onSportChanged(value);
-      },
     );
   }
 }
