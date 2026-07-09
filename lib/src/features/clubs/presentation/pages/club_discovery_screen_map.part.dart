@@ -66,6 +66,16 @@ Widget _buildClubMap(_ClubDiscoveryScreenState s) {
         right: 16,
         child: _buildCitySearchBar(s),
       ),
+      Positioned(
+        right: 16,
+        bottom: 24,
+        child: FloatingActionButton.small(
+          heroTag: 'club_locate_me',
+          onPressed: s._locateMe,
+          tooltip: 'clubs.map.locate_me'.tr(),
+          child: const Icon(Icons.my_location),
+        ),
+      ),
       if (s._isLoading) const Center(child: CircularProgressIndicator()),
     ],
   );

@@ -6,27 +6,32 @@ class ConversationEmptyState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.chat_bubble_outline, size: 80, color: Colors.grey[400]),
+            Icon(
+              Icons.chat_bubble_outline,
+              size: 80,
+              color: cs.onSurfaceVariant,
+            ),
             const SizedBox(height: 24),
             Text(
               tr('chats.no_conversations'),
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.grey[800],
+                color: cs.onSurface,
               ),
             ),
             const SizedBox(height: 12),
             Text(
               tr('chats.no_conversations_hint'),
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+              style: TextStyle(fontSize: 16, color: cs.onSurfaceVariant),
             ),
           ],
         ),

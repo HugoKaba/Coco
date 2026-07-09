@@ -20,8 +20,8 @@ class AvailabilitiesFilterSection extends ConsumerWidget {
       children: [
         Text(
           tr('filters.availabilities'),
-          style: const TextStyle(
-            color: Colors.white,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurface,
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
@@ -61,7 +61,7 @@ class AvailabilitiesFilterSection extends ConsumerWidget {
             style: TextStyle(
               color: isSelected
                   ? const Color(0xFFD4913D)
-                  : Colors.white.withValues(alpha: 0.7),
+                  : Theme.of(context).colorScheme.onSurfaceVariant,
               fontSize: 12,
               fontWeight: FontWeight.w500,
             ),

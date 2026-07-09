@@ -16,7 +16,7 @@ Widget _planCard(
       duration: const Duration(milliseconds: 200),
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: _SubscriptionSelectionScreenState._field,
+        color: Theme.of(s.context).colorScheme.surfaceContainer,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: isSelected
@@ -33,8 +33,8 @@ Widget _planCard(
             children: [
               Text(
                 type == SubscriptionType.monthly ? 'Mensuel' : 'Annuel',
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: Theme.of(s.context).colorScheme.onSurface,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
@@ -67,8 +67,8 @@ Widget _planCard(
             children: [
               Text(
                 '€${price.toStringAsFixed(0)}',
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: Theme.of(s.context).colorScheme.onSurface,
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
                 ),
@@ -76,27 +76,36 @@ Widget _planCard(
               const SizedBox(width: 8),
               Text(
                 period,
-                style: const TextStyle(fontSize: 18, color: Colors.white54),
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Theme.of(s.context).colorScheme.onSurfaceVariant,
+                ),
               ),
             ],
           ),
           const SizedBox(height: 16),
-          _feature('Créneaux illimités'),
-          _feature('Accès chat participants'),
-          _feature('Statistiques en temps réel'),
+          _feature(s.context, 'Créneaux illimités'),
+          _feature(s.context, 'Accès chat participants'),
+          _feature(s.context, 'Statistiques en temps réel'),
         ],
       ),
     ),
   );
 }
 
-Widget _feature(String text) => Padding(
+Widget _feature(BuildContext context, String text) => Padding(
   padding: const EdgeInsets.only(bottom: 8),
   child: Row(
     children: [
       const Icon(Icons.check_circle, color: Color(0xFF4CAF50), size: 20),
       const SizedBox(width: 12),
-      Text(text, style: const TextStyle(color: Colors.white70, fontSize: 14)),
+      Text(
+        text,
+        style: TextStyle(
+          color: Theme.of(context).colorScheme.onSurfaceVariant,
+          fontSize: 14,
+        ),
+      ),
     ],
   ),
 );

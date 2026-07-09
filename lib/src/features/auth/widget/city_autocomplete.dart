@@ -61,10 +61,14 @@ class CityAutocomplete extends StatelessWidget {
               return TextFormField(
                 controller: fieldTextEditingController,
                 focusNode: focusNode,
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
                 decoration: InputDecoration(
                   hintText: tr('register.city'),
-                  hintStyle: TextStyle(color: Colors.white54),
+                  hintStyle: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.symmetric(
                     horizontal: 18,
@@ -85,7 +89,7 @@ class CityAutocomplete extends StatelessWidget {
           return Align(
             alignment: Alignment.topLeft,
             child: Material(
-              color: const Color(0xFF1F1F1F),
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(12),
               elevation: 4.0,
               child: ConstrainedBox(
@@ -105,7 +109,7 @@ class CityAutocomplete extends StatelessWidget {
                         decoration: BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                              color: Colors.white.withValues(alpha: 0.1),
+                              color: Theme.of(context).dividerColor,
                               width: 0.5,
                             ),
                           ),
@@ -115,8 +119,8 @@ class CityAutocomplete extends StatelessWidget {
                           children: [
                             Text(
                               option.nomStandard,
-                              style: const TextStyle(
-                                color: Colors.white,
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.onSurface,
                                 fontSize: 14,
                               ),
                             ),
@@ -124,7 +128,9 @@ class CityAutocomplete extends StatelessWidget {
                               Text(
                                 option.zipCodes.join(', '),
                                 style: TextStyle(
-                                  color: Colors.white.withValues(alpha: 0.6),
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.onSurfaceVariant,
                                   fontSize: 12,
                                 ),
                               ),

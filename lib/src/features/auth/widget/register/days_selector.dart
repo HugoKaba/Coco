@@ -40,10 +40,14 @@ class DaysSelector extends StatelessWidget {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: isSelected ? accentColor : const Color(0xFF2C2C2C),
+              color: isSelected
+                  ? accentColor
+                  : Theme.of(context).colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
-                color: isSelected ? accentColor : Colors.white10,
+                color: isSelected
+                    ? accentColor
+                    : Theme.of(context).dividerColor,
                 width: 1,
               ),
             ),
@@ -51,7 +55,9 @@ class DaysSelector extends StatelessWidget {
             child: Text(
               tr(dayShortKey),
               style: TextStyle(
-                color: isSelected ? Colors.black : Colors.white70,
+                color: isSelected
+                    ? Colors.black
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
                 fontWeight: FontWeight.bold,
                 fontSize: 12,
               ),

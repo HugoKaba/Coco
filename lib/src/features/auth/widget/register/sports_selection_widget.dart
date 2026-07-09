@@ -42,7 +42,7 @@ class _SportsSelectionWidgetState extends State<SportsSelectionWidget> {
     final sportName = ReferenceTables.getSportName(sportId);
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF1E1E1E),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       builder: (context) {
         return Container(
           padding: const EdgeInsets.all(16),
@@ -51,8 +51,8 @@ class _SportsSelectionWidgetState extends State<SportsSelectionWidget> {
             children: [
               Text(
                 '${tr('common.level')} - ${tr(sportName)}',
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurface,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -63,7 +63,9 @@ class _SportsSelectionWidgetState extends State<SportsSelectionWidget> {
                 return ListTile(
                   title: Text(
                     tr(levelKey),
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
                   ),
                   onTap: () {
                     final index = widget.selectedSports.indexWhere(
@@ -120,11 +122,13 @@ class _SportsSelectionWidgetState extends State<SportsSelectionWidget> {
               ),
               selected: isSelected,
               onSelected: (_) => _toggleSport(sportId, levelIds),
-              backgroundColor: const Color(0xFF2C2C2C),
+              backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
               selectedColor: const Color(0xFFF2A33A),
               checkmarkColor: Colors.black,
               labelStyle: TextStyle(
-                color: isSelected ? Colors.black : Colors.white,
+                color: isSelected
+                    ? Colors.black
+                    : Theme.of(context).colorScheme.onSurface,
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),

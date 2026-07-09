@@ -42,7 +42,7 @@ class StepLifestyle extends StatelessWidget {
           Text(
             tr('register.description'),
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.white70,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -58,7 +58,7 @@ class StepLifestyle extends StatelessWidget {
           Text(
             tr('register.sport_category'),
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.white70,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -71,7 +71,7 @@ class StepLifestyle extends StatelessWidget {
           Text(
             tr('register.activity_frequency'),
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.white70,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -85,7 +85,7 @@ class StepLifestyle extends StatelessWidget {
           Text(
             tr('register.daily_preference'),
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.white70,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               fontWeight: FontWeight.w500,
             ),
           ),

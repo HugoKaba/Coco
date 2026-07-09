@@ -42,7 +42,7 @@ class StepProfileCompletion extends StatelessWidget {
   Widget _sectionTitle(BuildContext context, String text) => Text(
     text,
     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-      color: Colors.white70,
+      color: Theme.of(context).colorScheme.onSurfaceVariant,
       fontWeight: FontWeight.w600,
     ),
   );

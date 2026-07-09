@@ -1,8 +1,19 @@
 # Sportlinker
 
-Sportlinker is a Flutter mobile app demo with Firebase Authentication (Google + Email/Password), Riverpod state management and GoRouter navigation. It includes basic localization (English/French), theme switching (dark/light) and preference persistence using SharedPreferences.
+Sportlinker (package `coco`) is a Flutter mobile app for connecting people around sport: profile matching (swipe), events, group chats, and sport clubs with map-based discovery. It uses Firebase (Auth, Firestore, Storage, Messaging, Cloud Functions), Riverpod state management, GoRouter navigation, and Stripe for paid club course bookings.
 
-This README covers how to setup, run and extend the project.
+This README covers how to set up, run and extend the project.
+
+## Features
+
+- **Auth** — Google Sign-In + Email/Password (Firebase Auth)
+- **Swipe & matching** — profile discovery with geolocation-based filters
+- **Events** — create and join sport events
+- **Chats** — 1:1 (matches) and group (events) messaging
+- **Clubs** — discovery on an interactive **map** (flutter_map / OpenStreetMap), club pages, bookable slots/courses
+- **Payments** — pay for club course slots with **Stripe** (PaymentSheet + Cloud Function)
+- **Theme** — System / Light / Dark, follows the device by default
+- **i18n** — English / French (easy_localization), preferences persisted (SharedPreferences)
 
 ## Quick start
 
@@ -10,26 +21,38 @@ Prerequisites
 
 - Flutter SDK (stable) installed and on PATH
 - Android Studio / Xcode for device simulators
-- A Firebase project configured for iOS and Android (GoogleService-Info.plist and google-services.json)
+- A Firebase project configured for iOS and Android (`GoogleService-Info.plist` and `google-services.json`)
 
-Install deps
+Install deps and run:
 
 ```bash
 flutter pub get
-```
-
-Run on an emulator or device
-
-```bash
 flutter run
 ```
 
-If you change native iOS files (Info.plist, plist keys) do a full rebuild:
+If you change native iOS files (Info.plist, pods) do a full rebuild:
 
 ```bash
-flutter clean
-flutter run
+flutter clean && flutter run
 ```
+
+## Maps & Geolocation
+
+- Club discovery renders an interactive map with **`flutter_map`** and free **OpenStreetMap** tiles (no Google Maps API key required).
+- Device location via **`geolocator`**; nearby queries are helped by **`geoflutterfire_plus`**, address lookups by **`geocoding`**.
+- A **"locate me"** button on the map recenters on the user's position ("around me" mode). Location calls use an 8s timeout so the UI never hangs when location is off/denied/unavailable.
+- iOS needs `NSLocationWhenInUseUsageDescription` in `ios/Runner/Info.plist` (already set). On the iOS **simulator**, set a location first (Features → Location, or `xcrun simctl location <device> set <lat>,<lng>`) or `getCurrentPosition` returns nothing.
+
+## Payments (Stripe)
+
+Paid club course slots are charged via Stripe using a server-side PaymentIntent (the secret key never reaches the app):
+
+- **Client**: `flutter_stripe` PaymentSheet, wired in `lib/src/features/clubs/application/stripe_payment_service.dart`. Publishable key in `lib/src/core/config/stripe_config.dart`.
+- **Backend**: Cloud Function `createPaymentIntent` (`functions/index.js`, region `europe-west1`) reads the slot price from Firestore and creates the PaymentIntent. The Stripe **secret key** lives in Google Secret Manager (`STRIPE_SECRET_KEY`).
+- **Local vs deployed**: toggle `kUseFirebaseEmulators` in `lib/src/core/config/dev_config.dart`.
+  - `true` → Firebase emulators: `firebase emulators:start --only auth,firestore,functions` (secret read from `functions/.secret.local`, which is gitignored).
+  - `false` → the deployed backend.
+- Deploy: `firebase deploy --only functions`. Test card: `4242 4242 4242 4242`, any future expiry / CVC.
 
 ## Firebase / Google Sign-In notes
 
@@ -45,24 +68,16 @@ flutter run
 
 - This project uses `easy_localization` with JSON translation files under `assets/langs/`.
 - Files: `assets/langs/en.json` and `assets/langs/fr.json`.
-- Keys are grouped by page/feature for clarity, for example:
-  - `sign_in.title`, `sign_in.email_label`, `sign_in.sign_in_button`
-  - `settings.title`, `settings.dark_theme`, `settings.language`
-  - `home.title`, `home.sign_out_button`
-- Use `tr('sign_in.title')` (from `easy_localization`) in widgets to translate strings.
-  - Example: `Text(tr('sign_in.title'))`
-
-To add new translations:
-
-- Add the key under each language file in `assets/langs/`.
-- Run `flutter pub get` if you change dependencies.
+- Keys are grouped by page/feature, e.g. `sign_in.title`, `settings.theme`, `clubs.map.locate_me`.
+- Use `tr('sign_in.title')` in widgets to translate strings. Example: `Text(tr('sign_in.title'))`.
+- To add a translation, add the key under **each** language file in `assets/langs/`.
 
 EasyLocalization is initialized in `lib/main.dart` and the app sets the locale from persisted preferences on startup.
 
 ## Theme & Preferences
 
-- Theme (dark/light) and language selection are stored using SharedPreferences and persisted across restarts.
-- Providers are in `lib/src/core/providers.dart` (see `isDarkModeProvider`, `localeProvider`).
+- Theme mode (**System / Light / Dark**) and language are stored with SharedPreferences and persisted across restarts. The default follows the device (`ThemeMode.system`).
+- Providers are in `lib/src/core/providers.dart` (see `themeModeProvider`, `localeProvider`). The mode is chosen in Settings via a segmented control.
 
 ## Routes
 
@@ -71,7 +86,7 @@ EasyLocalization is initialized in `lib/main.dart` and the app sets the locale f
 
 ## Git hooks
 
-- There's a script to install pre-commit checks in `scripts/install_hooks.sh`. Hooks (if installed) will run tools like the file length checker.
+- There's a script to install pre-commit checks in `scripts/install_hooks.sh`. Hooks (if installed) run tools like the file length checker.
 
 ## Development notes
 
@@ -80,9 +95,11 @@ EasyLocalization is initialized in `lib/main.dart` and the app sets the locale f
 
 ## Troubleshooting
 
-- PlatformException from SharedPreferences at app start: if you see channel errors, ensure a full restart and that plugins are initialized. The app delays settings initialization until after the first frame to reduce the chance of that error.
-- Google Sign-In URL scheme error on iOS: ensure the `REVERSED_CLIENT_ID` is present in `ios/Runner/Info.plist` inside the `CFBundleURLTypes` array.
-- Android Google Sign-In errors: verify the SHA-1 fingerprint is added to the Firebase project.
+- **Xcode build fails "out of space" / `CreateUniversalBinary` errors**: free disk by clearing `~/Library/Developer/Xcode/DerivedData`, then `flutter clean && flutter run`.
+- **Stripe/Swift "malformed precompiled module" after an interrupted build**: `flutter clean`, clear DerivedData, `cd ios && pod install`, rebuild.
+- **CocoaPods "Firebase/Auth" version conflict** after pulling: `rm ios/Podfile.lock && cd ios && pod install --repo-update`.
+- **Google Sign-In URL scheme error on iOS**: ensure `REVERSED_CLIENT_ID` is present in `ios/Runner/Info.plist` inside `CFBundleURLTypes`.
+- **PlatformException from SharedPreferences at app start**: do a full restart; the app delays settings init until after the first frame to reduce this.
 
 ## Contact
 

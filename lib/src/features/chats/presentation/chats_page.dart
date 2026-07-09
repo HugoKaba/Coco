@@ -15,19 +15,7 @@ class ChatsPage extends ConsumerWidget {
     final authState = ref.watch(authStateChangesProvider);
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: Text(
-          tr('chats.title'),
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: AppBar(elevation: 0, title: Text(tr('chats.title'))),
       body: authState.when(
         data: (user) {
           if (user == null) {
@@ -51,8 +39,11 @@ class ChatsPage extends ConsumerWidget {
                 color: const Color(0xFFD4913D),
                 child: ListView.separated(
                   itemCount: conversations.length,
-                  separatorBuilder: (_, __) =>
-                      Divider(height: 1, color: Colors.grey[200], indent: 84),
+                  separatorBuilder: (_, __) => Divider(
+                    height: 1,
+                    color: Theme.of(context).dividerColor,
+                    indent: 84,
+                  ),
                   itemBuilder: (context, index) {
                     final conversation = conversations[index];
                     return ConversationTile(

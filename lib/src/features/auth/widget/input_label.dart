@@ -13,8 +13,8 @@ class InputLabel extends StatelessWidget {
         padding: const EdgeInsets.only(left: 4.0, bottom: 6.0),
         child: Text(
           label,
-          style: const TextStyle(
-            color: Colors.white70,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
             fontSize: 11,
             fontWeight: FontWeight.w500,
           ),

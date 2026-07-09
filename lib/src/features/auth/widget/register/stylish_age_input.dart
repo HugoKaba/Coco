@@ -14,12 +14,13 @@ class StylishAgeInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: const Color(0xFF1F1F1F),
+        color: cs.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white10),
+        border: Border.all(color: Theme.of(context).dividerColor),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.2),
@@ -34,7 +35,7 @@ class StylishAgeInput extends StatelessWidget {
           Text(
             tr('register.your_age'),
             style: TextStyle(
-              color: Colors.white70,
+              color: cs.onSurfaceVariant,
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
@@ -57,7 +58,7 @@ class StylishAgeInput extends StatelessWidget {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: tr('register.age_placeholder'),
-                hintStyle: const TextStyle(color: Colors.white24),
+                hintStyle: TextStyle(color: cs.onSurfaceVariant),
                 contentPadding: EdgeInsets.zero,
                 isDense: true,
               ),

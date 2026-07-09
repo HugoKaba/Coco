@@ -16,36 +16,37 @@ class ClubDashboardStats extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: Row(
         children: [
-          Expanded(child: _card('Total Créneaux', '${slots.length}')),
+          Expanded(child: _card(context, 'Total Créneaux', '${slots.length}')),
           const SizedBox(width: 16),
-          Expanded(child: _card('Participants', '$bookedCount')),
+          Expanded(child: _card(context, 'Participants', '$bookedCount')),
         ],
       ),
     );
   }
 
-  Widget _card(String label, String value) {
+  Widget _card(BuildContext context, String label, String value) {
+    final cs = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFF1F1F1F),
+        color: cs.surfaceContainer,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white10),
+        border: Border.all(color: Theme.of(context).dividerColor),
       ),
       child: Column(
         children: [
           Text(
             value,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: cs.onSurface,
             ),
           ),
           const SizedBox(height: 8),
           Text(
             label,
-            style: const TextStyle(color: Colors.white54, fontSize: 12),
+            style: TextStyle(color: cs.onSurfaceVariant, fontSize: 12),
           ),
         ],
       ),

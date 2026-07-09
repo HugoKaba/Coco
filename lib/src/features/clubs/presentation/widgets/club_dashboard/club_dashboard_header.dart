@@ -10,9 +10,9 @@ class ClubDashboardHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(24),
-      decoration: const BoxDecoration(
-        color: Color(0xFF1F1F1F),
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surfaceContainer,
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(30),
           bottomRight: Radius.circular(30),
         ),
@@ -24,15 +24,18 @@ class ClubDashboardHeader extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () => Navigator.of(context).pop(),
-                icon: const Icon(Icons.arrow_back, color: Colors.white),
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Theme.of(context).colorScheme.onSurface,
+                ),
                 padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(),
               ),
               const SizedBox(width: 16),
-              const Text(
+              Text(
                 'Tableau de bord',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onSurface,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -56,15 +59,17 @@ class ClubDashboardHeader extends StatelessWidget {
                   children: [
                     Text(
                       club.name,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                     Text(
                       club.city,
-                      style: const TextStyle(color: Colors.white54),
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
                     ),
                   ],
                 ),
@@ -74,9 +79,14 @@ class ClubDashboardHeader extends StatelessWidget {
           const SizedBox(height: 24),
           Row(
             children: [
-              _chip(icon: Icons.people, label: 'Capacité: ${club.maxCapacity}'),
+              _chip(
+                context,
+                icon: Icons.people,
+                label: 'Capacité: ${club.maxCapacity}',
+              ),
               const SizedBox(width: 12),
               _chip(
+                context,
                 icon: Icons.star,
                 label: club.subscriptionType.displayName,
                 color: const Color(0xFFCD8232),
@@ -88,26 +98,27 @@ class ClubDashboardHeader extends StatelessWidget {
     );
   }
 
-  Widget _chip({
+  Widget _chip(
+    BuildContext context, {
     required IconData icon,
     required String label,
-    Color color = const Color(0xFF2C2C2C),
+    Color? color,
   }) {
+    final cs = Theme.of(context).colorScheme;
+    final bg = color ?? cs.surfaceContainerHighest;
+    final fg = color != null ? Colors.white : cs.onSurface;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: color,
+        color: bg,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 16, color: Colors.white),
+          Icon(icon, size: 16, color: fg),
           const SizedBox(width: 6),
-          Text(
-            label,
-            style: const TextStyle(color: Colors.white, fontSize: 12),
-          ),
+          Text(label, style: TextStyle(color: fg, fontSize: 12)),
         ],
       ),
     );

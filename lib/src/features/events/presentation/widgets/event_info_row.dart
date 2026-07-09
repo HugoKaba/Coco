@@ -14,14 +14,15 @@ class EventInfoRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return Row(
       children: [
-        Icon(icon, size: 20, color: color ?? Colors.grey.shade600),
+        Icon(icon, size: 20, color: color ?? cs.onSurfaceVariant),
         const SizedBox(width: 12),
         Expanded(
           child: Text(
             text,
-            style: TextStyle(fontSize: 16, color: color ?? Colors.black87),
+            style: TextStyle(fontSize: 16, color: color ?? cs.onSurface),
           ),
         ),
       ],

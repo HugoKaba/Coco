@@ -51,7 +51,7 @@ class _FilterScreenState extends ConsumerState<FilterScreen> {
       }
       final pos = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high,
-      );
+      ).timeout(const Duration(seconds: 8));
       ref
           .read(filterProvider.notifier)
           .setDeviceLocation(pos.latitude, pos.longitude);

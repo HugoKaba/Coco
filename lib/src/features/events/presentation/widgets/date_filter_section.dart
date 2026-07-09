@@ -89,7 +89,9 @@ class DateFilterSection extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: isSelected ? Colors.white : Colors.black,
+                          color: isSelected
+                              ? Colors.white
+                              : Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                     ],

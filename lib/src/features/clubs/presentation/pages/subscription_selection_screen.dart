@@ -19,17 +19,12 @@ class SubscriptionSelectionScreen extends StatefulWidget {
 class _SubscriptionSelectionScreenState
     extends State<SubscriptionSelectionScreen> {
   static const _accent = Color(0xFFCD8232);
-  static const _bg = Color(0xFF121212);
-  static const _field = Color(0xFF1F1F1F);
   SubscriptionType? _selectedType;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _bg,
       appBar: AppBar(
-        backgroundColor: _bg,
-        foregroundColor: Colors.white,
         title: const Text('Choisissez votre formule'),
         centerTitle: true,
       ),

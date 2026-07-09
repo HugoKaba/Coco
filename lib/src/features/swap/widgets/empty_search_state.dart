@@ -6,11 +6,12 @@ class EmptySearchState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.search_off, size: 80, color: Colors.grey[300]),
+          Icon(Icons.search_off, size: 80, color: cs.onSurfaceVariant),
           const SizedBox(height: 16),
           Text(
             tr('swipe.empty_state'),
@@ -19,7 +20,7 @@ class EmptySearchState extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             tr('swipe.empty_hint'),
-            style: const TextStyle(color: Colors.grey),
+            style: TextStyle(color: cs.onSurfaceVariant),
           ),
         ],
       ),

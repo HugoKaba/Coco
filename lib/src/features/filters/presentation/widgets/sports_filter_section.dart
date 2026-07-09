@@ -20,8 +20,8 @@ class SportsFilterSection extends ConsumerWidget {
       children: [
         Text(
           tr('filters.sports'),
-          style: const TextStyle(
-            color: Colors.white,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurface,
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),

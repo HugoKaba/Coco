@@ -131,7 +131,11 @@
 	"settings": {
 		"title": "Settings",
 		"dark_theme": "Dark theme",
-		"language": "Language"
+		"language": "Language",
+		"theme": "Theme",
+		"theme_system": "System",
+		"theme_light": "Light",
+		"theme_dark": "Dark"
 	},
 	"account": {
 		"title": "My Account",
@@ -288,7 +292,9 @@
 			"booked": "Booked",
 			"booking_confirmed": "Booking confirmed!",
 			"booking_failed": "Booking failed",
-			"already_booked": "Already booked"
+			"already_booked": "Already booked",
+			"pay": "Pay €{price}",
+			"payment_canceled": "Payment canceled"
 		},
 		"schedule": {
 			"title": "Schedule",
@@ -311,7 +317,8 @@
 			"members": "Members"
 		},
 		"map": {
-			"search_city_hint": "Search a city in Île-de-France..."
+			"search_city_hint": "Search a city in Île-de-France...",
+			"locate_me": "Locate me"
 		},
 		"view": {
 			"list": "List view",

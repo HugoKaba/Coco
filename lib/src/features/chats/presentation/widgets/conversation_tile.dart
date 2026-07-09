@@ -24,6 +24,7 @@ class ConversationTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final unread = conversation.unreadCount[currentUserId] ?? 0;
+    final cs = Theme.of(context).colorScheme;
     return Slidable(
       endActionPane: ActionPane(
         motion: const DrawerMotion(),
@@ -89,7 +90,7 @@ class ConversationTile extends StatelessWidget {
                               fontSize: 13,
                               color: unread > 0
                                   ? const Color(0xFFD4913D)
-                                  : Colors.grey[600],
+                                  : cs.onSurfaceVariant,
                               fontWeight: unread > 0
                                   ? FontWeight.w600
                                   : FontWeight.normal,
@@ -108,8 +109,8 @@ class ConversationTile extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 14,
                               color: unread > 0
-                                  ? Colors.grey[900]
-                                  : Colors.grey[600],
+                                  ? cs.onSurface
+                                  : cs.onSurfaceVariant,
                               fontWeight: unread > 0
                                   ? FontWeight.w500
                                   : FontWeight.normal,

@@ -16,7 +16,7 @@ class InputWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderColor = Colors.white.withValues(alpha: 0.08);
+    final borderColor = Theme.of(context).dividerColor;
     final radius = BorderRadius.circular(borderRadius);
 
     return DecoratedBox(

@@ -2,7 +2,14 @@ part of 'account_page.dart';
 
 List<Widget> buildAccountActions(BuildContext context, WidgetRef ref) {
   return [
-    _item(context, Icons.settings, tr('account.settings'), () {}),
+    _item(
+      context,
+      Icons.settings,
+      tr('account.settings'),
+      () => Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (_) => const SettingsPage())),
+    ),
     _item(
       context,
       Icons.person,
@@ -11,7 +18,7 @@ List<Widget> buildAccountActions(BuildContext context, WidgetRef ref) {
         context,
       ).push(MaterialPageRoute(builder: (_) => const EditProfileScreen())),
     ),
-    const Divider(height: 1, color: Colors.white10),
+    Divider(height: 1, color: Theme.of(context).dividerColor),
     _item(
       context,
       Icons.logout,
@@ -78,16 +85,21 @@ Widget _item(
   VoidCallback onTap, {
   Color? color,
 }) {
+  final cs = Theme.of(context).colorScheme;
   return ListTile(
-    leading: Icon(icon, color: color ?? Colors.white70),
+    leading: Icon(icon, color: color ?? cs.onSurfaceVariant),
     title: Text(
       label,
       style: TextStyle(
-        color: color ?? Colors.white,
+        color: color ?? cs.onSurface,
         fontWeight: FontWeight.w500,
       ),
     ),
-    trailing: const Icon(Icons.chevron_right, size: 20, color: Colors.white24),
+    trailing: Icon(
+      Icons.chevron_right,
+      size: 20,
+      color: cs.onSurface.withValues(alpha: 0.3),
+    ),
     onTap: onTap,
   );
 }

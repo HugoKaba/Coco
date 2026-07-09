@@ -130,7 +130,11 @@
 	},
 	"settings": {
 		"dark_theme": "Thème sombre",
-		"language": "Langue"
+		"language": "Langue",
+		"theme": "Thème",
+		"theme_system": "Système",
+		"theme_light": "Clair",
+		"theme_dark": "Sombre"
 	},
 	"account": {
 		"title": "Mon Compte",
@@ -287,7 +291,9 @@
 			"booked": "Réservé",
 			"booking_confirmed": "Réservation confirmée!",
 			"booking_failed": "Échec de la réservation",
-			"already_booked": "Déjà réservé"
+			"already_booked": "Déjà réservé",
+			"pay": "Payer {price} €",
+			"payment_canceled": "Paiement annulé"
 		},
 		"schedule": {
 			"title": "Planning",
@@ -310,7 +316,8 @@
 			"members": "Membres"
 		},
 		"map": {
-			"search_city_hint": "Rechercher une ville en Île-de-France..."
+			"search_city_hint": "Rechercher une ville en Île-de-France...",
+			"locate_me": "Me localiser"
 		},
 		"view": {
 			"list": "Vue liste",

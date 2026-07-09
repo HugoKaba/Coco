@@ -31,12 +31,17 @@ class ClubCreationCityAutocomplete extends StatelessWidget {
         return TextFormField(
           controller: controller,
           focusNode: focusNode,
-          style: const TextStyle(color: Colors.white),
-          decoration: const InputDecoration(
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+          decoration: InputDecoration(
             hintText: 'Rechercher une ville...',
-            hintStyle: TextStyle(color: Colors.white54),
+            hintStyle: TextStyle(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
             border: InputBorder.none,
-            contentPadding: EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 18,
+              vertical: 16,
+            ),
           ),
           onChanged: (value) => cityController.text = value,
         );
@@ -45,13 +50,14 @@ class ClubCreationCityAutocomplete extends StatelessWidget {
   }
 }
 
-Widget clubCreationDecoratedField(Widget child) => Container(
+Widget clubCreationDecoratedField(BuildContext context, Widget child) =>
+    Container(
   decoration: BoxDecoration(
-    color: ClubCreationStyle.field,
+    color: ClubCreationStyle.field(context),
     borderRadius: BorderRadius.circular(20),
     boxShadow: [
       BoxShadow(
-        color: ClubCreationStyle.inputInnerShadow(),
+        color: ClubCreationStyle.inputInnerShadow(context),
         blurRadius: 10,
         offset: const Offset(0, 4),
         spreadRadius: -4,

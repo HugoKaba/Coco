@@ -39,7 +39,7 @@ class _MyEventsScreenState extends ConsumerState<MyEventsScreen>
         bottom: TabBar(
           controller: _tabController,
           labelColor: theme.primaryColor,
-          unselectedLabelColor: Colors.grey,
+          unselectedLabelColor: theme.colorScheme.onSurfaceVariant,
           indicatorColor: theme.primaryColor,
           indicatorSize: TabBarIndicatorSize.label,
           dividerColor: Colors.transparent,
@@ -85,12 +85,15 @@ class _EventListTab extends ConsumerWidget {
                 Icon(
                   Icons.event_busy_rounded,
                   size: 60,
-                  color: Colors.grey.shade300,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
                 const SizedBox(height: 16),
                 Text(
                   tr('events.no_events'),
-                  style: TextStyle(color: Colors.grey.shade500, fontSize: 16),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    fontSize: 16,
+                  ),
                 ),
               ],
             ),

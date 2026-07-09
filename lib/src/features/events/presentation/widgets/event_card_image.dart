@@ -7,11 +7,12 @@ class EventCardImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return Container(
       height: 150,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.grey.shade100,
+        color: cs.surfaceContainerHighest,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
       ),
       child: ClipRRect(
@@ -21,20 +22,20 @@ class EventCardImage extends StatelessWidget {
                 imageUrl!,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
-                  return const Center(
+                  return Center(
                     child: Icon(
                       Icons.broken_image_rounded,
                       size: 40,
-                      color: Colors.grey,
+                      color: cs.onSurfaceVariant,
                     ),
                   );
                 },
               )
-            : const Center(
+            : Center(
                 child: Icon(
                   Icons.event_note_rounded,
                   size: 40,
-                  color: Colors.grey,
+                  color: cs.onSurfaceVariant,
                 ),
               ),
       ),

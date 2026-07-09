@@ -70,7 +70,7 @@ class SportFilterBar extends StatelessWidget {
               : theme.cardColor,
           borderRadius: BorderRadius.circular(22),
           border: Border.all(
-            color: isSelected ? primaryColor : Colors.grey.shade200,
+            color: isSelected ? primaryColor : theme.dividerColor,
             width: isSelected ? 1.5 : 1,
           ),
           boxShadow: isSelected
@@ -94,7 +94,9 @@ class SportFilterBar extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-                color: isSelected ? primaryColor : Colors.grey.shade600,
+                color: isSelected
+                    ? primaryColor
+                    : theme.colorScheme.onSurfaceVariant,
               ),
             ),
           ],

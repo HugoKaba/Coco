@@ -21,10 +21,10 @@ class EventLocationRadiusSlider extends StatelessWidget {
           children: [
             Text(
               tr('filters.radius'),
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: Colors.grey,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
             Text(

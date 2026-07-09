@@ -16,7 +16,7 @@ class EventLocationToggle extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
-        color: Colors.grey.shade100,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
@@ -57,7 +57,9 @@ class EventLocationToggle extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
-        color: isActive ? Colors.white : Colors.transparent,
+        color: isActive
+            ? Theme.of(context).colorScheme.surface
+            : Colors.transparent,
         borderRadius: BorderRadius.circular(12),
         boxShadow: isActive
             ? [
@@ -75,14 +77,18 @@ class EventLocationToggle extends StatelessWidget {
           Icon(
             icon,
             size: 18,
-            color: isActive ? Theme.of(context).primaryColor : Colors.grey,
+            color: isActive
+                ? Theme.of(context).primaryColor
+                : Theme.of(context).colorScheme.onSurfaceVariant,
           ),
           const SizedBox(width: 8),
           Text(
             label,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: isActive ? Colors.black : Colors.grey,
+              color: isActive
+                  ? Theme.of(context).colorScheme.onSurface
+                  : Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ),
         ],

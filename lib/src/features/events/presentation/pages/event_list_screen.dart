@@ -96,13 +96,13 @@ class _EventListScreenState extends ConsumerState<EventListScreen> {
                     Icon(
                       Icons.event_busy_rounded,
                       size: 64,
-                      color: Colors.grey.shade300,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
                     const SizedBox(height: 16),
                     Text(
                       tr('events.no_events'),
                       style: TextStyle(
-                        color: Colors.grey.shade500,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                         fontSize: 16,
                       ),
                     ),

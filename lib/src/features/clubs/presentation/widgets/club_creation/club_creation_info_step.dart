@@ -29,18 +29,18 @@ class ClubCreationInfoStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final shadow = ClubCreationStyle.inputInnerShadow();
+    final shadow = ClubCreationStyle.inputInnerShadow(context);
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Informations du Club',
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 32),
@@ -48,24 +48,25 @@ class ClubCreationInfoStep extends StatelessWidget {
           DarkTextField(
             controller: clubNameController,
             hintText: 'Ex: Tennis Club Paris',
-            fieldColor: ClubCreationStyle.field,
+            fieldColor: ClubCreationStyle.field(context),
             innerShadow: shadow,
           ),
           const SizedBox(height: 20),
           const InputLabel(label: 'Sport'),
-          clubCreationDecoratedField(_sportDropdown()),
+          clubCreationDecoratedField(context, _sportDropdown(context)),
           const SizedBox(height: 20),
           const InputLabel(label: 'Description'),
           DarkTextField(
             controller: descriptionController,
             hintText: 'Décrivez votre club...',
             maxLines: 3,
-            fieldColor: ClubCreationStyle.field,
+            fieldColor: ClubCreationStyle.field(context),
             innerShadow: shadow,
           ),
           const SizedBox(height: 20),
           const InputLabel(label: 'Ville'),
           clubCreationDecoratedField(
+            context,
             ClubCreationCityAutocomplete(
               cityController: cityController,
               citiesLoaded: citiesLoaded,
@@ -76,7 +77,7 @@ class ClubCreationInfoStep extends StatelessWidget {
           DarkTextField(
             controller: addressController,
             hintText: '123 Rue Example',
-            fieldColor: ClubCreationStyle.field,
+            fieldColor: ClubCreationStyle.field(context),
             innerShadow: shadow,
           ),
           const SizedBox(height: 20),
@@ -85,7 +86,7 @@ class ClubCreationInfoStep extends StatelessWidget {
             controller: phoneController,
             hintText: '+33 6 12 34 56 78',
             keyboardType: TextInputType.phone,
-            fieldColor: ClubCreationStyle.field,
+            fieldColor: ClubCreationStyle.field(context),
             innerShadow: shadow,
           ),
         ],
@@ -93,16 +94,16 @@ class ClubCreationInfoStep extends StatelessWidget {
     );
   }
 
-  Widget _sportDropdown() {
+  Widget _sportDropdown(BuildContext context) {
     const sports = ['tennis', 'gym', 'football', 'athletics'];
     return DropdownButtonFormField<String>(
       initialValue: sportType,
-      dropdownColor: ClubCreationStyle.field,
+      dropdownColor: ClubCreationStyle.field(context),
       decoration: const InputDecoration(
         border: InputBorder.none,
         contentPadding: EdgeInsets.symmetric(horizontal: 18, vertical: 16),
       ),
-      style: const TextStyle(color: Colors.white),
+      style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
       items: sports
           .map(
             (s) => DropdownMenuItem(

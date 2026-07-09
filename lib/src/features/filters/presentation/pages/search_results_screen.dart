@@ -21,6 +21,7 @@ class SearchResultsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final service = const GeolocationService();
+    final cs = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(title: Text('${results.length} Résultats')),
@@ -32,12 +33,12 @@ class SearchResultsScreen extends ConsumerWidget {
                   Icon(
                     Icons.location_off_outlined,
                     size: 48,
-                    color: Colors.grey.shade400,
+                    color: cs.onSurfaceVariant,
                   ),
                   const SizedBox(height: 16),
                   Text(
                     'Aucun résultat trouvé',
-                    style: TextStyle(color: Colors.grey.shade600),
+                    style: TextStyle(color: cs.onSurfaceVariant),
                   ),
                 ],
               ),
@@ -58,14 +59,13 @@ class SearchResultsScreen extends ConsumerWidget {
 
                 return Card(
                   elevation: 0,
-                  color: Colors.white,
                   margin: const EdgeInsets.symmetric(
                     vertical: 4,
                     horizontal: 8,
                   ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
-                    side: BorderSide(color: Colors.grey.shade200),
+                    side: BorderSide(color: Theme.of(context).dividerColor),
                   ),
                   child: ListTile(
                     contentPadding: const EdgeInsets.all(12),
@@ -116,13 +116,13 @@ class SearchResultsScreen extends ConsumerWidget {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.grey.shade100,
+                        color: cs.surfaceContainerHighest,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
                         distanceLabel,
                         style: TextStyle(
-                          color: Colors.grey.shade700,
+                          color: cs.onSurfaceVariant,
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
                         ),

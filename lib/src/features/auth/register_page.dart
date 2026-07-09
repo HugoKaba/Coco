@@ -24,8 +24,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   final controllers = RegisterControllers();
 
   static const Color _accentColor = Color(0xFFF2A33A);
-  static const Color _fieldColor = Color(0xFF1F1F1F);
-  static final Color _inputInnerShadow = Colors.black.withValues(alpha: 0.55);
 
   String _selectedGender = tr('register.gender_male');
 
@@ -62,12 +60,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF121212),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF121212),
-        foregroundColor: Colors.white,
-        title: Text(tr('register.title')),
-      ),
+      appBar: AppBar(title: Text(tr('register.title'))),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -92,8 +85,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   onFrequencyChanged: (f) =>
                       setState(() => controllers.trainingFrequency = f),
                   accentColor: _accentColor,
-                  fieldColor: _fieldColor,
-                  innerShadow: _inputInnerShadow,
+                  fieldColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+                  innerShadow: Theme.of(context).colorScheme.outlineVariant,
                 ),
               ),
             ),

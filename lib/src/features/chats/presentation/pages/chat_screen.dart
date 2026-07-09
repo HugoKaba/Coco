@@ -43,12 +43,10 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
   Widget build(BuildContext context) {
     final messages = ref.watch(messagesStreamProvider(widget.conversationId));
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
         title: StreamBuilder<DocumentSnapshot>(
@@ -101,8 +99,8 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
   }
 
   Widget _title(AsyncSnapshot<DocumentSnapshot> snap) {
-    const style = TextStyle(
-      color: Colors.black,
+    final style = TextStyle(
+      color: Theme.of(context).colorScheme.onSurface,
       fontSize: 18,
       fontWeight: FontWeight.w600,
     );

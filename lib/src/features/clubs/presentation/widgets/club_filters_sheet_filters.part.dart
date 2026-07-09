@@ -16,11 +16,13 @@ Widget _buildClubLevelsSection(_ClubFiltersSheetState s) => Wrap(
           s._filters = s._filters.copyWith(selectedLevels: levels);
         });
       },
-      backgroundColor: _ClubFiltersSheetState._cardColor,
+      backgroundColor: Theme.of(s.context).colorScheme.surfaceContainerHighest,
       selectedColor: _ClubFiltersSheetState._accentColor,
       checkmarkColor: Colors.white,
       labelStyle: TextStyle(
-        color: isSelected ? Colors.white : Colors.white70,
+        color: isSelected
+            ? Colors.white
+            : Theme.of(s.context).colorScheme.onSurfaceVariant,
         fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
       ),
       shape: RoundedRectangleBorder(
@@ -28,7 +30,7 @@ Widget _buildClubLevelsSection(_ClubFiltersSheetState s) => Wrap(
         side: BorderSide(
           color: isSelected
               ? _ClubFiltersSheetState._accentColor
-              : Colors.white10,
+              : Theme.of(s.context).dividerColor,
         ),
       ),
     );
@@ -54,7 +56,7 @@ Widget _buildClubAgeSection(_ClubFiltersSheetState s) => Column(
     SliderTheme(
       data: SliderTheme.of(s.context).copyWith(
         activeTrackColor: _ClubFiltersSheetState._accentColor,
-        inactiveTrackColor: Colors.white10,
+        inactiveTrackColor: Theme.of(s.context).colorScheme.surfaceContainerHighest,
         thumbColor: Colors.white,
         overlayColor: _ClubFiltersSheetState._accentColor.withValues(
           alpha: 0.2,

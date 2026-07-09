@@ -22,8 +22,6 @@ class SlotCreationScreen extends ConsumerStatefulWidget {
 class _SlotCreationScreenState extends ConsumerState<SlotCreationScreen> {
   final _formKey = GlobalKey<FormState>();
   static const Color _accentColor = Color(0xFFCD8232);
-  static const Color _bgColor = Color(0xFF121212);
-  static const Color _cardColor = Color(0xFF1F1F1F);
 
   SlotType _type = SlotType.course;
   DateTime _startTime = DateTime.now().add(const Duration(hours: 1));
@@ -37,12 +35,7 @@ class _SlotCreationScreenState extends ConsumerState<SlotCreationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _bgColor,
-      appBar: AppBar(
-        title: Text('clubs.slot.create'.tr()),
-        backgroundColor: _bgColor,
-        foregroundColor: Colors.white,
-      ),
+      appBar: AppBar(title: Text('clubs.slot.create'.tr())),
       body: Form(
         key: _formKey,
         child: ListView(

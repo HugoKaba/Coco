@@ -55,6 +55,8 @@ key.properties
 
 # Local env
 .env
+# jenv / local Java version (machine-specific)
+.java-version
 # Miscellaneous
 *.class
 *.log

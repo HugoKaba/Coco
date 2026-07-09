@@ -15,11 +15,17 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
           padding: const EdgeInsets.all(32),
           child: Column(
             children: [
-              const Icon(Icons.calendar_today, size: 48, color: Colors.white24),
+              Icon(
+                Icons.calendar_today,
+                size: 48,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
               const SizedBox(height: 16),
               Text(
                 'Aucun créneau prévu',
-                style: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
               ),
             ],
           ),
@@ -29,35 +35,36 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
 
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-        (context, index) => _slotCard(slots[index]),
+        (context, index) => _slotCard(context, slots[index]),
         childCount: slots.length,
       ),
     );
   }
 
-  Widget _slotCard(SlotEntity slot) {
+  Widget _slotCard(BuildContext context, SlotEntity slot) {
+    final cs = Theme.of(context).colorScheme;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF1F1F1F),
+        color: cs.surfaceContainer,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white10),
+        border: Border.all(color: Theme.of(context).dividerColor),
       ),
       child: Row(
         children: [
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: const Color(0xFF121212),
+              color: cs.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
               children: [
                 Text(
                   DateFormat('dd').format(slot.startTime),
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: cs.onSurface,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
@@ -79,8 +86,8 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
               children: [
                 Text(
                   slot.type.displayName,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: cs.onSurface,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -88,7 +95,7 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   '${DateFormat('HH:mm').format(slot.startTime)} - ${DateFormat('HH:mm').format(slot.endTime)}',
-                  style: const TextStyle(color: Colors.white54, fontSize: 14),
+                  style: TextStyle(color: cs.onSurfaceVariant, fontSize: 14),
                 ),
                 if (slot.level != null)
                   Padding(

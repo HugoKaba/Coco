@@ -88,7 +88,7 @@ class EventCard extends StatelessWidget {
           fmt.format(event.date),
           style: TextStyle(
             fontSize: 12,
-            color: Colors.grey.shade500,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -99,24 +99,24 @@ class EventCard extends StatelessWidget {
   Widget _buildFooter(BuildContext context) {
     return Row(
       children: [
-        Icon(Icons.location_on_rounded, size: 16, color: Colors.grey.shade400),
+        Icon(Icons.location_on_rounded, size: 16, color: Theme.of(context).colorScheme.onSurfaceVariant),
         const SizedBox(width: 4),
         Text(
           event.locationName ?? tr('events.location_unknown'),
           style: TextStyle(
             fontSize: 13,
-            color: Colors.grey.shade600,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
             fontWeight: FontWeight.w500,
           ),
         ),
         const Spacer(),
-        Icon(Icons.group_rounded, size: 16, color: Colors.grey.shade400),
+        Icon(Icons.group_rounded, size: 16, color: Theme.of(context).colorScheme.onSurfaceVariant),
         const SizedBox(width: 4),
         Text(
           '${event.attendees.length} / ${event.maxPlaces}',
           style: TextStyle(
             fontSize: 13,
-            color: Colors.grey.shade600,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
             fontWeight: FontWeight.w500,
           ),
         ),

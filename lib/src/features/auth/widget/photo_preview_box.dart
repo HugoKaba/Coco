@@ -16,7 +16,7 @@ class PhotoPreviewBox extends StatelessWidget {
         width: size,
         height: size,
         decoration: BoxDecoration(
-          color: Colors.grey[800],
+          color: Theme.of(context).colorScheme.surfaceContainerHighest,
           borderRadius: borderRadius,
         ),
       );
