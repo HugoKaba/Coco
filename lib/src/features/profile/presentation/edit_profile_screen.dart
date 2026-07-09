@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/profile_repository.dart';
+import '../domain/user_profile.dart';
 
 part 'edit_profile_screen_form.part.dart';
 part 'edit_profile_screen_save.part.dart';
@@ -36,24 +37,20 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
     _ageController = TextEditingController();
   }
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  /// Remplit les champs avec les données du profil, **une seule fois** : appelé
+  /// depuis `build` dès que le stream Firestore a fourni le profil. Le flag
+  /// [_isInit] garantit qu'on n'écrase pas les saisies de l'utilisateur si le
+  /// stream ré-émet ensuite (ex. après la sauvegarde).
+  void _populateControllers(UserProfile profile) {
     if (_isInit) return;
-    ref.watch(userProfileProvider).whenData((profile) {
-      if (profile == null) return;
-      _firstNameController.text = profile.firstName;
-      _lastNameController.text = profile.lastName;
-      _bioController.text = profile.bio;
-      _cityController.text = profile.city;
-      _ageController.text = profile.age.toString();
-      _gender = profile.gender;
-      _trainingFrequency = profile.trainingFrequency;
-      _sportsGoal = profile.sportsGoal.isNotEmpty
-          ? profile.sportsGoal
-          : 'Loisir';
-      setState(() {});
-    });
+    _firstNameController.text = profile.firstName;
+    _lastNameController.text = profile.lastName;
+    _bioController.text = profile.bio;
+    _cityController.text = profile.city;
+    _ageController.text = profile.age.toString();
+    _gender = profile.gender;
+    _trainingFrequency = profile.trainingFrequency;
+    _sportsGoal = profile.sportsGoal.isNotEmpty ? profile.sportsGoal : 'Loisir';
     _isInit = true;
   }
 
@@ -93,9 +90,13 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
         ],
       ),
       body: userProfileAsync.when(
-        data: (profile) => profile == null
-            ? const Center(child: Text('Profil introuvable'))
-            : _buildProfileForm(this),
+        data: (profile) {
+          if (profile == null) {
+            return const Center(child: Text('Profil introuvable'));
+          }
+          _populateControllers(profile);
+          return _buildProfileForm(this);
+        },
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Erreur: $e')),
       ),
