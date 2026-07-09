@@ -16,24 +16,25 @@ class ClubCreationAccountStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final shadow = ClubCreationStyle.inputInnerShadow();
+    final shadow = ClubCreationStyle.inputInnerShadow(context);
+    final cs = Theme.of(context).colorScheme;
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Compte Professionnel',
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: cs.onSurface,
             ),
           ),
           const SizedBox(height: 8),
-          const Text(
+          Text(
             'Créez votre compte pour gérer votre club',
-            style: TextStyle(color: Colors.white54, fontSize: 14),
+            style: TextStyle(color: cs.onSurfaceVariant, fontSize: 14),
           ),
           const SizedBox(height: 32),
           const InputLabel(label: 'Email'),
@@ -41,7 +42,7 @@ class ClubCreationAccountStep extends StatelessWidget {
             controller: emailController,
             hintText: 'votre@email.com',
             keyboardType: TextInputType.emailAddress,
-            fieldColor: ClubCreationStyle.field,
+            fieldColor: ClubCreationStyle.field(context),
             innerShadow: shadow,
           ),
           const SizedBox(height: 20),
@@ -50,14 +51,14 @@ class ClubCreationAccountStep extends StatelessWidget {
             controller: passwordController,
             hintText: 'Minimum 6 caractères',
             obscureText: true,
-            fieldColor: ClubCreationStyle.field,
+            fieldColor: ClubCreationStyle.field(context),
             innerShadow: shadow,
           ),
           const SizedBox(height: 32),
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: ClubCreationStyle.field,
+              color: ClubCreationStyle.field(context),
               borderRadius: BorderRadius.circular(16),
             ),
             child: Row(
@@ -72,7 +73,7 @@ class ClubCreationAccountStep extends StatelessWidget {
                   child: Text(
                     'Vous pourrez vous reconnecter avec ces identifiants',
                     style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.7),
+                      color: cs.onSurfaceVariant,
                       fontSize: 13,
                     ),
                   ),

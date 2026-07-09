@@ -16,8 +16,8 @@ Widget _buildClubFilterBottomBar(_ClubFiltersSheetState s) {
               s._cityController.clear();
             }),
             style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.white,
-              side: const BorderSide(color: Colors.white24),
+              foregroundColor: Theme.of(s.context).colorScheme.onSurface,
+              side: BorderSide(color: Theme.of(s.context).dividerColor),
               padding: const EdgeInsets.symmetric(vertical: 16),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),

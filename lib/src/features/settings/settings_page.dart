@@ -9,7 +9,7 @@ class SettingsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isDark = ref.watch(isDarkModeProvider);
+    final themeMode = ref.watch(themeModeProvider);
 
     final currentLocale = ref.watch(localeProvider);
 
@@ -19,7 +19,11 @@ class SettingsPage extends ConsumerWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            context.go('/');
+            if (Navigator.of(context).canPop()) {
+              Navigator.of(context).pop();
+            } else {
+              context.go('/');
+            }
           },
         ),
       ),
@@ -28,12 +32,34 @@ class SettingsPage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SwitchListTile(
-              title: Text(tr('settings.dark_theme')),
-              value: isDark,
-              onChanged: (v) => ref.read(isDarkModeProvider.notifier).state = v,
+            Text(
+              tr('settings.theme'),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 8),
+            SegmentedButton<ThemeMode>(
+              segments: [
+                ButtonSegment(
+                  value: ThemeMode.system,
+                  icon: const Icon(Icons.brightness_auto),
+                  label: Text(tr('settings.theme_system')),
+                ),
+                ButtonSegment(
+                  value: ThemeMode.light,
+                  icon: const Icon(Icons.light_mode),
+                  label: Text(tr('settings.theme_light')),
+                ),
+                ButtonSegment(
+                  value: ThemeMode.dark,
+                  icon: const Icon(Icons.dark_mode),
+                  label: Text(tr('settings.theme_dark')),
+                ),
+              ],
+              selected: {themeMode},
+              onSelectionChanged: (sel) =>
+                  ref.read(themeModeProvider.notifier).state = sel.first,
+            ),
+            const SizedBox(height: 24),
             Text(
               tr('settings.language'),
               style: Theme.of(context).textTheme.titleMedium,

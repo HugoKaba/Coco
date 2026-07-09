@@ -22,8 +22,8 @@ class PreferenceOption extends StatelessWidget {
         children: [
           Text(
             label,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -35,10 +35,14 @@ class PreferenceOption extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
-                color: isSelected ? accentColor : Colors.white38,
+                color: isSelected
+                    ? accentColor
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
                 width: 2,
               ),
-              color: isSelected ? Colors.white12 : Colors.transparent,
+              color: isSelected
+                  ? Theme.of(context).colorScheme.surfaceContainerHighest
+                  : Colors.transparent,
               boxShadow: isSelected
                   ? [
                       BoxShadow(

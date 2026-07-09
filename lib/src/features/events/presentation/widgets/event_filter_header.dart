@@ -24,7 +24,7 @@ class EventFilterHeader extends StatelessWidget {
             child: Text(
               tr('filters.reset'),
               style: TextStyle(
-                color: Colors.grey.shade600,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
                 fontWeight: FontWeight.w600,
               ),
             ),

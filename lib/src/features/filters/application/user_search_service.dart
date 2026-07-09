@@ -27,7 +27,12 @@ class UserSearchNotifier extends Notifier<UserSearchState> {
   @override
   UserSearchState build() {
     final authSub = FirebaseAuth.instance.authStateChanges().listen((u) {
-      if (u != null) _loadData();
+      if (u != null) {
+        _loadData();
+      } else {
+        // Non connecté : on ne reste pas bloqué sur le chargement.
+        state = state.copyWith(isLoading: false);
+      }
     });
     ref.onDispose(authSub.cancel);
     return const UserSearchState(isLoading: true);

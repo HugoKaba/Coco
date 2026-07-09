@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../application/club_providers.dart';
+import '../../application/stripe_payment_service.dart';
 import '../../domain/models/slot_entity.dart';
 
 part 'slot_booking_dialog_actions.part.dart';
@@ -40,18 +41,29 @@ class SlotBookingDialog extends ConsumerWidget {
             const SizedBox(height: 8),
             Text(
               DateFormat('EEEE, MMM dd • HH:mm').format(slot.startTime),
-              style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
+              style: TextStyle(
+                fontSize: 16,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
             ),
             const SizedBox(height: 24),
             _row(
+              context,
               Icons.people,
               'clubs.slot.participants',
               '${slot.participants.length}/${slot.maxParticipants}',
             ),
             if (slot.level != null)
-              _row(Icons.trending_up, 'clubs.slot.level', slot.level!),
+              _row(context, Icons.trending_up, 'clubs.slot.level', slot.level!),
             if (slot.ageGroup != null)
-              _row(Icons.cake, 'clubs.slot.age_group', slot.ageGroup!),
+              _row(context, Icons.cake, 'clubs.slot.age_group', slot.ageGroup!),
+            if (slot.price != null && slot.price! > 0)
+              _row(
+                context,
+                Icons.euro,
+                'clubs.slot.price',
+                '${slot.price!.toStringAsFixed(2)} €',
+              ),
             const SizedBox(height: 24),
             if (slot.isFull)
               Container(
@@ -83,7 +95,11 @@ class SlotBookingDialog extends ConsumerWidget {
             else
               _button(
                 context,
-                'clubs.slot.book'.tr(),
+                (slot.price != null && slot.price! > 0)
+                    ? 'clubs.slot.pay'.tr(
+                        namedArgs: {'price': slot.price!.toStringAsFixed(2)},
+                      )
+                    : 'clubs.slot.book'.tr(),
                 Theme.of(context).colorScheme.primary,
                 () => _bookSlot(context, ref, slot, clubId, userId),
               ),
@@ -93,18 +109,21 @@ class SlotBookingDialog extends ConsumerWidget {
     );
   }
 
-  Widget _row(IconData icon, String labelKey, String value) => Padding(
-    padding: const EdgeInsets.symmetric(vertical: 8),
-    child: Row(
-      children: [
-        Icon(icon, size: 20, color: Colors.grey.shade600),
-        const SizedBox(width: 12),
-        Text(labelKey.tr(), style: TextStyle(color: Colors.grey.shade600)),
-        const Spacer(),
-        Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
-      ],
-    ),
-  );
+  Widget _row(BuildContext context, IconData icon, String labelKey, String value) {
+    final muted = Theme.of(context).colorScheme.onSurfaceVariant;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        children: [
+          Icon(icon, size: 20, color: muted),
+          const SizedBox(width: 12),
+          Text(labelKey.tr(), style: TextStyle(color: muted)),
+          const Spacer(),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
+        ],
+      ),
+    );
+  }
 
   Widget _button(
     BuildContext context,

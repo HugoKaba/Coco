@@ -30,7 +30,7 @@ class ProfileCard extends StatelessWidget {
               onRight: onSwipeRight,
             ),
             const SizedBox(height: 16),
-            _buildNameSection(),
+            _buildNameSection(context),
             const SizedBox(height: 20),
             _buildSportIcons(),
             const SizedBox(height: 24),
@@ -44,14 +44,14 @@ class ProfileCard extends StatelessWidget {
               content: profile.activityFrequency,
             ),
             const SizedBox(height: 24),
-            _buildDailyPreferenceSection(),
+            _buildDailyPreferenceSection(context),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildNameSection() {
+  Widget _buildNameSection(BuildContext context) {
     return Column(
       children: [
         Text(
@@ -61,7 +61,10 @@ class ProfileCard extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           profile.username,
-          style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+          style: TextStyle(
+            fontSize: 16,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
         ),
       ],
     );
@@ -91,13 +94,16 @@ class ProfileCard extends StatelessWidget {
     );
   }
 
-  Widget _buildDailyPreferenceSection() {
+  Widget _buildDailyPreferenceSection(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           tr('swipe.daily_preference'),
-          style: const TextStyle(fontSize: 14, color: Colors.grey),
+          style: TextStyle(
+            fontSize: 14,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
         ),
         const SizedBox(height: 12),
         DaysRow(availableDays: profile.availableDays),

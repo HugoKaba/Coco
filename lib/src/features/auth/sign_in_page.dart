@@ -15,8 +15,6 @@ class SignInPage extends ConsumerStatefulWidget {
 
 class _SignInPageState extends ConsumerState<SignInPage> {
   static const _accent = Color(0xFFCD8232);
-  static const _field = Color(0xFF1F1F1F);
-  static final _shadow = Colors.black.withValues(alpha: 0.55);
   final _formKey = GlobalKey<FormState>();
   final _email = TextEditingController();
   final _password = TextEditingController();
@@ -32,12 +30,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
   Widget build(BuildContext context) {
     final auth = ref.read(authServiceProvider);
     return Scaffold(
-      backgroundColor: const Color(0xFF121212),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF121212),
-        foregroundColor: Colors.white,
-        title: Text(tr('sign_in.title')),
-      ),
+      appBar: AppBar(title: Text(tr('sign_in.title'))),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Center(
@@ -62,8 +55,6 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                         controller: _email,
                         hintText: tr('sign_in.email_label'),
                         keyboardType: TextInputType.emailAddress,
-                        fieldColor: _field,
-                        innerShadow: _shadow,
                       ),
                       const SizedBox(height: 20),
                       InputLabel(label: tr('sign_in.password_label')),
@@ -71,8 +62,6 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                         controller: _password,
                         hintText: tr('sign_in.password_label'),
                         obscureText: true,
-                        fieldColor: _field,
-                        innerShadow: _shadow,
                       ),
                       const SizedBox(height: 18),
                       PrimaryButton(
@@ -116,7 +105,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                   accentColor: _accent,
                 ),
                 const SizedBox(height: 24),
-                const Divider(color: Colors.white24),
+                Divider(color: Theme.of(context).dividerColor),
                 const SizedBox(height: 16),
                 PrimaryButton(
                   label: 'Professional Sign Up',

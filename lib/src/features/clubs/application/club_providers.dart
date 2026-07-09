@@ -6,6 +6,7 @@ import '../domain/repositories/club_repository.dart';
 import '../application/club_booking_service.dart';
 import '../application/club_search_service.dart';
 import '../application/club_membership_service.dart';
+import '../application/stripe_payment_service.dart';
 
 final clubRepositoryProvider = Provider<ClubRepository>((ref) {
   return FirestoreClubRepository();
@@ -24,6 +25,10 @@ final clubBookingServiceProvider = Provider<ClubBookingService>((ref) {
     slotRepository: ref.watch(slotRepositoryProvider),
     membershipRepository: ref.watch(membershipRepositoryProvider),
   );
+});
+
+final stripePaymentServiceProvider = Provider<StripePaymentService>((ref) {
+  return StripePaymentService();
 });
 
 final clubMembershipServiceProvider = Provider<ClubMembershipService>((ref) {

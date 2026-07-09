@@ -21,7 +21,7 @@ class ClubCreationNavigationBar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: ClubCreationStyle.background,
+        color: ClubCreationStyle.background(context),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.3),
@@ -38,8 +38,8 @@ class ClubCreationNavigationBar extends StatelessWidget {
                 child: OutlinedButton(
                   onPressed: isLoading ? null : onPrevious,
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    side: const BorderSide(color: Colors.white24),
+                    foregroundColor: Theme.of(context).colorScheme.onSurface,
+                    side: BorderSide(color: Theme.of(context).dividerColor),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),

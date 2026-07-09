@@ -7,6 +7,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:coco/src/features/settings/settings_page.dart';
+
 import 'edit_profile_screen.dart';
 
 part 'account_page_actions.part.dart';
@@ -18,11 +20,8 @@ class AccountPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authStateChangesProvider);
     return Scaffold(
-      backgroundColor: const Color(0xFF121212),
       appBar: AppBar(
         title: Text(tr('account.title')),
-        backgroundColor: const Color(0xFF121212),
-        foregroundColor: Colors.white,
         elevation: 0,
       ),
       body: authState.when(

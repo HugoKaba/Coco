@@ -14,17 +14,12 @@ Future<DateTime?> pickBirthDate({
     firstDate: DateTime(1900),
     lastDate: DateTime.now(),
     builder: (context, child) {
+      // Suit le thème de l'app (clair/sombre), avec l'accent orange.
       return Theme(
         data: Theme.of(context).copyWith(
-          colorScheme: ColorScheme.dark(
-            primary: accentColor,
-            onPrimary: Colors.white,
-            surface: const Color(0xFF1E1E1E),
-            onSurface: Colors.white,
-          ),
-          datePickerTheme: const DatePickerThemeData(
-            backgroundColor: Color(0xFF1E1E1E),
-          ),
+          colorScheme: Theme.of(
+            context,
+          ).colorScheme.copyWith(primary: accentColor),
         ),
         child: child!,
       );

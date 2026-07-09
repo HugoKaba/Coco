@@ -31,7 +31,6 @@ class ClubDashboardScreen extends ConsumerWidget {
   Widget _content(BuildContext context, WidgetRef ref, ClubEntity club) {
     final slotsAsync = ref.watch(upcomingSlotsProvider(clubId));
     return Scaffold(
-      backgroundColor: const Color(0xFF121212),
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -42,7 +41,7 @@ class ClubDashboardScreen extends ConsumerWidget {
                 onRefresh: () =>
                     ref.refresh(upcomingSlotsProvider(clubId).future),
                 color: const Color(0xFFCD8232),
-                backgroundColor: const Color(0xFF1F1F1F),
+                backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
                 child: CustomScrollView(
                   physics: const AlwaysScrollableScrollPhysics(),
                   slivers: [
@@ -90,10 +89,10 @@ class ClubDashboardScreen extends ConsumerWidget {
         children: [
           Text(
             'clubs.schedule.upcoming'.tr(),
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           IconButton(

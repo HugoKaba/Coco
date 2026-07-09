@@ -27,7 +27,7 @@ class EventLocationSearchBar extends StatelessWidget {
               ? IconButton(icon: const Icon(Icons.clear), onPressed: onClear)
               : null,
           filled: true,
-          fillColor: Colors.grey.shade100,
+          fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide.none,

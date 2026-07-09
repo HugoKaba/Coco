@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -38,21 +38,35 @@ class AuthChangeNotifier extends ChangeNotifier {
   }
 }
 
-final isDarkModeProvider = StateProvider<bool>((ref) => false);
+/// Mode de thème de l'app. Par défaut [ThemeMode.system] : l'app suit le
+/// réglage clair/sombre de l'appareil tant que l'utilisateur n'a pas choisi
+/// explicitement.
+final themeModeProvider = StateProvider<ThemeMode>((ref) => ThemeMode.system);
 
 final localeProvider = StateProvider<String>((ref) => 'en');
 
-const _kPrefIsDark = 'pref_is_dark';
+const _kPrefThemeMode = 'pref_theme_mode';
 const _kPrefLocale = 'pref_locale';
 
 class SettingsRepository {
   final SharedPreferences _prefs;
   SettingsRepository(this._prefs);
 
-  bool get isDark => _prefs.getBool(_kPrefIsDark) ?? false;
+  ThemeMode get themeMode {
+    switch (_prefs.getString(_kPrefThemeMode)) {
+      case 'light':
+        return ThemeMode.light;
+      case 'dark':
+        return ThemeMode.dark;
+      default:
+        return ThemeMode.system;
+    }
+  }
+
   String get locale => _prefs.getString(_kPrefLocale) ?? 'en';
 
-  Future<void> setIsDark(bool v) async => _prefs.setBool(_kPrefIsDark, v);
+  Future<void> setThemeMode(ThemeMode m) async =>
+      _prefs.setString(_kPrefThemeMode, m.name);
   Future<void> setLocale(String code) async =>
       _prefs.setString(_kPrefLocale, code);
 }
@@ -66,17 +80,17 @@ final settingsRepositoryProvider = FutureProvider<SettingsRepository>((
 
 final settingsInitProvider = FutureProvider<void>((ref) async {
   final repo = await ref.watch(settingsRepositoryProvider.future);
-  ref.read(isDarkModeProvider.notifier).state = repo.isDark;
+  ref.read(themeModeProvider.notifier).state = repo.themeMode;
   ref.read(localeProvider.notifier).state = repo.locale;
 });
 
 class _SettingsPersistenceNotifier {
   final Ref ref;
   _SettingsPersistenceNotifier(this.ref) {
-    ref.listen<bool>(isDarkModeProvider, (prev, next) {
-      _saveWithRetry<bool>(() async {
+    ref.listen<ThemeMode>(themeModeProvider, (prev, next) {
+      _saveWithRetry<ThemeMode>(() async {
         final repo = await ref.read(settingsRepositoryProvider.future);
-        await repo.setIsDark(next);
+        await repo.setThemeMode(next);
       });
     });
     ref.listen<String>(localeProvider, (prev, next) {

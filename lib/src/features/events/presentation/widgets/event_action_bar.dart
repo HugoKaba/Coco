@@ -28,7 +28,7 @@ class EventActionBar extends ConsumerWidget {
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 150),
         decoration: BoxDecoration(
           color: Theme.of(context).scaffoldBackgroundColor,
-          border: Border(top: BorderSide(color: Colors.grey.shade200)),
+          border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
         ),
         child: Row(
           children: [

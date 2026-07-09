@@ -1,0 +1,19 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions SportLinker — paiements Stripe",
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.0.2",
+    "firebase-functions": "^6.1.1",
+    "stripe": "^17.5.0"
+  }
+}

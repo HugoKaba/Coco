@@ -1,16 +1,12 @@
 part of 'slot_creation_screen.dart';
 
 Widget _pickerTheme(BuildContext context, Widget? child) {
+  // Suit le thème de l'app (clair/sombre), avec l'accent orange.
   return Theme(
     data: Theme.of(context).copyWith(
-      colorScheme: const ColorScheme.dark(
-        primary: _SlotCreationScreenState._accentColor,
-        surface: _SlotCreationScreenState._cardColor,
-        onSurface: Colors.white,
-      ),
-      dialogTheme: const DialogThemeData(
-        backgroundColor: _SlotCreationScreenState._bgColor,
-      ),
+      colorScheme: Theme.of(
+        context,
+      ).colorScheme.copyWith(primary: _SlotCreationScreenState._accentColor),
     ),
     child: child!,
   );

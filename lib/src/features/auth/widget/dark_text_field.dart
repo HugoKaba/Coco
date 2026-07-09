@@ -9,8 +9,8 @@ class DarkTextField extends StatelessWidget {
   final TextAlign? textAlign;
   final bool readOnly;
   final VoidCallback? onTap;
-  final Color fieldColor;
-  final Color innerShadow;
+  final Color? fieldColor;
+  final Color? innerShadow;
 
   const DarkTextField({
     super.key,
@@ -22,12 +22,15 @@ class DarkTextField extends StatelessWidget {
     this.textAlign = TextAlign.start,
     this.readOnly = false,
     this.onTap,
-    required this.fieldColor,
-    required this.innerShadow,
+    this.fieldColor,
+    this.innerShadow,
   });
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    final fill = fieldColor ?? cs.surfaceContainerHighest;
+    final border = innerShadow ?? cs.outlineVariant;
     return TextField(
       controller: controller,
       keyboardType: keyboardType,
@@ -36,23 +39,23 @@ class DarkTextField extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.start,
       readOnly: readOnly,
       onTap: onTap,
-      style: const TextStyle(color: Colors.white),
+      style: TextStyle(color: cs.onSurface),
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: const TextStyle(color: Colors.white54),
+        hintStyle: TextStyle(color: cs.onSurfaceVariant),
         filled: true,
-        fillColor: fieldColor,
+        fillColor: fill,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 12,
           vertical: 10,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: innerShadow.withValues(alpha: 0.4)),
+          borderSide: BorderSide(color: border.withValues(alpha: 0.4)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: innerShadow.withValues(alpha: 0.7)),
+          borderSide: BorderSide(color: border.withValues(alpha: 0.7)),
         ),
       ),
     );

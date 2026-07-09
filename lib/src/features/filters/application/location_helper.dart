@@ -17,7 +17,11 @@ class LocationHelper {
 
       if (permission == LocationPermission.deniedForever) return null;
 
-      return await Geolocator.getCurrentPosition();
+      // Timeout : sur simulateur (ou si le GPS ne répond pas), getCurrentPosition
+      // peut ne jamais revenir et bloquer l'app. Au-delà du délai → position null.
+      return await Geolocator.getCurrentPosition().timeout(
+        const Duration(seconds: 8),
+      );
     } catch (e) {
       debugPrint('${tr("errors.location_error")}: $e');
       return null;

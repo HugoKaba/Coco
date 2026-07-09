@@ -43,7 +43,9 @@ class PhotoPickerField extends StatelessWidget {
             : Center(
                 child: Text(
                   tr('register.select_profile_picture'),
-                  style: TextStyle(color: Colors.white54),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ),
       ),

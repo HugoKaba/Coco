@@ -37,7 +37,7 @@ class SortFilterSection extends StatelessWidget {
                   },
                   selectedColor: Theme.of(context).primaryColor,
                   labelStyle: TextStyle(
-                    color: sortByProximity ? Colors.white : Colors.black,
+                    color: sortByProximity ? Colors.white : Theme.of(context).colorScheme.onSurface,
                     fontWeight: FontWeight.bold,
                   ),
                   showCheckmark: false,
@@ -54,7 +54,7 @@ class SortFilterSection extends StatelessWidget {
                   },
                   selectedColor: Theme.of(context).primaryColor,
                   labelStyle: TextStyle(
-                    color: !sortByProximity ? Colors.white : Colors.black,
+                    color: !sortByProximity ? Colors.white : Theme.of(context).colorScheme.onSurface,
                     fontWeight: FontWeight.bold,
                   ),
                   showCheckmark: false,

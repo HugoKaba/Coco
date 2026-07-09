@@ -8,35 +8,38 @@ Widget _buildClubFilterHeader(_ClubFiltersSheetState s) => Padding(
     children: [
       Text(
         'filters.title'.tr(),
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: Theme.of(s.context).colorScheme.onSurface,
         ),
       ),
       IconButton(
-        icon: const Icon(Icons.close, color: Colors.white),
+        icon: Icon(
+          Icons.close,
+          color: Theme.of(s.context).colorScheme.onSurface,
+        ),
         onPressed: () => Navigator.pop(s.context),
       ),
     ],
   ),
 );
 
-Widget _buildClubFilterSectionTitle(String title) => Text(
+Widget _buildClubFilterSectionTitle(BuildContext context, String title) => Text(
   title,
-  style: const TextStyle(
+  style: TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
-    color: Colors.white,
+    color: Theme.of(context).colorScheme.onSurface,
   ),
 );
 
 Widget _buildClubLocationToggle(_ClubFiltersSheetState s) => Container(
   width: double.infinity,
   decoration: BoxDecoration(
-    color: _ClubFiltersSheetState._cardColor,
+    color: Theme.of(s.context).colorScheme.surfaceContainer,
     borderRadius: BorderRadius.circular(12),
-    border: Border.all(color: Colors.white10),
+    border: Border.all(color: Theme.of(s.context).dividerColor),
   ),
   child: Row(
     children: [
@@ -62,7 +65,9 @@ Widget _toggle(_ClubFiltersSheetState s, String label, bool value) {
       child: Text(
         label,
         style: TextStyle(
-          color: isSelected ? Colors.white : Colors.white54,
+          color: isSelected
+              ? Colors.white
+              : Theme.of(s.context).colorScheme.onSurfaceVariant,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -75,9 +80,12 @@ Widget _buildClubRadiusSlider(_ClubFiltersSheetState s) => Column(
     Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
+        Text(
           'Rayon',
-          style: TextStyle(color: Colors.white70, fontSize: 14),
+          style: TextStyle(
+            color: Theme.of(s.context).colorScheme.onSurfaceVariant,
+            fontSize: 14,
+          ),
         ),
         Text(
           '${s._radiusKm.toInt()} km',
@@ -91,7 +99,7 @@ Widget _buildClubRadiusSlider(_ClubFiltersSheetState s) => Column(
     SliderTheme(
       data: SliderTheme.of(s.context).copyWith(
         activeTrackColor: _ClubFiltersSheetState._accentColor,
-        inactiveTrackColor: Colors.white10,
+        inactiveTrackColor: Theme.of(s.context).colorScheme.surfaceContainerHighest,
         thumbColor: Colors.white,
         overlayColor: _ClubFiltersSheetState._accentColor.withValues(
           alpha: 0.2,

@@ -30,36 +30,38 @@ class ClubCreationReviewStep extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Vérification',
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 24),
-          _section('Compte', [
-            _item('Email', email),
-            _item('Mot de passe', '••••••••'),
+          _section(context, 'Compte', [
+            _item(context, 'Email', email),
+            _item(context, 'Mot de passe', '••••••••'),
           ]),
           const SizedBox(height: 16),
-          _section('Club', [
-            _item('Nom', clubName),
-            _item('Sport', sportType),
-            _item('Ville', city),
-            _item('Adresse', address),
-            if (phone.isNotEmpty) _item('Téléphone', phone),
+          _section(context, 'Club', [
+            _item(context, 'Nom', clubName),
+            _item(context, 'Sport', sportType),
+            _item(context, 'Ville', city),
+            _item(context, 'Adresse', address),
+            if (phone.isNotEmpty) _item(context, 'Téléphone', phone),
           ]),
           const SizedBox(height: 16),
-          _section('Abonnement', [
+          _section(context, 'Abonnement', [
             _item(
+              context,
               'Formule',
               subscriptionType == SubscriptionType.monthly
                   ? 'Mensuel'
                   : 'Annuel',
             ),
             _item(
+              context,
               'Prix',
               subscriptionType == SubscriptionType.monthly
                   ? '29.99€/mois'
@@ -71,11 +73,11 @@ class ClubCreationReviewStep extends StatelessWidget {
     );
   }
 
-  Widget _section(String title, List<Widget> children) {
+  Widget _section(BuildContext context, String title, List<Widget> children) {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: ClubCreationStyle.field,
+        color: ClubCreationStyle.field(context),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -96,7 +98,8 @@ class ClubCreationReviewStep extends StatelessWidget {
     );
   }
 
-  Widget _item(String label, String value) {
+  Widget _item(BuildContext context, String label, String value) {
+    final cs = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
@@ -106,13 +109,13 @@ class ClubCreationReviewStep extends StatelessWidget {
             width: 100,
             child: Text(
               label,
-              style: const TextStyle(color: Colors.white54, fontSize: 14),
+              style: TextStyle(color: cs.onSurfaceVariant, fontSize: 14),
             ),
           ),
           Expanded(
             child: Text(
               value.isEmpty ? 'Non renseigné' : value,
-              style: const TextStyle(color: Colors.white, fontSize: 14),
+              style: TextStyle(color: cs.onSurface, fontSize: 14),
             ),
           ),
         ],

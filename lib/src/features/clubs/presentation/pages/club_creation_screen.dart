@@ -61,16 +61,15 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ClubCreationStyle.background,
+      backgroundColor: ClubCreationStyle.background(context),
       appBar: AppBar(
-        backgroundColor: ClubCreationStyle.background,
-        foregroundColor: Colors.white,
+        backgroundColor: ClubCreationStyle.background(context),
         title: const Text('Créer un Club'),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
           child: LinearProgressIndicator(
             value: (_step + 1) / 3,
-            backgroundColor: ClubCreationStyle.field,
+            backgroundColor: ClubCreationStyle.field(context),
             valueColor: const AlwaysStoppedAnimation<Color>(
               ClubCreationStyle.accent,
             ),

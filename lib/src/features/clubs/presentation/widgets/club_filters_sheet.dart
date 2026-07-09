@@ -46,8 +46,6 @@ class _ClubFiltersSheetState extends State<ClubFiltersSheet> {
   final _zipController = TextEditingController();
   bool _citiesLoaded = false;
 
-  static const Color _bgColor = Color(0xFF121212);
-  static const Color _cardColor = Color(0xFF1F1F1F);
   static const Color _accentColor = Color(0xFFCD8232);
 
   @override
@@ -73,9 +71,9 @@ class _ClubFiltersSheetState extends State<ClubFiltersSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: _bgColor,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
       ),
       padding: EdgeInsets.only(
         top: 20,
@@ -91,7 +89,7 @@ class _ClubFiltersSheetState extends State<ClubFiltersSheet> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildClubFilterSectionTitle('Localisation'),
+                  _buildClubFilterSectionTitle(context, 'Localisation'),
                   const SizedBox(height: 16),
                   _buildClubLocationToggle(this),
                   const SizedBox(height: 16),
@@ -104,18 +102,18 @@ class _ClubFiltersSheetState extends State<ClubFiltersSheet> {
                         citiesLoaded: _citiesLoaded,
                         setCitiesLoaded: (loaded) =>
                             setState(() => _citiesLoaded = loaded),
-                        fieldColor: _cardColor,
+                        fieldColor: Theme.of(context).colorScheme.surfaceContainer,
                         innerShadow: Colors.transparent,
                       ),
                     ),
                   const SizedBox(height: 16),
                   _buildClubRadiusSlider(this),
                   const SizedBox(height: 32),
-                  _buildClubFilterSectionTitle('clubs.filter.levels'.tr()),
+                  _buildClubFilterSectionTitle(context, 'clubs.filter.levels'.tr()),
                   const SizedBox(height: 16),
                   _buildClubLevelsSection(this),
                   const SizedBox(height: 32),
-                  _buildClubFilterSectionTitle('clubs.filter.age_group'.tr()),
+                  _buildClubFilterSectionTitle(context, 'clubs.filter.age_group'.tr()),
                   const SizedBox(height: 16),
                   _buildClubAgeSection(this),
                 ],

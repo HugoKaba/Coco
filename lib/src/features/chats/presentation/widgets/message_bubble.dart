@@ -12,6 +12,7 @@ class MessageBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: Column(
@@ -39,7 +40,7 @@ class MessageBubble extends StatelessWidget {
                       name,
                       style: TextStyle(
                         fontSize: 10,
-                        color: Colors.grey[600],
+                        color: cs.onSurfaceVariant,
                         fontWeight: FontWeight.bold,
                       ),
                     );
@@ -82,7 +83,9 @@ class MessageBubble extends StatelessWidget {
                     vertical: 10,
                   ),
                   decoration: BoxDecoration(
-                    color: isMe ? const Color(0xFFD4913D) : Colors.grey[200],
+                    color: isMe
+                        ? const Color(0xFFD4913D)
+                        : cs.surfaceContainerHighest,
                     borderRadius: BorderRadius.only(
                       topLeft: const Radius.circular(20),
                       topRight: const Radius.circular(20),
@@ -101,7 +104,7 @@ class MessageBubble extends StatelessWidget {
                         message.text,
                         style: TextStyle(
                           fontSize: 15,
-                          color: isMe ? Colors.white : Colors.black87,
+                          color: isMe ? Colors.white : cs.onSurface,
                           height: 1.3,
                         ),
                       ),
@@ -112,7 +115,7 @@ class MessageBubble extends StatelessWidget {
                           fontSize: 11,
                           color: isMe
                               ? Colors.white.withValues(alpha: 0.8)
-                              : Colors.grey[600],
+                              : cs.onSurfaceVariant,
                         ),
                       ),
                     ],

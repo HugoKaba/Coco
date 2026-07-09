@@ -27,14 +27,18 @@ class FrequencySelector extends StatelessWidget {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: isSelected ? accentColor : const Color(0xFF2C2C2C),
+                  color: isSelected
+                      ? accentColor
+                      : Theme.of(context).colorScheme.surfaceContainerHighest,
                   shape: BoxShape.circle,
                 ),
                 alignment: Alignment.center,
                 child: Text(
                   '$val',
                   style: TextStyle(
-                    color: isSelected ? Colors.black : Colors.white,
+                    color: isSelected
+                        ? Colors.black
+                        : Theme.of(context).colorScheme.onSurface,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -45,7 +49,10 @@ class FrequencySelector extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           '$frequency fois par semaine',
-          style: const TextStyle(color: Colors.white70, fontSize: 12),
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+            fontSize: 12,
+          ),
         ),
       ],
     );

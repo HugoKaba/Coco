@@ -53,11 +53,18 @@ Widget _buildClubList(_ClubDiscoveryScreenState s) {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.search_off, size: 64, color: Colors.grey.shade400),
+          Icon(
+            Icons.search_off,
+            size: 64,
+            color: Theme.of(s.context).colorScheme.onSurfaceVariant,
+          ),
           const SizedBox(height: 16),
           Text(
             'clubs.no_clubs_found'.tr(),
-            style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+            style: TextStyle(
+              fontSize: 18,
+              color: Theme.of(s.context).colorScheme.onSurfaceVariant,
+            ),
           ),
           const SizedBox(height: 8),
           TextButton.icon(
@@ -139,7 +146,10 @@ Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
                   const SizedBox(height: 4),
                   Text(
                     club.sportType,
-                    style: TextStyle(color: Colors.grey.shade600, fontSize: 14),
+                    style: TextStyle(
+                      color: Theme.of(s.context).colorScheme.onSurfaceVariant,
+                      fontSize: 14,
+                    ),
                   ),
                 ],
               ),

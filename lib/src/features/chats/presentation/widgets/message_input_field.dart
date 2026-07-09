@@ -31,11 +31,12 @@ class _MessageInputFieldState extends State<MessageInputField> {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(top: BorderSide(color: Colors.grey[200]!)),
+        color: cs.surface,
+        border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
       ),
       child: SafeArea(
         child: Row(
@@ -43,7 +44,7 @@ class _MessageInputFieldState extends State<MessageInputField> {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: cs.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(24),
                 ),
                 child: TextField(
@@ -71,12 +72,14 @@ class _MessageInputFieldState extends State<MessageInputField> {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: _hasText ? const Color(0xFFD4913D) : Colors.grey[300],
+                  color: _hasText
+                      ? const Color(0xFFD4913D)
+                      : cs.surfaceContainerHighest,
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
                   Icons.arrow_upward,
-                  color: _hasText ? Colors.white : Colors.grey[500],
+                  color: _hasText ? Colors.white : cs.onSurfaceVariant,
                   size: 22,
                 ),
               ),
