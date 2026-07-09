@@ -41,9 +41,13 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
   @override
   void initState() {
     super.initState();
+    // Chargement des villes pour l'autocomplete de recherche sur la carte (com-94).
     CityService.instance.loadCities().then((_) {
       if (mounted) setState(() => _citiesLoaded = true);
     });
+    // Recherche immédiate (villes par défaut = Paris) puis re-recherche une fois
+    // la position de l'appareil obtenue dans _initializeLocation() (venu de main).
+    _searchClubs();
     _initializeLocation();
   }
 
@@ -69,6 +73,9 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
         ScaffoldMessenger.of(
           context,
         ).showSnackBar(SnackBar(content: Text('errors.location_error'.tr())));
+      }
+      if (mounted) {
+        _searchClubs();
       }
     }
   }
@@ -97,7 +104,9 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
         }
       }
 
-      if (_filters.searchLat == null || _filters.searchLng == null) {
+      final searchLat = _filters.searchLat ?? _filters.cityLat;
+      final searchLng = _filters.searchLng ?? _filters.cityLng;
+      if (searchLat == null || searchLng == null) {
         setState(() => _isLoading = false);
         return;
       }
@@ -105,8 +114,8 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
       final results = await ref
           .read(clubSearchServiceProvider)
           .searchNearby(
-            lat: _filters.searchLat!,
-            lng: _filters.searchLng!,
+            lat: searchLat,
+            lng: searchLng,
             radiusKm: _filters.radiusKm,
             sportType: _filters.selectedSports.isEmpty
                 ? null

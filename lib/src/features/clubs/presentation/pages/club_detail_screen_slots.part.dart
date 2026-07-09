@@ -6,9 +6,6 @@ Widget _buildClubDetailSlotsTab(_ClubDetailScreenState s, String clubId) {
   return slotsAsync.when(
     data: (slots) {
       final list = slots.cast<SlotEntity>();
-      if (list.isEmpty) {
-        return Center(child: Text('clubs.schedule.no_slots'.tr()));
-      }
       return _SlotsWithCalendar(s: s, slots: list, clubId: clubId);
     },
     loading: () => const Center(child: CircularProgressIndicator()),
@@ -90,12 +87,14 @@ class _SlotsWithCalendarState extends State<_SlotsWithCalendar>
           child: TabBarView(
             controller: _tabController,
             children: [
-              ListView.builder(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
-                itemCount: widget.slots.length,
-                itemBuilder: (_, i) => _slotCard(widget.s, widget.slots[i]),
-              ),
-
+              widget.slots.isEmpty
+                  ? Center(child: Text('clubs.schedule.no_slots'.tr()))
+                  : ListView.builder(
+                      padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
+                      itemCount: widget.slots.length,
+                      itemBuilder: (_, i) =>
+                          _slotCard(widget.s, widget.slots[i]),
+                    ),
               ClubSlotsCalendar(
                 slots: widget.slots,
                 clubId: widget.clubId,
@@ -114,7 +113,7 @@ Widget _slotCard(_ClubDetailScreenState s, SlotEntity slot) {
   final isJoined = user != null && slot.participants.contains(user.uid);
 
   return Card(
-    color: isJoined ? Colors.green.withOpacity(0.2) : null,
+    color: isJoined ? Colors.green.withValues(alpha: 0.2) : null,
     margin: const EdgeInsets.only(bottom: 12),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),

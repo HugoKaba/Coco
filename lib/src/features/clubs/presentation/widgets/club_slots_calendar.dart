@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart' hide DateFormat;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -28,9 +28,14 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
 
   List<SlotEntity> _getSlotsForDay(DateTime day) {
-    return widget.slots
-        .where((slot) => isSameDay(slot.startTime, day))
-        .toList();
+    return widget.slots.where((slot) => _slotOverlapsDay(slot, day)).toList();
+  }
+
+  bool _slotOverlapsDay(SlotEntity slot, DateTime day) {
+    final startOfDay = DateUtils.dateOnly(day);
+    final endOfDay = startOfDay.add(const Duration(days: 1));
+    return slot.startTime.isBefore(endOfDay) &&
+        slot.endTime.isAfter(startOfDay);
   }
 
   void _openDialog(SlotEntity slot) {
@@ -81,11 +86,11 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
             headerStyle: HeaderStyle(
               formatButtonVisible: true,
               titleCentered: true,
-              titleTextStyle: theme.textTheme.titleSmall!
-                  .copyWith(fontWeight: FontWeight.w600),
+              titleTextStyle: theme.textTheme.titleSmall!.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
               formatButtonDecoration: BoxDecoration(
-                border:
-                    Border.all(color: theme.colorScheme.outlineVariant),
+                border: Border.all(color: theme.colorScheme.outlineVariant),
                 borderRadius: BorderRadius.circular(8),
               ),
               formatButtonTextStyle: TextStyle(
@@ -126,13 +131,12 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: events.take(3).map((slot) {
-                      final isJoined = user != null &&
-                          slot.participants.contains(user.uid);
+                      final isJoined =
+                          user != null && slot.participants.contains(user.uid);
                       return Container(
                         width: 5,
                         height: 5,
-                        margin:
-                            const EdgeInsets.symmetric(horizontal: 1),
+                        margin: const EdgeInsets.symmetric(horizontal: 1),
                         decoration: BoxDecoration(
                           color: isJoined
                               ? Colors.green.shade500
@@ -155,19 +159,19 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
               ? Center(
                   child: Text(
                     'Aucun créneau ce jour',
-                    style: TextStyle(
-                        color: theme.colorScheme.onSurfaceVariant),
+                    style: TextStyle(color: theme.colorScheme.onSurfaceVariant),
                   ),
                 )
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
-                        DateFormat('EEEE dd MMMM', 'fr_FR')
-                            .format(_selectedDay),
+                        DateFormat(
+                          'EEEE dd MMMM',
+                          'fr_FR',
+                        ).format(_selectedDay),
                         style: theme.textTheme.labelLarge?.copyWith(
                           color: theme.colorScheme.onSurfaceVariant,
                           fontWeight: FontWeight.w500,
@@ -177,8 +181,7 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
                     const SizedBox(height: 6),
                     Expanded(
                       child: ListView.builder(
-                        padding:
-                            const EdgeInsets.fromLTRB(16, 0, 16, 100),
+                        padding: const EdgeInsets.fromLTRB(16, 0, 16, 100),
                         itemCount: selectedSlots.length,
                         itemBuilder: (_, i) => _SlotCalendarCard(
                           slot: selectedSlots[i],
@@ -195,7 +198,6 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
   }
 }
 
-
 class _SlotCalendarCard extends StatelessWidget {
   final SlotEntity slot;
   final dynamic user;
@@ -209,8 +211,7 @@ class _SlotCalendarCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isJoined =
-        user != null && slot.participants.contains(user.uid);
+    final isJoined = user != null && slot.participants.contains(user.uid);
 
     return Card(
       color: isJoined ? Colors.green.withValues(alpha: 0.2) : null,
@@ -225,8 +226,7 @@ class _SlotCalendarCard extends StatelessWidget {
         onTap: onTap,
         title: Text(
           slot.type.displayName,
-          style:
-              isJoined ? const TextStyle(fontWeight: FontWeight.bold) : null,
+          style: isJoined ? const TextStyle(fontWeight: FontWeight.bold) : null,
         ),
         subtitle: Text(DateFormat('MMM dd, HH:mm').format(slot.startTime)),
         trailing: Column(
@@ -234,8 +234,7 @@ class _SlotCalendarCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             if (isJoined)
-              Icon(Icons.check_circle,
-                  color: Colors.green.shade700, size: 20),
+              Icon(Icons.check_circle, color: Colors.green.shade700, size: 20),
             Text(
               'clubs.slot.spots_left'.tr(
                 namedArgs: {'count': '${slot.availableSpots}'},
