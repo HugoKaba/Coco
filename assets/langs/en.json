@@ -317,7 +317,8 @@
 			"members": "Members"
 		},
 		"map": {
-			"search_city_hint": "Search a city in Île-de-France..."
+			"search_city_hint": "Search a city in Île-de-France...",
+			"locate_me": "Locate me"
 		},
 		"view": {
 			"list": "List view",

@@ -57,27 +57,62 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
     super.dispose();
   }
 
-  Future<void> _initializeLocation() async {
+  /// Récupère la position de l'appareil en gérant permission + timeout.
+  /// Renvoie `null` si le service est coupé, la permission refusée, ou si le GPS
+  /// ne répond pas dans le délai (fréquent sur simulateur) — ne bloque jamais.
+  Future<Position?> _getDevicePosition() async {
     try {
-      final position = await Geolocator.getCurrentPosition();
-      setState(
-        () => _filters = _filters.copyWith(
-          deviceLat: position.latitude,
-          deviceLng: position.longitude,
-        ),
-      );
-      _searchClubs();
+      if (!await Geolocator.isLocationServiceEnabled()) return null;
+      var permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+      }
+      if (permission == LocationPermission.denied ||
+          permission == LocationPermission.deniedForever) {
+        return null;
+      }
+      return await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      ).timeout(const Duration(seconds: 8));
     } catch (_) {
-      _searchClubs();
-      if (mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('errors.location_error'.tr())));
-      }
-      if (mounted) {
-        _searchClubs();
-      }
+      return null;
     }
+  }
+
+  /// Pré-charge silencieusement la position au démarrage (sans snackbar pour ne
+  /// pas polluer l'ouverture). Le fallback ville reste actif si indisponible.
+  Future<void> _initializeLocation() async {
+    final position = await _getDevicePosition();
+    if (position == null || !mounted) return;
+    setState(
+      () => _filters = _filters.copyWith(
+        deviceLat: position.latitude,
+        deviceLng: position.longitude,
+      ),
+    );
+    if (_filters.isAroundMe) _searchClubs();
+  }
+
+  /// Bouton « me localiser » : récupère la position, passe en mode « autour de
+  /// moi », recentre la carte et relance la recherche. Feedback si indisponible.
+  Future<void> _locateMe() async {
+    final position = await _getDevicePosition();
+    if (!mounted) return;
+    if (position == null) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('errors.location_error'.tr())));
+      return;
+    }
+    setState(
+      () => _filters = _filters.copyWith(
+        deviceLat: position.latitude,
+        deviceLng: position.longitude,
+        isAroundMe: true,
+      ),
+    );
+    _mapController.move(LatLng(position.latitude, position.longitude), 13);
+    _searchClubs();
   }
 
   Future<void> _searchClubs() async {

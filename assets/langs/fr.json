@@ -316,7 +316,8 @@
 			"members": "Membres"
 		},
 		"map": {
-			"search_city_hint": "Rechercher une ville en Île-de-France..."
+			"search_city_hint": "Rechercher une ville en Île-de-France...",
+			"locate_me": "Me localiser"
 		},
 		"view": {
 			"list": "Vue liste",
