@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../filters/domain/models/person_entity.dart';
 import '../widgets/profile_card.dart';
 import '../widgets/top_swipe_card.dart';
+import '../widgets/swipe_action_button.dart';
 import 'person_mapper.dart';
 
 class SwipeCardStack extends StatefulWidget {
@@ -64,6 +65,15 @@ class _SwipeCardStackState extends State<SwipeCardStack>
   /// aux quelques cartes du dessus, quelle que soit la taille de la liste.
   static const int _kVisibleCards = 3;
 
+  // Position verticale de l'overlay des boutons : centré sur la photo. La photo
+  // (160px) est en haut de la carte, donc son centre est à 80 ; le bouton fait
+  // 56px, on le centre (80 - 28 = 52).
+  static const double _kButtonsTop = 52;
+
+  // Largeur du "trou" entre les deux boutons : gabarit de la photo (160) + les
+  // marges d'origine (24 de chaque côté) → les boutons flanquent la photo.
+  static const double _kButtonsGap = 24 + 160 + 24;
+
   @override
   Widget build(BuildContext context) {
     final people = widget.people;
@@ -84,11 +94,7 @@ class _SwipeCardStackState extends State<SwipeCardStack>
         cards.add(
           Positioned.fill(
             key: ValueKey('card_${person.id}'),
-            child: ProfileCard(
-              profile: person.toProfile(),
-              onSwipeLeft: () {},
-              onSwipeRight: () {},
-            ),
+            child: ProfileCard(profile: person.toProfile()),
           ),
         );
       } else {
@@ -100,13 +106,36 @@ class _SwipeCardStackState extends State<SwipeCardStack>
               dragDx: _dragDx,
               onPanUpdate: _handlePanUpdate,
               onPanEnd: _handlePanEnd,
-              onSwipeLeft: () => _triggerSwipe(isRight: false),
-              onSwipeRight: () => _triggerSwipe(isRight: true),
             ),
           ),
         );
       }
     }
+
+    // Overlay FIXE des boutons ✕ / ✓ : ajouté en dernier (au-dessus de tout) et
+    // hors de toute transformation → il ne bouge pas quand la carte du dessus
+    // part en swipe. Il agit toujours sur la carte du dessus via _triggerSwipe.
+    cards.add(
+      Positioned(
+        top: _kButtonsTop,
+        left: 0,
+        right: 0,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SwipeActionButton(
+              icon: Icons.close,
+              onTap: () => _triggerSwipe(isRight: false),
+            ),
+            const SizedBox(width: _kButtonsGap),
+            SwipeActionButton(
+              icon: Icons.check,
+              onTap: () => _triggerSwipe(isRight: true),
+            ),
+          ],
+        ),
+      ),
+    );
 
     return Stack(clipBehavior: Clip.none, children: cards);
   }

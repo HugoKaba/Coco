@@ -1,41 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
 import '../models/profile.dart';
 
 class ProfilePhotoSection extends StatelessWidget {
   final Profile profile;
-  final VoidCallback onLeft;
-  final VoidCallback onRight;
 
-  const ProfilePhotoSection({
-    super.key,
-    required this.profile,
-    required this.onLeft,
-    required this.onRight,
-  });
+  const ProfilePhotoSection({super.key, required this.profile});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        _SwipeButton(icon: Icons.close, onTap: onLeft),
-        const SizedBox(width: 24),
-        Container(
-          width: 160,
-          height: 160,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: NetworkImage(profile.imageUrl),
-              fit: BoxFit.cover,
-            ),
+    // Juste la photo centrée. Les boutons ✕/✓ ne font PAS partie de la carte :
+    // ils sont rendus en overlay fixe par-dessus la pile (voir SwipeCardStack).
+    return Center(
+      child: Container(
+        width: 160,
+        height: 160,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          image: DecorationImage(
+            image: NetworkImage(profile.imageUrl),
+            fit: BoxFit.cover,
           ),
         ),
-        const SizedBox(width: 24),
-        _SwipeButton(icon: Icons.check, onTap: onRight),
-      ],
+      ),
     );
   }
 }
@@ -83,29 +70,6 @@ class InfoSection extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class _SwipeButton extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onTap;
-
-  const _SwipeButton({required this.icon, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 56,
-        height: 56,
-        decoration: const BoxDecoration(
-          color: AppColors.brand,
-          shape: BoxShape.circle,
-        ),
-        child: Icon(icon, color: Colors.white, size: 32),
-      ),
     );
   }
 }
