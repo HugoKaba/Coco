@@ -51,7 +51,17 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
             MainShell(navigationShell: navigationShell),
+        // L'ordre des branches doit rester identique à l'ordre des items de
+        // la barre dans MainShell (index par position). Swipe en premier.
         branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/swipe',
+                builder: (context, state) => const SwapMatchPage(),
+              ),
+            ],
+          ),
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -65,14 +75,6 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               GoRoute(
                 path: '/clubs',
                 builder: (context, state) => const ClubDiscoveryScreen(),
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: '/swipe',
-                builder: (context, state) => const SwapMatchPage(),
               ),
             ],
           ),
