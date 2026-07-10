@@ -57,43 +57,58 @@ class _SwipeCardStackState extends State<SwipeCardStack>
     super.dispose();
   }
 
+  /// Nombre de cartes réellement rendues au sommet de la pile. Les cartes en
+  /// dessous ont un fond opaque et se recouvrent totalement : en rendre plus
+  /// serait invisible ET coûteux (chaque carte charge une image réseau et est
+  /// reconstruite à chaque frame d'animation via setState). On se limite donc
+  /// aux quelques cartes du dessus, quelle que soit la taille de la liste.
+  static const int _kVisibleCards = 3;
+
   @override
   Widget build(BuildContext context) {
-    if (widget.people.isEmpty) return const SizedBox.shrink();
+    final people = widget.people;
+    if (people.isEmpty) return const SizedBox.shrink();
 
-    final cardList = widget.people.toList();
+    final total = people.length;
+    // Fenêtre des dernières cartes (la carte du dessus est `people.last`).
+    final firstVisible = (total - _kVisibleCards).clamp(0, total);
 
-    return Stack(
-      clipBehavior: Clip.none,
-      children: cardList.asMap().entries.map((entry) {
-        final index = entry.key;
-        final person = entry.value;
-        final isTopCard = index == cardList.length - 1;
+    final cards = <Widget>[];
+    // Ordre croissant : la carte du dessus est ajoutée en dernier, donc peinte
+    // par-dessus les autres.
+    for (var index = firstVisible; index < total; index++) {
+      final person = people[index];
+      final isTopCard = index == total - 1;
 
-        if (!isTopCard) {
-          return Positioned.fill(
+      if (!isTopCard) {
+        cards.add(
+          Positioned.fill(
             key: ValueKey('card_${person.id}'),
             child: ProfileCard(
               profile: person.toProfile(),
               onSwipeLeft: () {},
               onSwipeRight: () {},
             ),
-          );
-        }
-
-        return Positioned.fill(
-          key: ValueKey('top_card_${person.id}'),
-          child: TopSwipeCard(
-            profile: person.toProfile(),
-            dragDx: _dragDx,
-            onPanUpdate: _handlePanUpdate,
-            onPanEnd: _handlePanEnd,
-            onSwipeLeft: () => _triggerSwipe(isRight: false),
-            onSwipeRight: () => _triggerSwipe(isRight: true),
           ),
         );
-      }).toList(),
-    );
+      } else {
+        cards.add(
+          Positioned.fill(
+            key: ValueKey('top_card_${person.id}'),
+            child: TopSwipeCard(
+              profile: person.toProfile(),
+              dragDx: _dragDx,
+              onPanUpdate: _handlePanUpdate,
+              onPanEnd: _handlePanEnd,
+              onSwipeLeft: () => _triggerSwipe(isRight: false),
+              onSwipeRight: () => _triggerSwipe(isRight: true),
+            ),
+          ),
+        );
+      }
+    }
+
+    return Stack(clipBehavior: Clip.none, children: cards);
   }
 
   void _handlePanUpdate(DragUpdateDetails details) {
