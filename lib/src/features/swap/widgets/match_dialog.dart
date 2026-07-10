@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class MatchDialog extends StatelessWidget {
             children: [
               const Icon(
                 Icons.favorite_rounded,
-                color: Color(0xFFD4913D),
+                color: AppColors.brand,
                 size: 60,
               ),
               const SizedBox(height: 16),
@@ -46,7 +47,7 @@ class MatchDialog extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w900,
-                  color: Color(0xFFD4913D),
+                  color: AppColors.brand,
                   letterSpacing: 1.2,
                 ),
               ),
@@ -56,10 +57,10 @@ class MatchDialog extends StatelessWidget {
                 height: 120,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: const Color(0xFFD4913D), width: 4),
+                  border: Border.all(color: AppColors.brand, width: 4),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFFD4913D).withValues(alpha: 0.3),
+                      color: AppColors.brand.withValues(alpha: 0.3),
                       blurRadius: 15,
                       spreadRadius: 2,
                     ),
@@ -94,7 +95,7 @@ class MatchDialog extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () => _openChat(context, person),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFD4913D),
+                    backgroundColor: AppColors.brand,
                     foregroundColor: Colors.white,
                     elevation: 0,
                     shape: RoundedRectangleBorder(

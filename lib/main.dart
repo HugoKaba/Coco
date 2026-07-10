@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -83,15 +84,15 @@ class AppRoot extends ConsumerWidget {
         useMaterial3: true,
         brightness: Brightness.light,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFD4913D),
+          seedColor: AppColors.brand,
           brightness: Brightness.light,
           surfaceTint: Colors.transparent,
         ),
-        scaffoldBackgroundColor: Colors.white,
-        cardColor: Colors.white,
+        scaffoldBackgroundColor: AppColors.lightBackground,
+        cardColor: AppColors.lightBackground,
         // AppBar aligné sur le corps (pas de teinte crème M3).
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.lightBackground,
           foregroundColor: Colors.black,
           surfaceTintColor: Colors.transparent,
           elevation: 0,
@@ -103,23 +104,23 @@ class AppRoot extends ConsumerWidget {
         brightness: Brightness.dark,
         colorScheme:
             ColorScheme.fromSeed(
-              seedColor: const Color(0xFFD4913D),
+              seedColor: AppColors.brand,
               brightness: Brightness.dark,
               surfaceTint: Colors.transparent,
             ).copyWith(
               // Surfaces sombres mais pas noir pur (plus confortable, évite la
               // halation typique du blanc pur sur noir pur).
-              surface: const Color(0xFF121212),
-              surfaceContainer: const Color(0xFF1E1E1E),
-              surfaceContainerHighest: const Color(0xFF2A2A2A),
+              surface: AppColors.darkBackground,
+              surfaceContainer: AppColors.darkSurface,
+              surfaceContainerHighest: AppColors.darkSurfaceHigh,
             ),
-        scaffoldBackgroundColor: const Color(0xFF121212),
-        cardColor: const Color(0xFF1E1E1E),
+        scaffoldBackgroundColor: AppColors.darkBackground,
+        cardColor: AppColors.darkSurface,
         dialogTheme: const DialogThemeData(
-          backgroundColor: Color(0xFF1E1E1E),
+          backgroundColor: AppColors.darkSurface,
         ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF121212),
+          backgroundColor: AppColors.darkBackground,
           foregroundColor: Colors.white,
           surfaceTintColor: Colors.transparent,
           elevation: 0,

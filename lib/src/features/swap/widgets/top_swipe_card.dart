@@ -8,8 +8,6 @@ class TopSwipeCard extends StatelessWidget {
   final double dragDx;
   final void Function(DragUpdateDetails)? onPanUpdate;
   final void Function(DragEndDetails)? onPanEnd;
-  final VoidCallback onSwipeLeft;
-  final VoidCallback onSwipeRight;
 
   const TopSwipeCard({
     super.key,
@@ -17,8 +15,6 @@ class TopSwipeCard extends StatelessWidget {
     required this.dragDx,
     this.onPanUpdate,
     this.onPanEnd,
-    required this.onSwipeLeft,
-    required this.onSwipeRight,
   });
 
   @override
@@ -44,11 +40,7 @@ class TopSwipeCard extends StatelessWidget {
           child: Transform.rotate(
             alignment: Alignment.bottomCenter,
             angle: angle,
-            child: ProfileCard(
-              profile: profile,
-              onSwipeLeft: onSwipeLeft,
-              onSwipeRight: onSwipeRight,
-            ),
+            child: ProfileCard(profile: profile),
           ),
         ),
       ),

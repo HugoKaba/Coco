@@ -46,7 +46,7 @@ Widget _planCard(
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF4CAF50),
+                    color: AppColors.success,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
@@ -97,7 +97,7 @@ Widget _feature(BuildContext context, String text) => Padding(
   padding: const EdgeInsets.only(bottom: 8),
   child: Row(
     children: [
-      const Icon(Icons.check_circle, color: Color(0xFF4CAF50), size: 20),
+      const Icon(Icons.check_circle, color: AppColors.success, size: 20),
       const SizedBox(width: 12),
       Text(
         text,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../../../../features/filters/application/seeder_constants.dart';
 import '../../../../core/data/reference_tables.dart';
@@ -123,7 +124,7 @@ class _SportsSelectionWidgetState extends State<SportsSelectionWidget> {
               selected: isSelected,
               onSelected: (_) => _toggleSport(sportId, levelIds),
               backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
-              selectedColor: const Color(0xFFF2A33A),
+              selectedColor: AppColors.brandLight,
               checkmarkColor: Colors.black,
               labelStyle: TextStyle(
                 color: isSelected

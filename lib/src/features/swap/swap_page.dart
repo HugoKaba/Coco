@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'data/swipe_repository.dart';
@@ -45,12 +46,12 @@ class _SwapMatchPageState extends ConsumerState<SwapMatchPage> {
               child: Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFD4913D).withValues(alpha: 0.1),
+                  color: AppColors.brand.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: const Icon(
                   Icons.tune_rounded,
-                  color: Color(0xFFD4913D),
+                  color: AppColors.brand,
                   size: 20,
                 ),
               ),

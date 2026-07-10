@@ -1,4 +1,5 @@
 import 'package:coco/src/core/city_service.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/core/domain/app_enums.dart';
 import 'package:coco/src/features/auth/widget/city_autocomplete.dart';
 import 'package:coco/src/features/clubs/domain/models/club_filter_criteria.dart';
@@ -46,7 +47,7 @@ class _ClubFiltersSheetState extends State<ClubFiltersSheet> {
   final _zipController = TextEditingController();
   bool _citiesLoaded = false;
 
-  static const Color _accentColor = Color(0xFFCD8232);
+  static const Color _accentColor = AppColors.brand;
 
   @override
   void initState() {

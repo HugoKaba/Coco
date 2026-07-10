@@ -3,7 +3,7 @@ part of 'conversation_tile.dart';
 Widget _conversationBadge(int unread) => Container(
   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
   decoration: const BoxDecoration(
-    color: Color(0xFFD4913D),
+    color: AppColors.brand,
     shape: BoxShape.circle,
   ),
   constraints: const BoxConstraints(minWidth: 20, minHeight: 20),

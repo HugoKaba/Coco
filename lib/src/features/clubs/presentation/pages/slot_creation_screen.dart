@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,7 +22,7 @@ class SlotCreationScreen extends ConsumerStatefulWidget {
 
 class _SlotCreationScreenState extends ConsumerState<SlotCreationScreen> {
   final _formKey = GlobalKey<FormState>();
-  static const Color _accentColor = Color(0xFFCD8232);
+  static const Color _accentColor = AppColors.brand;
 
   SlotType _type = SlotType.course;
   DateTime _startTime = DateTime.now().add(const Duration(hours: 1));

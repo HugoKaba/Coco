@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -49,11 +50,11 @@ class ConversationTile extends StatelessWidget {
                 height: 56,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color(0xFFD4913D).withValues(alpha: 0.2),
+                  color: AppColors.brand.withValues(alpha: 0.2),
                 ),
                 child: const Icon(
                   Icons.person,
-                  color: Color(0xFFD4913D),
+                  color: AppColors.brand,
                   size: 28,
                 ),
               ),
@@ -89,7 +90,7 @@ class ConversationTile extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 13,
                               color: unread > 0
-                                  ? const Color(0xFFD4913D)
+                                  ? AppColors.brand
                                   : cs.onSurfaceVariant,
                               fontWeight: unread > 0
                                   ? FontWeight.w600

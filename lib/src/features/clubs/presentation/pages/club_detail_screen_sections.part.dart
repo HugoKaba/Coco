@@ -66,47 +66,7 @@ Widget _buildClubDetailHeader(_ClubDetailScreenState s, ClubEntity club) {
           ],
         ),
         const SizedBox(height: 16),
-        s.ref
-            .watch(isMemberProvider(club.id))
-            .when(
-              data: (isMember) => SizedBox(
-                width: double.infinity,
-                child: ElevatedButton.icon(
-                  onPressed: () async {
-                    try {
-                      final service = s.ref.read(clubMembershipServiceProvider);
-                      if (isMember) {
-                        await service.leaveClub(club.id);
-                      } else {
-                        await service.joinClub(club.id);
-                      }
-                      s.ref.invalidate(isMemberProvider(club.id));
-                    } catch (e) {
-                      if (s.mounted) {
-                        ScaffoldMessenger.of(
-                          s.context,
-                        ).showSnackBar(SnackBar(content: Text('Error: $e')));
-                      }
-                    }
-                  },
-                  icon: Icon(
-                    isMember ? Icons.check_circle : Icons.add_circle_outline,
-                  ),
-                  label: Text(
-                    isMember ? 'Membre du Club' : 'Rejoindre le Club',
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: isMember ? Colors.green : null,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                ),
-              ),
-              loading: () => const Center(child: CircularProgressIndicator()),
-              error: (e, _) => Text('Error: $e'),
-            ),
+        ClubMembershipButton(clubId: club.id),
       ],
     ),
   );

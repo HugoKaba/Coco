@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:coco/src/core/providers.dart';
@@ -36,7 +37,7 @@ class ChatsPage extends ConsumerWidget {
                 onRefresh: () async {
                   ref.invalidate(conversationsStreamProvider(user.uid));
                 },
-                color: const Color(0xFFD4913D),
+                color: AppColors.brand,
                 child: ListView.separated(
                   itemCount: conversations.length,
                   separatorBuilder: (_, __) => Divider(
@@ -95,7 +96,7 @@ class ChatsPage extends ConsumerWidget {
             },
             loading: () => const Center(
               child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation(Color(0xFFD4913D)),
+                valueColor: AlwaysStoppedAnimation(AppColors.brand),
               ),
             ),
             error: (e, s) => Center(child: Text('Error: ${e.toString()}')),

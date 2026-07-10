@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:coco/src/core/city_service.dart';
@@ -23,7 +24,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   final controllers = RegisterControllers();
 
-  static const Color _accentColor = Color(0xFFF2A33A);
+  static const Color _accentColor = AppColors.brandLight;
 
   String _selectedGender = tr('register.gender_male');
 

@@ -6,15 +6,8 @@ import 'profile_sections.dart';
 
 class ProfileCard extends StatelessWidget {
   final Profile profile;
-  final VoidCallback onSwipeLeft;
-  final VoidCallback onSwipeRight;
 
-  const ProfileCard({
-    super.key,
-    required this.profile,
-    required this.onSwipeLeft,
-    required this.onSwipeRight,
-  });
+  const ProfileCard({super.key, required this.profile});
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +17,7 @@ class ProfileCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
-            ProfilePhotoSection(
-              profile: profile,
-              onLeft: onSwipeLeft,
-              onRight: onSwipeRight,
-            ),
+            ProfilePhotoSection(profile: profile),
             const SizedBox(height: 16),
             _buildNameSection(context),
             const SizedBox(height: 20),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 
 class SwipeFilterApplyButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -33,7 +34,7 @@ class SwipeFilterApplyButton extends StatelessWidget {
         child: ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFFD4913D),
+            backgroundColor: AppColors.brand,
             foregroundColor: Colors.white,
             elevation: 0,
             shape: RoundedRectangleBorder(
