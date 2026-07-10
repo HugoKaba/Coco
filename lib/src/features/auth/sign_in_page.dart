@@ -1,4 +1,5 @@
 import 'package:coco/src/core/providers.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/features/auth/widget/dark_text_field.dart';
 import 'package:coco/src/features/auth/widget/input_label.dart';
 import 'package:coco/src/features/auth/widget/primary_button.dart';
@@ -14,7 +15,7 @@ class SignInPage extends ConsumerStatefulWidget {
 }
 
 class _SignInPageState extends ConsumerState<SignInPage> {
-  static const _accent = Color(0xFFCD8232);
+  static const _accent = AppColors.brand;
   final _formKey = GlobalKey<FormState>();
   final _email = TextEditingController();
   final _password = TextEditingController();

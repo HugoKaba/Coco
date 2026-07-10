@@ -36,7 +36,7 @@ List<Widget> buildAccountActions(BuildContext context, WidgetRef ref) {
         'Seeding...',
         'Seeding complete!',
       ),
-      color: const Color(0xFFD4913D),
+      color: AppColors.brand,
     ),
     _item(
       context,
@@ -48,7 +48,7 @@ List<Widget> buildAccountActions(BuildContext context, WidgetRef ref) {
         'Seeding Clubs...',
         'Club Seeding complete!',
       ),
-      color: const Color(0xFFD4913D),
+      color: AppColors.brand,
     ),
     _item(
       context,
@@ -60,7 +60,7 @@ List<Widget> buildAccountActions(BuildContext context, WidgetRef ref) {
         'Seeding Events...',
         'Events Seeding complete!',
       ),
-      color: const Color(0xFFD4913D),
+      color: AppColors.brand,
     ),
   ];
 }

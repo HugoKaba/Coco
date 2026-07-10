@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 
 class FilterSearchButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -26,7 +27,7 @@ class FilterSearchButton extends StatelessWidget {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 16),
-            backgroundColor: const Color(0xFFD4913D),
+            backgroundColor: AppColors.brand,
             foregroundColor: Colors.white,
             elevation: 0,
             shape: RoundedRectangleBorder(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:go_router/go_router.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'widgets/app_glass_bottom_bar.dart';
@@ -28,7 +29,7 @@ class MainShell extends StatelessWidget {
           index,
           initialLocation: index == navigationShell.currentIndex,
         ),
-        activeColor: const Color(0xFFD4913D),
+        activeColor: AppColors.brand,
         inactiveColor: inactiveColor,
         showLabels: true,
         margin: const EdgeInsets.fromLTRB(12, 0, 12, 0),

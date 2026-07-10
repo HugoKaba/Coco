@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 
 class ClubCreationStyle {
-  static const accent = Color(0xFFCD8232);
+  static const accent = AppColors.brand;
 
   // Couleurs dérivées du thème (clair/sombre).
   static Color background(BuildContext context) =>

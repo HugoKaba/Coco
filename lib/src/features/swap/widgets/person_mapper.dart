@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../../filters/domain/models/person_entity.dart';
 import '../models/profile.dart';
@@ -57,13 +58,13 @@ extension PersonEntityMapper on PersonEntity {
   Color _mapLevelColor(int levelId) {
     switch (levelId) {
       case 1:
-        return const Color(0xFF4CAF50);
+        return AppColors.levelBeginner;
       case 2:
-        return const Color(0xFF2196F3);
+        return AppColors.levelIntermediate;
       case 3:
-        return const Color(0xFFFF9800);
+        return AppColors.levelAdvanced;
       case 4:
-        return const Color(0xFFF44336);
+        return AppColors.levelExpert;
       default:
         return Colors.grey;
     }

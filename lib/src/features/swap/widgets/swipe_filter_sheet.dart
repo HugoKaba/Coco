@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../filters/presentation/providers/filter_state_provider.dart';
 import '../../filters/application/user_search_service.dart';
@@ -64,7 +65,7 @@ class _SwipeFilterSheetState extends ConsumerState<SwipeFilterSheet> {
   Widget build(BuildContext context) {
     final searchState = ref.watch(userSearchProvider);
     final criteria = ref.watch(filterProvider);
-    const kOrangeColor = Color(0xFFD4913D);
+    const kOrangeColor = AppColors.brand;
 
     return Container(
       height: MediaQuery.of(context).size.height * 0.9,

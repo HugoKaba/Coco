@@ -1,4 +1,5 @@
 import 'package:coco/src/core/providers.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/features/clubs/application/club_providers.dart';
 import 'package:coco/src/features/clubs/domain/models/club_entity.dart';
 import 'package:coco/src/features/clubs/presentation/pages/club_dashboard_screen.dart';
@@ -87,14 +88,14 @@ class AccountPage extends ConsumerWidget {
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [Color(0xFFCD8232), Color(0xFFA05E15)],
+            colors: [AppColors.brand, AppColors.brandDark],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFFCD8232).withValues(alpha: 0.3),
+              color: AppColors.brand.withValues(alpha: 0.3),
               blurRadius: 12,
               offset: const Offset(0, 4),
             ),

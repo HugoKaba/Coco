@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:coco/src/features/clubs/application/club_providers.dart';
@@ -40,7 +41,7 @@ class ClubDashboardScreen extends ConsumerWidget {
               child: RefreshIndicator(
                 onRefresh: () =>
                     ref.refresh(upcomingSlotsProvider(clubId).future),
-                color: const Color(0xFFCD8232),
+                color: AppColors.brand,
                 backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
                 child: CustomScrollView(
                   physics: const AlwaysScrollableScrollPhysics(),
@@ -103,7 +104,7 @@ class ClubDashboardScreen extends ConsumerWidget {
             ),
             icon: const Icon(
               Icons.add_circle,
-              color: Color(0xFFCD8232),
+              color: AppColors.brand,
               size: 30,
             ),
           ),

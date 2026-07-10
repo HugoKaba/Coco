@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:coco/src/features/clubs/domain/models/slot_entity.dart';
 
@@ -72,7 +73,7 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
                 Text(
                   DateFormat('MMM').format(slot.startTime).toUpperCase(),
                   style: const TextStyle(
-                    color: Color(0xFFCD8232),
+                    color: AppColors.brand,
                     fontSize: 12,
                   ),
                 ),
@@ -103,7 +104,7 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
                     child: Text(
                       'Niveau: ${slot.level}',
                       style: const TextStyle(
-                        color: Color(0xFFCD8232),
+                        color: AppColors.brand,
                         fontSize: 12,
                       ),
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 
 class NavigationButton extends StatelessWidget {
   final String text;
@@ -20,7 +21,7 @@ class NavigationButton extends StatelessWidget {
         child: TextButton(
           onPressed: onPressed,
           style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(const Color(0xFFCD8232)),
+            backgroundColor: WidgetStateProperty.all(AppColors.brand),
             foregroundColor: WidgetStateProperty.all(Colors.white),
             shape: WidgetStateProperty.all(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -73,7 +74,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               ),
               loading: () => const Center(
                 child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation(Color(0xFFD4913D)),
+                  valueColor: AlwaysStoppedAnimation(AppColors.brand),
                 ),
               ),
               error: (e, _) => Center(child: Text('Error: ${e.toString()}')),

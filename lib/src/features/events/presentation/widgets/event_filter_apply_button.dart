@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class EventFilterApplyButton extends StatelessWidget {
@@ -8,7 +9,7 @@ class EventFilterApplyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const kOrangeColor = Color(0xFFD4913D);
+    const kOrangeColor = AppColors.brand;
 
     return Padding(
       padding: const EdgeInsets.all(24),

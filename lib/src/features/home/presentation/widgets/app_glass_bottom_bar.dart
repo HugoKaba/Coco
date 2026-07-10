@@ -7,6 +7,7 @@
 // paramètre [inactiveColor] pour pouvoir les passer en foncé sur cet écran,
 // tout en gardant le rendu identique (pilule glissante + badge) partout ailleurs.
 import 'dart:ui';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppGlassBottomBarItem {
@@ -289,7 +290,7 @@ class _Badge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
       decoration: BoxDecoration(
-        color: const Color(0xFFE53935).withAlpha(235),
+        color: AppColors.badge.withAlpha(235),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.white.withAlpha(200), width: 1),
         boxShadow: [

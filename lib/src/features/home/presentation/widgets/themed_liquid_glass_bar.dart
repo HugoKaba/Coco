@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class LiquidGlassBarItem {
@@ -25,7 +26,7 @@ class ThemedLiquidGlassBar extends StatelessWidget {
     required this.currentIndex,
     required this.onTap,
     this.showLabels = true,
-    this.activeColor = const Color(0xFFD4913D),
+    this.activeColor = AppColors.brand,
   });
 
   @override

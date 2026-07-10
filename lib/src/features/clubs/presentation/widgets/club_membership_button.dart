@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -97,7 +98,7 @@ class _ClubMembershipButtonState extends ConsumerState<ClubMembershipButton> {
             isMember ? 'clubs.member_active'.tr() : 'clubs.join'.tr(),
           ),
           style: ElevatedButton.styleFrom(
-            backgroundColor: isMember ? Colors.green : null,
+            backgroundColor: isMember ? AppColors.success : null,
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),

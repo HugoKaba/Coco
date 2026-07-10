@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class MessageInputField extends StatefulWidget {
@@ -73,7 +74,7 @@ class _MessageInputFieldState extends State<MessageInputField> {
                 height: 40,
                 decoration: BoxDecoration(
                   color: _hasText
-                      ? const Color(0xFFD4913D)
+                      ? AppColors.brand
                       : cs.surfaceContainerHighest,
                   shape: BoxShape.circle,
                 ),

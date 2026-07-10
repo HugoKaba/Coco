@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/filter_state_provider.dart';
 import 'location_mode_toggle.dart';
@@ -15,7 +16,7 @@ class LocationFilterSection extends ConsumerWidget {
     required this.searchController,
     required this.searchFocus,
     required this.onClearSearch,
-    this.activeColor = const Color(0xFFD4913D),
+    this.activeColor = AppColors.brand,
   });
 
   @override

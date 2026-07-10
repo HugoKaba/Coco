@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/features/clubs/domain/models/club_entity.dart';
 
 class ClubDashboardHeader extends StatelessWidget {
@@ -49,7 +50,7 @@ class ClubDashboardHeader extends StatelessWidget {
                 CircleAvatar(backgroundImage: NetworkImage(club.logoUrl!))
               else
                 const CircleAvatar(
-                  backgroundColor: Color(0xFFCD8232),
+                  backgroundColor: AppColors.brand,
                   child: Icon(Icons.business, color: Colors.white),
                 ),
               const SizedBox(width: 16),
@@ -89,7 +90,7 @@ class ClubDashboardHeader extends StatelessWidget {
                 context,
                 icon: Icons.star,
                 label: club.subscriptionType.displayName,
-                color: const Color(0xFFCD8232),
+                color: AppColors.brand,
               ),
             ],
           ),

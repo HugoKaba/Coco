@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
 import '../models/profile.dart';
 
@@ -100,7 +101,7 @@ class _SwipeButton extends StatelessWidget {
         width: 56,
         height: 56,
         decoration: const BoxDecoration(
-          color: Color(0xFFD4913D),
+          color: AppColors.brand,
           shape: BoxShape.circle,
         ),
         child: Icon(icon, color: Colors.white, size: 32),

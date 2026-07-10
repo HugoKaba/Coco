@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 
 import '../../domain/models/subscription_tier.dart';
 
@@ -18,7 +19,7 @@ class SubscriptionSelectionScreen extends StatefulWidget {
 
 class _SubscriptionSelectionScreenState
     extends State<SubscriptionSelectionScreen> {
-  static const _accent = Color(0xFFCD8232);
+  static const _accent = AppColors.brand;
   SubscriptionType? _selectedType;
 
   @override

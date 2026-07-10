@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/filter_state_provider.dart';
 
@@ -27,7 +28,7 @@ class AgeFilterSection extends ConsumerWidget {
               Text(
                 "${ageRange.start.round()} - ${ageRange.end.round()} ans",
                 style: TextStyle(
-                  color: const Color(0xFFD4913D),
+                  color: AppColors.brand,
                   fontWeight: FontWeight.bold,
                   fontSize: 14,
                 ),
@@ -37,12 +38,10 @@ class AgeFilterSection extends ConsumerWidget {
           const SizedBox(height: 8),
           SliderTheme(
             data: SliderTheme.of(context).copyWith(
-              activeTrackColor: const Color(0xFFD4913D),
-              inactiveTrackColor: const Color(
-                0xFFD4913D,
-              ).withValues(alpha: 0.1),
+              activeTrackColor: AppColors.brand,
+              inactiveTrackColor: AppColors.brand.withValues(alpha: 0.1),
               thumbColor: Colors.white,
-              overlayColor: const Color(0xFFD4913D).withValues(alpha: 0.1),
+              overlayColor: AppColors.brand.withValues(alpha: 0.1),
               rangeThumbShape: RoundRangeSliderThumbShape(
                 enabledThumbRadius: 12,
                 elevation: 4,

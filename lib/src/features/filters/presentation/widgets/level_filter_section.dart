@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../providers/filter_state_provider.dart';
@@ -63,12 +64,12 @@ class LevelFilterSection extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         decoration: BoxDecoration(
           color: isSelected
-              ? const Color(0xFFD4913D).withValues(alpha: 0.1)
+              ? AppColors.brand.withValues(alpha: 0.1)
               : Theme.of(context).scaffoldBackgroundColor,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: isSelected
-                ? const Color(0xFFD4913D)
+                ? AppColors.brand
                 : Theme.of(context).dividerColor.withValues(alpha: 0.1),
             width: 1.5,
           ),
@@ -77,7 +78,7 @@ class LevelFilterSection extends ConsumerWidget {
           label,
           style: TextStyle(
             color: isSelected
-                ? const Color(0xFFD4913D)
+                ? AppColors.brand
                 : Theme.of(context).colorScheme.onSurface,
             fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
             fontSize: 14,
