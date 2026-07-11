@@ -34,6 +34,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  flutter_svg: ^2.0.10
   firebase_core: ^4.2.0
   firebase_auth: ^6.1.1
   firebase_storage: ^13.0.0
@@ -72,6 +73,17 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.1
+
+# App icon : logomark orange composé sur un carré #0D0D0D opaque (cohérent
+# avec le splash). On utilise l'image déjà aplatie (app_icon.png) pour éviter
+# le rendu noir du remove_alpha sur iOS.
+flutter_launcher_icons:
+  image_path: "assets/images/app_icon.png"
+  android: true
+  ios: true
+  adaptive_icon_background: "#0D0D0D"
+  adaptive_icon_foreground: "assets/images/app_icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -88,6 +100,7 @@ flutter:
     - assets/langs/fr.json
     - assets/city/
     - assets/users/
+    - assets/images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
