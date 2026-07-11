@@ -3,7 +3,7 @@ import 'package:coco/src/core/theme/app_radius.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import '../dark_text_field.dart';
+import 'package:coco/src/shared/widgets/app_text_field.dart';
 import 'stylish_age_input.dart';
 import '../photo_picker_field.dart';
 import '../photo_preview_box.dart';
@@ -96,12 +96,12 @@ class StepProfileCompletion extends StatelessWidget {
             children: [
               Expanded(
                 flex: 2,
-                child: DarkTextField(
+                child: AppTextField(
                   controller: zipController,
                   hintText: tr('register.postal_code'),
                   keyboardType: TextInputType.number,
                   fieldColor: fieldColor,
-                  innerShadow: innerShadow,
+                  borderColor: innerShadow,
                 ),
               ),
               const SizedBox(width: AppSpacing.md),

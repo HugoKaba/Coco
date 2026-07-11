@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
-import 'package:coco/src/features/auth/widget/dark_text_field.dart';
+import 'package:coco/src/shared/widgets/app_text_field.dart';
 import 'package:coco/src/features/auth/widget/input_label.dart';
 
 import '../../../domain/models/club_sport_catalog.dart';
@@ -48,23 +48,23 @@ class ClubCreationInfoStep extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.xxxl),
           const InputLabel(label: 'Nom du club'),
-          DarkTextField(
+          AppTextField(
             controller: clubNameController,
             hintText: 'Ex: Tennis Club Paris',
             fieldColor: ClubCreationStyle.field(context),
-            innerShadow: shadow,
+            borderColor: shadow,
           ),
           const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Activités'),
           clubCreationDecoratedField(context, _activitySelector(context)),
           const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Description'),
-          DarkTextField(
+          AppTextField(
             controller: descriptionController,
             hintText: 'Décrivez votre club...',
             maxLines: 3,
             fieldColor: ClubCreationStyle.field(context),
-            innerShadow: shadow,
+            borderColor: shadow,
           ),
           const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Ville'),
@@ -77,20 +77,20 @@ class ClubCreationInfoStep extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Adresse'),
-          DarkTextField(
+          AppTextField(
             controller: addressController,
             hintText: '123 Rue Example',
             fieldColor: ClubCreationStyle.field(context),
-            innerShadow: shadow,
+            borderColor: shadow,
           ),
           const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Téléphone (optionnel)'),
-          DarkTextField(
+          AppTextField(
             controller: phoneController,
             hintText: '+33 6 12 34 56 78',
             keyboardType: TextInputType.phone,
             fieldColor: ClubCreationStyle.field(context),
-            innerShadow: shadow,
+            borderColor: shadow,
           ),
         ],
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../dark_text_field.dart';
+import 'package:coco/src/shared/widgets/app_text_field.dart';
 import 'sports_selection_widget.dart';
 import 'frequency_selector.dart';
 import 'days_selector.dart';
@@ -48,12 +48,12 @@ class StepLifestyle extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppSpacing.sm),
-          DarkTextField(
+          AppTextField(
             controller: bioController,
             maxLines: 3,
             hintText: tr('register.about_me'),
             fieldColor: fieldColor,
-            innerShadow: innerShadow,
+            borderColor: innerShadow,
           ),
           const SizedBox(height: AppSpacing.lg),
           Text(

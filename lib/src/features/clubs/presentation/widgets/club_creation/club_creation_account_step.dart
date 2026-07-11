@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_radius.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
-import 'package:coco/src/features/auth/widget/dark_text_field.dart';
+import 'package:coco/src/shared/widgets/app_text_field.dart';
 import 'package:coco/src/features/auth/widget/input_label.dart';
 
 import 'club_creation_style.dart';
@@ -41,21 +41,21 @@ class ClubCreationAccountStep extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.xxxl),
           const InputLabel(label: 'Email'),
-          DarkTextField(
+          AppTextField(
             controller: emailController,
             hintText: 'votre@email.com',
             keyboardType: TextInputType.emailAddress,
             fieldColor: ClubCreationStyle.field(context),
-            innerShadow: shadow,
+            borderColor: shadow,
           ),
           const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Mot de passe'),
-          DarkTextField(
+          AppTextField(
             controller: passwordController,
             hintText: 'Minimum 6 caractères',
             obscureText: true,
             fieldColor: ClubCreationStyle.field(context),
-            innerShadow: shadow,
+            borderColor: shadow,
           ),
           const SizedBox(height: AppSpacing.xxxl),
           Container(

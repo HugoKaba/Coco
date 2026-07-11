@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../dark_text_field.dart';
+import 'package:coco/src/shared/widgets/app_text_field.dart';
 
 class ProfileBirthDateRow extends StatelessWidget {
   final TextEditingController dayController;
@@ -22,14 +22,14 @@ class ProfileBirthDateRow extends StatelessWidget {
   });
 
   Widget _dateField(TextEditingController controller, String hint) => Expanded(
-    child: DarkTextField(
+    child: AppTextField(
       controller: controller,
       hintText: hint,
       keyboardType: TextInputType.number,
       readOnly: true,
       onTap: onTap,
       fieldColor: fieldColor,
-      innerShadow: innerShadow,
+      borderColor: innerShadow,
     ),
   );
 
