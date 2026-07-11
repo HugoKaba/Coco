@@ -11,23 +11,17 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
           Row(
             children: [
               Expanded(
-                child: TextFormField(
+                child: AppTextField(
                   controller: s._firstNameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Prénom',
-                    border: OutlineInputBorder(),
-                  ),
+                  labelText: 'Prénom',
                   validator: (v) => v!.isEmpty ? 'Requis' : null,
                 ),
               ),
               const SizedBox(width: AppSpacing.lg),
               Expanded(
-                child: TextFormField(
+                child: AppTextField(
                   controller: s._lastNameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Nom',
-                    border: OutlineInputBorder(),
-                  ),
+                  labelText: 'Nom',
                   validator: (v) => v!.isEmpty ? 'Requis' : null,
                 ),
               ),
@@ -37,12 +31,9 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
           Row(
             children: [
               Expanded(
-                child: TextFormField(
+                child: AppTextField(
                   controller: s._ageController,
-                  decoration: const InputDecoration(
-                    labelText: 'Age',
-                    border: OutlineInputBorder(),
-                  ),
+                  labelText: 'Age',
                   keyboardType: TextInputType.number,
                 ),
               ),
@@ -50,10 +41,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
               Expanded(
                 child: DropdownButtonFormField<String>(
                   initialValue: s._gender,
-                  decoration: const InputDecoration(
-                    labelText: 'Genre',
-                    border: OutlineInputBorder(),
-                  ),
+                  decoration: appInputDecoration(s.context, label: 'Genre'),
                   items: const [
                     DropdownMenuItem(value: 'M', child: Text('Homme')),
                     DropdownMenuItem(value: 'F', child: Text('Femme')),
@@ -64,21 +52,14 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
             ],
           ),
           const SizedBox(height: AppSpacing.lg),
-          TextFormField(
+          AppTextField(
             controller: s._cityController,
-            decoration: const InputDecoration(
-              labelText: 'Ville',
-              border: OutlineInputBorder(),
-            ),
+            labelText: 'Ville',
           ),
           const SizedBox(height: AppSpacing.lg),
-          TextFormField(
+          AppTextField(
             controller: s._bioController,
-            decoration: const InputDecoration(
-              labelText: 'Bio',
-              border: OutlineInputBorder(),
-              alignLabelWithHint: true,
-            ),
+            labelText: 'Bio',
             maxLines: 4,
           ),
           const SizedBox(height: AppSpacing.lg),
@@ -91,10 +72,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
                 ].contains(s._sportsGoal)
                 ? s._sportsGoal
                 : 'Loisir',
-            decoration: const InputDecoration(
-              labelText: 'Objectif Sportif',
-              border: OutlineInputBorder(),
-            ),
+            decoration: appInputDecoration(s.context, label: 'Objectif Sportif'),
             items: const [
               DropdownMenuItem(value: 'Loisir', child: Text('Loisir')),
               DropdownMenuItem(
@@ -110,9 +88,9 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
           ),
           const SizedBox(height: AppSpacing.lg),
           InputDecorator(
-            decoration: const InputDecoration(
-              labelText: 'Fréquence d\'entrainement (par semaine)',
-              border: OutlineInputBorder(),
+            decoration: appInputDecoration(
+              s.context,
+              label: 'Fréquence d\'entrainement (par semaine)',
             ),
             child: Column(
               children: [
