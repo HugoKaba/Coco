@@ -7,26 +7,26 @@ Widget _buildClubDetailAboutTab(ClubEntity club) {
   ].where((s) => s.trim().isNotEmpty).join(', ');
 
   return SingleChildScrollView(
-    padding: const EdgeInsets.all(16),
+    padding: const EdgeInsets.all(AppSpacing.lg),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'clubs.create.description'.tr(),
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: AppFontSize.lg, fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: AppSpacing.sm),
         Text(
           club.description.trim().isEmpty
               ? 'clubs.no_description'.tr()
               : club.description,
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: AppSpacing.xxl),
         Text(
           'clubs.contact_info'.tr(),
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: AppFontSize.lg, fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: AppSpacing.sm),
         _buildClubDetailInfoRow(Icons.place_outlined, location),
         _buildClubDetailInfoRow(Icons.phone_outlined, club.phone),
         _buildClubDetailInfoRow(Icons.email_outlined, club.email),
@@ -54,7 +54,7 @@ Widget _buildClubDetailInfoRow(IconData icon, String? value) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Icon(icon, size: 20),
-        const SizedBox(width: 12),
+        const SizedBox(width: AppSpacing.md),
         Expanded(child: Text(value)),
       ],
     ),
@@ -63,7 +63,7 @@ Widget _buildClubDetailInfoRow(IconData icon, String? value) {
 
 Widget _buildClubDetailHoursTab(_ClubDetailScreenState s, ClubEntity club) {
   return ListView(
-    padding: const EdgeInsets.all(16),
+    padding: const EdgeInsets.all(AppSpacing.lg),
     children: club.weeklyHours.entries
         .map(
           (entry) => ListTile(

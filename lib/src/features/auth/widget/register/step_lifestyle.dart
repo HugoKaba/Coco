@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../dark_text_field.dart';
+import 'package:coco/src/shared/widgets/app_text_field.dart';
 import 'sports_selection_widget.dart';
 import 'frequency_selector.dart';
 import 'days_selector.dart';
@@ -34,11 +35,11 @@ class StepLifestyle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.md),
           Text(
             tr('register.description'),
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
@@ -46,15 +47,15 @@ class StepLifestyle extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 8),
-          DarkTextField(
+          const SizedBox(height: AppSpacing.sm),
+          AppTextField(
             controller: bioController,
             maxLines: 3,
             hintText: tr('register.about_me'),
             fieldColor: fieldColor,
-            innerShadow: innerShadow,
+            borderColor: innerShadow,
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           Text(
             tr('register.sport_category'),
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
@@ -62,12 +63,12 @@ class StepLifestyle extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           SportsSelectionWidget(
             selectedSports: selectedSports,
             onChanged: onSportsChanged,
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           Text(
             tr('register.activity_frequency'),
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
@@ -75,13 +76,13 @@ class StepLifestyle extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           FrequencySelector(
             frequency: frequency,
             onChanged: onFrequencyChanged,
             accentColor: accentColor,
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           Text(
             tr('register.daily_preference'),
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
@@ -89,7 +90,7 @@ class StepLifestyle extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           DaysSelector(
             selectedDays: selectedDays,
             onChanged: onDaysChanged,

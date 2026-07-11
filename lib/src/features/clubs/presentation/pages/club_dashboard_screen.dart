@@ -1,4 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -63,7 +65,7 @@ class ClubDashboardScreen extends ConsumerWidget {
                       ),
                       error: (e, __) => SliverToBoxAdapter(
                         child: Padding(
-                          padding: const EdgeInsets.all(16),
+                          padding: const EdgeInsets.all(AppSpacing.lg),
                           child: SelectableText(
                             'Erreur slots: $e',
                             style: const TextStyle(color: Colors.red),
@@ -84,14 +86,14 @@ class ClubDashboardScreen extends ConsumerWidget {
 
   Widget _titleRow(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(AppSpacing.lg),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             'clubs.schedule.upcoming'.tr(),
             style: TextStyle(
-              fontSize: 20,
+              fontSize: AppFontSize.xl,
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.onSurface,
             ),

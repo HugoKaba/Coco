@@ -1,4 +1,7 @@
 import 'package:coco/src/features/events/application/event_filter_provider.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/features/events/application/events_service.dart';
 import 'package:coco/src/features/events/presentation/pages/create_event_screen.dart';
 import 'package:coco/src/features/events/presentation/pages/event_details_screen.dart';
@@ -59,10 +62,10 @@ class _EventListScreenState extends ConsumerState<EventListScreen> {
           IconButton(
             onPressed: _showFilterSheet,
             icon: Container(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(AppSpacing.sm),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(AppRadius.md),
               ),
               child: Icon(
                 Icons.tune_rounded,
@@ -71,7 +74,7 @@ class _EventListScreenState extends ConsumerState<EventListScreen> {
               ),
             ),
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: AppSpacing.sm),
         ],
       ),
       floatingActionButton: Padding(
@@ -98,12 +101,12 @@ class _EventListScreenState extends ConsumerState<EventListScreen> {
                       size: 64,
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: AppSpacing.lg),
                     Text(
                       tr('events.no_events'),
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        fontSize: 16,
+                        fontSize: AppFontSize.md,
                       ),
                     ),
                   ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
 
 class EventCardImage extends StatelessWidget {
   final String? imageUrl;
@@ -13,10 +14,10 @@ class EventCardImage extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: cs.surfaceContainerHighest,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(AppRadius.xxl)),
       ),
       child: ClipRRect(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(AppRadius.xxl)),
         child: imageUrl != null
             ? Image.network(
                 imageUrl!,

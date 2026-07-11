@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:coco/src/features/events/application/event_filter_provider.dart';
@@ -25,7 +28,7 @@ class EventSportsFilterSection extends ConsumerWidget {
     final notifier = ref.read(eventFilterProvider.notifier);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -35,7 +38,7 @@ class EventSportsFilterSection extends ConsumerWidget {
               context,
             ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           Wrap(
             spacing: 10,
             runSpacing: 10,
@@ -52,14 +55,14 @@ class EventSportsFilterSection extends ConsumerWidget {
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
+                    horizontal: AppSpacing.lg,
                     vertical: 10,
                   ),
                   decoration: BoxDecoration(
                     color: isSelected
                         ? Theme.of(context).primaryColor.withValues(alpha: 0.1)
                         : Theme.of(context).scaffoldBackgroundColor,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(AppRadius.xl),
                     border: Border.all(
                       color: isSelected
                           ? Theme.of(context).primaryColor
@@ -78,7 +81,7 @@ class EventSportsFilterSection extends ConsumerWidget {
                       fontWeight: isSelected
                           ? FontWeight.bold
                           : FontWeight.w500,
-                      fontSize: 14,
+                      fontSize: AppFontSize.sm,
                     ),
                   ),
                 ),

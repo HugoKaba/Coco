@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class SportFilterBar extends StatelessWidget {
@@ -24,7 +26,7 @@ class SportFilterBar extends StatelessWidget {
     return SizedBox(
       height: 44,
       child: ListView.separated(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
         scrollDirection: Axis.horizontal,
         itemCount: sports.length + 1,
         separatorBuilder: (_, __) => const SizedBox(width: 10),
@@ -62,7 +64,7 @@ class SportFilterBar extends StatelessWidget {
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: isSelected
@@ -92,7 +94,7 @@ class SportFilterBar extends StatelessWidget {
             Text(
               label,
               style: TextStyle(
-                fontSize: 14,
+                fontSize: AppFontSize.sm,
                 fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
                 color: isSelected
                     ? primaryColor

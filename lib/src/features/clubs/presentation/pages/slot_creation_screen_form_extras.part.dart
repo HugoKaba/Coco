@@ -8,11 +8,11 @@ Widget _buildSlotLevelSelector(_SlotCreationScreenState s) => Column(
       'clubs.slot.level'.tr(),
       style: TextStyle(
         color: Theme.of(s.context).colorScheme.onSurface,
-        fontSize: 16,
+        fontSize: AppFontSize.md,
         fontWeight: FontWeight.bold,
       ),
     ),
-    const SizedBox(height: 12),
+    const SizedBox(height: AppSpacing.md),
     Wrap(
       spacing: 8,
       runSpacing: 12,
@@ -33,7 +33,7 @@ Widget _buildSlotLevelSelector(_SlotCreationScreenState s) => Column(
                 : Theme.of(s.context).colorScheme.onSurfaceVariant,
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(AppRadius.xl),
             side: BorderSide(
               color: isSelected
                   ? _SlotCreationScreenState._accentColor
@@ -56,7 +56,7 @@ Widget _buildSlotAgeRangeSelector(_SlotCreationScreenState s) => Column(
           'clubs.slot.age_group'.tr(),
           style: TextStyle(
             color: Theme.of(s.context).colorScheme.onSurface,
-            fontSize: 16,
+            fontSize: AppFontSize.md,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -69,12 +69,12 @@ Widget _buildSlotAgeRangeSelector(_SlotCreationScreenState s) => Column(
         ),
       ],
     ),
-    const SizedBox(height: 12),
+    const SizedBox(height: AppSpacing.md),
     Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: AppSpacing.lg),
       decoration: BoxDecoration(
         color: Theme.of(s.context).colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppRadius.lg),
         border: Border.all(color: Theme.of(s.context).dividerColor),
       ),
       child: RangeSlider(

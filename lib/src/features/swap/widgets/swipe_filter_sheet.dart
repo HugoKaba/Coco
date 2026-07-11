@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../filters/presentation/providers/filter_state_provider.dart';
@@ -89,15 +90,15 @@ class _SwipeFilterSheetState extends ConsumerState<SwipeFilterSheet> {
                         onClearSearch: _clearSearch,
                       ),
                       const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 24),
+                        padding: EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
                         child: Divider(height: 48, thickness: 1),
                       ),
                       const SportsFilterSection(),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: AppSpacing.xxl),
                       const LevelFilterSection(),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: AppSpacing.xxl),
                       const AvailabilitiesFilterSection(),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: AppSpacing.xxl),
                       const AgeFilterSection(),
                     ],
                   ),

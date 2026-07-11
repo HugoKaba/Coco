@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class EmptySearchState extends StatelessWidget {
@@ -12,12 +14,12 @@ class EmptySearchState extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(Icons.search_off, size: 80, color: cs.onSurfaceVariant),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           Text(
             tr('swipe.empty_state'),
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: AppFontSize.lg, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           Text(
             tr('swipe.empty_hint'),
             style: TextStyle(color: cs.onSurfaceVariant),

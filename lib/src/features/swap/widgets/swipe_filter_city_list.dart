@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
 import '../../filters/application/user_search_state.dart';
 
 import '../../filters/domain/models/city.dart';
@@ -22,7 +23,7 @@ class SwipeFilterCityList extends StatelessWidget {
       height: 200,
       child: Material(
         elevation: 4,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppRadius.md),
         child: ListView.separated(
           itemCount: searchState.filteredCities.length,
           separatorBuilder: (ctx, i) => const Divider(height: 1),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:coco/src/features/filters/application/user_search_service.dart';
 import 'package:coco/src/features/filters/domain/models/city.dart';
@@ -103,14 +104,14 @@ class _EventFilterSheetState extends ConsumerState<EventFilterSheet> {
                         onClearSearch: _clearSearch,
                       ),
                       const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 24),
+                        padding: EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
                         child: Divider(height: 48, thickness: 1),
                       ),
                       DateFilterSection(
                         selectedDate: filterState.selectedDate,
                         onDateChanged: (d) => notifier.setDate(d),
                       ),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: AppSpacing.xxxl),
                       const EventSportsFilterSection(),
                     ],
                   ),

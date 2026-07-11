@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 
 import '../../domain/models/subscription_tier.dart';
@@ -34,7 +37,7 @@ class _SubscriptionSelectionScreenState
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(AppSpacing.xxl),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -45,7 +48,7 @@ class _SubscriptionSelectionScreenState
                       period: '/mois',
                       isPopular: false,
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: AppSpacing.xl),
                     _planCard(
                       this,
                       type: SubscriptionType.annual,
@@ -60,7 +63,7 @@ class _SubscriptionSelectionScreenState
             ),
             if (_selectedType != null)
               Padding(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(AppSpacing.xxl),
                 child: SizedBox(
                   width: double.infinity,
                   height: 56,
@@ -70,13 +73,13 @@ class _SubscriptionSelectionScreenState
                     style: ElevatedButton.styleFrom(
                       backgroundColor: _accent,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(AppRadius.xl),
                       ),
                     ),
                     child: const Text(
                       'Continuer',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: AppFontSize.lg,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),

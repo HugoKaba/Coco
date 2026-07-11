@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -22,11 +25,11 @@ class LevelFilterSection extends ConsumerWidget {
           tr('filters.level'),
           style: TextStyle(
             color: Theme.of(context).colorScheme.onSurface,
-            fontSize: 16,
+            fontSize: AppFontSize.md,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: AppSpacing.md),
         Wrap(
           spacing: 10,
           runSpacing: 10,
@@ -61,12 +64,12 @@ class LevelFilterSection extends ConsumerWidget {
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: 10),
         decoration: BoxDecoration(
           color: isSelected
               ? AppColors.brand.withValues(alpha: 0.1)
               : Theme.of(context).scaffoldBackgroundColor,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(AppRadius.xl),
           border: Border.all(
             color: isSelected
                 ? AppColors.brand
@@ -81,7 +84,7 @@ class LevelFilterSection extends ConsumerWidget {
                 ? AppColors.brand
                 : Theme.of(context).colorScheme.onSurface,
             fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
-            fontSize: 14,
+            fontSize: AppFontSize.sm,
           ),
         ),
       ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class SortFilterSection extends StatelessWidget {
@@ -17,15 +19,15 @@ class SortFilterSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
           child: Text(
             tr('filters.sort_by'),
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: AppFontSize.lg, fontWeight: FontWeight.bold),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: AppSpacing.lg),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
           child: Row(
             children: [
               Expanded(
@@ -41,10 +43,10 @@ class SortFilterSection extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                   showCheckmark: false,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: AppSpacing.md),
               Expanded(
                 child: ChoiceChip(
                   label: Text(tr('filters.date')),
@@ -58,7 +60,7 @@ class SortFilterSection extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                   showCheckmark: false,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
                 ),
               ),
             ],

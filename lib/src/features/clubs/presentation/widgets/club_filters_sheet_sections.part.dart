@@ -2,14 +2,14 @@
 part of 'club_filters_sheet.dart';
 
 Widget _buildClubFilterHeader(_ClubFiltersSheetState s) => Padding(
-  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+  padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl, vertical: AppSpacing.sm),
   child: Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Text(
         'filters.title'.tr(),
         style: TextStyle(
-          fontSize: 20,
+          fontSize: AppFontSize.xl,
           fontWeight: FontWeight.bold,
           color: Theme.of(s.context).colorScheme.onSurface,
         ),
@@ -28,7 +28,7 @@ Widget _buildClubFilterHeader(_ClubFiltersSheetState s) => Padding(
 Widget _buildClubFilterSectionTitle(BuildContext context, String title) => Text(
   title,
   style: TextStyle(
-    fontSize: 16,
+    fontSize: AppFontSize.md,
     fontWeight: FontWeight.bold,
     color: Theme.of(context).colorScheme.onSurface,
   ),
@@ -38,7 +38,7 @@ Widget _buildClubLocationToggle(_ClubFiltersSheetState s) => Container(
   width: double.infinity,
   decoration: BoxDecoration(
     color: Theme.of(s.context).colorScheme.surfaceContainer,
-    borderRadius: BorderRadius.circular(12),
+    borderRadius: BorderRadius.circular(AppRadius.md),
     border: Border.all(color: Theme.of(s.context).dividerColor),
   ),
   child: Row(
@@ -54,7 +54,7 @@ Widget _toggle(_ClubFiltersSheetState s, String label, bool value) {
   return GestureDetector(
     onTap: () => s.setState(() => s._isAroundMe = value),
     child: Container(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
       decoration: BoxDecoration(
         color: isSelected
             ? _ClubFiltersSheetState._accentColor
@@ -84,7 +84,7 @@ Widget _buildClubRadiusSlider(_ClubFiltersSheetState s) => Column(
           'Rayon',
           style: TextStyle(
             color: Theme.of(s.context).colorScheme.onSurfaceVariant,
-            fontSize: 14,
+            fontSize: AppFontSize.sm,
           ),
         ),
         Text(

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../../../../features/filters/application/seeder_constants.dart';
@@ -46,7 +49,7 @@ class _SportsSelectionWidgetState extends State<SportsSelectionWidget> {
       backgroundColor: Theme.of(context).colorScheme.surface,
       builder: (context) {
         return Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(AppSpacing.lg),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -54,11 +57,11 @@ class _SportsSelectionWidgetState extends State<SportsSelectionWidget> {
                 '${tr('common.level')} - ${tr(sportName)}',
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.onSurface,
-                  fontSize: 18,
+                  fontSize: AppFontSize.lg,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppSpacing.lg),
               ...levelIds.map((levelId) {
                 final levelKey = ReferenceTables.getLevelName(levelId);
                 return ListTile(
@@ -132,7 +135,7 @@ class _SportsSelectionWidgetState extends State<SportsSelectionWidget> {
                     : Theme.of(context).colorScheme.onSurface,
               ),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(AppRadius.xl),
               ),
               side: BorderSide.none,
             );

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:coco/src/core/city_service.dart';
 import 'input_wrapper.dart';
@@ -72,7 +75,7 @@ class CityAutocomplete extends StatelessWidget {
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.symmetric(
                     horizontal: 18,
-                    vertical: 16,
+                    vertical: AppSpacing.lg,
                   ),
                 ),
                 onChanged: (value) => cityController.text = value,
@@ -90,7 +93,7 @@ class CityAutocomplete extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Material(
               color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(AppRadius.md),
               elevation: 4.0,
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxHeight: 200),
@@ -104,7 +107,7 @@ class CityAutocomplete extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 18,
-                          vertical: 12,
+                          vertical: AppSpacing.md,
                         ),
                         decoration: BoxDecoration(
                           border: Border(
@@ -121,7 +124,7 @@ class CityAutocomplete extends StatelessWidget {
                               option.nomStandard,
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.onSurface,
-                                fontSize: 14,
+                                fontSize: AppFontSize.sm,
                               ),
                             ),
                             if (option.zipCodes.isNotEmpty)
@@ -131,7 +134,7 @@ class CityAutocomplete extends StatelessWidget {
                                   color: Theme.of(
                                     context,
                                   ).colorScheme.onSurfaceVariant,
-                                  fontSize: 12,
+                                  fontSize: AppFontSize.xs,
                                 ),
                               ),
                           ],

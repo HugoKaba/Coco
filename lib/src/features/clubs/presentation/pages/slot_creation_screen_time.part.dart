@@ -10,7 +10,7 @@ Widget _buildSlotDateTimePickers(_SlotCreationScreenState s) {
         s._startTime,
         () => _pickStartTime(s),
       ),
-      const SizedBox(height: 16),
+      const SizedBox(height: AppSpacing.lg),
       _dateTimeTile(
         s,
         'clubs.slot.end_time'.tr(),
@@ -30,10 +30,10 @@ Widget _dateTimeTile(
   return GestureDetector(
     onTap: onTap,
     child: Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
         color: Theme.of(s.context).colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppRadius.lg),
         border: Border.all(color: Theme.of(s.context).dividerColor),
       ),
       child: Row(
@@ -42,14 +42,14 @@ Widget _dateTimeTile(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: Theme.of(s.context).colorScheme.surfaceContainerHighest,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(AppRadius.md),
             ),
             child: const Icon(
               Icons.calendar_today,
               color: _SlotCreationScreenState._accentColor,
             ),
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: AppSpacing.lg),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,15 +58,15 @@ Widget _dateTimeTile(
                   label,
                   style: TextStyle(
                     color: Theme.of(s.context).colorScheme.onSurfaceVariant,
-                    fontSize: 12,
+                    fontSize: AppFontSize.xs,
                   ),
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: AppSpacing.xs),
                 Text(
                   DateFormat('EEE, MMM dd • HH:mm').format(date),
                   style: TextStyle(
                     color: Theme.of(s.context).colorScheme.onSurface,
-                    fontSize: 16,
+                    fontSize: AppFontSize.md,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

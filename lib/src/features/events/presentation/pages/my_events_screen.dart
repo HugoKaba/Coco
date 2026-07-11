@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:coco/src/core/providers.dart';
@@ -87,12 +89,12 @@ class _EventListTab extends ConsumerWidget {
                   size: 60,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: AppSpacing.lg),
                 Text(
                   tr('events.no_events'),
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    fontSize: 16,
+                    fontSize: AppFontSize.md,
                   ),
                 ),
               ],

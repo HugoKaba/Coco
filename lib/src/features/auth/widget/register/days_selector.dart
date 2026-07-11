@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../../../../features/filters/application/seeder_constants.dart';
 import '../../../../core/data/reference_tables.dart';
@@ -43,7 +45,7 @@ class DaysSelector extends StatelessWidget {
               color: isSelected
                   ? accentColor
                   : Theme.of(context).colorScheme.surfaceContainerHighest,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(AppRadius.md),
               border: Border.all(
                 color: isSelected
                     ? accentColor
@@ -59,7 +61,7 @@ class DaysSelector extends StatelessWidget {
                     ? Colors.black
                     : Theme.of(context).colorScheme.onSurfaceVariant,
                 fontWeight: FontWeight.bold,
-                fontSize: 12,
+                fontSize: AppFontSize.xs,
               ),
             ),
           ),

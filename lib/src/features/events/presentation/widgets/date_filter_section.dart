@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class DateFilterSection extends StatelessWidget {
@@ -17,21 +20,21 @@ class DateFilterSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
           child: Text(
             tr('filters.date'),
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: AppFontSize.lg, fontWeight: FontWeight.bold),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: AppSpacing.lg),
         Container(
           height: 100,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
           child: ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
             scrollDirection: Axis.horizontal,
             itemCount: 31,
-            separatorBuilder: (_, __) => const SizedBox(width: 12),
+            separatorBuilder: (_, __) => const SizedBox(width: AppSpacing.md),
             itemBuilder: (context, index) {
               final date = DateTime.now().add(Duration(days: index));
               final normalizedDate = DateTime(date.year, date.month, date.day);
@@ -55,7 +58,7 @@ class DateFilterSection extends StatelessWidget {
                     color: isSelected
                         ? Theme.of(context).primaryColor
                         : Colors.white,
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(AppRadius.lg),
                     border: Border.all(
                       color: isSelected
                           ? Theme.of(context).primaryColor
@@ -78,16 +81,16 @@ class DateFilterSection extends StatelessWidget {
                           context.locale.toString(),
                         ).format(date).toUpperCase(),
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: AppFontSize.xs,
                           fontWeight: FontWeight.bold,
                           color: isSelected ? Colors.white : Colors.grey,
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: AppSpacing.xs),
                       Text(
                         date.day.toString(),
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: AppFontSize.xl,
                           fontWeight: FontWeight.bold,
                           color: isSelected
                               ? Colors.white

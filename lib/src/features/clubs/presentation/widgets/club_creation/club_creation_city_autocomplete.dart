@@ -1,4 +1,6 @@
 import 'package:coco/src/core/city_service.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter/material.dart';
 
 import 'club_creation_style.dart';
@@ -40,7 +42,7 @@ class ClubCreationCityAutocomplete extends StatelessWidget {
             border: InputBorder.none,
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 18,
-              vertical: 16,
+              vertical: AppSpacing.lg,
             ),
           ),
           onChanged: (value) => cityController.text = value,
@@ -54,7 +56,7 @@ Widget clubCreationDecoratedField(BuildContext context, Widget child) =>
     Container(
   decoration: BoxDecoration(
     color: ClubCreationStyle.field(context),
-    borderRadius: BorderRadius.circular(20),
+    borderRadius: BorderRadius.circular(AppRadius.xl),
     boxShadow: [
       BoxShadow(
         color: ClubCreationStyle.inputInnerShadow(context),

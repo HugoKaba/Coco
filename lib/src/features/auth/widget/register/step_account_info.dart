@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter/material.dart';
-import '../dark_text_field.dart';
+import 'package:coco/src/shared/widgets/app_text_field.dart';
 import '../input_label.dart';
 
 class StepAccountInfo extends StatelessWidget {
@@ -43,45 +44,45 @@ class StepAccountInfo extends StatelessWidget {
           ),
           const SizedBox(height: 36),
           InputLabel(label: tr('register.firstname')),
-          DarkTextField(
+          AppTextField(
             controller: firstNameController,
             hintText: tr('register.firstname'),
             fieldColor: fieldColor,
-            innerShadow: innerShadow,
+            borderColor: innerShadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           InputLabel(label: tr('register.name')),
-          DarkTextField(
+          AppTextField(
             controller: nameController,
             hintText: tr('register.name'),
             fieldColor: fieldColor,
-            innerShadow: innerShadow,
+            borderColor: innerShadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           InputLabel(label: tr('register.username')),
-          DarkTextField(
+          AppTextField(
             controller: userNameController,
             hintText: tr('register.username'),
             fieldColor: fieldColor,
-            innerShadow: innerShadow,
+            borderColor: innerShadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           InputLabel(label: tr('register.email')),
-          DarkTextField(
+          AppTextField(
             controller: emailController,
             hintText: tr('register.email'),
             keyboardType: TextInputType.emailAddress,
             fieldColor: fieldColor,
-            innerShadow: innerShadow,
+            borderColor: innerShadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           InputLabel(label: tr('register.password')),
-          DarkTextField(
+          AppTextField(
             controller: passwordController,
             hintText: tr('register.password'),
             obscureText: true,
             fieldColor: fieldColor,
-            innerShadow: innerShadow,
+            borderColor: innerShadow,
           ),
         ],
       ),

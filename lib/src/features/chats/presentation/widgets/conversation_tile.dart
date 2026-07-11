@@ -1,4 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -42,7 +44,7 @@ class ConversationTile extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.md),
           child: Row(
             children: [
               Container(
@@ -58,7 +60,7 @@ class ConversationTile extends StatelessWidget {
                   size: 28,
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: AppSpacing.md),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +77,7 @@ class ConversationTile extends StatelessWidget {
                             builder: (_, snap) => Text(
                               snap.data ?? '...',
                               style: const TextStyle(
-                                fontSize: 16,
+                                fontSize: AppFontSize.md,
                                 fontWeight: FontWeight.w600,
                               ),
                               overflow: TextOverflow.ellipsis,
@@ -99,7 +101,7 @@ class ConversationTile extends StatelessWidget {
                           ),
                       ],
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: AppSpacing.xs),
                     Row(
                       children: [
                         Expanded(
@@ -108,7 +110,7 @@ class ConversationTile extends StatelessWidget {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: AppFontSize.sm,
                               color: unread > 0
                                   ? cs.onSurface
                                   : cs.onSurfaceVariant,
@@ -119,7 +121,7 @@ class ConversationTile extends StatelessWidget {
                           ),
                         ),
                         if (unread > 0) ...[
-                          const SizedBox(width: 8),
+                          const SizedBox(width: AppSpacing.sm),
                           _conversationBadge(unread),
                         ],
                       ],

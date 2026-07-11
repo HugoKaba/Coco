@@ -23,7 +23,7 @@ Widget _buildClubDetailAppBar(_ClubDetailScreenState s, ClubEntity club) {
 
 Widget _buildClubDetailHeader(_ClubDetailScreenState s, ClubEntity club) {
   return Padding(
-    padding: const EdgeInsets.all(16),
+    padding: const EdgeInsets.all(AppSpacing.lg),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -31,7 +31,7 @@ Widget _buildClubDetailHeader(_ClubDetailScreenState s, ClubEntity club) {
           children: [
             if (club.logoUrl != null)
               ClipRRect(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(AppRadius.md),
                 child: Image.network(
                   club.logoUrl!,
                   width: 60,
@@ -40,7 +40,7 @@ Widget _buildClubDetailHeader(_ClubDetailScreenState s, ClubEntity club) {
                   cacheWidth: 120,
                 ),
               ),
-            const SizedBox(width: 16),
+            const SizedBox(width: AppSpacing.lg),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,16 +48,16 @@ Widget _buildClubDetailHeader(_ClubDetailScreenState s, ClubEntity club) {
                   Text(
                     club.name,
                     style: const TextStyle(
-                      fontSize: 24,
+                      fontSize: AppFontSize.xxl,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: AppSpacing.xs),
                   Text(
                     ClubSportCatalog.labelsTextFor(club.activities),
                     style: TextStyle(
                       color: Theme.of(s.context).colorScheme.onSurfaceVariant,
-                      fontSize: 16,
+                      fontSize: AppFontSize.md,
                     ),
                   ),
                 ],
@@ -65,7 +65,7 @@ Widget _buildClubDetailHeader(_ClubDetailScreenState s, ClubEntity club) {
             ),
           ],
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: AppSpacing.lg),
         ClubMembershipButton(clubId: club.id),
       ],
     ),

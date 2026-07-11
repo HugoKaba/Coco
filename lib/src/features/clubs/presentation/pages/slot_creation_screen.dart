@@ -1,4 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -48,15 +51,15 @@ class _SlotCreationScreenState extends ConsumerState<SlotCreationScreen> {
           ),
           children: [
             _buildSlotTypeSelector(this),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppSpacing.xxl),
             _buildSlotDateTimePickers(this),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppSpacing.xxl),
             _buildSlotCapacityField(this),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppSpacing.xxl),
             _buildSlotLevelSelector(this),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppSpacing.xxl),
             _buildSlotAgeRangeSelector(this),
-            const SizedBox(height: 32),
+            const SizedBox(height: AppSpacing.xxxl),
             SizedBox(
               width: double.infinity,
               height: 56,
@@ -65,13 +68,13 @@ class _SlotCreationScreenState extends ConsumerState<SlotCreationScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: _accentColor,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(AppRadius.lg),
                   ),
                 ),
                 child: Text(
                   'clubs.slot.create'.tr(),
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: AppFontSize.lg,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),

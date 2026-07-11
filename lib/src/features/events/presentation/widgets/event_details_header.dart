@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/features/events/domain/models/event_entity.dart';
 
 class EventDetailsHeader extends StatelessWidget {
@@ -21,7 +22,7 @@ class EventDetailsHeader extends StatelessWidget {
       stretch: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       leading: Container(
-        margin: const EdgeInsets.all(8),
+        margin: const EdgeInsets.all(AppSpacing.sm),
         decoration: BoxDecoration(
           color: Theme.of(
             context,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class EventFormFields extends StatelessWidget {
@@ -40,7 +41,7 @@ class EventFormFields extends StatelessWidget {
           ),
           validator: (v) => v == null || v.isEmpty ? tr('common.error') : null,
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: AppSpacing.lg),
         DropdownButtonFormField<String>(
           initialValue: selectedSport,
           decoration: InputDecoration(
@@ -52,7 +53,7 @@ class EventFormFields extends StatelessWidget {
               .toList(),
           onChanged: onSportChanged,
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: AppSpacing.lg),
         Row(
           children: [
             Expanded(
@@ -62,25 +63,25 @@ class EventFormFields extends StatelessWidget {
                   '${selectedDate.day}/${selectedDate.month}/${selectedDate.year}',
                 ),
                 style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                 ),
                 onPressed: onDatePick,
               ),
             ),
-            const SizedBox(width: 16),
+            const SizedBox(width: AppSpacing.lg),
             Expanded(
               child: OutlinedButton.icon(
                 icon: const Icon(Icons.access_time),
                 label: Text(selectedTime.format(context)),
                 style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                 ),
                 onPressed: onTimePick,
               ),
             ),
           ],
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: AppSpacing.lg),
         TextFormField(
           controller: locationController,
           decoration: InputDecoration(
@@ -90,7 +91,7 @@ class EventFormFields extends StatelessWidget {
           ),
           validator: (v) => v == null || v.isEmpty ? tr('common.error') : null,
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: AppSpacing.lg),
         TextFormField(
           controller: descriptionController,
           maxLines: 4,

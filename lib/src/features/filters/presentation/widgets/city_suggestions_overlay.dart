@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
 import '../../domain/models/city.dart';
 
 class CitySuggestionsOverlay extends StatelessWidget {
@@ -20,7 +21,7 @@ class CitySuggestionsOverlay extends StatelessWidget {
       height: 200,
       child: Material(
         elevation: 4,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppRadius.md),
         child: ListView.separated(
           itemCount: cities.length,
           separatorBuilder: (ctx, i) => const Divider(height: 1),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:coco/src/core/providers.dart';
@@ -36,7 +37,7 @@ class SettingsPage extends ConsumerWidget {
               tr('settings.theme'),
               style: Theme.of(context).textTheme.titleMedium,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: AppSpacing.sm),
             SegmentedButton<ThemeMode>(
               segments: [
                 ButtonSegment(
@@ -59,12 +60,12 @@ class SettingsPage extends ConsumerWidget {
               onSelectionChanged: (sel) =>
                   ref.read(themeModeProvider.notifier).state = sel.first,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppSpacing.xxl),
             Text(
               tr('settings.language'),
               style: Theme.of(context).textTheme.titleMedium,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: AppSpacing.sm),
             Row(
               children: [
                 ElevatedButton(
@@ -86,7 +87,7 @@ class SettingsPage extends ConsumerWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: AppSpacing.sm),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: currentLocale == 'fr'

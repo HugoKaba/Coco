@@ -1,4 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,7 +20,7 @@ class MatchDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
-      insetPadding: const EdgeInsets.symmetric(horizontal: 20),
+      insetPadding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -31,7 +34,7 @@ class MatchDialog extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(32),
+          padding: const EdgeInsets.all(AppSpacing.xxxl),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -40,18 +43,18 @@ class MatchDialog extends StatelessWidget {
                 color: AppColors.brand,
                 size: 60,
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppSpacing.lg),
               Text(
                 tr('match.title'),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontSize: 32,
+                  fontSize: AppFontSize.display,
                   fontWeight: FontWeight.w900,
                   color: AppColors.brand,
                   letterSpacing: 1.2,
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: AppSpacing.xxl),
               Container(
                 width: 120,
                 height: 120,
@@ -78,17 +81,17 @@ class MatchDialog extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: AppSpacing.xxl),
               Text(
                 tr('match.description', args: [person.firstName]),
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: AppFontSize.lg,
                   color: Colors.grey[800],
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const SizedBox(height: 32),
+              const SizedBox(height: AppSpacing.xxxl),
               SizedBox(
                 width: double.infinity,
                 height: 56,
@@ -99,19 +102,19 @@ class MatchDialog extends StatelessWidget {
                     foregroundColor: Colors.white,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(AppRadius.lg),
                     ),
                   ),
                   child: Text(
                     tr('match.send_message'),
                     style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: AppFontSize.lg,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: AppSpacing.md),
               SizedBox(
                 width: double.infinity,
                 height: 56,
@@ -123,7 +126,7 @@ class MatchDialog extends StatelessWidget {
                   child: Text(
                     tr('match.keep_swiping'),
                     style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: AppFontSize.md,
                       fontWeight: FontWeight.w600,
                     ),
                   ),

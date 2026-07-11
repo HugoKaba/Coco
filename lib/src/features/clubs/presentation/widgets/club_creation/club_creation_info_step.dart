@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:coco/src/features/auth/widget/dark_text_field.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
+import 'package:coco/src/shared/widgets/app_text_field.dart';
 import 'package:coco/src/features/auth/widget/input_label.dart';
 
 import '../../../domain/models/club_sport_catalog.dart';
@@ -32,39 +34,39 @@ class ClubCreationInfoStep extends StatelessWidget {
   Widget build(BuildContext context) {
     final shadow = ClubCreationStyle.inputInnerShadow(context);
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(AppSpacing.xxl),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Informations du Club',
             style: TextStyle(
-              fontSize: 28,
+              fontSize: AppFontSize.xxxl,
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
-          const SizedBox(height: 32),
+          const SizedBox(height: AppSpacing.xxxl),
           const InputLabel(label: 'Nom du club'),
-          DarkTextField(
+          AppTextField(
             controller: clubNameController,
             hintText: 'Ex: Tennis Club Paris',
             fieldColor: ClubCreationStyle.field(context),
-            innerShadow: shadow,
+            borderColor: shadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Activités'),
           clubCreationDecoratedField(context, _activitySelector(context)),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Description'),
-          DarkTextField(
+          AppTextField(
             controller: descriptionController,
             hintText: 'Décrivez votre club...',
             maxLines: 3,
             fieldColor: ClubCreationStyle.field(context),
-            innerShadow: shadow,
+            borderColor: shadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Ville'),
           clubCreationDecoratedField(
             context,
@@ -73,22 +75,22 @@ class ClubCreationInfoStep extends StatelessWidget {
               citiesLoaded: citiesLoaded,
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Adresse'),
-          DarkTextField(
+          AppTextField(
             controller: addressController,
             hintText: '123 Rue Example',
             fieldColor: ClubCreationStyle.field(context),
-            innerShadow: shadow,
+            borderColor: shadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Téléphone (optionnel)'),
-          DarkTextField(
+          AppTextField(
             controller: phoneController,
             hintText: '+33 6 12 34 56 78',
             keyboardType: TextInputType.phone,
             fieldColor: ClubCreationStyle.field(context),
-            innerShadow: shadow,
+            borderColor: shadow,
           ),
         ],
       ),
@@ -98,7 +100,7 @@ class ClubCreationInfoStep extends StatelessWidget {
   Widget _activitySelector(BuildContext context) {
     final selectedActivities = ClubSportCatalog.ensureKnownKeys(activities);
     return Padding(
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(AppSpacing.xs),
       child: Wrap(
         spacing: 8,
         runSpacing: 8,

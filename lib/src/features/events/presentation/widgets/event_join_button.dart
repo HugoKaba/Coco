@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 
 class EventJoinButton extends StatelessWidget {
   final bool isJoined;
@@ -19,7 +21,7 @@ class EventJoinButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
           backgroundColor: isJoined
               ? Colors.red.shade100
               : Theme.of(context).primaryColor,
@@ -29,7 +31,7 @@ class EventJoinButton extends StatelessWidget {
           isJoined
               ? 'Quitter l\'événement'
               : (isFull ? 'Complet' : 'Rejoindre'),
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: AppFontSize.lg, fontWeight: FontWeight.bold),
         ),
       ),
     );

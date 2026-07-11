@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -34,7 +36,7 @@ class _MessageInputFieldState extends State<MessageInputField> {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: AppSpacing.sm),
       decoration: BoxDecoration(
         color: cs.surface,
         border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
@@ -46,7 +48,7 @@ class _MessageInputFieldState extends State<MessageInputField> {
               child: Container(
                 decoration: BoxDecoration(
                   color: cs.surfaceContainerHighest,
-                  borderRadius: BorderRadius.circular(24),
+                  borderRadius: BorderRadius.circular(AppRadius.xxl),
                 ),
                 child: TextField(
                   controller: _controller,
@@ -57,7 +59,7 @@ class _MessageInputFieldState extends State<MessageInputField> {
                     hintText: tr('chats.type_message'),
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 20,
+                      horizontal: AppSpacing.xl,
                       vertical: 10,
                     ),
                   ),
@@ -66,7 +68,7 @@ class _MessageInputFieldState extends State<MessageInputField> {
                 ),
               ),
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: AppSpacing.sm),
             GestureDetector(
               onTap: _hasText ? _handleSend : null,
               child: Container(

@@ -1,4 +1,7 @@
 import 'package:coco/src/core/providers.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/features/clubs/application/club_providers.dart';
 import 'package:coco/src/features/clubs/domain/models/club_entity.dart';
@@ -38,7 +41,7 @@ class AccountPage extends ConsumerWidget {
                   future: clubRepo.getClubsByOwnerId(user.uid),
                   builder: _buildClubSection,
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: AppSpacing.xxl),
                 ...buildAccountActions(context, ref),
               ],
             ),
@@ -56,13 +59,13 @@ class AccountPage extends ConsumerWidget {
   ) {
     if (snapshot.connectionState == ConnectionState.waiting) {
       return const Padding(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(AppSpacing.lg),
         child: CircularProgressIndicator(),
       );
     }
     if (snapshot.hasError) {
       return Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(AppSpacing.lg),
         child: Text(
           'Erreur club: ${snapshot.error}',
           style: const TextStyle(color: Colors.red),
@@ -83,16 +86,16 @@ class AccountPage extends ConsumerWidget {
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute(builder: (_) => ClubDashboardScreen(clubId: club.id)),
       ),
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(AppRadius.lg),
       child: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(AppSpacing.xl),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
             colors: [AppColors.brand, AppColors.brandDark],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(AppRadius.lg),
           boxShadow: [
             BoxShadow(
               color: AppColors.brand.withValues(alpha: 0.3),
@@ -115,7 +118,7 @@ class AccountPage extends ConsumerWidget {
                 size: 24,
               ),
             ),
-            const SizedBox(width: 16),
+            const SizedBox(width: AppSpacing.lg),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,17 +127,17 @@ class AccountPage extends ConsumerWidget {
                     'Gérer mon Club',
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.8),
-                      fontSize: 12,
+                      fontSize: AppFontSize.xs,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: AppSpacing.xs),
                   Text(
                     club.name,
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: AppFontSize.xl,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

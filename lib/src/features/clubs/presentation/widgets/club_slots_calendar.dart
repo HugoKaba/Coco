@@ -1,4 +1,7 @@
 import 'package:easy_localization/easy_localization.dart' hide DateFormat;
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -57,7 +60,7 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
           margin: const EdgeInsets.fromLTRB(16, 12, 16, 0),
           decoration: BoxDecoration(
             color: theme.colorScheme.surface,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(AppRadius.lg),
             border: Border.all(
               color: theme.colorScheme.outlineVariant,
               width: 0.5,
@@ -91,10 +94,10 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
               ),
               formatButtonDecoration: BoxDecoration(
                 border: Border.all(color: theme.colorScheme.outlineVariant),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(AppRadius.sm),
               ),
               formatButtonTextStyle: TextStyle(
-                fontSize: 12,
+                fontSize: AppFontSize.xs,
                 color: theme.colorScheme.onSurface,
               ),
               headerPadding: const EdgeInsets.symmetric(vertical: 6),
@@ -152,7 +155,7 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
           ),
         ),
 
-        const SizedBox(height: 8),
+        const SizedBox(height: AppSpacing.sm),
 
         Expanded(
           child: selectedSlots.isEmpty
@@ -166,7 +169,7 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
                       child: Text(
                         DateFormat(
                           'EEEE dd MMMM',
@@ -217,7 +220,7 @@ class _SlotCalendarCard extends StatelessWidget {
       color: isJoined ? Colors.green.withValues(alpha: 0.2) : null,
       margin: const EdgeInsets.only(bottom: 12),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppRadius.md),
         side: isJoined
             ? BorderSide(color: Colors.green.shade400, width: 2)
             : BorderSide.none,

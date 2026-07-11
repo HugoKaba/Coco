@@ -7,6 +7,7 @@
 // paramètre [inactiveColor] pour pouvoir les passer en foncé sur cet écran,
 // tout en gardant le rendu identique (pilule glissante + badge) partout ailleurs.
 import 'dart:ui';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -154,7 +155,7 @@ class AppGlassBottomBar extends StatelessWidget {
                                 ],
                               ),
                               if (showLabels) ...[
-                                const SizedBox(height: 4),
+                                const SizedBox(height: AppSpacing.xs),
                                 Text(
                                   it.label,
                                   maxLines: 1,

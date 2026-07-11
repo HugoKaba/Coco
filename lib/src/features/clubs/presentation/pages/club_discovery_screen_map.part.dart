@@ -113,7 +113,7 @@ Widget _buildCitySearchBar(_ClubDiscoveryScreenState s) {
             hintText: 'clubs.map.search_city_hint'.tr(),
             prefixIcon: const Icon(Icons.search),
             border: InputBorder.none,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 4, vertical: 14),
+            contentPadding: const EdgeInsets.symmetric(horizontal: AppSpacing.xs, vertical: 14),
           ),
         );
       },

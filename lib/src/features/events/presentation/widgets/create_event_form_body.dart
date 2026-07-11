@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/features/events/presentation/widgets/event_form_fields.dart';
 import 'package:coco/src/features/events/presentation/widgets/event_image_picker.dart';
 import 'package:coco/src/features/events/presentation/widgets/event_places_slider.dart';
@@ -78,14 +79,14 @@ class _CreateEventFormBodyState extends State<CreateEventFormBody> {
             if (t != null) widget.onTimeChanged(t);
           },
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: AppSpacing.lg),
         EventImagePicker(onImageUploaded: widget.onImageUploaded),
-        const SizedBox(height: 16),
+        const SizedBox(height: AppSpacing.lg),
         EventPlacesSlider(
           maxPlaces: widget.maxPlaces,
           onChanged: (v) => widget.onPlacesChanged(v.toInt()),
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: AppSpacing.xxl),
         EventSubmitButton(
           isLoading: widget.isLoading,
           onPressed: widget.onSubmit,

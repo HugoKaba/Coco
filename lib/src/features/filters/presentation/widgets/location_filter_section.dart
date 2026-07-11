@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/filter_state_provider.dart';
@@ -30,7 +33,7 @@ class LocationFilterSection extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl, vertical: AppSpacing.sm),
           child: LocationModeToggle(
             isAroundMe: isAroundMe,
             notifier: notifier,
@@ -40,13 +43,13 @@ class LocationFilterSection extends ConsumerWidget {
         if (!isAroundMe)
           Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical: 8.0,
+              horizontal: AppSpacing.xl,
+              vertical: AppSpacing.sm,
             ),
             child: TextField(
               controller: searchController,
               focusNode: searchFocus,
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: AppFontSize.sm, fontWeight: FontWeight.w500),
               decoration: InputDecoration(
                 hintText: 'Rechercher une ville...',
                 prefixIcon: const Icon(Icons.search_rounded, size: 20),
@@ -61,15 +64,15 @@ class LocationFilterSection extends ConsumerWidget {
                   context,
                 ).dividerColor.withValues(alpha: 0.05),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(AppRadius.lg),
                   borderSide: BorderSide.none,
                 ),
-                contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                contentPadding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
               ),
             ),
           ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl, vertical: AppSpacing.sm),
           child: RadiusFilterControl(
             radius: radius,
             notifier: notifier,

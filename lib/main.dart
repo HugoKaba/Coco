@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
+import 'package:coco/src/shared/widgets/app_text_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -70,6 +71,24 @@ class AppRoot extends ConsumerWidget {
     final themeMode = ref.watch(themeModeProvider);
     final localeCode = ref.watch(localeProvider);
 
+    final lightScheme = ColorScheme.fromSeed(
+      seedColor: AppColors.brand,
+      brightness: Brightness.light,
+      surfaceTint: Colors.transparent,
+    );
+    final darkScheme =
+        ColorScheme.fromSeed(
+          seedColor: AppColors.brand,
+          brightness: Brightness.dark,
+          surfaceTint: Colors.transparent,
+        ).copyWith(
+          // Surfaces sombres mais pas noir pur (plus confortable, évite la
+          // halation typique du blanc pur sur noir pur).
+          surface: AppColors.darkBackground,
+          surfaceContainer: AppColors.darkSurface,
+          surfaceContainerHighest: AppColors.darkSurfaceHigh,
+        );
+
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       onGenerateTitle: (context) => tr('app.title'),
@@ -83,13 +102,10 @@ class AppRoot extends ConsumerWidget {
       theme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.light,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.brand,
-          brightness: Brightness.light,
-          surfaceTint: Colors.transparent,
-        ),
+        colorScheme: lightScheme,
         scaffoldBackgroundColor: AppColors.lightBackground,
         cardColor: AppColors.lightBackground,
+        inputDecorationTheme: appInputDecorationTheme(lightScheme),
         // AppBar aligné sur le corps (pas de teinte crème M3).
         appBarTheme: const AppBarTheme(
           backgroundColor: AppColors.lightBackground,
@@ -102,20 +118,10 @@ class AppRoot extends ConsumerWidget {
       darkTheme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,
-        colorScheme:
-            ColorScheme.fromSeed(
-              seedColor: AppColors.brand,
-              brightness: Brightness.dark,
-              surfaceTint: Colors.transparent,
-            ).copyWith(
-              // Surfaces sombres mais pas noir pur (plus confortable, évite la
-              // halation typique du blanc pur sur noir pur).
-              surface: AppColors.darkBackground,
-              surfaceContainer: AppColors.darkSurface,
-              surfaceContainerHighest: AppColors.darkSurfaceHigh,
-            ),
+        colorScheme: darkScheme,
         scaffoldBackgroundColor: AppColors.darkBackground,
         cardColor: AppColors.darkSurface,
+        inputDecorationTheme: appInputDecorationTheme(darkScheme),
         dialogTheme: const DialogThemeData(
           backgroundColor: AppColors.darkSurface,
         ),

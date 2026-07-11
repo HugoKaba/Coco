@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
+import 'package:coco/src/shared/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -83,28 +84,12 @@ class _ClubMembershipButtonState extends ConsumerState<ClubMembershipButton> {
     final isMemberAsync = ref.watch(isMemberProvider(widget.clubId));
 
     return isMemberAsync.when(
-      data: (isMember) => SizedBox(
-        width: double.infinity,
-        child: ElevatedButton.icon(
-          onPressed: _busy ? null : () => _toggleMembership(isMember),
-          icon: _busy
-              ? const SizedBox(
-                  width: 20,
-                  height: 20,
-                  child: CircularProgressIndicator(strokeWidth: 2),
-                )
-              : Icon(isMember ? Icons.check_circle : Icons.add_circle_outline),
-          label: Text(
-            isMember ? 'clubs.member_active'.tr() : 'clubs.join'.tr(),
-          ),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: isMember ? AppColors.success : null,
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-        ),
+      data: (isMember) => AppButton(
+        label: isMember ? 'clubs.member_active'.tr() : 'clubs.join'.tr(),
+        icon: isMember ? Icons.check_circle : Icons.add_circle_outline,
+        isLoading: _busy,
+        color: isMember ? AppColors.success : null,
+        onPressed: () => _toggleMembership(isMember),
       ),
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (_, __) => Text('common.error'.tr()),

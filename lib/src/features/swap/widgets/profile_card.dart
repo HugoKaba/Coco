@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../models/profile.dart';
 import 'days_row.dart';
@@ -14,25 +16,25 @@ class ProfileCard extends StatelessWidget {
     return Container(
       color: Theme.of(context).scaffoldBackgroundColor,
       child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
         child: Column(
           children: [
             ProfilePhotoSection(profile: profile),
-            const SizedBox(height: 16),
+            const SizedBox(height: AppSpacing.lg),
             _buildNameSection(context),
-            const SizedBox(height: 20),
+            const SizedBox(height: AppSpacing.xl),
             _buildSportIcons(),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppSpacing.xxl),
             InfoSection(
               title: tr('swipe.description'),
               content: profile.description,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppSpacing.xxl),
             InfoSection(
               title: tr('swipe.activity_frequency'),
               content: profile.activityFrequency,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppSpacing.xxl),
             _buildDailyPreferenceSection(context),
           ],
         ),
@@ -45,13 +47,13 @@ class ProfileCard extends StatelessWidget {
       children: [
         Text(
           profile.name,
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+          style: const TextStyle(fontSize: AppFontSize.xxl, fontWeight: FontWeight.w500),
         ),
-        const SizedBox(height: 4),
+        const SizedBox(height: AppSpacing.xs),
         Text(
           profile.username,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: AppFontSize.md,
             color: Theme.of(context).colorScheme.onSurfaceVariant,
           ),
         ),
@@ -64,7 +66,7 @@ class ProfileCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: profile.sports.map((sport) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm),
           child: Tooltip(
             triggerMode: TooltipTriggerMode.tap,
             message: '${tr(sport.name)} - ${tr(sport.level)}',
@@ -90,11 +92,11 @@ class ProfileCard extends StatelessWidget {
         Text(
           tr('swipe.daily_preference'),
           style: TextStyle(
-            fontSize: 14,
+            fontSize: AppFontSize.sm,
             color: Theme.of(context).colorScheme.onSurfaceVariant,
           ),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: AppSpacing.md),
         DaysRow(availableDays: profile.availableDays),
       ],
     );

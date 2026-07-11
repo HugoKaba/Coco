@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:intl/intl.dart';
@@ -15,7 +17,7 @@ class MessageBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.xs),
       child: Column(
         crossAxisAlignment: isMe
             ? CrossAxisAlignment.end
@@ -80,7 +82,7 @@ class MessageBubble extends StatelessWidget {
                     maxWidth: MediaQuery.of(context).size.width * 0.7,
                   ),
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
+                    horizontal: AppSpacing.lg,
                     vertical: 10,
                   ),
                   decoration: BoxDecoration(
@@ -88,14 +90,14 @@ class MessageBubble extends StatelessWidget {
                         ? AppColors.brand
                         : cs.surfaceContainerHighest,
                     borderRadius: BorderRadius.only(
-                      topLeft: const Radius.circular(20),
-                      topRight: const Radius.circular(20),
+                      topLeft: const Radius.circular(AppRadius.xl),
+                      topRight: const Radius.circular(AppRadius.xl),
                       bottomLeft: isMe
-                          ? const Radius.circular(20)
+                          ? const Radius.circular(AppRadius.xl)
                           : const Radius.circular(4),
                       bottomRight: isMe
                           ? const Radius.circular(4)
-                          : const Radius.circular(20),
+                          : const Radius.circular(AppRadius.xl),
                     ),
                   ),
                   child: Column(
@@ -109,7 +111,7 @@ class MessageBubble extends StatelessWidget {
                           height: 1.3,
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: AppSpacing.xs),
                       Text(
                         DateFormat('HH:mm').format(message.timestamp),
                         style: TextStyle(

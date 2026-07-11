@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import '../providers/filter_state_provider.dart';
 
 class LocationModeToggle extends StatelessWidget {
@@ -21,9 +23,9 @@ class LocationModeToggle extends StatelessWidget {
         color: Theme.of(context).brightness == Brightness.light
             ? Colors.grey.shade200
             : colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppRadius.md),
       ),
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(AppSpacing.xs),
       child: Row(
         children: [
           Expanded(child: _buildOption(context, 'Autour de moi', true)),
@@ -43,14 +45,14 @@ class LocationModeToggle extends StatelessWidget {
         if (value) onClearSearch();
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
         decoration: BoxDecoration(
           color: isSelected
               ? (Theme.of(context).brightness == Brightness.light
                     ? Colors.white
                     : colorScheme.surface)
               : Colors.transparent,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(AppRadius.sm),
           boxShadow: isSelected
               ? [
                   BoxShadow(

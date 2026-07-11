@@ -3,10 +3,10 @@ part of 'slot_creation_screen.dart';
 
 Widget _buildSlotTypeSelector(_SlotCreationScreenState s) {
   return Container(
-    padding: const EdgeInsets.all(4),
+    padding: const EdgeInsets.all(AppSpacing.xs),
     decoration: BoxDecoration(
       color: Theme.of(s.context).colorScheme.surfaceContainer,
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(AppRadius.lg),
       border: Border.all(color: Theme.of(s.context).dividerColor),
     ),
     child: Row(
@@ -17,12 +17,12 @@ Widget _buildSlotTypeSelector(_SlotCreationScreenState s) {
             onTap: () => s.setState(() => s._type = type),
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 200),
-              padding: const EdgeInsets.symmetric(vertical: 12),
+              padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
               decoration: BoxDecoration(
                 color: isSelected
                     ? _SlotCreationScreenState._accentColor
                     : Colors.transparent,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(AppRadius.md),
               ),
               child: Text(
                 type.displayName,
@@ -43,10 +43,10 @@ Widget _buildSlotTypeSelector(_SlotCreationScreenState s) {
 }
 
 Widget _buildSlotCapacityField(_SlotCreationScreenState s) => Container(
-  padding: const EdgeInsets.all(20),
+  padding: const EdgeInsets.all(AppSpacing.xl),
   decoration: BoxDecoration(
     color: Theme.of(s.context).colorScheme.surfaceContainer,
-    borderRadius: BorderRadius.circular(16),
+    borderRadius: BorderRadius.circular(AppRadius.lg),
     border: Border.all(color: Theme.of(s.context).dividerColor),
   ),
   child: Column(
@@ -57,7 +57,7 @@ Widget _buildSlotCapacityField(_SlotCreationScreenState s) => Container(
           color: Theme.of(s.context).colorScheme.onSurfaceVariant,
         ),
       ),
-      const SizedBox(height: 16),
+      const SizedBox(height: AppSpacing.lg),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -68,7 +68,7 @@ Widget _buildSlotCapacityField(_SlotCreationScreenState s) => Container(
               if (s._maxParticipants > 1) s._maxParticipants--;
             }),
           ),
-          const SizedBox(width: 32),
+          const SizedBox(width: AppSpacing.xxxl),
           Text(
             '${s._maxParticipants}',
             style: TextStyle(
@@ -77,7 +77,7 @@ Widget _buildSlotCapacityField(_SlotCreationScreenState s) => Container(
               color: Theme.of(s.context).colorScheme.onSurface,
             ),
           ),
-          const SizedBox(width: 32),
+          const SizedBox(width: AppSpacing.xxxl),
           _capacityButton(
             s.context,
             Icons.add,
@@ -97,7 +97,7 @@ Widget _capacityButton(
   onTap: onTap,
   borderRadius: BorderRadius.circular(30),
   child: Container(
-    padding: const EdgeInsets.all(12),
+    padding: const EdgeInsets.all(AppSpacing.md),
     decoration: BoxDecoration(
       color: Theme.of(context).colorScheme.surfaceContainerHighest,
       shape: BoxShape.circle,

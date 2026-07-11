@@ -3,7 +3,7 @@ part of 'club_filters_sheet.dart';
 
 Widget _buildClubFilterBottomBar(_ClubFiltersSheetState s) {
   return Padding(
-    padding: const EdgeInsets.all(24),
+    padding: const EdgeInsets.all(AppSpacing.xxl),
     child: Row(
       children: [
         Expanded(
@@ -18,15 +18,15 @@ Widget _buildClubFilterBottomBar(_ClubFiltersSheetState s) {
             style: OutlinedButton.styleFrom(
               foregroundColor: Theme.of(s.context).colorScheme.onSurface,
               side: BorderSide(color: Theme.of(s.context).dividerColor),
-              padding: const EdgeInsets.symmetric(vertical: 16),
+              padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(AppRadius.lg),
               ),
             ),
             child: Text('filters.reset'.tr()),
           ),
         ),
-        const SizedBox(width: 16),
+        const SizedBox(width: AppSpacing.lg),
         Expanded(
           child: ElevatedButton(
             onPressed: () {
@@ -53,9 +53,9 @@ Widget _buildClubFilterBottomBar(_ClubFiltersSheetState s) {
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: _ClubFiltersSheetState._accentColor,
-              padding: const EdgeInsets.symmetric(vertical: 16),
+              padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(AppRadius.lg),
               ),
             ),
             child: Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 
 class SwipeFilterApplyButton extends StatelessWidget {
@@ -43,7 +44,7 @@ class SwipeFilterApplyButton extends StatelessWidget {
           ),
           child: const Text(
             'Appliquer les filtres',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: AppFontSize.md, fontWeight: FontWeight.bold),
           ),
         ),
       ),

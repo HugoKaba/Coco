@@ -1,8 +1,9 @@
 import 'package:coco/src/core/providers.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
-import 'package:coco/src/features/auth/widget/dark_text_field.dart';
+import 'package:coco/src/shared/widgets/app_text_field.dart';
 import 'package:coco/src/features/auth/widget/input_label.dart';
-import 'package:coco/src/features/auth/widget/primary_button.dart';
+import 'package:coco/src/shared/widgets/app_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,7 +34,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
     return Scaffold(
       appBar: AppBar(title: Text(tr('sign_in.title'))),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(AppSpacing.lg),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -52,22 +53,22 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                       ),
                       const SizedBox(height: 36),
                       InputLabel(label: tr('sign_in.email_label')),
-                      DarkTextField(
+                      AppTextField(
                         controller: _email,
                         hintText: tr('sign_in.email_label'),
                         keyboardType: TextInputType.emailAddress,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: AppSpacing.xl),
                       InputLabel(label: tr('sign_in.password_label')),
-                      DarkTextField(
+                      AppTextField(
                         controller: _password,
                         hintText: tr('sign_in.password_label'),
                         obscureText: true,
                       ),
                       const SizedBox(height: 18),
-                      PrimaryButton(
+                      AppButton(
                         label: tr('sign_in.sign_in_email'),
-                        accentColor: _accent,
+                        color: _accent,
                         onPressed: () async {
                           if (!_formKey.currentState!.validate()) return;
                           try {
@@ -86,10 +87,10 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                   ),
                 ),
                 const SizedBox(height: 22),
-                PrimaryButton(
+                AppButton(
                   label: tr('sign_in.sign_in_button'),
                   icon: Icons.login,
-                  accentColor: _accent,
+                  color: _accent,
                   onPressed: () async {
                     try {
                       await auth.signInWithGoogle();
@@ -99,25 +100,25 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                   },
                 ),
                 const SizedBox(height: 14),
-                PrimaryButton(
+                AppButton(
                   label: tr('sign_in.sign_in_apple'),
                   icon: Icons.apple,
                   onPressed: () {},
-                  accentColor: _accent,
+                  color: _accent,
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: AppSpacing.xxl),
                 Divider(color: Theme.of(context).dividerColor),
-                const SizedBox(height: 16),
-                PrimaryButton(
+                const SizedBox(height: AppSpacing.lg),
+                AppButton(
                   label: 'Professional Sign Up',
                   icon: Icons.business,
-                  accentColor: _accent,
+                  color: _accent,
                   onPressed: () => context.push('/professional-signup'),
                 ),
                 const SizedBox(height: 14),
-                PrimaryButton(
+                AppButton(
                   label: tr('sign_in.register'),
-                  accentColor: _accent,
+                  color: _accent,
                   onPressed: () => context.push('/register'),
                 ),
               ],

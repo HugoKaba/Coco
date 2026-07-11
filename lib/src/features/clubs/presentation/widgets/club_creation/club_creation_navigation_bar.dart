@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 
 import 'club_creation_style.dart';
 
@@ -19,7 +22,7 @@ class ClubCreationNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
         color: ClubCreationStyle.background(context),
         boxShadow: [
@@ -41,14 +44,14 @@ class ClubCreationNavigationBar extends StatelessWidget {
                     foregroundColor: Theme.of(context).colorScheme.onSurface,
                     side: BorderSide(color: Theme.of(context).dividerColor),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(AppRadius.xl),
                     ),
-                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                   ),
                   child: const Text('Précédent'),
                 ),
               ),
-            if (currentStep > 0) const SizedBox(width: 16),
+            if (currentStep > 0) const SizedBox(width: AppSpacing.lg),
             Expanded(
               child: ElevatedButton(
                 onPressed: isLoading ? null : onNextOrSubmit,
@@ -58,9 +61,9 @@ class ClubCreationNavigationBar extends StatelessWidget {
                     alpha: 0.5,
                   ),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(AppRadius.xl),
                   ),
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                 ),
                 child: isLoading
                     ? const SizedBox(
@@ -76,7 +79,7 @@ class ClubCreationNavigationBar extends StatelessWidget {
                     : Text(
                         currentStep < 2 ? 'Suivant' : 'Créer mon club',
                         style: const TextStyle(
-                          fontSize: 16,
+                          fontSize: AppFontSize.md,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),

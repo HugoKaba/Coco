@@ -1,4 +1,7 @@
 import 'package:coco/src/core/city_service.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/core/domain/app_enums.dart';
 import 'package:coco/src/features/auth/widget/city_autocomplete.dart';
@@ -74,7 +77,7 @@ class _ClubFiltersSheetState extends State<ClubFiltersSheet> {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(AppRadius.xl)),
       ),
       padding: EdgeInsets.only(
         top: 20,
@@ -86,14 +89,14 @@ class _ClubFiltersSheetState extends State<ClubFiltersSheet> {
           _buildClubFilterHeader(this),
           Flexible(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.all(AppSpacing.xxl),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildClubFilterSectionTitle(context, 'Localisation'),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: AppSpacing.lg),
                   _buildClubLocationToggle(this),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: AppSpacing.lg),
                   if (!_isAroundMe)
                     SizedBox(
                       height: 60,
@@ -107,15 +110,15 @@ class _ClubFiltersSheetState extends State<ClubFiltersSheet> {
                         innerShadow: Colors.transparent,
                       ),
                     ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: AppSpacing.lg),
                   _buildClubRadiusSlider(this),
-                  const SizedBox(height: 32),
+                  const SizedBox(height: AppSpacing.xxxl),
                   _buildClubFilterSectionTitle(context, 'clubs.filter.levels'.tr()),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: AppSpacing.lg),
                   _buildClubLevelsSection(this),
-                  const SizedBox(height: 32),
+                  const SizedBox(height: AppSpacing.xxxl),
                   _buildClubFilterSectionTitle(context, 'clubs.filter.age_group'.tr()),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: AppSpacing.lg),
                   _buildClubAgeSection(this),
                 ],
               ),
