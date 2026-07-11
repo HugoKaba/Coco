@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class ConversationEmptyState extends StatelessWidget {
@@ -18,20 +20,20 @@ class ConversationEmptyState extends StatelessWidget {
               size: 80,
               color: cs.onSurfaceVariant,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppSpacing.xxl),
             Text(
               tr('chats.no_conversations'),
               style: TextStyle(
-                fontSize: 20,
+                fontSize: AppFontSize.xl,
                 fontWeight: FontWeight.bold,
                 color: cs.onSurface,
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: AppSpacing.md),
             Text(
               tr('chats.no_conversations_hint'),
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, color: cs.onSurfaceVariant),
+              style: TextStyle(fontSize: AppFontSize.md, color: cs.onSurfaceVariant),
             ),
           ],
         ),

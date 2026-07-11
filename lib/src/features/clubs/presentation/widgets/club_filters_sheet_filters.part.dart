@@ -26,7 +26,7 @@ Widget _buildClubLevelsSection(_ClubFiltersSheetState s) => Wrap(
         fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(AppRadius.xl),
         side: BorderSide(
           color: isSelected
               ? _ClubFiltersSheetState._accentColor
@@ -47,12 +47,12 @@ Widget _buildClubAgeSection(_ClubFiltersSheetState s) => Column(
           style: const TextStyle(
             color: _ClubFiltersSheetState._accentColor,
             fontWeight: FontWeight.bold,
-            fontSize: 16,
+            fontSize: AppFontSize.md,
           ),
         ),
       ],
     ),
-    const SizedBox(height: 8),
+    const SizedBox(height: AppSpacing.sm),
     SliderTheme(
       data: SliderTheme.of(s.context).copyWith(
         activeTrackColor: _ClubFiltersSheetState._accentColor,

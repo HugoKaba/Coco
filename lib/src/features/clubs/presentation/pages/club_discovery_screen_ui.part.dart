@@ -4,7 +4,7 @@ part of 'club_discovery_screen.dart';
 Widget _buildClubQuickFilters(_ClubDiscoveryScreenState s) {
   return SingleChildScrollView(
     scrollDirection: Axis.horizontal,
-    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.sm),
     child: Row(
       children: [
         FilterChip(
@@ -16,7 +16,7 @@ Widget _buildClubQuickFilters(_ClubDiscoveryScreenState s) {
           },
           avatar: s._showOnlyMyClubs ? const Icon(Icons.check, size: 16) : null,
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: AppSpacing.sm),
         ...ClubSportCatalog.sports.map((sport) {
           final isSelected = s._filters.selectedSports.any(
             (value) => ClubSportCatalog.normalizeKey(value) == sport.key,
@@ -61,15 +61,15 @@ Widget _buildClubList(_ClubDiscoveryScreenState s) {
             size: 64,
             color: Theme.of(s.context).colorScheme.onSurfaceVariant,
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           Text(
             'clubs.no_clubs_found'.tr(),
             style: TextStyle(
-              fontSize: 18,
+              fontSize: AppFontSize.lg,
               color: Theme.of(s.context).colorScheme.onSurfaceVariant,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           TextButton.icon(
             onPressed: s._showFilters,
             icon: const Icon(Icons.filter_list),
@@ -80,7 +80,7 @@ Widget _buildClubList(_ClubDiscoveryScreenState s) {
     );
   }
   return ListView.builder(
-    padding: const EdgeInsets.all(16),
+    padding: const EdgeInsets.all(AppSpacing.lg),
     itemCount: s._clubs.length,
     itemBuilder: (_, i) => _clubCard(s, s._clubs[i]),
   );
@@ -89,19 +89,19 @@ Widget _buildClubList(_ClubDiscoveryScreenState s) {
 Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
   return Card(
     margin: const EdgeInsets.only(bottom: 16),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadius.lg)),
     child: InkWell(
       onTap: () => Navigator.of(s.context).push(
         MaterialPageRoute(builder: (_) => ClubDetailScreen(clubId: club.id)),
       ),
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(AppRadius.lg),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(AppSpacing.lg),
         child: Row(
           children: [
             if (club.logoUrl != null)
               ClipRRect(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(AppRadius.md),
                 child: Image.network(
                   club.logoUrl!,
                   width: 60,
@@ -115,7 +115,7 @@ Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
                       color: Theme.of(
                         s.context,
                       ).colorScheme.primary.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(AppRadius.md),
                     ),
                     child: Icon(
                       Icons.sports,
@@ -132,14 +132,14 @@ Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
                   color: Theme.of(
                     s.context,
                   ).colorScheme.primary.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(AppRadius.md),
                 ),
                 child: Icon(
                   Icons.sports,
                   color: Theme.of(s.context).colorScheme.primary,
                 ),
               ),
-            const SizedBox(width: 16),
+            const SizedBox(width: AppSpacing.lg),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,16 +147,16 @@ Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
                   Text(
                     club.name,
                     style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: AppFontSize.lg,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: AppSpacing.xs),
                   Text(
                     ClubSportCatalog.labelsTextFor(club.activities),
                     style: TextStyle(
                       color: Theme.of(s.context).colorScheme.onSurfaceVariant,
-                      fontSize: 14,
+                      fontSize: AppFontSize.sm,
                     ),
                   ),
                 ],

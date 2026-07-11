@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:coco/src/features/events/application/events_service.dart';
@@ -38,9 +41,9 @@ class EventActionBar extends ConsumerWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red.shade50,
                   foregroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(AppRadius.lg),
                   ),
                   elevation: 0,
                 ),
@@ -48,7 +51,7 @@ class EventActionBar extends ConsumerWidget {
                 label: Text(tr('events.delete')),
               ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: AppSpacing.md),
             Expanded(
               child: ElevatedButton.icon(
                 onPressed: () {
@@ -63,9 +66,9 @@ class EventActionBar extends ConsumerWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).primaryColor,
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(AppRadius.lg),
                   ),
                   elevation: 0,
                 ),
@@ -107,9 +110,9 @@ class EventActionBar extends ConsumerWidget {
                 ? Colors.red.shade50
                 : Theme.of(context).primaryColor,
             foregroundColor: isJoined ? Colors.red : Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(AppRadius.lg),
             ),
             elevation: 0,
           ),
@@ -119,7 +122,7 @@ class EventActionBar extends ConsumerWidget {
                 : isFull
                 ? tr('events.full')
                 : tr('events.join'),
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: AppFontSize.md, fontWeight: FontWeight.bold),
           ),
         ),
       ),

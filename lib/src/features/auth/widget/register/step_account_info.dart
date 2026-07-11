@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter/material.dart';
 import '../dark_text_field.dart';
 import '../input_label.dart';
@@ -49,7 +50,7 @@ class StepAccountInfo extends StatelessWidget {
             fieldColor: fieldColor,
             innerShadow: innerShadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           InputLabel(label: tr('register.name')),
           DarkTextField(
             controller: nameController,
@@ -57,7 +58,7 @@ class StepAccountInfo extends StatelessWidget {
             fieldColor: fieldColor,
             innerShadow: innerShadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           InputLabel(label: tr('register.username')),
           DarkTextField(
             controller: userNameController,
@@ -65,7 +66,7 @@ class StepAccountInfo extends StatelessWidget {
             fieldColor: fieldColor,
             innerShadow: innerShadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           InputLabel(label: tr('register.email')),
           DarkTextField(
             controller: emailController,
@@ -74,7 +75,7 @@ class StepAccountInfo extends StatelessWidget {
             fieldColor: fieldColor,
             innerShadow: innerShadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           InputLabel(label: tr('register.password')),
           DarkTextField(
             controller: passwordController,

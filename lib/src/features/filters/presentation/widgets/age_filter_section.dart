@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/filter_state_provider.dart';
@@ -12,7 +14,7 @@ class AgeFilterSection extends ConsumerWidget {
     final notifier = ref.read(filterProvider.notifier);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -30,12 +32,12 @@ class AgeFilterSection extends ConsumerWidget {
                 style: TextStyle(
                   color: AppColors.brand,
                   fontWeight: FontWeight.bold,
-                  fontSize: 14,
+                  fontSize: AppFontSize.sm,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           SliderTheme(
             data: SliderTheme.of(context).copyWith(
               activeTrackColor: AppColors.brand,

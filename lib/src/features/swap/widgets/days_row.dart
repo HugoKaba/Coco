@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class DaysRow extends StatelessWidget {
@@ -28,11 +30,11 @@ class DaysRow extends StatelessWidget {
             Text(
               tr(day.$1),
               style: TextStyle(
-                fontSize: 14,
+                fontSize: AppFontSize.sm,
                 color: color.withValues(alpha: 0.5),
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: AppSpacing.sm),
             Container(
               width: 34,
               height: 34,

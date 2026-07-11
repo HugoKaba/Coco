@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/features/clubs/domain/models/club_entity.dart';
 
@@ -10,7 +13,7 @@ class ClubDashboardHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(AppSpacing.xxl),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceContainer,
         borderRadius: const BorderRadius.only(
@@ -32,18 +35,18 @@ class ClubDashboardHeader extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: AppSpacing.lg),
               Text(
                 'Tableau de bord',
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.onSurface,
-                  fontSize: 18,
+                  fontSize: AppFontSize.lg,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: AppSpacing.xxl),
           Row(
             children: [
               if (club.logoUrl != null)
@@ -53,7 +56,7 @@ class ClubDashboardHeader extends StatelessWidget {
                   backgroundColor: AppColors.brand,
                   child: Icon(Icons.business, color: Colors.white),
                 ),
-              const SizedBox(width: 16),
+              const SizedBox(width: AppSpacing.lg),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +64,7 @@ class ClubDashboardHeader extends StatelessWidget {
                     Text(
                       club.name,
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: AppFontSize.xxl,
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).colorScheme.onSurface,
                       ),
@@ -77,7 +80,7 @@ class ClubDashboardHeader extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: AppSpacing.xxl),
           Row(
             children: [
               _chip(
@@ -85,7 +88,7 @@ class ClubDashboardHeader extends StatelessWidget {
                 icon: Icons.people,
                 label: 'Capacité: ${club.maxCapacity}',
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: AppSpacing.md),
               _chip(
                 context,
                 icon: Icons.star,
@@ -109,17 +112,17 @@ class ClubDashboardHeader extends StatelessWidget {
     final bg = color ?? cs.surfaceContainerHighest;
     final fg = color != null ? Colors.white : cs.onSurface;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: AppSpacing.sm),
       decoration: BoxDecoration(
         color: bg,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(AppRadius.xl),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(icon, size: 16, color: fg),
           const SizedBox(width: 6),
-          Text(label, style: TextStyle(color: fg, fontSize: 12)),
+          Text(label, style: TextStyle(color: fg, fontSize: AppFontSize.xs)),
         ],
       ),
     );

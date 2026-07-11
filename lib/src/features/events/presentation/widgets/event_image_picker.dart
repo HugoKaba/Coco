@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -70,7 +72,7 @@ class _EventImagePickerState extends ConsumerState<EventImagePicker> {
         width: double.infinity,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surfaceContainerHighest,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(AppRadius.lg),
           border: Border.all(color: Theme.of(context).dividerColor),
           image: _selectedImage != null
               ? DecorationImage(
@@ -95,7 +97,7 @@ class _EventImagePickerState extends ConsumerState<EventImagePicker> {
                     size: 40,
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: AppSpacing.sm),
                   Text(
                     tr('events.add_photo'),
                     style: TextStyle(

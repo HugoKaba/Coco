@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 
 class NavigationButton extends StatelessWidget {
@@ -24,11 +26,11 @@ class NavigationButton extends StatelessWidget {
             backgroundColor: WidgetStateProperty.all(AppColors.brand),
             foregroundColor: WidgetStateProperty.all(Colors.white),
             shape: WidgetStateProperty.all(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadius.md)),
             ),
             elevation: WidgetStateProperty.all(0),
             padding: WidgetStateProperty.all(
-              const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+              const EdgeInsets.symmetric(horizontal: AppSpacing.xl, vertical: 14),
             ),
           ),
           child: Text(text),

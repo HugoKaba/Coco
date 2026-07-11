@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter/services.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -16,10 +19,10 @@ class StylishAgeInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.sm),
       decoration: BoxDecoration(
         color: cs.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppRadius.lg),
         border: Border.all(color: Theme.of(context).dividerColor),
         boxShadow: [
           BoxShadow(
@@ -36,7 +39,7 @@ class StylishAgeInput extends StatelessWidget {
             tr('register.your_age'),
             style: TextStyle(
               color: cs.onSurfaceVariant,
-              fontSize: 16,
+              fontSize: AppFontSize.md,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -48,7 +51,7 @@ class StylishAgeInput extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: accentColor,
-                fontSize: 24,
+                fontSize: AppFontSize.xxl,
                 fontWeight: FontWeight.bold,
               ),
               inputFormatters: [

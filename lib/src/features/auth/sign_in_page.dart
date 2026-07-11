@@ -1,4 +1,5 @@
 import 'package:coco/src/core/providers.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/features/auth/widget/dark_text_field.dart';
 import 'package:coco/src/features/auth/widget/input_label.dart';
@@ -33,7 +34,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
     return Scaffold(
       appBar: AppBar(title: Text(tr('sign_in.title'))),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(AppSpacing.lg),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -57,7 +58,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                         hintText: tr('sign_in.email_label'),
                         keyboardType: TextInputType.emailAddress,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: AppSpacing.xl),
                       InputLabel(label: tr('sign_in.password_label')),
                       DarkTextField(
                         controller: _password,
@@ -105,9 +106,9 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                   onPressed: () {},
                   accentColor: _accent,
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: AppSpacing.xxl),
                 Divider(color: Theme.of(context).dividerColor),
-                const SizedBox(height: 16),
+                const SizedBox(height: AppSpacing.lg),
                 PrimaryButton(
                   label: 'Professional Sign Up',
                   icon: Icons.business,

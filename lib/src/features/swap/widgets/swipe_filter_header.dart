@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 
 class SwipeFilterHeader extends StatelessWidget {
   const SwipeFilterHeader({super.key});
@@ -6,7 +7,7 @@ class SwipeFilterHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
       width: double.infinity,
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -19,7 +20,7 @@ class SwipeFilterHeader extends StatelessWidget {
               borderRadius: BorderRadius.circular(2.5),
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           Text(
             'Filtres',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -27,7 +28,7 @@ class SwipeFilterHeader extends StatelessWidget {
               letterSpacing: -0.5,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
         ],
       ),
     );

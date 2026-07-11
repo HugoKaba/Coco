@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/models/person_entity.dart';
@@ -35,7 +38,7 @@ class SearchResultsScreen extends ConsumerWidget {
                     size: 48,
                     color: cs.onSurfaceVariant,
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: AppSpacing.lg),
                   Text(
                     'Aucun résultat trouvé',
                     style: TextStyle(color: cs.onSurfaceVariant),
@@ -44,7 +47,7 @@ class SearchResultsScreen extends ConsumerWidget {
               ),
             )
           : ListView.builder(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(AppSpacing.sm),
               itemCount: results.length,
               itemBuilder: (context, i) {
                 final it = results[i];
@@ -60,15 +63,15 @@ class SearchResultsScreen extends ConsumerWidget {
                 return Card(
                   elevation: 0,
                   margin: const EdgeInsets.symmetric(
-                    vertical: 4,
-                    horizontal: 8,
+                    vertical: AppSpacing.xs,
+                    horizontal: AppSpacing.sm,
                   ),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(AppRadius.md),
                     side: BorderSide(color: Theme.of(context).dividerColor),
                   ),
                   child: ListTile(
-                    contentPadding: const EdgeInsets.all(12),
+                    contentPadding: const EdgeInsets.all(AppSpacing.md),
                     leading: CircleAvatar(
                       backgroundColor: Colors.deepPurple.shade50,
                       child: Text(
@@ -85,9 +88,9 @@ class SearchResultsScreen extends ConsumerWidget {
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 4),
+                        const SizedBox(height: AppSpacing.xs),
                         Text(it.metadata['city'] ?? ''),
-                        const SizedBox(height: 4),
+                        const SizedBox(height: AppSpacing.xs),
                         Wrap(
                           spacing: 4,
                           children: it.sports.map((s) {
@@ -112,19 +115,19 @@ class SearchResultsScreen extends ConsumerWidget {
                     ),
                     trailing: Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
+                        horizontal: AppSpacing.sm,
+                        vertical: AppSpacing.xs,
                       ),
                       decoration: BoxDecoration(
                         color: cs.surfaceContainerHighest,
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(AppRadius.sm),
                       ),
                       child: Text(
                         distanceLabel,
                         style: TextStyle(
                           color: cs.onSurfaceVariant,
                           fontWeight: FontWeight.w600,
-                          fontSize: 12,
+                          fontSize: AppFontSize.xs,
                         ),
                       ),
                     ),

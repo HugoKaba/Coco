@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../dark_text_field.dart';
 
@@ -37,9 +38,9 @@ class ProfileBirthDateRow extends StatelessWidget {
     return Row(
       children: [
         _dateField(dayController, tr('register.birth_date_day')),
-        const SizedBox(width: 12),
+        const SizedBox(width: AppSpacing.md),
         _dateField(monthController, tr('register.birth_date_month')),
-        const SizedBox(width: 12),
+        const SizedBox(width: AppSpacing.md),
         _dateField(yearController, tr('register.birth_date_year')),
       ],
     );

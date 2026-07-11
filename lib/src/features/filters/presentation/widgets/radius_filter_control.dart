@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
 import '../providers/filter_state_provider.dart';
 
 class RadiusFilterControl extends StatelessWidget {
@@ -23,7 +24,7 @@ class RadiusFilterControl extends StatelessWidget {
             Text(
               'Rayon de recherche',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: AppFontSize.sm,
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
                 fontWeight: FontWeight.w500,
               ),
@@ -31,7 +32,7 @@ class RadiusFilterControl extends StatelessWidget {
             Text(
               '${(radius / 1000).toStringAsFixed(0)} km',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: AppFontSize.md,
                 fontWeight: FontWeight.bold,
                 color: activeColor,
               ),

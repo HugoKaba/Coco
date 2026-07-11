@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../application/user_search_service.dart';
 import '../../domain/models/city.dart';
@@ -43,11 +44,11 @@ class FilterScreenContent extends ConsumerWidget {
               ),
               const Divider(height: 32, thickness: 1),
               const SportsFilterSection(),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppSpacing.lg),
               const LevelFilterSection(),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppSpacing.lg),
               const AvailabilitiesFilterSection(),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppSpacing.lg),
               const AgeFilterSection(),
             ],
           ),

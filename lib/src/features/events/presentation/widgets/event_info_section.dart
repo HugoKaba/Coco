@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:coco/src/features/events/domain/models/event_entity.dart';
@@ -18,52 +21,52 @@ class EventInfoSection extends StatelessWidget {
     );
 
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(AppSpacing.xl),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             event.title,
             style: const TextStyle(
-              fontSize: 28,
+              fontSize: AppFontSize.xxxl,
               fontWeight: FontWeight.bold,
               fontFamily: 'Outfit',
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _buildInfoRow(
             context,
             Icons.calendar_today_rounded,
             dateFormat.format(event.date),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.md),
           _buildInfoRow(
             context,
             Icons.location_on_rounded,
             event.locationName ?? tr('events.location_unknown'),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.md),
           _buildInfoRow(context, Icons.sports_soccer_rounded, event.sport),
-          const SizedBox(height: 24),
+          const SizedBox(height: AppSpacing.xxl),
           Text(
             tr('events.description'),
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: AppFontSize.lg, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           Text(
             event.description,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: AppFontSize.md,
               color: theme.textTheme.bodyMedium?.color?.withValues(alpha: 0.8),
               height: 1.5,
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: AppSpacing.xxl),
           Text(
             '${tr('events.participants')} (${event.attendees.length}/${event.maxPlaces})',
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: AppFontSize.lg, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.md),
           EventAttendeesList(attendees: event.attendees, currentUserId: ''),
         ],
       ),
@@ -77,15 +80,15 @@ class EventInfoSection extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppRadius.md),
           ),
           child: Icon(icon, size: 20, color: Theme.of(context).primaryColor),
         ),
-        const SizedBox(width: 16),
+        const SizedBox(width: AppSpacing.lg),
         Expanded(
           child: Text(
             text,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            style: const TextStyle(fontSize: AppFontSize.md, fontWeight: FontWeight.w500),
           ),
         ),
       ],

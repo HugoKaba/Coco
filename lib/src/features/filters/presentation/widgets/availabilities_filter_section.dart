@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -23,11 +25,11 @@ class AvailabilitiesFilterSection extends ConsumerWidget {
           tr('filters.availabilities'),
           style: TextStyle(
             color: Theme.of(context).colorScheme.onSurface,
-            fontSize: 16,
+            fontSize: AppFontSize.md,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: AppSpacing.md),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: SeederConstants.days.map((dayId) {
@@ -63,11 +65,11 @@ class AvailabilitiesFilterSection extends ConsumerWidget {
               color: isSelected
                   ? AppColors.brand
                   : Theme.of(context).colorScheme.onSurfaceVariant,
-              fontSize: 12,
+              fontSize: AppFontSize.xs,
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           Container(
             width: 40,
             height: 40,

@@ -1,4 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:coco/src/features/clubs/domain/models/slot_entity.dart';
@@ -13,7 +16,7 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
     if (slots.isEmpty) {
       return SliverToBoxAdapter(
         child: Padding(
-          padding: const EdgeInsets.all(32),
+          padding: const EdgeInsets.all(AppSpacing.xxxl),
           child: Column(
             children: [
               Icon(
@@ -21,7 +24,7 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
                 size: 48,
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppSpacing.lg),
               Text(
                 'Aucun créneau prévu',
                 style: TextStyle(
@@ -45,20 +48,20 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
   Widget _slotCard(BuildContext context, SlotEntity slot) {
     final cs = Theme.of(context).colorScheme;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.sm),
+      padding: const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
         color: cs.surfaceContainer,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppRadius.lg),
         border: Border.all(color: Theme.of(context).dividerColor),
       ),
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.all(AppSpacing.md),
             decoration: BoxDecoration(
               color: cs.surfaceContainerHighest,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(AppRadius.md),
             ),
             child: Column(
               children: [
@@ -67,20 +70,20 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
                   style: TextStyle(
                     color: cs.onSurface,
                     fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                    fontSize: AppFontSize.xl,
                   ),
                 ),
                 Text(
                   DateFormat('MMM').format(slot.startTime).toUpperCase(),
                   style: const TextStyle(
                     color: AppColors.brand,
-                    fontSize: 12,
+                    fontSize: AppFontSize.xs,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: AppSpacing.lg),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,13 +93,13 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
                   style: TextStyle(
                     color: cs.onSurface,
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: AppFontSize.md,
                   ),
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: AppSpacing.xs),
                 Text(
                   '${DateFormat('HH:mm').format(slot.startTime)} - ${DateFormat('HH:mm').format(slot.endTime)}',
-                  style: TextStyle(color: cs.onSurfaceVariant, fontSize: 14),
+                  style: TextStyle(color: cs.onSurfaceVariant, fontSize: AppFontSize.sm),
                 ),
                 if (slot.level != null)
                   Padding(
@@ -105,7 +108,7 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
                       'Niveau: ${slot.level}',
                       style: const TextStyle(
                         color: AppColors.brand,
-                        fontSize: 12,
+                        fontSize: AppFontSize.xs,
                       ),
                     ),
                   ),
@@ -118,7 +121,7 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
               color: (slot.isFull ? Colors.red : Colors.green).withValues(
                 alpha: 0.2,
               ),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(AppRadius.sm),
             ),
             child: Text(
               '${slot.participants.length}/${slot.maxParticipants}',

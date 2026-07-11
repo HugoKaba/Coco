@@ -3,7 +3,7 @@ part of 'edit_profile_screen.dart';
 
 Widget _buildProfileForm(_EditProfileScreenState s) {
   return SingleChildScrollView(
-    padding: const EdgeInsets.all(16),
+    padding: const EdgeInsets.all(AppSpacing.lg),
     child: Form(
       key: s._formKey,
       child: Column(
@@ -20,7 +20,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
                   validator: (v) => v!.isEmpty ? 'Requis' : null,
                 ),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: AppSpacing.lg),
               Expanded(
                 child: TextFormField(
                   controller: s._lastNameController,
@@ -33,7 +33,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           Row(
             children: [
               Expanded(
@@ -46,7 +46,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
                   keyboardType: TextInputType.number,
                 ),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: AppSpacing.lg),
               Expanded(
                 child: DropdownButtonFormField<String>(
                   initialValue: s._gender,
@@ -63,7 +63,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           TextFormField(
             controller: s._cityController,
             decoration: const InputDecoration(
@@ -71,7 +71,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
               border: OutlineInputBorder(),
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           TextFormField(
             controller: s._bioController,
             decoration: const InputDecoration(
@@ -81,7 +81,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
             ),
             maxLines: 4,
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           DropdownButtonFormField<String>(
             initialValue:
                 [
@@ -108,7 +108,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
             ],
             onChanged: (v) => s.setState(() => s._sportsGoal = v!),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           InputDecorator(
             decoration: const InputDecoration(
               labelText: 'Fréquence d\'entrainement (par semaine)',

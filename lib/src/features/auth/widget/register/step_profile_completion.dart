@@ -1,4 +1,6 @@
 import 'dart:typed_data';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../dark_text_field.dart';
@@ -60,14 +62,14 @@ class StepProfileCompletion extends StatelessWidget {
               height: 80,
               decoration: BoxDecoration(
                 color: accentColor,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(AppRadius.xl),
               ),
             ),
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.md),
           _sectionTitle(context, tr('register.profile_picture')),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           Row(
             children: [
               Expanded(
@@ -78,18 +80,18 @@ class StepProfileCompletion extends StatelessWidget {
                   innerShadow: innerShadow,
                 ),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: AppSpacing.lg),
               PhotoPreviewBox(profilePhotoBytes: profilePhotoBytes),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _sectionTitle(context, tr('register.birth_date')),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
 
           StylishAgeInput(controller: ageController, accentColor: accentColor),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _sectionTitle(context, tr('register.location')),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           Row(
             children: [
               Expanded(
@@ -102,7 +104,7 @@ class StepProfileCompletion extends StatelessWidget {
                   innerShadow: innerShadow,
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: AppSpacing.md),
               Expanded(
                 flex: 3,
                 child: CityAutocomplete(
@@ -116,9 +118,9 @@ class StepProfileCompletion extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _sectionTitle(context, tr('register.gender')),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           GenderSelectorRow(
             selectedGender: selectedGender,
             onGenderSelected: onGenderSelected,

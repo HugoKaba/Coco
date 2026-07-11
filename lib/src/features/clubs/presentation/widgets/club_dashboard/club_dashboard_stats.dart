@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/features/clubs/domain/models/slot_entity.dart';
 
 class ClubDashboardStats extends StatelessWidget {
@@ -13,11 +16,11 @@ class ClubDashboardStats extends StatelessWidget {
       (sum, slot) => sum + slot.participants.length,
     );
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(AppSpacing.lg),
       child: Row(
         children: [
           Expanded(child: _card(context, 'Total Créneaux', '${slots.length}')),
-          const SizedBox(width: 16),
+          const SizedBox(width: AppSpacing.lg),
           Expanded(child: _card(context, 'Participants', '$bookedCount')),
         ],
       ),
@@ -27,10 +30,10 @@ class ClubDashboardStats extends StatelessWidget {
   Widget _card(BuildContext context, String label, String value) {
     final cs = Theme.of(context).colorScheme;
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(AppSpacing.xl),
       decoration: BoxDecoration(
         color: cs.surfaceContainer,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppRadius.lg),
         border: Border.all(color: Theme.of(context).dividerColor),
       ),
       child: Column(
@@ -38,15 +41,15 @@ class ClubDashboardStats extends StatelessWidget {
           Text(
             value,
             style: TextStyle(
-              fontSize: 32,
+              fontSize: AppFontSize.display,
               fontWeight: FontWeight.bold,
               color: cs.onSurface,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           Text(
             label,
-            style: TextStyle(color: cs.onSurfaceVariant, fontSize: 12),
+            style: TextStyle(color: cs.onSurfaceVariant, fontSize: AppFontSize.xs),
           ),
         ],
       ),

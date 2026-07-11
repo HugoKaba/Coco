@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +38,7 @@ class ThemedLiquidGlassBar extends StatelessWidget {
     const double barH = 70.0;
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(24),
+      borderRadius: BorderRadius.circular(AppRadius.xxl),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
         child: Container(
@@ -45,7 +47,7 @@ class ThemedLiquidGlassBar extends StatelessWidget {
             color: isLight
                 ? Colors.white.withValues(alpha: 0.8)
                 : Colors.white.withValues(alpha: 0.1),
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(AppRadius.xxl),
             border: Border.all(
               color: isLight
                   ? Colors.grey.withValues(alpha: 0.2)
@@ -71,7 +73,7 @@ class ThemedLiquidGlassBar extends StatelessWidget {
                         size: 24,
                       ),
                       if (showLabels) ...[
-                        const SizedBox(height: 4),
+                        const SizedBox(height: AppSpacing.xs),
                         Text(
                           it.label,
                           style: TextStyle(

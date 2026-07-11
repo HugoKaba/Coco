@@ -1,4 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,9 +25,9 @@ class SlotBookingDialog extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final userId = FirebaseAuth.instance.currentUser?.uid;
     return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadius.xl)),
       child: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(AppSpacing.xxl),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -33,20 +36,20 @@ class SlotBookingDialog extends ConsumerWidget {
               size: 48,
               color: Theme.of(context).colorScheme.primary,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: AppSpacing.lg),
             Text(
               slot.type.displayName,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: AppFontSize.xxl, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: AppSpacing.sm),
             Text(
               DateFormat('EEEE, MMM dd • HH:mm').format(slot.startTime),
               style: TextStyle(
-                fontSize: 16,
+                fontSize: AppFontSize.md,
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppSpacing.xxl),
             _row(
               context,
               Icons.people,
@@ -64,18 +67,18 @@ class SlotBookingDialog extends ConsumerWidget {
                 'clubs.slot.price',
                 '${slot.price!.toStringAsFixed(2)} €',
               ),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppSpacing.xxl),
             if (slot.isFull)
               Container(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.all(AppSpacing.md),
                 decoration: BoxDecoration(
                   color: Colors.orange.shade100,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(AppRadius.md),
                 ),
                 child: Row(
                   children: [
                     Icon(Icons.info, color: Colors.orange.shade800),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: AppSpacing.sm),
                     Expanded(
                       child: Text(
                         'clubs.slot.full'.tr(),
@@ -112,11 +115,11 @@ class SlotBookingDialog extends ConsumerWidget {
   Widget _row(BuildContext context, IconData icon, String labelKey, String value) {
     final muted = Theme.of(context).colorScheme.onSurfaceVariant;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
       child: Row(
         children: [
           Icon(icon, size: 20, color: muted),
-          const SizedBox(width: 12),
+          const SizedBox(width: AppSpacing.md),
           Text(labelKey.tr(), style: TextStyle(color: muted)),
           const Spacer(),
           Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -137,12 +140,12 @@ class SlotBookingDialog extends ConsumerWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadius.md)),
       ),
       child: Text(
         label,
         style: const TextStyle(
-          fontSize: 16,
+          fontSize: AppFontSize.md,
           fontWeight: FontWeight.bold,
           color: Colors.white,
         ),

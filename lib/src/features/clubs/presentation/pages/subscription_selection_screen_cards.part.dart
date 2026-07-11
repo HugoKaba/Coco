@@ -14,10 +14,10 @@ Widget _planCard(
     onTap: () => s.setState(() => s._selectedType = type),
     child: AnimatedContainer(
       duration: const Duration(milliseconds: 200),
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(AppSpacing.xxl),
       decoration: BoxDecoration(
         color: Theme.of(s.context).colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(AppRadius.xl),
         border: Border.all(
           color: isSelected
               ? _SubscriptionSelectionScreenState._accent
@@ -35,32 +35,32 @@ Widget _planCard(
                 type == SubscriptionType.monthly ? 'Mensuel' : 'Annuel',
                 style: TextStyle(
                   color: Theme.of(s.context).colorScheme.onSurface,
-                  fontSize: 24,
+                  fontSize: AppFontSize.xxl,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               if (isPopular)
                 Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
+                    horizontal: AppSpacing.md,
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
                     color: AppColors.success,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(AppRadius.md),
                   ),
                   child: Text(
                     savings != null ? '-$savings%' : 'Populaire',
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 12,
+                      fontSize: AppFontSize.xs,
                     ),
                   ),
                 ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           Row(
             crossAxisAlignment: CrossAxisAlignment.baseline,
             textBaseline: TextBaseline.alphabetic,
@@ -73,17 +73,17 @@ Widget _planCard(
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: AppSpacing.sm),
               Text(
                 period,
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: AppFontSize.lg,
                   color: Theme.of(s.context).colorScheme.onSurfaceVariant,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _feature(s.context, 'Créneaux illimités'),
           _feature(s.context, 'Accès chat participants'),
           _feature(s.context, 'Statistiques en temps réel'),
@@ -98,12 +98,12 @@ Widget _feature(BuildContext context, String text) => Padding(
   child: Row(
     children: [
       const Icon(Icons.check_circle, color: AppColors.success, size: 20),
-      const SizedBox(width: 12),
+      const SizedBox(width: AppSpacing.md),
       Text(
         text,
         style: TextStyle(
           color: Theme.of(context).colorScheme.onSurfaceVariant,
-          fontSize: 14,
+          fontSize: AppFontSize.sm,
         ),
       ),
     ],

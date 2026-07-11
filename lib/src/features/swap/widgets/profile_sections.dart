@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
 import '../models/profile.dart';
 
@@ -41,15 +44,15 @@ class InfoSection extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            fontSize: 14,
+            fontSize: AppFontSize.sm,
             color: Theme.of(context).colorScheme.onSurfaceVariant,
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: AppSpacing.sm),
         Container(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(AppRadius.lg),
           ),
           child: LiquidGlass.withOwnLayer(
             settings: const LiquidGlassSettings(thickness: 20, blur: 30),
@@ -57,11 +60,11 @@ class InfoSection extends StatelessWidget {
             child: SizedBox(
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(AppSpacing.lg),
                 child: Text(
                   content,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: AppFontSize.md,
                     color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),

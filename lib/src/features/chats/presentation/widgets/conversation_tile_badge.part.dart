@@ -1,7 +1,7 @@
 part of 'conversation_tile.dart';
 
 Widget _conversationBadge(int unread) => Container(
-  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+  padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: 2),
   decoration: const BoxDecoration(
     color: AppColors.brand,
     shape: BoxShape.circle,

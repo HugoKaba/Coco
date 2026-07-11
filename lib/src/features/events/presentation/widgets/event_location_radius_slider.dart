@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class EventLocationRadiusSlider extends StatelessWidget {
@@ -22,7 +23,7 @@ class EventLocationRadiusSlider extends StatelessWidget {
             Text(
               tr('filters.radius'),
               style: TextStyle(
-                fontSize: 14,
+                fontSize: AppFontSize.sm,
                 fontWeight: FontWeight.w600,
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),

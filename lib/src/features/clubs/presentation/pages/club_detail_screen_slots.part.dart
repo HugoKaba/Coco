@@ -56,7 +56,7 @@ class _SlotsWithCalendarState extends State<_SlotsWithCalendar>
           margin: const EdgeInsets.fromLTRB(16, 12, 16, 8),
           decoration: BoxDecoration(
             color: theme.colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppRadius.md),
           ),
           child: TabBar(
             controller: _tabController,
@@ -116,7 +116,7 @@ Widget _slotCard(_ClubDetailScreenState s, SlotEntity slot) {
     color: isJoined ? Colors.green.withValues(alpha: 0.2) : null,
     margin: const EdgeInsets.only(bottom: 12),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(AppRadius.md),
       side: isJoined
           ? BorderSide(color: Colors.green.shade400, width: 2)
           : BorderSide.none,

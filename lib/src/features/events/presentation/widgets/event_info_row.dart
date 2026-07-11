@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 
 class EventInfoRow extends StatelessWidget {
   final IconData icon;
@@ -18,11 +20,11 @@ class EventInfoRow extends StatelessWidget {
     return Row(
       children: [
         Icon(icon, size: 20, color: color ?? cs.onSurfaceVariant),
-        const SizedBox(width: 12),
+        const SizedBox(width: AppSpacing.md),
         Expanded(
           child: Text(
             text,
-            style: TextStyle(fontSize: 16, color: color ?? cs.onSurface),
+            style: TextStyle(fontSize: AppFontSize.md, color: color ?? cs.onSurface),
           ),
         ),
       ],

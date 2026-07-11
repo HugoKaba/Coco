@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 
 import 'package:coco/src/features/events/domain/models/event_entity.dart';
 import 'package:coco/src/features/events/presentation/widgets/event_card_image.dart';
@@ -19,7 +22,7 @@ class EventCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
         color: theme.cardColor,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(AppRadius.xxl),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),
@@ -32,27 +35,27 @@ class EventCard extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(AppRadius.xxl),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               EventCardImage(imageUrl: event.imageUrl),
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(AppSpacing.lg),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildHeader(context, dateFormat),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: AppSpacing.sm),
                     Text(
                       event.title,
                       style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: AppFontSize.lg,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Outfit',
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: AppSpacing.sm),
                     _buildFooter(context),
                   ],
                 ),
@@ -69,10 +72,10 @@ class EventCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: AppSpacing.xs),
           decoration: BoxDecoration(
             color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(AppRadius.sm),
           ),
           child: Text(
             event.sport.toUpperCase(),
@@ -87,7 +90,7 @@ class EventCard extends StatelessWidget {
         Text(
           fmt.format(event.date),
           style: TextStyle(
-            fontSize: 12,
+            fontSize: AppFontSize.xs,
             color: Theme.of(context).colorScheme.onSurfaceVariant,
             fontWeight: FontWeight.w500,
           ),
@@ -100,7 +103,7 @@ class EventCard extends StatelessWidget {
     return Row(
       children: [
         Icon(Icons.location_on_rounded, size: 16, color: Theme.of(context).colorScheme.onSurfaceVariant),
-        const SizedBox(width: 4),
+        const SizedBox(width: AppSpacing.xs),
         Text(
           event.locationName ?? tr('events.location_unknown'),
           style: TextStyle(
@@ -111,7 +114,7 @@ class EventCard extends StatelessWidget {
         ),
         const Spacer(),
         Icon(Icons.group_rounded, size: 16, color: Theme.of(context).colorScheme.onSurfaceVariant),
-        const SizedBox(width: 4),
+        const SizedBox(width: AppSpacing.xs),
         Text(
           '${event.attendees.length} / ${event.maxPlaces}',
           style: TextStyle(

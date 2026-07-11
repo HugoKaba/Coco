@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/features/auth/widget/dark_text_field.dart';
 import 'package:coco/src/features/auth/widget/input_label.dart';
 
@@ -19,24 +22,24 @@ class ClubCreationAccountStep extends StatelessWidget {
     final shadow = ClubCreationStyle.inputInnerShadow(context);
     final cs = Theme.of(context).colorScheme;
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(AppSpacing.xxl),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Compte Professionnel',
             style: TextStyle(
-              fontSize: 28,
+              fontSize: AppFontSize.xxxl,
               fontWeight: FontWeight.bold,
               color: cs.onSurface,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.sm),
           Text(
             'Créez votre compte pour gérer votre club',
-            style: TextStyle(color: cs.onSurfaceVariant, fontSize: 14),
+            style: TextStyle(color: cs.onSurfaceVariant, fontSize: AppFontSize.sm),
           ),
-          const SizedBox(height: 32),
+          const SizedBox(height: AppSpacing.xxxl),
           const InputLabel(label: 'Email'),
           DarkTextField(
             controller: emailController,
@@ -45,7 +48,7 @@ class ClubCreationAccountStep extends StatelessWidget {
             fieldColor: ClubCreationStyle.field(context),
             innerShadow: shadow,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.xl),
           const InputLabel(label: 'Mot de passe'),
           DarkTextField(
             controller: passwordController,
@@ -54,12 +57,12 @@ class ClubCreationAccountStep extends StatelessWidget {
             fieldColor: ClubCreationStyle.field(context),
             innerShadow: shadow,
           ),
-          const SizedBox(height: 32),
+          const SizedBox(height: AppSpacing.xxxl),
           Container(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(AppSpacing.lg),
             decoration: BoxDecoration(
               color: ClubCreationStyle.field(context),
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(AppRadius.lg),
             ),
             child: Row(
               children: [
@@ -68,7 +71,7 @@ class ClubCreationAccountStep extends StatelessWidget {
                   color: ClubCreationStyle.accent,
                   size: 20,
                 ),
-                const SizedBox(width: 12),
+                const SizedBox(width: AppSpacing.md),
                 Expanded(
                   child: Text(
                     'Vous pourrez vous reconnecter avec ces identifiants',

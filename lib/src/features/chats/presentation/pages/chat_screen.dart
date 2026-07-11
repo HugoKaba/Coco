@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +67,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
               data: (items) => ListView.builder(
                 controller: _scroll,
                 reverse: true,
-                padding: const EdgeInsets.symmetric(vertical: 16),
+                padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                 itemCount: items.length,
                 itemBuilder: (_, i) => MessageBubble(
                   message: items[i],
@@ -102,7 +104,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
   Widget _title(AsyncSnapshot<DocumentSnapshot> snap) {
     final style = TextStyle(
       color: Theme.of(context).colorScheme.onSurface,
-      fontSize: 18,
+      fontSize: AppFontSize.lg,
       fontWeight: FontWeight.w600,
     );
     if (!snap.hasData) return Text(tr('chats.title'), style: style);

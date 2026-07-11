@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 
 class EventAttendeesList extends StatelessWidget {
   final List<String> attendees;
@@ -19,7 +20,7 @@ class EventAttendeesList extends StatelessWidget {
           'Participants',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: AppSpacing.sm),
         Wrap(
           spacing: 8,
           children: attendees

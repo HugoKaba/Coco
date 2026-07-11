@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 
 class GenderOption extends StatelessWidget {
   final String label;
@@ -28,7 +29,7 @@ class GenderOption extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.md),
           AnimatedContainer(
             duration: const Duration(milliseconds: 180),
             width: 32,

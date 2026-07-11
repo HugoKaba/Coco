@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_text_styles.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/features/clubs/domain/models/subscription_tier.dart';
 import 'package:coco/src/features/clubs/domain/models/club_sport_catalog.dart';
 
@@ -27,24 +30,24 @@ class ClubCreationReviewStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(AppSpacing.xxl),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Vérification',
             style: TextStyle(
-              fontSize: 28,
+              fontSize: AppFontSize.xxxl,
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: AppSpacing.xxl),
           _section(context, 'Compte', [
             _item(context, 'Email', email),
             _item(context, 'Mot de passe', '••••••••'),
           ]),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _section(context, 'Club', [
             _item(context, 'Nom', clubName),
             _item(
@@ -56,7 +59,7 @@ class ClubCreationReviewStep extends StatelessWidget {
             _item(context, 'Adresse', address),
             if (phone.isNotEmpty) _item(context, 'Téléphone', phone),
           ]),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
           _section(context, 'Abonnement', [
             _item(
               context,
@@ -80,10 +83,10 @@ class ClubCreationReviewStep extends StatelessWidget {
 
   Widget _section(BuildContext context, String title, List<Widget> children) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(AppSpacing.xl),
       decoration: BoxDecoration(
         color: ClubCreationStyle.field(context),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppRadius.lg),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,11 +95,11 @@ class ClubCreationReviewStep extends StatelessWidget {
             title,
             style: const TextStyle(
               color: ClubCreationStyle.accent,
-              fontSize: 16,
+              fontSize: AppFontSize.md,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: AppSpacing.md),
           ...children,
         ],
       ),
@@ -114,13 +117,13 @@ class ClubCreationReviewStep extends StatelessWidget {
             width: 100,
             child: Text(
               label,
-              style: TextStyle(color: cs.onSurfaceVariant, fontSize: 14),
+              style: TextStyle(color: cs.onSurfaceVariant, fontSize: AppFontSize.sm),
             ),
           ),
           Expanded(
             child: Text(
               value.isEmpty ? 'Non renseigné' : value,
-              style: TextStyle(color: cs.onSurface, fontSize: 14),
+              style: TextStyle(color: cs.onSurface, fontSize: AppFontSize.sm),
             ),
           ),
         ],
