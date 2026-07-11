@@ -8,7 +8,7 @@ import 'package:coco/src/core/theme/app_spacing.dart';
 /// à répéter la décoration. C'est la source unique du style de champ.
 InputDecorationTheme appInputDecorationTheme(ColorScheme cs) {
   OutlineInputBorder side(double alpha) => OutlineInputBorder(
-        borderRadius: AppRadius.mdAll,
+        borderRadius: AppRadius.lgAll,
         borderSide: BorderSide(color: cs.outlineVariant.withValues(alpha: alpha)),
       );
 
@@ -41,7 +41,7 @@ InputDecoration appInputDecoration(
   OutlineInputBorder? side(double alpha) => border == null
       ? null
       : OutlineInputBorder(
-          borderRadius: AppRadius.mdAll,
+          borderRadius: AppRadius.lgAll,
           borderSide: BorderSide(color: border.withValues(alpha: alpha)),
         );
 
