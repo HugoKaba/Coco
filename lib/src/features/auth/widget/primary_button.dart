@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/shared/widgets/app_button.dart';
 
+/// Ancien bouton auth, conservé pour compatibilité. Il délègue désormais au
+/// composant du design system [AppButton]. À terme, migrer les appels vers
+/// [AppButton] directement puis supprimer ce wrapper.
 class PrimaryButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
@@ -16,33 +20,11 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: TextButton(
-        onPressed: onPressed,
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(accentColor),
-          foregroundColor: WidgetStateProperty.all(Colors.white),
-          shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          ),
-          elevation: WidgetStateProperty.all(0),
-          padding: WidgetStateProperty.all(
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-          ),
-        ),
-        child: icon == null
-            ? Text(label)
-            : Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(icon, color: Colors.white),
-                  const SizedBox(width: 8),
-                  Text(label),
-                ],
-              ),
-      ),
+    return AppButton(
+      label: label,
+      onPressed: onPressed,
+      icon: icon,
+      color: accentColor,
     );
   }
 }

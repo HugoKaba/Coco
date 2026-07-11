@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/shared/widgets/app_text_field.dart';
 
+/// Ancien champ auth, conservé pour compatibilité. Il délègue désormais au
+/// composant du design system [AppTextField]. À terme, migrer les appels vers
+/// [AppTextField] directement puis supprimer ce wrapper.
 class DarkTextField extends StatelessWidget {
   final TextEditingController controller;
   final String? hintText;
@@ -28,36 +32,17 @@ class DarkTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-    final fill = fieldColor ?? cs.surfaceContainerHighest;
-    final border = innerShadow ?? cs.outlineVariant;
-    return TextField(
+    return AppTextField(
       controller: controller,
-      keyboardType: keyboardType,
+      hintText: hintText,
       obscureText: obscureText,
+      keyboardType: keyboardType,
       maxLines: maxLines,
       textAlign: textAlign ?? TextAlign.start,
       readOnly: readOnly,
       onTap: onTap,
-      style: TextStyle(color: cs.onSurface),
-      decoration: InputDecoration(
-        hintText: hintText,
-        hintStyle: TextStyle(color: cs.onSurfaceVariant),
-        filled: true,
-        fillColor: fill,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 12,
-          vertical: 10,
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: border.withValues(alpha: 0.4)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: border.withValues(alpha: 0.7)),
-        ),
-      ),
+      fieldColor: fieldColor,
+      borderColor: innerShadow,
     );
   }
 }
