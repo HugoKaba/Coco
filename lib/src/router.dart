@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:coco/src/features/swap/swap_page.dart';
+import 'package:coco/src/features/splash/presentation/splash_screen.dart';
 import 'package:coco/src/features/home/presentation/main_shell.dart';
 import 'package:coco/src/features/chats/presentation/chats_page.dart';
 import 'package:coco/src/features/profile/presentation/account_page.dart';
@@ -27,8 +28,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     navigatorKey: _rootNavKey,
     refreshListenable: refreshListenable,
-    initialLocation: '/swipe',
+    initialLocation: '/splash',
     redirect: (context, state) {
+      // Le splash gère lui-même sa sortie : on ne le redirige jamais.
+      if (state.matchedLocation == '/splash') return null;
+
       final user = ref
           .read(authStateChangesProvider)
           .maybeWhen(data: (u) => u, orElse: () => null);
@@ -47,6 +51,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       return null;
     },
     routes: [
+      GoRoute(
+        path: '/splash',
+        builder: (context, state) => const SplashScreen(),
+      ),
       GoRoute(path: '/', builder: (context, state) => const SignInPage()),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/core/theme/app_radius.dart';
 
 class EventCardImage extends StatelessWidget {
@@ -6,39 +7,39 @@ class EventCardImage extends StatelessWidget {
 
   const EventCardImage({super.key, required this.imageUrl});
 
+  static const _topRadius = BorderRadius.vertical(
+    top: Radius.circular(AppRadius.xxl),
+  );
+
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-    return Container(
-      height: 150,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: cs.surfaceContainerHighest,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(AppRadius.xxl)),
-      ),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(AppRadius.xxl)),
+    return ClipRRect(
+      borderRadius: _topRadius,
+      child: SizedBox(
+        height: 150,
+        width: double.infinity,
         child: imageUrl != null
             ? Image.network(
                 imageUrl!,
                 fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return Center(
-                    child: Icon(
-                      Icons.broken_image_rounded,
-                      size: 40,
-                      color: cs.onSurfaceVariant,
-                    ),
-                  );
-                },
+                errorBuilder: (context, error, stackTrace) => _placeholder(),
               )
-            : Center(
-                child: Icon(
-                  Icons.event_note_rounded,
-                  size: 40,
-                  color: cs.onSurfaceVariant,
-                ),
-              ),
+            : _placeholder(),
+      ),
+    );
+  }
+
+  /// Placeholder "bold" : dégradé de marque + icône blanche, plutôt qu'un carré
+  /// gris qui fait "pas fini".
+  Widget _placeholder() {
+    return const DecoratedBox(
+      decoration: BoxDecoration(gradient: AppColors.brandGradient),
+      child: Center(
+        child: Icon(
+          Icons.sports_rounded,
+          size: 44,
+          color: Colors.white,
+        ),
       ),
     );
   }
