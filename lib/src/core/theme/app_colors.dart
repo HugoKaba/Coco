@@ -16,6 +16,13 @@ class AppColors {
   static const Color brandLight = Color(0xFFF2A33A);
   static const Color brandDark = Color(0xFFA05E15);
 
+  /// Dégradé de marque (diagonale) — pour les CTA, accents, "moments" orange.
+  static const LinearGradient brandGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [brandLight, brand],
+  );
+
   // --- Fonds ---
   static const Color lightBackground = Color(0xFFFFFFFF);
   static const Color darkBackground = Color(0xFF0D0D0D);

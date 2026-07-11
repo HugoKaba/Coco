@@ -47,7 +47,11 @@ class ProfileCard extends StatelessWidget {
       children: [
         Text(
           profile.name,
-          style: const TextStyle(fontSize: AppFontSize.xxl, fontWeight: FontWeight.w500),
+          style: const TextStyle(
+            fontSize: AppFontSize.xxxl,
+            fontWeight: FontWeight.w800,
+            letterSpacing: -0.5,
+          ),
         ),
         const SizedBox(height: AppSpacing.xs),
         Text(

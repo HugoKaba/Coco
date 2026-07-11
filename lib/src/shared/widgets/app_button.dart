@@ -6,7 +6,7 @@ import 'package:coco/src/core/theme/app_text_styles.dart';
 
 /// Style visuel du bouton.
 enum AppButtonVariant {
-  /// Fond plein couleur de marque, texte blanc.
+  /// Fond dégradé couleur de marque, texte blanc.
   primary,
 
   /// Fond surface neutre, texte sur-surface.
@@ -18,9 +18,8 @@ enum AppButtonVariant {
 
 /// Bouton standard de l'app (design system).
 ///
-/// Centralise le style des boutons : couleur de marque, rayon, typo et
-/// espacements viennent des tokens. Gère un état de chargement et l'état
-/// désactivé (quand [onPressed] est `null` ou pendant le chargement).
+/// Le variant `primary` est un CTA "bold" : dégradé de marque + glow. Gère un
+/// état de chargement et l'état désactivé.
 class AppButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
@@ -33,8 +32,7 @@ class AppButton extends StatelessWidget {
   /// Affiche un spinner et désactive le bouton.
   final bool isLoading;
 
-  /// Surcharge ponctuelle de la couleur d'accent (fond en `primary`, contour/
-  /// texte en `outline`). En général on laisse `null` = couleur de marque.
+  /// Surcharge ponctuelle de la couleur d'accent. En général `null` = marque.
   final Color? color;
 
   const AppButton({
@@ -53,16 +51,49 @@ class AppButton extends StatelessWidget {
     final cs = Theme.of(context).colorScheme;
     final enabled = onPressed != null && !isLoading;
     final accent = color ?? AppColors.brand;
+    final isPrimary = variant == AppButtonVariant.primary;
 
-    final (bg, fg, border) = switch (variant) {
-      AppButtonVariant.primary => (accent, Colors.white, null),
-      AppButtonVariant.secondary => (
-          cs.surfaceContainerHighest,
-          cs.onSurface,
-          null,
-        ),
-      AppButtonVariant.outline => (Colors.transparent, accent, accent),
+    // Couleurs texte / fond selon le variant.
+    final fg = switch (variant) {
+      AppButtonVariant.primary => Colors.white,
+      AppButtonVariant.secondary => cs.onSurface,
+      AppButtonVariant.outline => accent,
     };
+
+    // Fond : dégradé pour primary, couleur pleine sinon.
+    final gradient = isPrimary && enabled
+        ? (color == null
+              ? AppColors.brandGradient
+              : LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Color.lerp(accent, Colors.white, 0.18)!, accent],
+                ))
+        : null;
+    final bg = switch (variant) {
+      AppButtonVariant.primary => enabled ? null : accent.withValues(alpha: 0.4),
+      AppButtonVariant.secondary => cs.surfaceContainerHighest,
+      AppButtonVariant.outline => Colors.transparent,
+    };
+
+    final decoration = BoxDecoration(
+      borderRadius: AppRadius.mdAll,
+      gradient: gradient,
+      color: bg,
+      border: variant == AppButtonVariant.outline
+          ? Border.all(color: accent, width: 1.5)
+          : null,
+      // Glow orange sous le CTA primary.
+      boxShadow: isPrimary && enabled
+          ? [
+              BoxShadow(
+                color: accent.withValues(alpha: 0.35),
+                blurRadius: 16,
+                offset: const Offset(0, 6),
+              ),
+            ]
+          : null,
+    );
 
     final child = isLoading
         ? SizedBox(
@@ -74,35 +105,35 @@ class AppButton extends StatelessWidget {
 
     return SizedBox(
       width: expand ? double.infinity : null,
-      child: TextButton(
-        onPressed: enabled ? onPressed : null,
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(bg),
-          foregroundColor: WidgetStateProperty.all(fg),
-          overlayColor: WidgetStateProperty.all(fg.withValues(alpha: 0.08)),
-          elevation: WidgetStateProperty.all(0),
-          padding: WidgetStateProperty.all(
-            const EdgeInsets.symmetric(
-              horizontal: AppSpacing.xl,
-              vertical: AppSpacing.lg,
-            ),
-          ),
-          shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: AppRadius.mdAll,
-              side: border == null
-                  ? BorderSide.none
-                  : BorderSide(color: border, width: 1.5),
+      child: DecoratedBox(
+        decoration: decoration,
+        child: Material(
+          color: Colors.transparent,
+          borderRadius: AppRadius.mdAll,
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            onTap: enabled ? onPressed : null,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.xl,
+                vertical: AppSpacing.lg,
+              ),
+              child: Center(
+                widthFactor: expand ? null : 1,
+                child: child,
+              ),
             ),
           ),
         ),
-        child: child,
       ),
     );
   }
 
   Widget _content(Color fg) {
-    final text = Text(label, style: AppTextStyles.md.copyWith(color: fg));
+    final text = Text(
+      label,
+      style: AppTextStyles.md.copyWith(color: fg, fontWeight: FontWeight.w700),
+    );
     if (icon == null) return text;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
