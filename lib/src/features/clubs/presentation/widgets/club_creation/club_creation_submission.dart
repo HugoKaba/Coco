@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:coco/src/core/city_service.dart';
 import 'package:coco/src/features/clubs/application/club_providers.dart';
@@ -16,18 +19,16 @@ Future<void> submitClubCreation({
   required List<String> activities,
   required String description,
   required String facilities,
-  required String? imageUrl,
+  required File? imageFile,
   required String address,
   required String cityName,
   required String phone,
 }) async {
-  final user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-    email: email.trim(),
-    password: password,
-  );
+  final clubRepository = ref.read(clubRepositoryProvider);
+  final user = await _resolveClubOwner(email: email.trim(), password: password);
 
-  final userId = user.user?.uid;
-  if (userId == null) throw Exception('User creation failed');
+  final userId = user.uid;
+  final imageUrl = await _uploadClubImage(imageFile, userId);
 
   final city = CityService.instance.findCityByName(cityName);
   final now = DateTime.now();
@@ -76,5 +77,60 @@ Future<void> submitClubCreation({
     phone: phone.isEmpty ? null : phone,
   );
 
-  await ref.read(clubRepositoryProvider).createClub(club);
+  await clubRepository.createClub(club);
+}
+
+Future<User> _resolveClubOwner({
+  required String email,
+  required String password,
+}) async {
+  final auth = FirebaseAuth.instance;
+  final currentUser = auth.currentUser;
+  final normalizedEmail = email.trim().toLowerCase();
+
+  if (currentUser != null &&
+      currentUser.email?.toLowerCase() == normalizedEmail) {
+    return currentUser;
+  }
+
+  try {
+    final credential = await auth.createUserWithEmailAndPassword(
+      email: email.trim(),
+      password: password,
+    );
+    final user = credential.user;
+    if (user == null) throw Exception('User creation failed');
+    return user;
+  } on FirebaseAuthException catch (e) {
+    if (e.code != 'email-already-in-use') rethrow;
+
+    final credential = await auth.signInWithEmailAndPassword(
+      email: email.trim(),
+      password: password,
+    );
+    final user = credential.user;
+    if (user == null) throw Exception('User sign in failed');
+    return user;
+  }
+}
+
+Future<String?> _uploadClubImage(File? imageFile, String userId) async {
+  if (imageFile == null) return null;
+
+  try {
+    final storageRef = FirebaseStorage.instance.ref().child(
+      'clubs/$userId/cover.jpg',
+    );
+    final uploadTask = await storageRef.putFile(
+      imageFile,
+      SettableMetadata(contentType: 'image/jpeg'),
+    );
+    return uploadTask.ref.getDownloadURL();
+  } on FirebaseException catch (e) {
+    throw Exception(
+      "Impossible d'envoyer l'image du club (${e.code}). Vérifie les règles Firebase Storage.",
+    );
+  } catch (_) {
+    throw Exception("Impossible d'envoyer l'image du club.");
+  }
 }

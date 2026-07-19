@@ -125,18 +125,23 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
       if (_showOnlyMyClubs) {
         final user = ref.read(authServiceProvider).currentUser;
         if (user != null) {
+          final clubRepo = ref.read(clubRepositoryProvider);
+          final clubsById = <String, ClubEntity>{};
+
+          for (final club in await clubRepo.getClubsByOwnerId(user.uid)) {
+            clubsById[club.id] = club;
+          }
+
           final memberships = await ref
               .read(membershipRepositoryProvider)
               .getUserMemberships(user.uid);
-          final clubRepo = ref.read(clubRepositoryProvider);
-          final clubs = <ClubEntity>[];
           for (final id
               in memberships.where((m) => m.isActive).map((m) => m.clubId)) {
             final club = await clubRepo.getClubById(id);
-            if (club != null) clubs.add(club);
+            if (club != null) clubsById[club.id] = club;
           }
           setState(() {
-            _clubs = clubs;
+            _clubs = clubsById.values.toList();
             _isLoading = false;
           });
           return;
