@@ -16,6 +16,7 @@ Future<void> submitClubCreation({
   required List<String> activities,
   required String description,
   required String facilities,
+  required String? imageUrl,
   required String address,
   required String cityName,
   required String phone,
@@ -39,6 +40,11 @@ Future<void> submitClubCreation({
       .map((facility) => facility.trim())
       .where((facility) => facility.isNotEmpty)
       .toList();
+  final clubImageUrl =
+      imageUrl ??
+      ClubEntity.defaultImageUrlFor(
+        normalizedActivities.isEmpty ? null : normalizedActivities.first,
+      );
 
   final club = ClubEntity(
     id: '',
@@ -51,7 +57,8 @@ Future<void> submitClubCreation({
     city: cityName,
     lat: city?.latitude ?? 0,
     lng: city?.longitude ?? 0,
-    photoUrls: const [],
+    logoUrl: clubImageUrl,
+    photoUrls: [clubImageUrl],
     weeklyHours: {
       'Monday': OpeningHours.standard(),
       'Tuesday': OpeningHours.standard(),

@@ -62,6 +62,29 @@ class ClubEntity {
       ClubSportCatalog.normalizeKeys(activities);
   String get primaryActivity =>
       normalizedActivities.isNotEmpty ? normalizedActivities.first : '';
+  String get fallbackImageUrl => defaultImageUrlFor(primaryActivity);
+  String get coverImageUrl => photoUrls.isNotEmpty
+      ? photoUrls.first
+      : logoUrl != null && logoUrl!.trim().isNotEmpty
+      ? logoUrl!
+      : fallbackImageUrl;
+  String get avatarImageUrl =>
+      logoUrl != null && logoUrl!.trim().isNotEmpty ? logoUrl! : coverImageUrl;
+
+  static String defaultImageUrlFor(String? sportKey) {
+    return switch (sportKey) {
+      'tennis' =>
+        'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=1200&q=80',
+      'fitness' =>
+        'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80',
+      'football' =>
+        'https://images.unsplash.com/photo-1459865264687-595d652de67e?auto=format&fit=crop&w=1200&q=80',
+      'running' =>
+        'https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=1200&q=80',
+      _ =>
+        'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1200&q=80',
+    };
+  }
 
   ClubEntity copyWith({
     String? id,

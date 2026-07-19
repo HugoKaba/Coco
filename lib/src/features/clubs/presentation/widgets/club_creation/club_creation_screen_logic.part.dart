@@ -53,6 +53,7 @@ extension _ClubCreationScreenLogic on _ClubCreationScreenState {
         activities: _activities,
         description: _description.text,
         facilities: _facilities.text,
+        imageUrl: _clubImageUrl,
         address: _address.text,
         cityName: _city.text,
         phone: _phone.text,

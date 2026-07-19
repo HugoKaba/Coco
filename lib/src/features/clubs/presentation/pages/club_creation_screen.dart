@@ -34,6 +34,7 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
   final _phone = TextEditingController();
   int _step = 0;
   List<String> _activities = const [ClubSportCatalog.defaultSportKey];
+  String? _clubImageUrl;
   bool _citiesLoaded = false;
   bool _isLoading = false;
 
@@ -91,6 +92,7 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
             clubNameController: _clubName,
             descriptionController: _description,
             facilitiesController: _facilities,
+            onImageUploaded: (url) => setState(() => _clubImageUrl = url),
             cityController: _city,
             addressController: _address,
             phoneController: _phone,

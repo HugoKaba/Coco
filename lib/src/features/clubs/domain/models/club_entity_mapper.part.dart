@@ -78,6 +78,23 @@ ClubEntity _clubFromFirestore(DocumentSnapshot doc) {
     return [];
   }
 
+  List<String> parsePhotoUrls(Map<String, dynamic> data) {
+    final photoUrls = data['photoUrls'];
+    if (photoUrls is List) {
+      return photoUrls
+          .map((e) => e.toString().trim())
+          .where((e) => e.isNotEmpty)
+          .toList();
+    }
+
+    final singlePhoto = data['photoUrl'] ?? data['imageUrl'];
+    if (singlePhoto is String && singlePhoto.trim().isNotEmpty) {
+      return [singlePhoto.trim()];
+    }
+
+    return [];
+  }
+
   final activities = ClubSportCatalog.ensureKnownKeys(
     parseActivities(data['activities']),
   );
@@ -94,11 +111,7 @@ ClubEntity _clubFromFirestore(DocumentSnapshot doc) {
     lat: (data['lat'] as num?)?.toDouble() ?? 0,
     lng: (data['lng'] as num?)?.toDouble() ?? 0,
     logoUrl: data['logoUrl']?.toString(),
-    photoUrls:
-        (data['photoUrls'] as List<dynamic>?)
-            ?.map((e) => e.toString())
-            .toList() ??
-        [],
+    photoUrls: parsePhotoUrls(data),
     weeklyHours: parseHours(data['weeklyHours']),
     maxCapacity: (data['maxCapacity'] as num?)?.toInt() ?? 0,
     createdAt: parseDate(data['createdAt']),
