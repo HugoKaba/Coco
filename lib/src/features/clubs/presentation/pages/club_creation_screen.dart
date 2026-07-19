@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:coco/src/features/clubs/domain/models/subscription_tier.dart';
 import 'package:coco/src/features/clubs/domain/models/club_sport_catalog.dart';
 import 'package:coco/src/features/clubs/presentation/widgets/club_creation/club_creation_account_step.dart';
@@ -28,11 +30,13 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
   final _password = TextEditingController();
   final _clubName = TextEditingController();
   final _description = TextEditingController();
+  final _facilities = TextEditingController();
   final _city = TextEditingController();
   final _address = TextEditingController();
   final _phone = TextEditingController();
   int _step = 0;
   List<String> _activities = const [ClubSportCatalog.defaultSportKey];
+  File? _clubImageFile;
   bool _citiesLoaded = false;
   bool _isLoading = false;
 
@@ -50,6 +54,7 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
       _password,
       _clubName,
       _description,
+      _facilities,
       _city,
       _address,
       _phone,
@@ -88,6 +93,8 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
           ClubCreationInfoStep(
             clubNameController: _clubName,
             descriptionController: _description,
+            facilitiesController: _facilities,
+            onImageSelected: (file) => setState(() => _clubImageFile = file),
             cityController: _city,
             addressController: _address,
             phoneController: _phone,
@@ -103,6 +110,7 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
             email: _email.text,
             clubName: _clubName.text,
             activities: _activities,
+            facilities: _facilities.text,
             city: _city.text,
             address: _address.text,
             phone: _phone.text,

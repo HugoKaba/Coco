@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
@@ -5,6 +7,7 @@ import 'package:coco/src/shared/widgets/app_text_field.dart';
 import 'package:coco/src/features/auth/widget/input_label.dart';
 
 import '../../../domain/models/club_sport_catalog.dart';
+import 'club_creation_image_picker.dart';
 import 'club_creation_style.dart';
 import 'club_creation_city_autocomplete.dart';
 
@@ -13,6 +16,8 @@ class ClubCreationInfoStep extends StatelessWidget {
     super.key,
     required this.clubNameController,
     required this.descriptionController,
+    required this.facilitiesController,
+    required this.onImageSelected,
     required this.cityController,
     required this.addressController,
     required this.phoneController,
@@ -23,6 +28,8 @@ class ClubCreationInfoStep extends StatelessWidget {
 
   final TextEditingController clubNameController;
   final TextEditingController descriptionController;
+  final TextEditingController facilitiesController;
+  final ValueChanged<File> onImageSelected;
   final TextEditingController cityController;
   final TextEditingController addressController;
   final TextEditingController phoneController;
@@ -62,6 +69,18 @@ class ClubCreationInfoStep extends StatelessWidget {
           AppTextField(
             controller: descriptionController,
             hintText: 'Décrivez votre club...',
+            maxLines: 3,
+            fieldColor: ClubCreationStyle.field(context),
+            borderColor: shadow,
+          ),
+          const SizedBox(height: AppSpacing.xl),
+          const InputLabel(label: 'Image du club (optionnel)'),
+          ClubCreationImagePicker(onImageSelected: onImageSelected),
+          const SizedBox(height: AppSpacing.xl),
+          const InputLabel(label: 'Commodités (optionnel)'),
+          AppTextField(
+            controller: facilitiesController,
+            hintText: 'Vestiaires, douches, parking...',
             maxLines: 3,
             fieldColor: ClubCreationStyle.field(context),
             borderColor: shadow,

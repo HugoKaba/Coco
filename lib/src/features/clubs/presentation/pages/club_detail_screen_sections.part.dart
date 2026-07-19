@@ -5,18 +5,12 @@ Widget _buildClubDetailAppBar(_ClubDetailScreenState s, ClubEntity club) {
     expandedHeight: 200,
     pinned: true,
     flexibleSpace: FlexibleSpaceBar(
-      background: club.photoUrls.isNotEmpty
-          ? Image.network(
-              club.photoUrls.first,
-              fit: BoxFit.cover,
-              cacheWidth: 800,
-            )
-          : Container(
-              color: Theme.of(
-                s.context,
-              ).colorScheme.primary.withValues(alpha: 0.2),
-              child: const Icon(Icons.sports, size: 80),
-            ),
+      background: Image.network(
+        club.coverImageUrl,
+        fit: BoxFit.cover,
+        cacheWidth: 800,
+        errorBuilder: (_, __, ___) => _buildClubDetailImageFallback(s),
+      ),
     ),
   );
 }
@@ -29,17 +23,17 @@ Widget _buildClubDetailHeader(_ClubDetailScreenState s, ClubEntity club) {
       children: [
         Row(
           children: [
-            if (club.logoUrl != null)
-              ClipRRect(
-                borderRadius: BorderRadius.circular(AppRadius.md),
-                child: Image.network(
-                  club.logoUrl!,
-                  width: 60,
-                  height: 60,
-                  fit: BoxFit.cover,
-                  cacheWidth: 120,
-                ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(AppRadius.md),
+              child: Image.network(
+                club.avatarImageUrl,
+                width: 60,
+                height: 60,
+                fit: BoxFit.cover,
+                cacheWidth: 120,
+                errorBuilder: (_, __, ___) => _buildClubDetailLogoFallback(s),
               ),
+            ),
             const SizedBox(width: AppSpacing.lg),
             Expanded(
               child: Column(
@@ -69,6 +63,22 @@ Widget _buildClubDetailHeader(_ClubDetailScreenState s, ClubEntity club) {
         ClubMembershipButton(clubId: club.id),
       ],
     ),
+  );
+}
+
+Widget _buildClubDetailImageFallback(_ClubDetailScreenState s) {
+  return Container(
+    color: Theme.of(s.context).colorScheme.primary.withValues(alpha: 0.2),
+    child: const Icon(Icons.sports, size: 80),
+  );
+}
+
+Widget _buildClubDetailLogoFallback(_ClubDetailScreenState s) {
+  return Container(
+    width: 60,
+    height: 60,
+    color: Theme.of(s.context).colorScheme.primary.withValues(alpha: 0.1),
+    child: Icon(Icons.sports, color: Theme.of(s.context).colorScheme.primary),
   );
 }
 

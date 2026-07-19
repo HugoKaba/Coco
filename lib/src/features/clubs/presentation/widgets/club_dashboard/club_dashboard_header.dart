@@ -49,13 +49,19 @@ class ClubDashboardHeader extends StatelessWidget {
           const SizedBox(height: AppSpacing.xxl),
           Row(
             children: [
-              if (club.logoUrl != null)
-                CircleAvatar(backgroundImage: NetworkImage(club.logoUrl!))
-              else
-                const CircleAvatar(
-                  backgroundColor: AppColors.brand,
-                  child: Icon(Icons.business, color: Colors.white),
+              ClipOval(
+                child: Image.network(
+                  club.avatarImageUrl,
+                  width: 40,
+                  height: 40,
+                  fit: BoxFit.cover,
+                  cacheWidth: 80,
+                  errorBuilder: (_, __, ___) => const CircleAvatar(
+                    backgroundColor: AppColors.brand,
+                    child: Icon(Icons.business, color: Colors.white),
+                  ),
                 ),
+              ),
               const SizedBox(width: AppSpacing.lg),
               Expanded(
                 child: Column(
@@ -112,7 +118,10 @@ class ClubDashboardHeader extends StatelessWidget {
     final bg = color ?? cs.surfaceContainerHighest;
     final fg = color != null ? Colors.white : cs.onSurface;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: AppSpacing.sm),
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSpacing.md,
+        vertical: AppSpacing.sm,
+      ),
       decoration: BoxDecoration(
         color: bg,
         borderRadius: BorderRadius.circular(AppRadius.xl),
@@ -122,7 +131,10 @@ class ClubDashboardHeader extends StatelessWidget {
         children: [
           Icon(icon, size: 16, color: fg),
           const SizedBox(width: 6),
-          Text(label, style: TextStyle(color: fg, fontSize: AppFontSize.xs)),
+          Text(
+            label,
+            style: TextStyle(color: fg, fontSize: AppFontSize.xs),
+          ),
         ],
       ),
     );

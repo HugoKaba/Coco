@@ -4,7 +4,10 @@ part of 'club_discovery_screen.dart';
 Widget _buildClubQuickFilters(_ClubDiscoveryScreenState s) {
   return SingleChildScrollView(
     scrollDirection: Axis.horizontal,
-    padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.sm),
+    padding: const EdgeInsets.symmetric(
+      horizontal: AppSpacing.lg,
+      vertical: AppSpacing.sm,
+    ),
     child: Row(
       children: [
         FilterChip(
@@ -89,7 +92,9 @@ Widget _buildClubList(_ClubDiscoveryScreenState s) {
 Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
   return Card(
     margin: const EdgeInsets.only(bottom: 16),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadius.lg)),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(AppRadius.lg),
+    ),
     child: InkWell(
       onTap: () => Navigator.of(s.context).push(
         MaterialPageRoute(builder: (_) => ClubDetailScreen(clubId: club.id)),
@@ -99,46 +104,17 @@ Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: Row(
           children: [
-            if (club.logoUrl != null)
-              ClipRRect(
-                borderRadius: BorderRadius.circular(AppRadius.md),
-                child: Image.network(
-                  club.logoUrl!,
-                  width: 60,
-                  height: 60,
-                  fit: BoxFit.cover,
-                  cacheWidth: 120,
-                  errorBuilder: (_, __, ___) => Container(
-                    width: 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: Theme.of(
-                        s.context,
-                      ).colorScheme.primary.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(AppRadius.md),
-                    ),
-                    child: Icon(
-                      Icons.sports,
-                      color: Theme.of(s.context).colorScheme.primary,
-                    ),
-                  ),
-                ),
-              )
-            else
-              Container(
+            ClipRRect(
+              borderRadius: BorderRadius.circular(AppRadius.md),
+              child: Image.network(
+                club.avatarImageUrl,
                 width: 60,
                 height: 60,
-                decoration: BoxDecoration(
-                  color: Theme.of(
-                    s.context,
-                  ).colorScheme.primary.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(AppRadius.md),
-                ),
-                child: Icon(
-                  Icons.sports,
-                  color: Theme.of(s.context).colorScheme.primary,
-                ),
+                fit: BoxFit.cover,
+                cacheWidth: 120,
+                errorBuilder: (_, __, ___) => _clubCardImageFallback(s),
               ),
+            ),
             const SizedBox(width: AppSpacing.lg),
             Expanded(
               child: Column(
@@ -166,5 +142,17 @@ Widget _clubCard(_ClubDiscoveryScreenState s, ClubEntity club) {
         ),
       ),
     ),
+  );
+}
+
+Widget _clubCardImageFallback(_ClubDiscoveryScreenState s) {
+  return Container(
+    width: 60,
+    height: 60,
+    decoration: BoxDecoration(
+      color: Theme.of(s.context).colorScheme.primary.withValues(alpha: 0.1),
+      borderRadius: BorderRadius.circular(AppRadius.md),
+    ),
+    child: Icon(Icons.sports, color: Theme.of(s.context).colorScheme.primary),
   );
 }
