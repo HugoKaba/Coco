@@ -13,6 +13,7 @@ class ClubCreationReviewStep extends StatelessWidget {
     required this.email,
     required this.clubName,
     required this.activities,
+    required this.facilities,
     required this.city,
     required this.address,
     required this.phone,
@@ -22,6 +23,7 @@ class ClubCreationReviewStep extends StatelessWidget {
   final String email;
   final String clubName;
   final List<String> activities;
+  final String facilities;
   final String city;
   final String address;
   final String phone;
@@ -55,6 +57,8 @@ class ClubCreationReviewStep extends StatelessWidget {
               'Activités',
               ClubSportCatalog.labelsTextFor(activities),
             ),
+            if (facilities.trim().isNotEmpty)
+              _item(context, 'Commodités', facilities),
             _item(context, 'Ville', city),
             _item(context, 'Adresse', address),
             if (phone.isNotEmpty) _item(context, 'Téléphone', phone),
@@ -117,7 +121,10 @@ class ClubCreationReviewStep extends StatelessWidget {
             width: 100,
             child: Text(
               label,
-              style: TextStyle(color: cs.onSurfaceVariant, fontSize: AppFontSize.sm),
+              style: TextStyle(
+                color: cs.onSurfaceVariant,
+                fontSize: AppFontSize.sm,
+              ),
             ),
           ),
           Expanded(

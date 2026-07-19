@@ -15,6 +15,7 @@ Future<void> submitClubCreation({
   required String clubName,
   required List<String> activities,
   required String description,
+  required String facilities,
   required String address,
   required String cityName,
   required String phone,
@@ -33,6 +34,11 @@ Future<void> submitClubCreation({
       ? now.add(const Duration(days: 30))
       : now.add(const Duration(days: 365));
   final normalizedActivities = ClubSportCatalog.ensureKnownKeys(activities);
+  final parsedFacilities = facilities
+      .split(RegExp(r'[\n,]'))
+      .map((facility) => facility.trim())
+      .where((facility) => facility.isNotEmpty)
+      .toList();
 
   final club = ClubEntity(
     id: '',
@@ -40,6 +46,7 @@ Future<void> submitClubCreation({
     name: clubName,
     activities: normalizedActivities,
     description: description,
+    facilities: parsedFacilities,
     address: address,
     city: cityName,
     lat: city?.latitude ?? 0,

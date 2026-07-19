@@ -28,6 +28,7 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
   final _password = TextEditingController();
   final _clubName = TextEditingController();
   final _description = TextEditingController();
+  final _facilities = TextEditingController();
   final _city = TextEditingController();
   final _address = TextEditingController();
   final _phone = TextEditingController();
@@ -50,6 +51,7 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
       _password,
       _clubName,
       _description,
+      _facilities,
       _city,
       _address,
       _phone,
@@ -88,6 +90,7 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
           ClubCreationInfoStep(
             clubNameController: _clubName,
             descriptionController: _description,
+            facilitiesController: _facilities,
             cityController: _city,
             addressController: _address,
             phoneController: _phone,
@@ -103,6 +106,7 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
             email: _email.text,
             clubName: _clubName.text,
             activities: _activities,
+            facilities: _facilities.text,
             city: _city.text,
             address: _address.text,
             phone: _phone.text,

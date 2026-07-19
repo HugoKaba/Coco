@@ -13,7 +13,10 @@ Widget _buildClubDetailAboutTab(ClubEntity club) {
       children: [
         Text(
           'clubs.create.description'.tr(),
-          style: const TextStyle(fontSize: AppFontSize.lg, fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontSize: AppFontSize.lg,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         const SizedBox(height: AppSpacing.sm),
         Text(
@@ -21,10 +24,36 @@ Widget _buildClubDetailAboutTab(ClubEntity club) {
               ? 'clubs.no_description'.tr()
               : club.description,
         ),
+        if (club.facilities.isNotEmpty) ...[
+          const SizedBox(height: AppSpacing.xl),
+          Text(
+            'Commodités',
+            style: const TextStyle(
+              fontSize: AppFontSize.lg,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Wrap(
+            spacing: AppSpacing.sm,
+            runSpacing: AppSpacing.sm,
+            children: club.facilities
+                .map(
+                  (facility) => Chip(
+                    avatar: const Icon(Icons.check_circle_outline, size: 18),
+                    label: Text(facility),
+                  ),
+                )
+                .toList(),
+          ),
+        ],
         const SizedBox(height: AppSpacing.xxl),
         Text(
           'clubs.contact_info'.tr(),
-          style: const TextStyle(fontSize: AppFontSize.lg, fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontSize: AppFontSize.lg,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         const SizedBox(height: AppSpacing.sm),
         _buildClubDetailInfoRow(Icons.place_outlined, location),

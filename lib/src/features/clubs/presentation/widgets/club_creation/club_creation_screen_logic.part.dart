@@ -52,6 +52,7 @@ extension _ClubCreationScreenLogic on _ClubCreationScreenState {
         clubName: _clubName.text,
         activities: _activities,
         description: _description.text,
+        facilities: _facilities.text,
         address: _address.text,
         cityName: _city.text,
         phone: _phone.text,

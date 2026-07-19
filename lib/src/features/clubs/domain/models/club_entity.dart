@@ -12,6 +12,7 @@ class ClubEntity {
   final String name;
   final List<String> activities;
   final String description;
+  final List<String> facilities;
   final String address;
   final String city;
   final double lat;
@@ -34,6 +35,7 @@ class ClubEntity {
     required this.name,
     required this.activities,
     required this.description,
+    this.facilities = const [],
     required this.address,
     required this.city,
     required this.lat,
@@ -67,6 +69,7 @@ class ClubEntity {
     String? name,
     List<String>? activities,
     String? description,
+    List<String>? facilities,
     String? address,
     String? city,
     double? lat,
@@ -89,6 +92,7 @@ class ClubEntity {
     name: name,
     activities: activities,
     description: description,
+    facilities: facilities,
     address: address,
     city: city,
     lat: lat,

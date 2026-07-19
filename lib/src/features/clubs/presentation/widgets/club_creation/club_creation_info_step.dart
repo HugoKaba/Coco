@@ -13,6 +13,7 @@ class ClubCreationInfoStep extends StatelessWidget {
     super.key,
     required this.clubNameController,
     required this.descriptionController,
+    required this.facilitiesController,
     required this.cityController,
     required this.addressController,
     required this.phoneController,
@@ -23,6 +24,7 @@ class ClubCreationInfoStep extends StatelessWidget {
 
   final TextEditingController clubNameController;
   final TextEditingController descriptionController;
+  final TextEditingController facilitiesController;
   final TextEditingController cityController;
   final TextEditingController addressController;
   final TextEditingController phoneController;
@@ -62,6 +64,15 @@ class ClubCreationInfoStep extends StatelessWidget {
           AppTextField(
             controller: descriptionController,
             hintText: 'Décrivez votre club...',
+            maxLines: 3,
+            fieldColor: ClubCreationStyle.field(context),
+            borderColor: shadow,
+          ),
+          const SizedBox(height: AppSpacing.xl),
+          const InputLabel(label: 'Commodités (optionnel)'),
+          AppTextField(
+            controller: facilitiesController,
+            hintText: 'Vestiaires, douches, parking...',
             maxLines: 3,
             fieldColor: ClubCreationStyle.field(context),
             borderColor: shadow,
