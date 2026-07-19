@@ -2,15 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:coco/src/core/theme/app_colors.dart';
-import 'package:coco/src/core/theme/app_radius.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
-import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/features/chats/presentation/pages/chat_screen.dart';
 import 'package:coco/src/features/filters/domain/models/person_entity.dart';
 import 'package:coco/src/features/profile/data/profile_repository.dart';
 import 'package:coco/src/features/swap/widgets/person_mapper.dart';
 import 'package:coco/src/features/swap/widgets/profile_card.dart';
+import 'package:coco/src/shared/widgets/app_button.dart';
 
 class PublicProfileScreen extends ConsumerWidget {
   final String userId;
@@ -122,36 +120,11 @@ class _BottomMessageBarState extends State<_BottomMessageBar> {
         color: Theme.of(context).scaffoldBackgroundColor,
         border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
       ),
-      child: SizedBox(
-        width: double.infinity,
-        height: 52,
-        child: ElevatedButton.icon(
-          onPressed: _loading ? null : _openOrCreateChat,
-          icon: _loading
-              ? const SizedBox(
-                  width: 18,
-                  height: 18,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    color: Colors.white,
-                  ),
-                )
-              : const Icon(Icons.chat_bubble_outline_rounded),
-          label: const Text(
-            'Envoyer un message',
-            style: TextStyle(
-              fontSize: AppFontSize.md,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.brand,
-            foregroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(AppRadius.lg),
-            ),
-          ),
-        ),
+      child: AppButton(
+        label: 'Envoyer un message',
+        icon: Icons.chat_bubble_outline_rounded,
+        isLoading: _loading,
+        onPressed: _openOrCreateChat,
       ),
     );
   }

@@ -14,6 +14,9 @@ enum AppButtonVariant {
 
   /// Contour marque, fond transparent.
   outline,
+
+  /// Texte seul, sans fond ni contour (action secondaire/dismiss).
+  text,
 }
 
 /// Bouton standard de l'app (design system).
@@ -58,6 +61,7 @@ class AppButton extends StatelessWidget {
       AppButtonVariant.primary => Colors.white,
       AppButtonVariant.secondary => cs.onSurface,
       AppButtonVariant.outline => accent,
+      AppButtonVariant.text => cs.onSurfaceVariant,
     };
 
     // Fond : dégradé pour primary, couleur pleine sinon.
@@ -74,6 +78,7 @@ class AppButton extends StatelessWidget {
       AppButtonVariant.primary => enabled ? null : accent.withValues(alpha: 0.4),
       AppButtonVariant.secondary => cs.surfaceContainerHighest,
       AppButtonVariant.outline => Colors.transparent,
+      AppButtonVariant.text => Colors.transparent,
     };
 
     final decoration = BoxDecoration(
@@ -120,6 +125,7 @@ class AppButton extends StatelessWidget {
               ),
               child: Center(
                 widthFactor: expand ? null : 1,
+                heightFactor: 1,
                 child: child,
               ),
             ),
