@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:coco/src/features/profile/domain/user_profile.dart';
+import 'package:coco/src/features/filters/domain/models/person_entity.dart';
+import 'package:coco/src/features/filters/data/mappers/user_mapper.dart';
 import '../../../core/providers.dart';
 
 class ProfileRepository {
@@ -47,6 +49,16 @@ class ProfileRepository {
 
 final profileRepositoryProvider = Provider<ProfileRepository>((ref) {
   return ProfileRepository();
+});
+
+final publicPersonProvider =
+    FutureProvider.autoDispose.family<PersonEntity?, String>((ref, userId) async {
+  final doc = await FirebaseFirestore.instance
+      .collection('users_test')
+      .doc(userId)
+      .get();
+  if (!doc.exists) return null;
+  return UserMapper.fromFirestore(doc);
 });
 
 final userProfileProvider = StreamProvider.autoDispose<UserProfile?>((ref) {

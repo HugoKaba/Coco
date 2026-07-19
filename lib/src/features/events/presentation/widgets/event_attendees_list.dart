@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
+import 'package:coco/src/features/profile/data/profile_repository.dart';
+import 'package:coco/src/features/profile/presentation/public_profile_screen.dart';
 
 class EventAttendeesList extends StatelessWidget {
   final List<String> attendees;
@@ -23,18 +26,81 @@ class EventAttendeesList extends StatelessWidget {
         const SizedBox(height: AppSpacing.sm),
         Wrap(
           spacing: 8,
+          runSpacing: 8,
           children: attendees
-              .map(
-                (id) => Chip(
-                  label: Text(id == currentUserId ? 'Moi' : 'User'),
-                  avatar: const CircleAvatar(
-                    child: Icon(Icons.person, size: 16),
-                  ),
-                ),
-              )
+              .map((id) => _AttendeeChip(
+                    userId: id,
+                    isCurrentUser: id == currentUserId,
+                  ))
               .toList(),
         ),
       ],
+    );
+  }
+}
+
+class _AttendeeChip extends ConsumerWidget {
+  final String userId;
+  final bool isCurrentUser;
+
+  const _AttendeeChip({required this.userId, required this.isCurrentUser});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    if (isCurrentUser) {
+      return const Chip(
+        label: Text('Moi'),
+        avatar: CircleAvatar(child: Icon(Icons.person, size: 16)),
+      );
+    }
+
+    final personAsync = ref.watch(publicPersonProvider(userId));
+
+    return personAsync.when(
+      loading: () => const Chip(
+        label: Text('...'),
+        avatar: CircleAvatar(
+          child: SizedBox(
+            width: 12,
+            height: 12,
+            child: CircularProgressIndicator(strokeWidth: 1.5),
+          ),
+        ),
+      ),
+      error: (_, __) => const Chip(
+        label: Text('Utilisateur'),
+        avatar: CircleAvatar(child: Icon(Icons.person, size: 16)),
+      ),
+      data: (person) {
+        if (person == null) {
+          return const Chip(
+            label: Text('Utilisateur'),
+            avatar: CircleAvatar(child: Icon(Icons.person, size: 16)),
+          );
+        }
+        return GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => PublicProfileScreen(
+                userId: userId,
+                cachedPerson: person,
+              ),
+            ),
+          ),
+          child: Chip(
+            label: Text(person.firstName),
+            avatar: CircleAvatar(
+              backgroundImage: person.profilePhotoUrl != null
+                  ? NetworkImage(person.profilePhotoUrl!)
+                  : null,
+              child: person.profilePhotoUrl == null
+                  ? const Icon(Icons.person, size: 16)
+                  : null,
+            ),
+          ),
+        );
+      },
     );
   }
 }

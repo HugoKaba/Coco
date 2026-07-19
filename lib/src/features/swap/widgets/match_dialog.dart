@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
-import 'package:coco/src/core/theme/app_radius.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
+import 'package:coco/src/features/profile/presentation/public_profile_screen.dart';
+import 'package:coco/src/shared/widgets/app_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -92,45 +93,33 @@ class MatchDialog extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: AppSpacing.xxxl),
-              SizedBox(
-                width: double.infinity,
-                height: 56,
-                child: ElevatedButton(
-                  onPressed: () => _openChat(context, person),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.brand,
-                    foregroundColor: Colors.white,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(AppRadius.lg),
-                    ),
-                  ),
-                  child: Text(
-                    tr('match.send_message'),
-                    style: const TextStyle(
-                      fontSize: AppFontSize.lg,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+              AppButton(
+                label: tr('match.send_message'),
+                onPressed: () => _openChat(context, person),
               ),
-              const SizedBox(height: AppSpacing.md),
-              SizedBox(
-                width: double.infinity,
-                height: 56,
-                child: TextButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.grey[600],
-                  ),
-                  child: Text(
-                    tr('match.keep_swiping'),
-                    style: const TextStyle(
-                      fontSize: AppFontSize.md,
-                      fontWeight: FontWeight.w600,
+              const SizedBox(height: AppSpacing.sm),
+              AppButton(
+                label: 'Voir le profil',
+                icon: Icons.person_outline_rounded,
+                variant: AppButtonVariant.outline,
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => PublicProfileScreen(
+                        userId: person.id,
+                        cachedPerson: person,
+                      ),
                     ),
-                  ),
-                ),
+                  );
+                },
+              ),
+              const SizedBox(height: AppSpacing.sm),
+              AppButton(
+                label: tr('match.keep_swiping'),
+                variant: AppButtonVariant.text,
+                onPressed: () => Navigator.of(context).pop(),
               ),
             ],
           ),
