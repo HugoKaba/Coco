@@ -11,6 +11,12 @@ import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
+/// Espace vertical à réserver en bas d'une page rendue SOUS la tabbar flottante
+/// (pages poussées sur une branche, le shell ayant `extendBody: true`) pour que
+/// leur contenu ne soit pas masqué par la barre. Correspond à la hauteur de la
+/// barre avec labels (74) + une marge de confort.
+const double kGlassBottomBarClearance = 90.0;
+
 class AppGlassBottomBarItem {
   final IconData icon;
   final IconData? activeIcon;

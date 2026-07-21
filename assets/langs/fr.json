@@ -129,6 +129,7 @@
 		"Cyclisme": "Cyclisme"
 	},
 	"settings": {
+		"title": "Paramètres",
 		"dark_theme": "Thème sombre",
 		"language": "Langue",
 		"theme": "Thème",
@@ -138,8 +139,25 @@
 	},
 	"account": {
 		"title": "Mon Compte",
+		"edit_profile": "Modifier mon profil",
 		"settings": "Paramètres",
-		"sign_out": "Se déconnecter"
+		"sign_out": "Se déconnecter",
+		"seed": {
+			"title": "Données de démo",
+			"hint": "Données de test pour le développement. Respecte l'ordre ①→④ (les conversations dépendent des utilisateurs, les événements des clubs).",
+			"users_label": "① Générer les utilisateurs (100)",
+			"users_running": "Génération des utilisateurs…",
+			"users_done": "100 utilisateurs créés ✓",
+			"clubs_label": "② Générer les clubs + créneaux (10)",
+			"clubs_running": "Génération des clubs…",
+			"clubs_done": "10 clubs et leurs créneaux créés ✓",
+			"events_label": "③ Générer les événements (10)",
+			"events_running": "Génération des événements…",
+			"events_done": "10 événements créés ✓",
+			"conversations_label": "④ Générer les conversations (6)",
+			"conversations_running": "Génération des conversations…",
+			"conversations_done": "Conversations créées ✓ (lance ① avant si vide)"
+		}
 	},
 	"nav": {
 		"events": "Événements",
@@ -331,6 +349,12 @@
 		"view": {
 			"list": "Vue liste",
 			"map": "Vue carte"
-		}
+		},
+		"filter": {
+			"levels": "Niveaux",
+			"age_group": "Tranche d'âge"
+		},
+		"membership_member_of": "Membre de",
+		"membership_none": "Vous n'êtes membre d'aucun club pour le moment."
 	}
 }

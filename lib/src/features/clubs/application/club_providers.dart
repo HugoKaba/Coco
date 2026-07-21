@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/repositories/firestore_club_repository.dart';
 import '../data/repositories/firestore_slot_repository.dart';
 import '../data/repositories/firestore_membership_repository.dart';
+import '../domain/models/club_entity.dart';
 import '../domain/repositories/club_repository.dart';
 import '../application/club_booking_service.dart';
 import '../application/club_search_service.dart';
@@ -72,4 +73,23 @@ final isMemberProvider = FutureProvider.family<bool, String>((
 ) async {
   final service = ref.watch(clubMembershipServiceProvider);
   return await service.isMember(clubId);
+});
+
+/// Clubs dont l'utilisateur est **membre actif** (adhésions rejointes, à ne pas
+/// confondre avec les clubs qu'il possède). Résout chaque adhésion active en
+/// son [ClubEntity] pour pouvoir afficher le nom du club.
+final userMemberClubsProvider = FutureProvider.family<List<ClubEntity>, String>((
+  ref,
+  userId,
+) async {
+  final memberships = await ref
+      .watch(membershipRepositoryProvider)
+      .getUserMemberships(userId);
+  final clubRepo = ref.watch(clubRepositoryProvider);
+  final clubs = <ClubEntity>[];
+  for (final membership in memberships.where((m) => m.isActive)) {
+    final club = await clubRepo.getClubById(membership.clubId);
+    if (club != null) clubs.add(club);
+  }
+  return clubs;
 });

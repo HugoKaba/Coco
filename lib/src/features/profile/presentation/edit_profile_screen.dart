@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
+import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/shared/widgets/app_text_field.dart';
+import 'package:coco/src/features/clubs/application/club_providers.dart';
+import 'package:coco/src/features/home/presentation/widgets/app_glass_bottom_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/profile_repository.dart';

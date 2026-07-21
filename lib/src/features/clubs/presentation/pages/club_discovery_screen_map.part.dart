@@ -58,6 +58,20 @@ Widget _buildClubMap(_ClubDiscoveryScreenState s) {
                 )
                 .toList(),
           ),
+          if (s._filters.deviceLat != null && s._filters.deviceLng != null)
+            MarkerLayer(
+              markers: [
+                Marker(
+                  point: LatLng(
+                    s._filters.deviceLat!,
+                    s._filters.deviceLng!,
+                  ),
+                  width: 26,
+                  height: 26,
+                  child: _buildMyLocationDot(),
+                ),
+              ],
+            ),
         ],
       ),
       Positioned(
@@ -78,6 +92,25 @@ Widget _buildClubMap(_ClubDiscoveryScreenState s) {
       ),
       if (s._isLoading) const Center(child: CircularProgressIndicator()),
     ],
+  );
+}
+
+/// Point « vous êtes ici » : pastille bleue avec anneau blanc, style position
+/// actuelle classique. Affiché à la position de l'appareil sur la carte.
+Widget _buildMyLocationDot() {
+  return Container(
+    decoration: BoxDecoration(
+      color: Colors.blue,
+      shape: BoxShape.circle,
+      border: Border.all(color: Colors.white, width: 3),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.blue.withValues(alpha: 0.4),
+          blurRadius: 8,
+          spreadRadius: 2,
+        ),
+      ],
+    ),
   );
 }
 

@@ -45,6 +45,13 @@ final themeModeProvider = StateProvider<ThemeMode>((ref) => ThemeMode.system);
 
 final localeProvider = StateProvider<String>((ref) => 'en');
 
+/// Vrai lorsque l'onglet Clubs affiche la **carte** (fond toujours clair), faux
+/// pour la **vue liste** (qui suit le thème). La tabbar l'observe : sur la carte
+/// elle force des icônes foncées pour le contraste, mais en vue liste elle doit
+/// suivre le thème — sinon en mode nuit c'est « noir sur noir » (icônes foncées
+/// sur liste sombre). Défaut `true` : la carte est la vue initiale.
+final clubsMapViewProvider = StateProvider<bool>((ref) => true);
+
 const _kPrefThemeMode = 'pref_theme_mode';
 const _kPrefLocale = 'pref_locale';
 

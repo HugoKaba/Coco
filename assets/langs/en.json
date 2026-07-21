@@ -139,8 +139,25 @@
 	},
 	"account": {
 		"title": "My Account",
+		"edit_profile": "Edit my profile",
 		"settings": "Settings",
-		"sign_out": "Sign out"
+		"sign_out": "Sign out",
+		"seed": {
+			"title": "Demo data",
+			"hint": "Test data for development. Follow the order ①→④ (conversations need users, events need clubs).",
+			"users_label": "① Generate users (100)",
+			"users_running": "Generating users…",
+			"users_done": "100 users created ✓",
+			"clubs_label": "② Generate clubs + slots (10)",
+			"clubs_running": "Generating clubs…",
+			"clubs_done": "10 clubs and their slots created ✓",
+			"events_label": "③ Generate events (10)",
+			"events_running": "Generating events…",
+			"events_done": "10 events created ✓",
+			"conversations_label": "④ Generate conversations (6)",
+			"conversations_running": "Generating conversations…",
+			"conversations_done": "Conversations created ✓ (run ① first if empty)"
+		}
 	},
 	"nav": {
 		"events": "Events",
@@ -332,6 +349,12 @@
 		"view": {
 			"list": "List view",
 			"map": "Map view"
-		}
+		},
+		"filter": {
+			"levels": "Levels",
+			"age_group": "Age group"
+		},
+		"membership_member_of": "Member of",
+		"membership_none": "You are not a member of any club yet."
 	}
 }

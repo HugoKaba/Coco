@@ -181,6 +181,14 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
     });
   }
 
+  /// Bascule carte ⇄ liste et informe le shell (via [clubsMapViewProvider]) pour
+  /// que la tabbar adapte la couleur de ses icônes : foncées sur la carte
+  /// claire, dynamiques selon le thème en vue liste.
+  void _toggleView() {
+    setState(() => _isMapView = !_isMapView);
+    ref.read(clubsMapViewProvider.notifier).state = _isMapView;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -192,7 +200,7 @@ class _ClubDiscoveryScreenState extends ConsumerState<ClubDiscoveryScreen> {
             tooltip: _isMapView
                 ? 'clubs.view.list'.tr()
                 : 'clubs.view.map'.tr(),
-            onPressed: () => setState(() => _isMapView = !_isMapView),
+            onPressed: _toggleView,
           ),
           IconButton(
             icon: const Icon(Icons.filter_list),

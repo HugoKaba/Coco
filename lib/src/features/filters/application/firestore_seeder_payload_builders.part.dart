@@ -1,5 +1,73 @@
 part of 'firestore_seeder_service.dart';
 
+/// Noms d'associations sportives réalistes, regroupés par sport, pour que les
+/// clubs seedés aient une identité cohérente avec leur discipline (plutôt qu'un
+/// libellé générique « Club Tennis 1 »). Indexés modulo la longueur de la liste.
+const Map<String, List<String>> _clubNamesBySport = {
+  'tennis': [
+    'Tennis Club de Paris',
+    'Racing Club de France Tennis',
+    'Stade Français Tennis',
+    'TC Boulogne-Billancourt',
+    'Paris Université Club Tennis',
+    'ASPTT Paris Tennis',
+    'Tennis Club du 16e',
+    'CA Montrouge Tennis',
+    'TC Vincennes',
+    'US Créteil Tennis',
+  ],
+  'padel': [
+    'Padel Club Paris',
+    'All In Padel Paris',
+    'Casa Padel Saint-Denis',
+    'Urban Padel Bastille',
+    'Padel Attitude Montreuil',
+    'Winners Padel Paris',
+    '4Padel Paris',
+    'Set Padel Club',
+    'Padel Riverside Paris',
+    'Smash Padel Nation',
+  ],
+  'football': [
+    'Paris FC',
+    'Red Star FC',
+    'AS Paris 15',
+    'US Ivry Football',
+    'FC Montmartre',
+    'Racing Club de Paris',
+    'CA Paris Football',
+    'Stade Ouest Parisien',
+    'Espérance Paris 19',
+    'Olympique de Pantin',
+  ],
+  'badminton': [
+    'Badminton Club de Paris',
+    'USM Malakoff Badminton',
+    'BC Boulogne',
+    'PUC Badminton',
+    'Volant Parisien',
+    "Bad'Nation Paris",
+    'ASPTT Paris Badminton',
+    'Smash Club Vincennes',
+    'BC Montreuil',
+    'Aile de Paris Badminton',
+  ],
+};
+
+/// Rues parisiennes plausibles pour donner une adresse crédible à chaque club.
+const List<String> _clubStreets = [
+  '12 rue de la Roquette',
+  '8 avenue de la République',
+  '25 boulevard Voltaire',
+  '3 rue du Faubourg Saint-Antoine',
+  '17 avenue Daumesnil',
+  '42 rue de Charonne',
+  '6 boulevard de Ménilmontant',
+  '19 rue Oberkampf',
+  '31 avenue Ledru-Rollin',
+  '5 rue de la Fontaine au Roi',
+];
+
 extension _SeederPayloadBuilders on FirestoreSeederService {
   Map<String, dynamic> _clubPayload(
     String clubId,
@@ -18,20 +86,30 @@ extension _SeederPayloadBuilders on FirestoreSeederService {
       sportKey,
       if (random.nextBool()) extraActivities.first.key,
     ]);
+    final names = _clubNamesBySport[sportKey] ?? const [];
+    final clubName = names.isNotEmpty
+        ? names[i % names.length]
+        : 'Club $sportLabel ${i + 1}';
+    final emailSlug = clubName
+        .toLowerCase()
+        .replaceAll(RegExp(r'[^a-z0-9]+'), '');
+    final address = _clubStreets[i % _clubStreets.length];
     return {
       'id': clubId,
       'ownerId': FirestoreSeederService.myUserId,
-      'name': 'Club $sportLabel ${i + 1}',
-      'description': 'Un super club de $sportLabel au coeur de Paris.',
-      'address': 'Rue de Paris $i',
+      'name': clubName,
+      'description':
+          '$clubName, club de $sportLabel au cœur de Paris, ouvert à tous les niveaux.',
+      'address': address,
       'city': 'Paris',
       'lat': lat,
       'lng': lng,
       'geopoint': GeoPoint(lat, lng),
       'activities': activities,
-      'contactEmail': 'club$i@test.com',
+      'contactEmail': 'contact@$emailSlug.fr',
       'contactPhone': '010203040$i',
-      'logoUrl': 'https://api.dicebear.com/7.x/initials/png?seed=Club$i',
+      'logoUrl':
+          'https://api.dicebear.com/7.x/initials/png?seed=${Uri.encodeComponent(clubName)}',
       'photoUrls': ['https://source.unsplash.com/random/800x600/?$sportKey'],
       'facilities': [
         ...activities.map(ClubSportCatalog.labelFor),

@@ -1,11 +1,13 @@
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../clubs/domain/models/club_sport_catalog.dart';
 import 'firestore_seeder_payloads.dart';
 
 part 'firestore_seeder_clubs.part.dart';
+part 'firestore_seeder_conversations.part.dart';
 part 'firestore_seeder_payload_builders.part.dart';
 part 'firestore_seeder_slots.part.dart';
 
@@ -48,6 +50,7 @@ class FirestoreSeederService {
 
   Future<void> seedClubsAndSlots() => _seedClubsAndSlots(this);
   Future<void> seedEvents() => _seedEvents(this);
+  Future<void> seedConversations() => _seedConversations();
 
   Future<void> _deleteCollection(String path) async {
     final batch = _firestore.batch();

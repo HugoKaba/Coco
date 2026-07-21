@@ -63,6 +63,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         // la barre dans MainShell (index par position). Swipe en premier.
         branches: [
           StatefulShellBranch(
+            navigatorKey: shellBranchNavigatorKeys[0],
             routes: [
               GoRoute(
                 path: '/swipe',
@@ -71,6 +72,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ],
           ),
           StatefulShellBranch(
+            navigatorKey: shellBranchNavigatorKeys[1],
             routes: [
               GoRoute(
                 path: '/events',
@@ -79,6 +81,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ],
           ),
           StatefulShellBranch(
+            navigatorKey: shellBranchNavigatorKeys[2],
             routes: [
               GoRoute(
                 path: '/clubs',
@@ -87,6 +90,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ],
           ),
           StatefulShellBranch(
+            navigatorKey: shellBranchNavigatorKeys[3],
             routes: [
               GoRoute(
                 path: '/chats',
@@ -95,6 +99,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ],
           ),
           StatefulShellBranch(
+            navigatorKey: shellBranchNavigatorKeys[4],
             routes: [
               GoRoute(
                 path: '/account',

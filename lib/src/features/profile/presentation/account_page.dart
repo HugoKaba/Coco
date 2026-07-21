@@ -6,7 +6,7 @@ import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/features/clubs/application/club_providers.dart';
 import 'package:coco/src/features/clubs/domain/models/club_entity.dart';
 import 'package:coco/src/features/clubs/presentation/pages/club_dashboard_screen.dart';
-import 'package:coco/src/features/filters/application/firestore_seeder_service.dart';
+import 'package:coco/src/features/home/presentation/widgets/app_glass_bottom_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,6 +14,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:coco/src/features/settings/settings_page.dart';
 
 import 'edit_profile_screen.dart';
+import 'seeder_page.dart';
 
 part 'account_page_actions.part.dart';
 
@@ -35,6 +36,7 @@ class AccountPage extends ConsumerWidget {
           }
           final clubRepo = ref.watch(clubRepositoryProvider);
           return SingleChildScrollView(
+            padding: const EdgeInsets.only(bottom: kGlassBottomBarClearance),
             child: Column(
               children: [
                 FutureBuilder<List<ClubEntity>>(

@@ -13,7 +13,7 @@ List<Widget> buildAccountActions(BuildContext context, WidgetRef ref) {
     _item(
       context,
       Icons.person,
-      'Modifier mon profil',
+      tr('account.edit_profile'),
       () => Navigator.of(
         context,
       ).push(MaterialPageRoute(builder: (_) => const EditProfileScreen())),
@@ -26,56 +26,18 @@ List<Widget> buildAccountActions(BuildContext context, WidgetRef ref) {
       () async => ref.read(authServiceProvider).signOut(),
       color: Colors.red,
     ),
+    // Données de démo (dev) : regroupées sur leur propre page pour ne pas
+    // encombrer la liste du compte.
     _item(
       context,
-      Icons.cloud_upload_rounded,
-      'Seed Test Data',
-      () async => _seedAction(
+      Icons.dataset,
+      tr('account.seed.title'),
+      () => Navigator.of(
         context,
-        () => FirestoreSeederService().seedUsers(),
-        'Seeding...',
-        'Seeding complete!',
-      ),
-      color: AppColors.brand,
-    ),
-    _item(
-      context,
-      Icons.stadium,
-      'Seed Clubs & Slots (10)',
-      () async => _seedAction(
-        context,
-        () => FirestoreSeederService().seedClubsAndSlots(),
-        'Seeding Clubs...',
-        'Club Seeding complete!',
-      ),
-      color: AppColors.brand,
-    ),
-    _item(
-      context,
-      Icons.emoji_events,
-      'Seed Events (10)',
-      () async => _seedAction(
-        context,
-        () => FirestoreSeederService().seedEvents(),
-        'Seeding Events...',
-        'Events Seeding complete!',
-      ),
+      ).push(MaterialPageRoute(builder: (_) => const SeederPage())),
       color: AppColors.brand,
     ),
   ];
-}
-
-Future<void> _seedAction(
-  BuildContext context,
-  Future<void> Function() action,
-  String start,
-  String done,
-) async {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(start)));
-  await action();
-  if (context.mounted) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(done)));
-  }
 }
 
 Widget _item(
