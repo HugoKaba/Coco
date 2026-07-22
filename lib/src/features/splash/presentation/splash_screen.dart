@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 /// Écran de démarrage : logo centré (fond adaptatif dark/light), petite
 /// animation d'entrée, puis redirection automatique vers l'app. La logique
 /// d'authentification du router se charge d'envoyer l'utilisateur au bon
-/// endroit (`/swipe` si connecté, sinon `/` via le redirect global).
+/// endroit (`/clubs` si connecté, sinon `/` via le redirect global).
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     // Laisse le logo respirer, puis on entre dans l'app.
     Future.delayed(const Duration(milliseconds: 1700), () {
-      if (mounted) context.go('/swipe');
+      if (mounted) context.go('/clubs');
     });
   }
 

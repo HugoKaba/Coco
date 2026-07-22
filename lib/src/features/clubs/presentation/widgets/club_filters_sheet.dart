@@ -75,6 +75,10 @@ class _ClubFiltersSheetState extends State<ClubFiltersSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // Hauteur stable : la sheet ne doit pas rétrécir quand on bascule
+      // « Around me » ⇄ « City » (le champ ville apparaît/disparaît). Le contenu
+      // défile à l'intérieur si besoin.
+      height: MediaQuery.of(context).size.height * 0.85,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(AppRadius.xl)),
@@ -84,7 +88,6 @@ class _ClubFiltersSheetState extends State<ClubFiltersSheet> {
         bottom: MediaQuery.of(context).viewInsets.bottom + 20,
       ),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
           _buildClubFilterHeader(this),
           Flexible(

@@ -47,7 +47,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           !isProfessionalSignup) {
         return '/';
       }
-      if (user != null && isSigningIn) return '/swipe';
+      if (user != null && isSigningIn) return '/clubs';
       return null;
     },
     routes: [
