@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_radius.dart';
@@ -27,7 +28,7 @@ class ClubCreationAccountStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Compte Professionnel',
+            'clubs.create.account_title'.tr(),
             style: TextStyle(
               fontSize: AppFontSize.xxxl,
               fontWeight: FontWeight.bold,
@@ -36,23 +37,23 @@ class ClubCreationAccountStep extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.sm),
           Text(
-            'Créez votre compte pour gérer votre club',
+            'clubs.create.account_subtitle'.tr(),
             style: TextStyle(color: cs.onSurfaceVariant, fontSize: AppFontSize.sm),
           ),
           const SizedBox(height: AppSpacing.xxxl),
-          const InputLabel(label: 'Email'),
+          InputLabel(label: 'common.email'.tr()),
           AppTextField(
             controller: emailController,
-            hintText: 'votre@email.com',
+            hintText: 'clubs.create.email_hint'.tr(),
             keyboardType: TextInputType.emailAddress,
             fieldColor: ClubCreationStyle.field(context),
             borderColor: shadow,
           ),
           const SizedBox(height: AppSpacing.xl),
-          const InputLabel(label: 'Mot de passe'),
+          InputLabel(label: 'common.password'.tr()),
           AppTextField(
             controller: passwordController,
-            hintText: 'Minimum 6 caractères',
+            hintText: 'clubs.create.password_hint'.tr(),
             obscureText: true,
             fieldColor: ClubCreationStyle.field(context),
             borderColor: shadow,
@@ -74,7 +75,7 @@ class ClubCreationAccountStep extends StatelessWidget {
                 const SizedBox(width: AppSpacing.md),
                 Expanded(
                   child: Text(
-                    'Vous pourrez vous reconnecter avec ces identifiants',
+                    'clubs.create.account_info'.tr(),
                     style: TextStyle(
                       color: cs.onSurfaceVariant,
                       fontSize: 13,

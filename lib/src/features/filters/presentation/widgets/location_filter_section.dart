@@ -4,6 +4,7 @@ import 'package:coco/src/core/theme/app_radius.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../providers/filter_state_provider.dart';
 import 'location_mode_toggle.dart';
 import 'radius_filter_control.dart';
@@ -51,7 +52,7 @@ class LocationFilterSection extends ConsumerWidget {
               focusNode: searchFocus,
               style: const TextStyle(fontSize: AppFontSize.sm, fontWeight: FontWeight.w500),
               decoration: InputDecoration(
-                hintText: 'Rechercher une ville...',
+                hintText: 'filters.search_city_hint'.tr(),
                 prefixIcon: const Icon(Icons.search_rounded, size: 20),
                 suffixIcon: searchController.text.isNotEmpty
                     ? IconButton(

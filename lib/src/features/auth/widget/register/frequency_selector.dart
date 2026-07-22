@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class FrequencySelector extends StatelessWidget {
   final int frequency;
@@ -50,7 +51,7 @@ class FrequencySelector extends StatelessWidget {
         ),
         const SizedBox(height: AppSpacing.sm),
         Text(
-          '$frequency fois par semaine',
+          tr('register.times_per_week', namedArgs: {'count': '$frequency'}),
           style: TextStyle(
             color: Theme.of(context).colorScheme.onSurfaceVariant,
             fontSize: AppFontSize.xs,

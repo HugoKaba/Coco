@@ -43,8 +43,8 @@ Widget _buildClubLocationToggle(_ClubFiltersSheetState s) => Container(
   ),
   child: Row(
     children: [
-      Expanded(child: _toggle(s, 'Autour de moi', true)),
-      Expanded(child: _toggle(s, 'Ville', false)),
+      Expanded(child: _toggle(s, 'clubs.filter.around_me'.tr(), true)),
+      Expanded(child: _toggle(s, 'clubs.filter.city'.tr(), false)),
     ],
   ),
 );
@@ -81,7 +81,7 @@ Widget _buildClubRadiusSlider(_ClubFiltersSheetState s) => Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Rayon',
+          'clubs.filter.radius'.tr(),
           style: TextStyle(
             color: Theme.of(s.context).colorScheme.onSurfaceVariant,
             fontSize: AppFontSize.sm,

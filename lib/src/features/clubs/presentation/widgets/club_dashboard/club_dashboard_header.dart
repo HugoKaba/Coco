@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_radius.dart';
@@ -37,7 +38,7 @@ class ClubDashboardHeader extends StatelessWidget {
               ),
               const SizedBox(width: AppSpacing.lg),
               Text(
-                'Tableau de bord',
+                'clubs.dashboard.title'.tr(),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.onSurface,
                   fontSize: AppFontSize.lg,
@@ -92,7 +93,9 @@ class ClubDashboardHeader extends StatelessWidget {
               _chip(
                 context,
                 icon: Icons.people,
-                label: 'Capacité: ${club.maxCapacity}',
+                label: 'clubs.dashboard.capacity_value'.tr(
+                  namedArgs: {'count': '${club.maxCapacity}'},
+                ),
               ),
               const SizedBox(width: AppSpacing.md),
               _chip(

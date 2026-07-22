@@ -10,7 +10,10 @@ Widget _buildClubDetailSlotsTab(_ClubDetailScreenState s, String clubId) {
     },
     loading: () => const Center(child: CircularProgressIndicator()),
     error: (e, _) => Center(
-      child: Text('Error: $e', style: const TextStyle(color: Colors.red)),
+      child: Text(
+        'clubs.error_generic'.tr(namedArgs: {'error': '$e'}),
+        style: const TextStyle(color: Colors.red),
+      ),
     ),
   );
 }
@@ -68,16 +71,16 @@ class _SlotsWithCalendarState extends State<_SlotsWithCalendar>
             dividerColor: Colors.transparent,
             labelColor: Colors.white,
             unselectedLabelColor: theme.colorScheme.onSurfaceVariant,
-            tabs: const [
+            tabs: [
               Tab(
-                text: 'Créneaux',
-                icon: Icon(Icons.list_rounded, size: 18),
-                iconMargin: EdgeInsets.only(bottom: 2),
+                text: 'clubs.slots_tab'.tr(),
+                icon: const Icon(Icons.list_rounded, size: 18),
+                iconMargin: const EdgeInsets.only(bottom: 2),
               ),
               Tab(
-                text: 'Calendrier',
-                icon: Icon(Icons.calendar_month_rounded, size: 18),
-                iconMargin: EdgeInsets.only(bottom: 2),
+                text: 'clubs.calendar_tab'.tr(),
+                icon: const Icon(Icons.calendar_month_rounded, size: 18),
+                iconMargin: const EdgeInsets.only(bottom: 2),
               ),
             ],
           ),

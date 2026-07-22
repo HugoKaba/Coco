@@ -110,7 +110,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 Divider(color: Theme.of(context).dividerColor),
                 const SizedBox(height: AppSpacing.lg),
                 AppButton(
-                  label: 'Professional Sign Up',
+                  label: 'sign_in.professional_signup'.tr(),
                   icon: Icons.business,
                   color: _accent,
                   onPressed: () => context.push('/professional-signup'),

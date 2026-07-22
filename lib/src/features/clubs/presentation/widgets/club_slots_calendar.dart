@@ -75,10 +75,10 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
             calendarFormat: _calendarFormat,
             eventLoader: _getSlotsForDay,
             startingDayOfWeek: StartingDayOfWeek.monday,
-            availableCalendarFormats: const {
-              CalendarFormat.month: 'Mois',
-              CalendarFormat.twoWeeks: '2 semaines',
-              CalendarFormat.week: 'Semaine',
+            availableCalendarFormats: {
+              CalendarFormat.month: 'clubs.calendar.format_month'.tr(),
+              CalendarFormat.twoWeeks: 'clubs.calendar.format_two_weeks'.tr(),
+              CalendarFormat.week: 'clubs.calendar.format_week'.tr(),
             },
             onDaySelected: (selected, focused) => setState(() {
               _selectedDay = selected;
@@ -161,7 +161,7 @@ class _ClubSlotsCalendarState extends ConsumerState<ClubSlotsCalendar> {
           child: selectedSlots.isEmpty
               ? Center(
                   child: Text(
-                    'Aucun créneau ce jour',
+                    'clubs.calendar.no_slots_day'.tr(),
                     style: TextStyle(color: theme.colorScheme.onSurfaceVariant),
                   ),
                 )

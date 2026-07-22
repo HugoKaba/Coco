@@ -1,5 +1,6 @@
 import 'package:coco/src/core/city_service.dart';
 import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,7 @@ class ClubCreationCityAutocomplete extends StatelessWidget {
           focusNode: focusNode,
           style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
           decoration: InputDecoration(
-            hintText: 'Rechercher une ville...',
+            hintText: 'clubs.create.search_city_hint'.tr(),
             hintStyle: TextStyle(
               color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),

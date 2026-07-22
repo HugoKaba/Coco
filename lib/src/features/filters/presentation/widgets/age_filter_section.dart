@@ -3,6 +3,7 @@ import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../providers/filter_state_provider.dart';
 
 class AgeFilterSection extends ConsumerWidget {
@@ -22,13 +23,19 @@ class AgeFilterSection extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Tranche d'âge",
+                'filters.age_range'.tr(),
                 style: Theme.of(
                   context,
                 ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
-                "${ageRange.start.round()} - ${ageRange.end.round()} ans",
+                tr(
+                  'filters.age_range_value',
+                  namedArgs: {
+                    'start': '${ageRange.start.round()}',
+                    'end': '${ageRange.end.round()}',
+                  },
+                ),
                 style: TextStyle(
                   color: AppColors.brand,
                   fontWeight: FontWeight.bold,

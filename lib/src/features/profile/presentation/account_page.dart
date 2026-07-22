@@ -32,7 +32,7 @@ class AccountPage extends ConsumerWidget {
       body: authState.when(
         data: (user) {
           if (user == null) {
-            return const Center(child: Text('Not authenticated'));
+            return Center(child: Text('account.not_authenticated'.tr()));
           }
           final clubRepo = ref.watch(clubRepositoryProvider);
           return SingleChildScrollView(
@@ -50,7 +50,8 @@ class AccountPage extends ConsumerWidget {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('Error: $e')),
+        error: (e, _) =>
+            Center(child: Text(tr('account.error_prefix', namedArgs: {'error': '$e'}))),
       ),
     );
   }
@@ -69,7 +70,7 @@ class AccountPage extends ConsumerWidget {
       return Padding(
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: Text(
-          'Erreur club: ${snapshot.error}',
+          tr('account.club_error', namedArgs: {'error': '${snapshot.error}'}),
           style: const TextStyle(color: Colors.red),
         ),
       );
@@ -126,7 +127,7 @@ class AccountPage extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Gérer mon Club',
+                    'account.manage_club'.tr(),
                     style: TextStyle(
                       color: Colors.white.withValues(alpha: 0.8),
                       fontSize: AppFontSize.xs,

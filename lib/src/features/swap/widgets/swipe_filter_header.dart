@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SwipeFilterHeader extends StatelessWidget {
   const SwipeFilterHeader({super.key});
@@ -22,7 +23,7 @@ class SwipeFilterHeader extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.lg),
           Text(
-            'Filtres',
+            'filters.title'.tr(),
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w700,
               letterSpacing: -0.5,

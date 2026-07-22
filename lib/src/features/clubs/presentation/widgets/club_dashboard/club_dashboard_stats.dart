@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_radius.dart';
@@ -19,9 +20,21 @@ class ClubDashboardStats extends StatelessWidget {
       padding: const EdgeInsets.all(AppSpacing.lg),
       child: Row(
         children: [
-          Expanded(child: _card(context, 'Total Créneaux', '${slots.length}')),
+          Expanded(
+            child: _card(
+              context,
+              'clubs.dashboard.stat_total_slots'.tr(),
+              '${slots.length}',
+            ),
+          ),
           const SizedBox(width: AppSpacing.lg),
-          Expanded(child: _card(context, 'Participants', '$bookedCount')),
+          Expanded(
+            child: _card(
+              context,
+              'clubs.dashboard.stat_participants'.tr(),
+              '$bookedCount',
+            ),
+          ),
         ],
       ),
     );

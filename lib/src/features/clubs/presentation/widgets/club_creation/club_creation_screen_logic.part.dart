@@ -64,7 +64,13 @@ extension _ClubCreationScreenLogic on _ClubCreationScreenState {
         setState(() => _isLoading = false);
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Erreur: $e')));
+        ).showSnackBar(
+          SnackBar(
+            content: Text(
+              tr('clubs.create.error', namedArgs: {'error': '$e'}),
+            ),
+          ),
+        );
       }
     }
   }

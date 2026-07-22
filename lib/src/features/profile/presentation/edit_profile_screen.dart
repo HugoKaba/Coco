@@ -78,7 +78,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
     final canSave = userProfileAsync.hasValue && userProfileAsync.value != null;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Modifier mon profil'),
+        title: Text('profile.edit_title'.tr()),
         actions: [
           IconButton(
             onPressed: (_isLoading || !canSave)
@@ -100,13 +100,14 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
       body: userProfileAsync.when(
         data: (profile) {
           if (profile == null) {
-            return const Center(child: Text('Profil introuvable'));
+            return Center(child: Text('profile.not_found'.tr()));
           }
           _populateControllers(profile);
           return _buildProfileForm(this);
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('Erreur: $e')),
+        error: (e, _) =>
+            Center(child: Text(tr('profile.error_prefix', namedArgs: {'error': '$e'}))),
       ),
     );
   }

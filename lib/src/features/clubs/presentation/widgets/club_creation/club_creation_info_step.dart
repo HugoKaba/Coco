@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
@@ -46,7 +47,7 @@ class ClubCreationInfoStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Informations du Club',
+            'clubs.create.info_title'.tr(),
             style: TextStyle(
               fontSize: AppFontSize.xxxl,
               fontWeight: FontWeight.bold,
@@ -54,39 +55,39 @@ class ClubCreationInfoStep extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppSpacing.xxxl),
-          const InputLabel(label: 'Nom du club'),
+          InputLabel(label: 'clubs.create.club_name_label'.tr()),
           AppTextField(
             controller: clubNameController,
-            hintText: 'Ex: Tennis Club Paris',
+            hintText: 'clubs.create.club_name_hint'.tr(),
             fieldColor: ClubCreationStyle.field(context),
             borderColor: shadow,
           ),
           const SizedBox(height: AppSpacing.xl),
-          const InputLabel(label: 'Activités'),
+          InputLabel(label: 'clubs.create.activities_label'.tr()),
           clubCreationDecoratedField(context, _activitySelector(context)),
           const SizedBox(height: AppSpacing.xl),
-          const InputLabel(label: 'Description'),
+          InputLabel(label: 'clubs.create.description'.tr()),
           AppTextField(
             controller: descriptionController,
-            hintText: 'Décrivez votre club...',
+            hintText: 'clubs.create.description_hint'.tr(),
             maxLines: 3,
             fieldColor: ClubCreationStyle.field(context),
             borderColor: shadow,
           ),
           const SizedBox(height: AppSpacing.xl),
-          const InputLabel(label: 'Image du club (optionnel)'),
+          InputLabel(label: 'clubs.create.image_label'.tr()),
           ClubCreationImagePicker(onImageSelected: onImageSelected),
           const SizedBox(height: AppSpacing.xl),
-          const InputLabel(label: 'Commodités (optionnel)'),
+          InputLabel(label: 'clubs.create.facilities_label'.tr()),
           AppTextField(
             controller: facilitiesController,
-            hintText: 'Vestiaires, douches, parking...',
+            hintText: 'clubs.create.facilities_hint'.tr(),
             maxLines: 3,
             fieldColor: ClubCreationStyle.field(context),
             borderColor: shadow,
           ),
           const SizedBox(height: AppSpacing.xl),
-          const InputLabel(label: 'Ville'),
+          InputLabel(label: 'clubs.create.city_label'.tr()),
           clubCreationDecoratedField(
             context,
             ClubCreationCityAutocomplete(
@@ -95,18 +96,18 @@ class ClubCreationInfoStep extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppSpacing.xl),
-          const InputLabel(label: 'Adresse'),
+          InputLabel(label: 'clubs.create.address_label'.tr()),
           AppTextField(
             controller: addressController,
-            hintText: '123 Rue Example',
+            hintText: 'clubs.create.address_hint'.tr(),
             fieldColor: ClubCreationStyle.field(context),
             borderColor: shadow,
           ),
           const SizedBox(height: AppSpacing.xl),
-          const InputLabel(label: 'Téléphone (optionnel)'),
+          InputLabel(label: 'clubs.create.phone_label'.tr()),
           AppTextField(
             controller: phoneController,
-            hintText: '+33 6 12 34 56 78',
+            hintText: 'clubs.create.phone_hint'.tr(),
             keyboardType: TextInputType.phone,
             fieldColor: ClubCreationStyle.field(context),
             borderColor: shadow,

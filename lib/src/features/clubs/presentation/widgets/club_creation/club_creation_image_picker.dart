@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:coco/src/core/theme/app_radius.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/shared/services/image_upload_service.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -62,7 +63,7 @@ class _ClubCreationImagePickerState
                   ),
                   const SizedBox(height: AppSpacing.sm),
                   Text(
-                    'Ajouter une image du club',
+                    'clubs.create.add_image'.tr(),
                     style: TextStyle(color: colorScheme.onSurfaceVariant),
                   ),
                 ],

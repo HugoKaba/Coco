@@ -99,7 +99,7 @@ class MatchDialog extends StatelessWidget {
               ),
               const SizedBox(height: AppSpacing.sm),
               AppButton(
-                label: 'Voir le profil',
+                label: 'match.view_profile'.tr(),
                 icon: Icons.person_outline_rounded,
                 variant: AppButtonVariant.outline,
                 onPressed: () {

@@ -20,7 +20,7 @@ class ChatsPage extends ConsumerWidget {
       body: authState.when(
         data: (user) {
           if (user == null) {
-            return const Center(child: Text('Not authenticated'));
+            return Center(child: Text('chats.not_authenticated'.tr()));
           }
 
           final conversationsStream = ref.watch(
@@ -99,11 +99,15 @@ class ChatsPage extends ConsumerWidget {
                 valueColor: AlwaysStoppedAnimation(AppColors.brand),
               ),
             ),
-            error: (e, s) => Center(child: Text('Error: ${e.toString()}')),
+            error: (e, s) => Center(
+              child: Text(tr('chats.error_prefix', namedArgs: {'error': e.toString()})),
+            ),
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, s) => Center(child: Text('Error: ${e.toString()}')),
+        error: (e, s) => Center(
+          child: Text(tr('chats.error_prefix', namedArgs: {'error': e.toString()})),
+        ),
       ),
     );
   }

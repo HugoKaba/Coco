@@ -27,7 +27,14 @@ class SearchResultsScreen extends ConsumerWidget {
     final cs = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: Text('${results.length} Résultats')),
+      appBar: AppBar(
+        title: Text(
+          tr(
+            'filters.results_count',
+            namedArgs: {'count': '${results.length}'},
+          ),
+        ),
+      ),
       body: results.isEmpty
           ? Center(
               child: Column(
@@ -40,7 +47,7 @@ class SearchResultsScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: AppSpacing.lg),
                   Text(
-                    'Aucun résultat trouvé',
+                    'filters.no_results'.tr(),
                     style: TextStyle(color: cs.onSurfaceVariant),
                   ),
                 ],

@@ -7,7 +7,13 @@
 		"cancel": "Annuler",
 		"edit": "Modifier",
 		"level": "Niveau",
-		"info": "Info"
+		"info": "Info",
+		"continue": "Continuer",
+		"previous": "Précédent",
+		"next": "Suivant",
+		"email": "Email",
+		"password": "Mot de passe",
+		"not_provided": "Non renseigné"
 	},
 	"errors": {
 		"location_error": "Erreur de localisation",
@@ -26,7 +32,8 @@
 		"register": "S'inscrire",
 		"enter_email": "Entrez votre email",
 		"password_length": "6+ caractères",
-		"sign_in_apple": "Connexion avec Apple"
+		"sign_in_apple": "Connexion avec Apple",
+		"professional_signup": "Inscription professionnelle"
 	},
 	"register": {
 		"title": "Créer un compte",
@@ -65,7 +72,10 @@
 		"about_me": "À propos de moi...",
 		"submit_success": "Compte créé avec succès !",
 		"your_age": "Votre âge",
-		"age_placeholder": "18"
+		"age_placeholder": "18",
+		"submit_error": "Erreur : {error}",
+		"times_per_week": "{count} fois par semaine",
+		"age_error": "Vous devez avoir 18 ans ou plus"
 	},
 	"days": {
 		"monday": "Lundi",
@@ -108,7 +118,8 @@
 		"title": "C'EST UN MATCH !",
 		"description": "Vous et {} avez flashé l'un sur l'autre !",
 		"send_message": "Envoyer un message",
-		"keep_swiping": "Continuer à swiper"
+		"keep_swiping": "Continuer à swiper",
+		"view_profile": "Voir le profil"
 	},
 	"sports": {
 		"football": "Football",
@@ -157,7 +168,11 @@
 			"conversations_label": "④ Générer les conversations (6)",
 			"conversations_running": "Génération des conversations…",
 			"conversations_done": "Conversations créées ✓ (lance ① avant si vide)"
-		}
+		},
+		"not_authenticated": "Non authentifié",
+		"error_prefix": "Erreur : {error}",
+		"club_error": "Erreur club : {error}",
+		"manage_club": "Gérer mon Club"
 	},
 	"nav": {
 		"events": "Événements",
@@ -196,7 +211,14 @@
 		"radius": "Rayon",
 		"around_me": "Autour de moi",
 		"city": "Ville",
-		"search_city": "Rechercher une ville"
+		"search_city": "Rechercher une ville",
+		"results_count": "{count} résultats",
+		"no_results": "Aucun résultat trouvé",
+		"age_range": "Tranche d'âge",
+		"age_range_value": "{start} - {end} ans",
+		"search_city_hint": "Rechercher une ville...",
+		"choose_city": "Choisir une ville",
+		"search_radius": "Rayon de recherche"
 	},
 	"events": {
 		"title": "Événements",
@@ -221,7 +243,10 @@
 		"location_unknown": "Lieu inconnu",
 		"all": "Tous",
 		"max_places": "Places max",
-		"create_button": "Créer"
+		"create_button": "Créer",
+		"error_generic": "Erreur : {error}",
+		"attendee_me": "Moi",
+		"attendee_unknown": "Utilisateur"
 	},
 	"chats": {
 		"title": "Messages",
@@ -238,7 +263,11 @@
 		"yesterday": "Hier",
 		"participants": "participants",
 		"event_chat": "Discussion événement",
-		"match_chat": "Match avec"
+		"match_chat": "Match avec",
+		"not_authenticated": "Non authentifié",
+		"error_prefix": "Erreur : {error}",
+		"unknown_user": "Utilisateur",
+		"slot_chat": "Discussion créneau"
 	},
 	"clubs": {
 		"title": "Associations",
@@ -249,18 +278,26 @@
 		"book_slot": "Reserver un Créneau",
 		"create_club": "Créer une Asso",
 		"manage_slots": "Gérer les Créneaux",
-		"dashboard": "Tableau de Bord",
+		"dashboard": {
+			"title": "Tableau de bord",
+			"slots_error": "Erreur créneaux : {error}",
+			"capacity_value": "Capacité : {count}",
+			"no_slots": "Aucun créneau prévu",
+			"level_value": "Niveau : {level}",
+			"stat_total_slots": "Total créneaux",
+			"stat_participants": "Participants"
+		},
 		"members": "Membres",
 		"no_clubs_found": "Aucune Asso trouvée",
-			"member_active": "Membre de l'Asso",
-			"join_success": "Bienvenue dans l'asso ! 🎉",
-			"leave_success": "Tu as quitté l'asso",
-			"leave_confirm_title": "Quitter l'asso ?",
-			"leave_confirm_message": "Tu ne feras plus partie des membres. Tu pourras revenir quand tu veux.",
-			"membership_error": "Une erreur est survenue, réessaie.",
-			"contact_info": "Contact & infos",
-			"no_description": "Cette asso n'a pas encore ajouté de description.",
-			"max_capacity_value": "{count} membres maximum",
+		"member_active": "Membre de l'Asso",
+		"join_success": "Bienvenue dans l'asso ! 🎉",
+		"leave_success": "Tu as quitté l'asso",
+		"leave_confirm_title": "Quitter l'asso ?",
+		"leave_confirm_message": "Tu ne feras plus partie des membres. Tu pourras revenir quand tu veux.",
+		"membership_error": "Une erreur est survenue, réessaie.",
+		"contact_info": "Contact & infos",
+		"no_description": "Cette asso n'a pas encore ajouté de description.",
+		"max_capacity_value": "{count} membres maximum",
 		"subscription": {
 			"select_plan": "Choisissez Votre Forfait",
 			"monthly": "Mensuel",
@@ -273,7 +310,14 @@
 			"unlimited_slots": "Créneaux Illimités",
 			"chat_access": "Accès Chat",
 			"analytics": "Tableau de Bord Analytique",
-			"custom_branding": "Personnalisation"
+			"custom_branding": "Personnalisation",
+			"title": "Choisissez votre formule",
+			"popular": "Populaire",
+			"feature_unlimited_slots": "Créneaux illimités",
+			"feature_chat": "Accès chat participants",
+			"feature_stats": "Statistiques en temps réel",
+			"price_monthly": "29,99 €/mois",
+			"price_annual": "299,99 €/an"
 		},
 		"create": {
 			"club_name": "Nom de l'Asso",
@@ -290,7 +334,46 @@
 			"next": "Suivant",
 			"previous": "Précédent",
 			"finish": "Terminer",
-			"creating": "Création de l'Asso..."
+			"creating": "Création de l'Asso...",
+			"title": "Créer un Club",
+			"account_title": "Compte Professionnel",
+			"account_subtitle": "Créez votre compte pour gérer votre club",
+			"email_hint": "votre@email.com",
+			"password_hint": "Minimum 6 caractères",
+			"account_info": "Vous pourrez vous reconnecter avec ces identifiants",
+			"search_city_hint": "Rechercher une ville...",
+			"add_image": "Ajouter une image du club",
+			"info_title": "Informations du Club",
+			"club_name_label": "Nom du club",
+			"club_name_hint": "Ex : Tennis Club Paris",
+			"activities_label": "Activités",
+			"description_hint": "Décrivez votre club...",
+			"image_label": "Image du club (optionnel)",
+			"facilities_label": "Commodités (optionnel)",
+			"facilities_hint": "Vestiaires, douches, parking...",
+			"city_label": "Ville",
+			"address_label": "Adresse",
+			"address_hint": "123 Rue Exemple",
+			"phone_label": "Téléphone (optionnel)",
+			"phone_hint": "+33 6 12 34 56 78",
+			"submit": "Créer mon club",
+			"review_title": "Vérification",
+			"section_account": "Compte",
+			"section_club": "Club",
+			"field_name": "Nom",
+			"field_activities": "Activités",
+			"field_facilities": "Commodités",
+			"field_city": "Ville",
+			"field_address": "Adresse",
+			"field_phone": "Téléphone",
+			"section_subscription": "Abonnement",
+			"field_plan": "Formule",
+			"field_price": "Prix",
+			"error": "Erreur : {error}",
+			"image_upload_error": "Impossible d'envoyer l'image du club ({code}).",
+			"image_upload_error_generic": "Impossible d'envoyer l'image du club.",
+			"error_credentials": "Email et mot de passe requis (6+ caractères)",
+			"error_required_fields": "Veuillez remplir tous les champs requis"
 		},
 		"slot": {
 			"create": "Créer un Créneau",
@@ -320,7 +403,22 @@
 			"booking_failed": "Échec de la réservation",
 			"already_booked": "Déjà réservé",
 			"pay": "Payer {price} €",
-			"payment_canceled": "Paiement annulé"
+			"payment_canceled": "Paiement annulé",
+			"age_range_value": "{start} - {end} ans",
+			"booking_cancelled": "Réservation annulée",
+			"cancellation_failed": "Échec de l'annulation",
+			"created_success": "Créneau créé",
+			"type_open_play": "Jeu libre",
+			"error_not_found": "Créneau introuvable",
+			"error_full": "Créneau complet",
+			"error_past": "Impossible de réserver un créneau passé",
+			"error_already_booked": "Déjà réservé",
+			"error_booking_failed": "Échec de la réservation",
+			"error_not_booked": "Non réservé",
+			"error_cancel_past": "Impossible d'annuler une réservation passée",
+			"error_cancellation_failed": "Échec de l'annulation",
+			"payment_prepare_error": "Impossible de préparer le paiement.",
+			"payment_declined": "Paiement refusé."
 		},
 		"schedule": {
 			"title": "Planning",
@@ -352,9 +450,48 @@
 		},
 		"filter": {
 			"levels": "Niveaux",
-			"age_group": "Tranche d'âge"
+			"age_group": "Tranche d'âge",
+			"location": "Localisation",
+			"around_me": "Autour de moi",
+			"city": "Ville",
+			"radius": "Rayon",
+			"age_range_value": "{start} - {end} ans"
 		},
 		"membership_member_of": "Membre de",
-		"membership_none": "Vous n'êtes membre d'aucun club pour le moment."
+		"membership_none": "Vous n'êtes membre d'aucun club pour le moment.",
+		"amenities": "Commodités",
+		"hours_closed": "Fermé",
+		"error_generic": "Erreur : {error}",
+		"slots_tab": "Créneaux",
+		"calendar_tab": "Calendrier",
+		"calendar": {
+			"format_month": "Mois",
+			"format_two_weeks": "2 semaines",
+			"format_week": "Semaine",
+			"no_slots_day": "Aucun créneau ce jour"
+		}
+	},
+	"profile": {
+		"edit_title": "Modifier mon profil",
+		"not_found": "Profil introuvable",
+		"error_prefix": "Erreur : {error}",
+		"first_name": "Prénom",
+		"required": "Requis",
+		"last_name": "Nom",
+		"age": "Âge",
+		"gender": "Genre",
+		"gender_male": "Homme",
+		"gender_female": "Femme",
+		"city": "Ville",
+		"bio": "Bio",
+		"sports_goal": "Objectif sportif",
+		"goal_leisure": "Loisir",
+		"goal_competition": "Compétition",
+		"goal_weight_loss": "Perte de poids",
+		"training_frequency": "Fréquence d'entraînement (par semaine)",
+		"times_per_week": "{count} fois / semaine",
+		"not_loaded": "Profil non chargé",
+		"updated": "Profil mis à jour",
+		"send_message": "Envoyer un message"
 	}
 }

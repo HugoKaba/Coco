@@ -27,7 +27,9 @@ class ClubDashboardScreen extends ConsumerWidget {
         return _content(context, ref, club as ClubEntity);
       },
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, _) => Center(child: Text('Error: $e')),
+      error: (e, _) => Center(
+        child: Text('clubs.error_generic'.tr(namedArgs: {'error': '$e'})),
+      ),
     );
   }
 
@@ -67,7 +69,9 @@ class ClubDashboardScreen extends ConsumerWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(AppSpacing.lg),
                           child: SelectableText(
-                            'Erreur slots: $e',
+                            'clubs.dashboard.slots_error'.tr(
+                              namedArgs: {'error': '$e'},
+                            ),
                             style: const TextStyle(color: Colors.red),
                           ),
                         ),

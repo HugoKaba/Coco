@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_radius.dart';
@@ -37,7 +38,7 @@ class ClubCreationReviewStep extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Vérification',
+            'clubs.create.review_title'.tr(),
             style: TextStyle(
               fontSize: AppFontSize.xxxl,
               fontWeight: FontWeight.bold,
@@ -45,39 +46,40 @@ class ClubCreationReviewStep extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppSpacing.xxl),
-          _section(context, 'Compte', [
-            _item(context, 'Email', email),
-            _item(context, 'Mot de passe', '••••••••'),
+          _section(context, 'clubs.create.section_account'.tr(), [
+            _item(context, 'common.email'.tr(), email),
+            _item(context, 'common.password'.tr(), '••••••••'),
           ]),
           const SizedBox(height: AppSpacing.lg),
-          _section(context, 'Club', [
-            _item(context, 'Nom', clubName),
+          _section(context, 'clubs.create.section_club'.tr(), [
+            _item(context, 'clubs.create.field_name'.tr(), clubName),
             _item(
               context,
-              'Activités',
+              'clubs.create.field_activities'.tr(),
               ClubSportCatalog.labelsTextFor(activities),
             ),
             if (facilities.trim().isNotEmpty)
-              _item(context, 'Commodités', facilities),
-            _item(context, 'Ville', city),
-            _item(context, 'Adresse', address),
-            if (phone.isNotEmpty) _item(context, 'Téléphone', phone),
+              _item(context, 'clubs.create.field_facilities'.tr(), facilities),
+            _item(context, 'clubs.create.field_city'.tr(), city),
+            _item(context, 'clubs.create.field_address'.tr(), address),
+            if (phone.isNotEmpty)
+              _item(context, 'clubs.create.field_phone'.tr(), phone),
           ]),
           const SizedBox(height: AppSpacing.lg),
-          _section(context, 'Abonnement', [
+          _section(context, 'clubs.create.section_subscription'.tr(), [
             _item(
               context,
-              'Formule',
+              'clubs.create.field_plan'.tr(),
               subscriptionType == SubscriptionType.monthly
-                  ? 'Mensuel'
-                  : 'Annuel',
+                  ? 'clubs.subscription.monthly'.tr()
+                  : 'clubs.subscription.annual'.tr(),
             ),
             _item(
               context,
-              'Prix',
+              'clubs.create.field_price'.tr(),
               subscriptionType == SubscriptionType.monthly
-                  ? '29.99€/mois'
-                  : '299.99€/an',
+                  ? 'clubs.subscription.price_monthly'.tr()
+                  : 'clubs.subscription.price_annual'.tr(),
             ),
           ]),
         ],
@@ -129,7 +131,7 @@ class ClubCreationReviewStep extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              value.isEmpty ? 'Non renseigné' : value,
+              value.isEmpty ? 'common.not_provided'.tr() : value,
               style: TextStyle(color: cs.onSurface, fontSize: AppFontSize.sm),
             ),
           ),

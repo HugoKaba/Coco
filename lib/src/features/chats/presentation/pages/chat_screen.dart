@@ -79,7 +79,9 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                   valueColor: AlwaysStoppedAnimation(AppColors.brand),
                 ),
               ),
-              error: (e, _) => Center(child: Text('Error: ${e.toString()}')),
+              error: (e, _) => Center(
+                child: Text(tr('chats.error_prefix', namedArgs: {'error': e.toString()})),
+              ),
             ),
           ),
           MessageInputField(

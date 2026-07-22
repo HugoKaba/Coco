@@ -81,6 +81,10 @@ Future<void> registerSubmit({
     if (!context.mounted) return;
     ScaffoldMessenger.of(
       context,
-    ).showSnackBar(SnackBar(content: Text("Erreur : $e")));
+    ).showSnackBar(
+      SnackBar(
+        content: Text(tr('register.submit_error', namedArgs: {'error': '$e'})),
+      ),
+    );
   }
 }

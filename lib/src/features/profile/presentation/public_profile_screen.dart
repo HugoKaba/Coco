@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,10 +31,10 @@ class PublicProfileScreen extends ConsumerWidget {
       appBar: AppBar(elevation: 0),
       body: personAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (_, __) => const Center(child: Text('Profil introuvable')),
+        error: (_, __) => Center(child: Text('profile.not_found'.tr())),
         data: (person) {
           if (person == null) {
-            return const Center(child: Text('Profil introuvable'));
+            return Center(child: Text('profile.not_found'.tr()));
           }
           return ProfileCard(profile: person.toProfile());
         },
@@ -121,7 +122,7 @@ class _BottomMessageBarState extends State<_BottomMessageBar> {
         border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
       ),
       child: AppButton(
-        label: 'Envoyer un message',
+        label: 'profile.send_message'.tr(),
         icon: Icons.chat_bubble_outline_rounded,
         isLoading: _loading,
         onPressed: _openOrCreateChat,

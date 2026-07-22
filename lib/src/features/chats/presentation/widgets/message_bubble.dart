@@ -3,7 +3,6 @@ import 'package:coco/src/core/theme/app_radius.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../domain/models/message_entity.dart';
 
@@ -38,7 +37,9 @@ class MessageBubble extends StatelessWidget {
                   if (snapshot.hasData && snapshot.data != null) {
                     final data = snapshot.data!.data() as Map<String, dynamic>?;
                     final name =
-                        data?['firstName'] ?? data?['username'] ?? 'User';
+                        data?['firstName'] ??
+                        data?['username'] ??
+                        'chats.unknown_user'.tr();
                     return Text(
                       name,
                       style: TextStyle(

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 enum SubscriptionType {
   monthly,
@@ -7,9 +8,9 @@ enum SubscriptionType {
   String get displayName {
     switch (this) {
       case SubscriptionType.monthly:
-        return 'Monthly';
+        return 'clubs.subscription.monthly'.tr();
       case SubscriptionType.annual:
-        return 'Annual';
+        return 'clubs.subscription.annual'.tr();
     }
   }
 }

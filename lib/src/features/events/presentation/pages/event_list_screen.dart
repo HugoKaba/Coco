@@ -119,8 +119,7 @@ class _EventListScreenState extends ConsumerState<EventListScreen> {
                   final event = events[i];
                   return EventCard(
                     event: event,
-                    onTap: () => Navigator.push(
-                      context,
+                    onTap: () => Navigator.of(context, rootNavigator: true).push(
                       MaterialPageRoute(
                         builder: (_) => EventDetailsScreen(event: event),
                       ),

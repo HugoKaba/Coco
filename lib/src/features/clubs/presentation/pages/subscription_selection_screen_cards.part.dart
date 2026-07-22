@@ -32,7 +32,9 @@ Widget _planCard(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                type == SubscriptionType.monthly ? 'Mensuel' : 'Annuel',
+                type == SubscriptionType.monthly
+                    ? 'clubs.subscription.monthly'.tr()
+                    : 'clubs.subscription.annual'.tr(),
                 style: TextStyle(
                   color: Theme.of(s.context).colorScheme.onSurface,
                   fontSize: AppFontSize.xxl,
@@ -50,7 +52,9 @@ Widget _planCard(
                     borderRadius: BorderRadius.circular(AppRadius.md),
                   ),
                   child: Text(
-                    savings != null ? '-$savings%' : 'Populaire',
+                    savings != null
+                        ? '-$savings%'
+                        : 'clubs.subscription.popular'.tr(),
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -84,9 +88,9 @@ Widget _planCard(
             ],
           ),
           const SizedBox(height: AppSpacing.lg),
-          _feature(s.context, 'Créneaux illimités'),
-          _feature(s.context, 'Accès chat participants'),
-          _feature(s.context, 'Statistiques en temps réel'),
+          _feature(s.context, 'clubs.subscription.feature_unlimited_slots'.tr()),
+          _feature(s.context, 'clubs.subscription.feature_chat'.tr()),
+          _feature(s.context, 'clubs.subscription.feature_stats'.tr()),
         ],
       ),
     ),

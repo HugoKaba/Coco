@@ -109,8 +109,7 @@ class _EventListTab extends ConsumerWidget {
             return EventCard(
               event: event,
               onTap: () {
-                Navigator.push(
-                  context,
+                Navigator.of(context, rootNavigator: true).push(
                   MaterialPageRoute(
                     builder: (context) => EventDetailsScreen(event: event),
                   ),

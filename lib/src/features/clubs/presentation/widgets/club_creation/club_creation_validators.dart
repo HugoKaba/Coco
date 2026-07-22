@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 String? clubCreationStepError({
   required int step,
   required String email,
@@ -10,7 +12,7 @@ String? clubCreationStepError({
 }) {
   if (step == 0) {
     if (email.isEmpty || password.length < 6) {
-      return 'Email et mot de passe requis (6+ caractères)';
+      return 'clubs.create.error_credentials'.tr();
     }
   }
 
@@ -20,7 +22,7 @@ String? clubCreationStepError({
         description.isEmpty ||
         city.isEmpty ||
         address.isEmpty) {
-      return 'Veuillez remplir tous les champs requis';
+      return 'clubs.create.error_required_fields'.tr();
     }
   }
 

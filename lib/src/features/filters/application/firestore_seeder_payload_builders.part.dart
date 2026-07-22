@@ -110,7 +110,11 @@ extension _SeederPayloadBuilders on FirestoreSeederService {
       'contactPhone': '010203040$i',
       'logoUrl':
           'https://api.dicebear.com/7.x/initials/png?seed=${Uri.encodeComponent(clubName)}',
-      'photoUrls': ['https://source.unsplash.com/random/800x600/?$sportKey'],
+      'photoUrls': [
+        // loremflickr sert une image correspondant au mot-clé (source.unsplash
+        // .com/random a été supprimé → 503). `lock` fige une image stable.
+        'https://loremflickr.com/800/600/$sportKey?lock=${random.nextInt(100000)}',
+      ],
       'facilities': [
         ...activities.map(ClubSportCatalog.labelFor),
         'Douche',
@@ -163,7 +167,7 @@ extension _SeederPayloadBuilders on FirestoreSeederService {
     'level': 'all',
     'price': 25.0,
     'imageUrl':
-        'https://source.unsplash.com/random/800x600/?${sport.toString().toLowerCase()}',
+        'https://loremflickr.com/800/600/${sport.toString().toLowerCase()}?lock=${random.nextInt(100000)}',
     'createdAt': FieldValue.serverTimestamp(),
   };
 

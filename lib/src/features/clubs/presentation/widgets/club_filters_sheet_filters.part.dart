@@ -43,7 +43,12 @@ Widget _buildClubAgeSection(_ClubFiltersSheetState s) => Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          '${s._ageRange.start.round()} - ${s._ageRange.end.round()} ans',
+          'clubs.filter.age_range_value'.tr(
+            namedArgs: {
+              'start': '${s._ageRange.start.round()}',
+              'end': '${s._ageRange.end.round()}',
+            },
+          ),
           style: const TextStyle(
             color: _ClubFiltersSheetState._accentColor,
             fontWeight: FontWeight.bold,

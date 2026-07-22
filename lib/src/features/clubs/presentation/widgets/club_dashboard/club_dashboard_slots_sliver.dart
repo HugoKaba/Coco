@@ -26,7 +26,7 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
               ),
               const SizedBox(height: AppSpacing.lg),
               Text(
-                'Aucun créneau prévu',
+                'clubs.dashboard.no_slots'.tr(),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -105,7 +105,9 @@ class ClubDashboardSlotsSliver extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 4),
                     child: Text(
-                      'Niveau: ${slot.level}',
+                      'clubs.dashboard.level_value'.tr(
+                        namedArgs: {'level': '${slot.level}'},
+                      ),
                       style: const TextStyle(
                         color: AppColors.brand,
                         fontSize: AppFontSize.xs,

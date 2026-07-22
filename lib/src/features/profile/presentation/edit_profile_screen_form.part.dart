@@ -195,10 +195,10 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
               Expanded(
                 child: _labeled(
                   s.context,
-                  'Prénom',
+                  'profile.first_name'.tr(),
                   AppTextField(
                     controller: s._firstNameController,
-                    validator: (v) => v!.isEmpty ? 'Requis' : null,
+                    validator: (v) => v!.isEmpty ? 'profile.required'.tr() : null,
                   ),
                 ),
               ),
@@ -206,10 +206,10 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
               Expanded(
                 child: _labeled(
                   s.context,
-                  'Nom',
+                  'profile.last_name'.tr(),
                   AppTextField(
                     controller: s._lastNameController,
-                    validator: (v) => v!.isEmpty ? 'Requis' : null,
+                    validator: (v) => v!.isEmpty ? 'profile.required'.tr() : null,
                   ),
                 ),
               ),
@@ -222,7 +222,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
               Expanded(
                 child: _labeled(
                   s.context,
-                  'Age',
+                  'profile.age'.tr(),
                   AppTextField(
                     controller: s._ageController,
                     keyboardType: TextInputType.number,
@@ -233,13 +233,19 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
               Expanded(
                 child: _labeled(
                   s.context,
-                  'Genre',
+                  'profile.gender'.tr(),
                   DropdownButtonFormField<String>(
                     initialValue: s._gender,
                     decoration: appInputDecoration(s.context),
-                    items: const [
-                      DropdownMenuItem(value: 'M', child: Text('Homme')),
-                      DropdownMenuItem(value: 'F', child: Text('Femme')),
+                    items: [
+                      DropdownMenuItem(
+                        value: 'M',
+                        child: Text('profile.gender_male'.tr()),
+                      ),
+                      DropdownMenuItem(
+                        value: 'F',
+                        child: Text('profile.gender_female'.tr()),
+                      ),
                     ],
                     onChanged: (v) => s.setState(() => s._gender = v!),
                   ),
@@ -250,19 +256,19 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
           const SizedBox(height: AppSpacing.lg),
           _labeled(
             s.context,
-            'Ville',
+            'profile.city'.tr(),
             AppTextField(controller: s._cityController),
           ),
           const SizedBox(height: AppSpacing.lg),
           _labeled(
             s.context,
-            'Bio',
+            'profile.bio'.tr(),
             AppTextField(controller: s._bioController, maxLines: 4),
           ),
           const SizedBox(height: AppSpacing.lg),
           _labeled(
             s.context,
-            'Objectif Sportif',
+            'profile.sports_goal'.tr(),
             DropdownButtonFormField<String>(
               initialValue:
                   [
@@ -273,15 +279,18 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
                   ? s._sportsGoal
                   : 'Loisir',
               decoration: appInputDecoration(s.context),
-              items: const [
-                DropdownMenuItem(value: 'Loisir', child: Text('Loisir')),
+              items: [
+                DropdownMenuItem(
+                  value: 'Loisir',
+                  child: Text('profile.goal_leisure'.tr()),
+                ),
                 DropdownMenuItem(
                   value: 'Compétition',
-                  child: Text('Compétition'),
+                  child: Text('profile.goal_competition'.tr()),
                 ),
                 DropdownMenuItem(
                   value: 'Perte de poids',
-                  child: Text('Perte de poids'),
+                  child: Text('profile.goal_weight_loss'.tr()),
                 ),
               ],
               onChanged: (v) => s.setState(() => s._sportsGoal = v!),
@@ -290,7 +299,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
           const SizedBox(height: AppSpacing.lg),
           _labeled(
             s.context,
-            'Fréquence d\'entrainement (par semaine)',
+            'profile.training_frequency'.tr(),
             InputDecorator(
               decoration: appInputDecoration(s.context),
               child: Column(
@@ -304,7 +313,7 @@ Widget _buildProfileForm(_EditProfileScreenState s) {
                     onChanged: (v) =>
                         s.setState(() => s._trainingFrequency = v.toInt()),
                   ),
-                  Text('${s._trainingFrequency} fois / semaine'),
+                  Text(tr('profile.times_per_week', namedArgs: {'count': '${s._trainingFrequency}'})),
                 ],
               ),
             ),

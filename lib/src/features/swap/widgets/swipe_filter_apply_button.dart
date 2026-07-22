@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_colors.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SwipeFilterApplyButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -42,9 +43,12 @@ class SwipeFilterApplyButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(28),
             ),
           ),
-          child: const Text(
-            'Appliquer les filtres',
-            style: TextStyle(fontSize: AppFontSize.md, fontWeight: FontWeight.bold),
+          child: Text(
+            'filters.apply'.tr(),
+            style: const TextStyle(
+              fontSize: AppFontSize.md,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),

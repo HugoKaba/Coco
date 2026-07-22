@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../domain/repositories/club_repository.dart';
 import '../domain/models/slot_entity.dart';
 import '../domain/models/club_membership.dart';
@@ -21,24 +22,24 @@ class ClubBookingService {
     try {
       final slot = await _slotRepository.getSlotById(slotId);
       if (slot == null) {
-        return BookingResult.failure('Slot not found');
+        return BookingResult.failure('clubs.slot.error_not_found'.tr());
       }
 
       if (slot.isFull) {
-        return BookingResult.failure('Slot is full');
+        return BookingResult.failure('clubs.slot.error_full'.tr());
       }
 
       if (slot.isPast) {
-        return BookingResult.failure('Cannot book past slots');
+        return BookingResult.failure('clubs.slot.error_past'.tr());
       }
 
       if (slot.participants.contains(userId)) {
-        return BookingResult.failure('Already booked');
+        return BookingResult.failure('clubs.slot.error_already_booked'.tr());
       }
 
       final success = await _slotRepository.bookSlot(slotId, userId);
       if (!success) {
-        return BookingResult.failure('Booking failed');
+        return BookingResult.failure('clubs.slot.error_booking_failed'.tr());
       }
 
       final membership = await _membershipRepository.getMembership(
@@ -91,20 +92,20 @@ class ClubBookingService {
     try {
       final slot = await _slotRepository.getSlotById(slotId);
       if (slot == null) {
-        return BookingResult.failure('Slot not found');
+        return BookingResult.failure('clubs.slot.error_not_found'.tr());
       }
 
       if (!slot.participants.contains(userId)) {
-        return BookingResult.failure('Not booked');
+        return BookingResult.failure('clubs.slot.error_not_booked'.tr());
       }
 
       if (slot.isPast) {
-        return BookingResult.failure('Cannot cancel past bookings');
+        return BookingResult.failure('clubs.slot.error_cancel_past'.tr());
       }
 
       final success = await _slotRepository.cancelBooking(slotId, userId);
       if (!success) {
-        return BookingResult.failure('Cancellation failed');
+        return BookingResult.failure('clubs.slot.error_cancellation_failed'.tr());
       }
 
       final membership = await _membershipRepository.getMembership(

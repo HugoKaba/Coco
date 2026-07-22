@@ -69,8 +69,8 @@ Future<void> _cancelBooking(
       SnackBar(
         content: Text(
           result.isSuccess
-              ? 'Booking cancelled'
-              : result.errorMessage ?? 'Cancellation failed',
+              ? 'clubs.slot.booking_cancelled'.tr()
+              : result.errorMessage ?? 'clubs.slot.cancellation_failed'.tr(),
         ),
       ),
     );

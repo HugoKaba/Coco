@@ -10,6 +10,7 @@ import 'package:coco/src/features/clubs/presentation/widgets/club_creation/club_
 import 'package:coco/src/features/clubs/presentation/widgets/club_creation/club_creation_style.dart';
 import 'package:coco/src/features/clubs/presentation/widgets/club_creation/club_creation_validators.dart';
 import 'package:coco/src/core/city_service.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -70,7 +71,7 @@ class _ClubCreationScreenState extends ConsumerState<ClubCreationScreen> {
       backgroundColor: ClubCreationStyle.background(context),
       appBar: AppBar(
         backgroundColor: ClubCreationStyle.background(context),
-        title: const Text('Créer un Club'),
+        title: Text('clubs.create.title'.tr()),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
           child: LinearProgressIndicator(

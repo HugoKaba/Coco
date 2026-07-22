@@ -1,4 +1,5 @@
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 import '../../../core/config/stripe_config.dart';
@@ -37,7 +38,7 @@ class StripePaymentService {
       clientSecret = data['clientSecret'] as String;
     } on FirebaseFunctionsException catch (e) {
       throw PaymentException(
-        e.message ?? 'Impossible de préparer le paiement.',
+        e.message ?? 'clubs.slot.payment_prepare_error'.tr(),
       );
     }
 
@@ -55,7 +56,9 @@ class StripePaymentService {
       if (e.error.code == FailureCode.Canceled) {
         return false; // L'utilisateur a fermé la feuille de paiement.
       }
-      throw PaymentException(e.error.localizedMessage ?? 'Paiement refusé.');
+      throw PaymentException(
+        e.error.localizedMessage ?? 'clubs.slot.payment_declined'.tr(),
+      );
     }
   }
 }

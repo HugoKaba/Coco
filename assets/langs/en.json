@@ -7,7 +7,13 @@
 		"cancel": "Cancel",
 		"edit": "Edit",
 		"level": "Level",
-		"info": "Info"
+		"info": "Info",
+		"continue": "Continue",
+		"previous": "Previous",
+		"next": "Next",
+		"email": "Email",
+		"password": "Password",
+		"not_provided": "Not provided"
 	},
 	"errors": {
 		"location_error": "Error getting location",
@@ -26,7 +32,8 @@
 		"register": "Register",
 		"enter_email": "Enter email",
 		"password_length": "6+ chars",
-		"sign_in_apple": "Sign in with Apple"
+		"sign_in_apple": "Sign in with Apple",
+		"professional_signup": "Professional Sign Up"
 	},
 	"register": {
 		"title": "Create account",
@@ -65,7 +72,10 @@
 		"about_me": "About me...",
 		"submit_success": "Account created successfully !",
 		"your_age": "Your age",
-		"age_placeholder": "18"
+		"age_placeholder": "18",
+		"submit_error": "Error: {error}",
+		"times_per_week": "{count} times per week",
+		"age_error": "You must be 18 or older"
 	},
 	"days": {
 		"monday": "Monday",
@@ -97,18 +107,19 @@
 		"intermediate": "Intermediate",
 		"confirmed": "Confirmed",
 		"expert": "Expert",
-		"all": "All"
+		"all": "All",
+		"Débutant": "Beginner",
+		"Intermédiaire": "Intermediate",
+		"Confirmé": "Confirmed",
+		"Expert": "Expert",
+		"Tous": "All"
 	},
-	"Débutant": "Beginner",
-	"Intermédiaire": "Intermediate",
-	"Confirmé": "Confirmed",
-	"Expert": "Expert",
-	"Tous": "All",
 	"match": {
 		"title": "IT'S A MATCH!",
 		"description": "You and {} liked each other!",
 		"send_message": "Send a message",
-		"keep_swiping": "Keep swiping"
+		"keep_swiping": "Keep swiping",
+		"view_profile": "View profile"
 	},
 	"sports": {
 		"football": "Football",
@@ -118,16 +129,16 @@
 		"basketball": "Basketball",
 		"crossfit": "Crossfit",
 		"swimming": "Swimming",
-		"cycling": "Cycling"
+		"cycling": "Cycling",
+		"Football": "Football",
+		"Tennis": "Tennis",
+		"Running": "Running",
+		"Fitness": "Fitness",
+		"Basketball": "Basketball",
+		"Crossfit": "Crossfit",
+		"Natation": "Swimming",
+		"Cyclisme": "Cycling"
 	},
-	"Football": "Football",
-	"Tennis": "Tennis",
-	"Running": "Running",
-	"Fitness": "Fitness",
-	"Basketball": "Basketball",
-	"Crossfit": "Crossfit",
-	"Natation": "Swimming",
-	"Cyclisme": "Cycling",
 	"settings": {
 		"title": "Settings",
 		"dark_theme": "Dark theme",
@@ -157,7 +168,11 @@
 			"conversations_label": "④ Generate conversations (6)",
 			"conversations_running": "Generating conversations…",
 			"conversations_done": "Conversations created ✓ (run ① first if empty)"
-		}
+		},
+		"not_authenticated": "Not authenticated",
+		"error_prefix": "Error: {error}",
+		"club_error": "Club error: {error}",
+		"manage_club": "Manage my Club"
 	},
 	"nav": {
 		"events": "Events",
@@ -196,7 +211,14 @@
 		"radius": "Radius",
 		"around_me": "Around me",
 		"city": "City",
-		"search_city": "Search city"
+		"search_city": "Search city",
+		"results_count": "{count} results",
+		"no_results": "No results found",
+		"age_range": "Age range",
+		"age_range_value": "{start} - {end} yrs",
+		"search_city_hint": "Search for a city...",
+		"choose_city": "Choose a city",
+		"search_radius": "Search radius"
 	},
 	"events": {
 		"title": "Events",
@@ -221,7 +243,10 @@
 		"location_unknown": "Location unknown",
 		"all": "All",
 		"max_places": "Max places",
-		"create_button": "Create"
+		"create_button": "Create",
+		"error_generic": "Error: {error}",
+		"attendee_me": "Me",
+		"attendee_unknown": "User"
 	},
 	"chats": {
 		"title": "Messages",
@@ -238,7 +263,11 @@
 		"yesterday": "Yesterday",
 		"participants": "participants",
 		"event_chat": "Event chat",
-		"match_chat": "Match with"
+		"match_chat": "Match with",
+		"not_authenticated": "Not authenticated",
+		"error_prefix": "Error: {error}",
+		"unknown_user": "User",
+		"slot_chat": "Slot chat"
 	},
 	"clubs": {
 		"title": "Clubs",
@@ -249,18 +278,26 @@
 		"book_slot": "Book Slot",
 		"create_club": "Create Club",
 		"manage_slots": "Manage Slots",
-		"dashboard": "Dashboard",
+		"dashboard": {
+			"title": "Dashboard",
+			"slots_error": "Slots error: {error}",
+			"capacity_value": "Capacity: {count}",
+			"no_slots": "No slots scheduled",
+			"level_value": "Level: {level}",
+			"stat_total_slots": "Total slots",
+			"stat_participants": "Participants"
+		},
 		"members": "Members",
 		"no_clubs_found": "No clubs found",
-			"member_active": "Club Member",
-			"join_success": "Welcome to the club! 🎉",
-			"leave_success": "You left the club",
-			"leave_confirm_title": "Leave the club?",
-			"leave_confirm_message": "You will no longer be a member. You can come back anytime.",
-			"membership_error": "Something went wrong, please try again.",
-			"contact_info": "Contact & info",
-			"no_description": "This club hasn't added a description yet.",
-			"max_capacity_value": "{count} members max",
+		"member_active": "Club Member",
+		"join_success": "Welcome to the club! 🎉",
+		"leave_success": "You left the club",
+		"leave_confirm_title": "Leave the club?",
+		"leave_confirm_message": "You will no longer be a member. You can come back anytime.",
+		"membership_error": "Something went wrong, please try again.",
+		"contact_info": "Contact & info",
+		"no_description": "This club hasn't added a description yet.",
+		"max_capacity_value": "{count} members max",
 		"subscription": {
 			"select_plan": "Select Your Plan",
 			"monthly": "Monthly",
@@ -273,7 +310,14 @@
 			"unlimited_slots": "Unlimited Slots",
 			"chat_access": "Chat Access",
 			"analytics": "Analytics Dashboard",
-			"custom_branding": "Custom Branding"
+			"custom_branding": "Custom Branding",
+			"title": "Choose your plan",
+			"popular": "Popular",
+			"feature_unlimited_slots": "Unlimited slots",
+			"feature_chat": "Participant chat access",
+			"feature_stats": "Real-time statistics",
+			"price_monthly": "€29.99/month",
+			"price_annual": "€299.99/year"
 		},
 		"create": {
 			"club_name": "Club Name",
@@ -290,7 +334,46 @@
 			"next": "Next",
 			"previous": "Previous",
 			"finish": "Finish",
-			"creating": "Creating club..."
+			"creating": "Creating club...",
+			"title": "Create a Club",
+			"account_title": "Professional Account",
+			"account_subtitle": "Create your account to manage your club",
+			"email_hint": "your@email.com",
+			"password_hint": "Minimum 6 characters",
+			"account_info": "You can log back in with these credentials",
+			"search_city_hint": "Search for a city...",
+			"add_image": "Add a club image",
+			"info_title": "Club Information",
+			"club_name_label": "Club name",
+			"club_name_hint": "e.g. Tennis Club Paris",
+			"activities_label": "Activities",
+			"description_hint": "Describe your club...",
+			"image_label": "Club image (optional)",
+			"facilities_label": "Amenities (optional)",
+			"facilities_hint": "Locker rooms, showers, parking...",
+			"city_label": "City",
+			"address_label": "Address",
+			"address_hint": "123 Example Street",
+			"phone_label": "Phone (optional)",
+			"phone_hint": "+33 6 12 34 56 78",
+			"submit": "Create my club",
+			"review_title": "Review",
+			"section_account": "Account",
+			"section_club": "Club",
+			"field_name": "Name",
+			"field_activities": "Activities",
+			"field_facilities": "Amenities",
+			"field_city": "City",
+			"field_address": "Address",
+			"field_phone": "Phone",
+			"section_subscription": "Subscription",
+			"field_plan": "Plan",
+			"field_price": "Price",
+			"error": "Error: {error}",
+			"image_upload_error": "Could not upload the club image ({code}).",
+			"image_upload_error_generic": "Could not upload the club image.",
+			"error_credentials": "Email and password required (6+ characters)",
+			"error_required_fields": "Please fill in all required fields"
 		},
 		"slot": {
 			"create": "Create Slot",
@@ -320,7 +403,22 @@
 			"booking_failed": "Booking failed",
 			"already_booked": "Already booked",
 			"pay": "Pay €{price}",
-			"payment_canceled": "Payment canceled"
+			"payment_canceled": "Payment canceled",
+			"age_range_value": "{start} - {end} yrs",
+			"booking_cancelled": "Booking cancelled",
+			"cancellation_failed": "Cancellation failed",
+			"created_success": "Slot created",
+			"type_open_play": "Open Play",
+			"error_not_found": "Slot not found",
+			"error_full": "Slot is full",
+			"error_past": "Cannot book past slots",
+			"error_already_booked": "Already booked",
+			"error_booking_failed": "Booking failed",
+			"error_not_booked": "Not booked",
+			"error_cancel_past": "Cannot cancel past bookings",
+			"error_cancellation_failed": "Cancellation failed",
+			"payment_prepare_error": "Could not prepare the payment.",
+			"payment_declined": "Payment declined."
 		},
 		"schedule": {
 			"title": "Schedule",
@@ -352,9 +450,48 @@
 		},
 		"filter": {
 			"levels": "Levels",
-			"age_group": "Age group"
+			"age_group": "Age group",
+			"location": "Location",
+			"around_me": "Around me",
+			"city": "City",
+			"radius": "Radius",
+			"age_range_value": "{start} - {end} yrs"
 		},
 		"membership_member_of": "Member of",
-		"membership_none": "You are not a member of any club yet."
+		"membership_none": "You are not a member of any club yet.",
+		"amenities": "Amenities",
+		"hours_closed": "Closed",
+		"error_generic": "Error: {error}",
+		"slots_tab": "Slots",
+		"calendar_tab": "Calendar",
+		"calendar": {
+			"format_month": "Month",
+			"format_two_weeks": "2 weeks",
+			"format_week": "Week",
+			"no_slots_day": "No slots this day"
+		}
+	},
+	"profile": {
+		"edit_title": "Edit my profile",
+		"not_found": "Profile not found",
+		"error_prefix": "Error: {error}",
+		"first_name": "First name",
+		"required": "Required",
+		"last_name": "Last name",
+		"age": "Age",
+		"gender": "Gender",
+		"gender_male": "Male",
+		"gender_female": "Female",
+		"city": "City",
+		"bio": "Bio",
+		"sports_goal": "Sports goal",
+		"goal_leisure": "Leisure",
+		"goal_competition": "Competition",
+		"goal_weight_loss": "Weight loss",
+		"training_frequency": "Training frequency (per week)",
+		"times_per_week": "{count} times / week",
+		"not_loaded": "Profile not loaded",
+		"updated": "Profile updated",
+		"send_message": "Send a message"
 	}
 }

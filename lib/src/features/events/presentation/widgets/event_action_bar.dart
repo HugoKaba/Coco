@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:coco/src/core/theme/app_text_styles.dart';
-import 'package:coco/src/core/theme/app_radius.dart';
+import 'package:coco/src/core/theme/app_colors.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
+import 'package:coco/src/shared/widgets/app_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:coco/src/features/events/application/events_service.dart';
@@ -28,61 +28,48 @@ class EventActionBar extends ConsumerWidget {
 
     if (isCreator) {
       return Container(
-        padding: const EdgeInsets.fromLTRB(20, 20, 20, 150),
+        padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
         decoration: BoxDecoration(
           color: Theme.of(context).scaffoldBackgroundColor,
           border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
         ),
-        child: Row(
-          children: [
-            Expanded(
-              child: ElevatedButton.icon(
-                onPressed: onDelete,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red.shade50,
-                  foregroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(AppRadius.lg),
-                  ),
-                  elevation: 0,
+        child: SafeArea(
+          top: false,
+          child: Row(
+            children: [
+              Expanded(
+                child: AppButton(
+                  label: tr('events.delete'),
+                  onPressed: onDelete,
+                  variant: AppButtonVariant.outline,
+                  color: AppColors.badge,
+                  icon: Icons.delete_outline_rounded,
                 ),
-                icon: const Icon(Icons.delete_outline_rounded),
-                label: Text(tr('events.delete')),
               ),
-            ),
-            const SizedBox(width: AppSpacing.md),
-            Expanded(
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          CreateEventScreen(eventToEdit: event),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).primaryColor,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(AppRadius.lg),
-                  ),
-                  elevation: 0,
+              const SizedBox(width: AppSpacing.md),
+              Expanded(
+                child: AppButton(
+                  label: tr('common.edit'),
+                  icon: Icons.edit_rounded,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            CreateEventScreen(eventToEdit: event),
+                      ),
+                    );
+                  },
                 ),
-                icon: const Icon(Icons.edit_rounded),
-                label: Text(tr('common.edit')),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
 
     return Container(
-      padding: const EdgeInsets.fromLTRB(20, 20, 20, 150),
+      padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
       decoration: BoxDecoration(
         color: Theme.of(context).scaffoldBackgroundColor,
         boxShadow: [
@@ -94,7 +81,19 @@ class EventActionBar extends ConsumerWidget {
         ],
       ),
       child: SafeArea(
-        child: ElevatedButton(
+        top: false,
+        child: AppButton(
+          label: isJoined
+              ? tr('events.leave')
+              : isFull
+              ? tr('events.full')
+              : tr('events.join'),
+          icon: isJoined ? Icons.close_rounded : null,
+          // Rejoindre = CTA orange (design system) ; quitter = contour rouge.
+          variant: isJoined
+              ? AppButtonVariant.outline
+              : AppButtonVariant.primary,
+          color: isJoined ? AppColors.badge : null,
           onPressed: (isFull && !isJoined)
               ? null
               : () async {
@@ -105,25 +104,6 @@ class EventActionBar extends ConsumerWidget {
                     await notifier.joinEvent(event.id, currentUserId);
                   }
                 },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: isJoined
-                ? Colors.red.shade50
-                : Theme.of(context).primaryColor,
-            foregroundColor: isJoined ? Colors.red : Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(AppRadius.lg),
-            ),
-            elevation: 0,
-          ),
-          child: Text(
-            isJoined
-                ? tr('events.leave')
-                : isFull
-                ? tr('events.full')
-                : tr('events.join'),
-            style: const TextStyle(fontSize: AppFontSize.md, fontWeight: FontWeight.bold),
-          ),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:coco/src/core/theme/app_text_styles.dart';
 import 'package:coco/src/core/theme/app_radius.dart';
@@ -48,7 +49,7 @@ class ClubCreationNavigationBar extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                   ),
-                  child: const Text('Précédent'),
+                  child: Text('common.previous'.tr()),
                 ),
               ),
             if (currentStep > 0) const SizedBox(width: AppSpacing.lg),
@@ -77,7 +78,9 @@ class ClubCreationNavigationBar extends StatelessWidget {
                         ),
                       )
                     : Text(
-                        currentStep < 2 ? 'Suivant' : 'Créer mon club',
+                        currentStep < 2
+                            ? 'common.next'.tr()
+                            : 'clubs.create.submit'.tr(),
                         style: const TextStyle(
                           fontSize: AppFontSize.md,
                           fontWeight: FontWeight.bold,

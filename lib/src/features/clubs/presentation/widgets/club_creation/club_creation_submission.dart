@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -128,9 +129,9 @@ Future<String?> _uploadClubImage(File? imageFile, String userId) async {
     return uploadTask.ref.getDownloadURL();
   } on FirebaseException catch (e) {
     throw Exception(
-      "Impossible d'envoyer l'image du club (${e.code}). Vérifie les règles Firebase Storage.",
+      tr('clubs.create.image_upload_error', namedArgs: {'code': e.code}),
     );
   } catch (_) {
-    throw Exception("Impossible d'envoyer l'image du club.");
+    throw Exception('clubs.create.image_upload_error_generic'.tr());
   }
 }

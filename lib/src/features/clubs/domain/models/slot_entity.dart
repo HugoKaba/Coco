@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 part 'slot_entity_mapper.part.dart';
 
@@ -8,9 +9,9 @@ enum SlotType {
   event;
 
   String get displayName => switch (this) {
-    SlotType.course => 'Course',
-    SlotType.openPlay => 'Open Play',
-    SlotType.event => 'Event',
+    SlotType.course => 'clubs.slot.type_course'.tr(),
+    SlotType.openPlay => 'clubs.slot.type_open_play'.tr(),
+    SlotType.event => 'clubs.slot.type_event'.tr(),
   };
 }
 

@@ -27,7 +27,7 @@ Widget _buildClubDetailAboutTab(ClubEntity club) {
         if (club.facilities.isNotEmpty) ...[
           const SizedBox(height: AppSpacing.xl),
           Text(
-            'Commodités',
+            'clubs.amenities'.tr(),
             style: const TextStyle(
               fontSize: AppFontSize.lg,
               fontWeight: FontWeight.bold,
@@ -100,7 +100,7 @@ Widget _buildClubDetailHoursTab(_ClubDetailScreenState s, ClubEntity club) {
             trailing: Text(
               entry.value.isOpen
                   ? '${entry.value.openTime?.format(s.context)} - ${entry.value.closeTime?.format(s.context)}'
-                  : 'Closed',
+                  : 'clubs.hours_closed'.tr(),
             ),
           ),
         )

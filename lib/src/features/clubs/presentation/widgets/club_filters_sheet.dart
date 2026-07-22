@@ -93,7 +93,10 @@ class _ClubFiltersSheetState extends State<ClubFiltersSheet> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildClubFilterSectionTitle(context, 'Localisation'),
+                  _buildClubFilterSectionTitle(
+                    context,
+                    'clubs.filter.location'.tr(),
+                  ),
                   const SizedBox(height: AppSpacing.lg),
                   _buildClubLocationToggle(this),
                   const SizedBox(height: AppSpacing.lg),

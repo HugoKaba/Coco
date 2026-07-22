@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:coco/src/core/theme/app_spacing.dart';
 import 'package:coco/src/features/profile/data/profile_repository.dart';
 import 'package:coco/src/features/profile/presentation/public_profile_screen.dart';
@@ -19,9 +20,9 @@ class EventAttendeesList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Participants',
-          style: TextStyle(fontWeight: FontWeight.bold),
+        Text(
+          'events.participants'.tr(),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: AppSpacing.sm),
         Wrap(
@@ -48,9 +49,9 @@ class _AttendeeChip extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     if (isCurrentUser) {
-      return const Chip(
-        label: Text('Moi'),
-        avatar: CircleAvatar(child: Icon(Icons.person, size: 16)),
+      return Chip(
+        label: Text('events.attendee_me'.tr()),
+        avatar: const CircleAvatar(child: Icon(Icons.person, size: 16)),
       );
     }
 
@@ -67,15 +68,15 @@ class _AttendeeChip extends ConsumerWidget {
           ),
         ),
       ),
-      error: (_, __) => const Chip(
-        label: Text('Utilisateur'),
-        avatar: CircleAvatar(child: Icon(Icons.person, size: 16)),
+      error: (_, __) => Chip(
+        label: Text('events.attendee_unknown'.tr()),
+        avatar: const CircleAvatar(child: Icon(Icons.person, size: 16)),
       ),
       data: (person) {
         if (person == null) {
-          return const Chip(
-            label: Text('Utilisateur'),
-            avatar: CircleAvatar(child: Icon(Icons.person, size: 16)),
+          return Chip(
+            label: Text('events.attendee_unknown'.tr()),
+            avatar: const CircleAvatar(child: Icon(Icons.person, size: 16)),
           );
         }
         return GestureDetector(

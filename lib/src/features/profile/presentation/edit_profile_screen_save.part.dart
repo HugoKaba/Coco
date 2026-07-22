@@ -12,7 +12,7 @@ Future<void> _saveProfile(_EditProfileScreenState s) async {
       if (s.mounted) {
         ScaffoldMessenger.of(
           s.context,
-        ).showSnackBar(const SnackBar(content: Text('Profile not loaded')));
+        ).showSnackBar(SnackBar(content: Text('profile.not_loaded'.tr())));
       }
       return;
     }
@@ -35,13 +35,13 @@ Future<void> _saveProfile(_EditProfileScreenState s) async {
       Navigator.pop(s.context);
       ScaffoldMessenger.of(
         s.context,
-      ).showSnackBar(const SnackBar(content: Text('Profil mis à jour')));
+      ).showSnackBar(SnackBar(content: Text('profile.updated'.tr())));
     }
   } catch (e) {
     if (s.mounted) {
       ScaffoldMessenger.of(
         s.context,
-      ).showSnackBar(SnackBar(content: Text('Erreur: $e')));
+      ).showSnackBar(SnackBar(content: Text(tr('profile.error_prefix', namedArgs: {'error': '$e'}))));
     }
   } finally {
     if (s.mounted) {
